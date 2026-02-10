@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: dexpi-equipment-factory
+    ports:
+      - "${PORT:-3000}:3000"
+    environment:
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - DATA_DIR=/data
+      - NODE_ENV=production
+      - PIPELINE_SCHEDULE=${PIPELINE_SCHEDULE:-0 */6 * * *}
+    volumes:
+      - dexpi-data:/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000/api/tree"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+volumes:
+  dexpi-data:
+    driver: local
