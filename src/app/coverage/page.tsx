@@ -14,8 +14,13 @@ interface CoverageSummary { totalExpected: number; totalExisting: number; overal
 export default function CoveragePage() {
   const [reports, setReports] = useState<CoverageReport[]>([]);
   const [summary, setSummary] = useState<CoverageSummary>({ totalExpected: 0, totalExisting: 0, overallCoverage: 0, totalFacilities: 0 });
+  const [sectors, setSectors] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [sectorFilter, setSectorFilter] = useState('');
+
+  useEffect(() => {
+    fetch('/api/sectors').then(r => r.json()).then(d => setSectors(d.data || []));
+  }, []);
 
   useEffect(() => { loadCoverage(); }, [sectorFilter]);
 
@@ -47,7 +52,10 @@ export default function CoveragePage() {
             <h2 className="text-2xl font-bold text-white font-heading">Equipment Coverage Analysis</h2>
             <p className="text-gray-400 text-sm">Gap analysis across sectors and facilities</p>
           </div>
-          <input className="input w-48" placeholder="Filter by sector..." value={sectorFilter} onChange={e => setSectorFilter(e.target.value)} />
+          <select className="input w-64" value={sectorFilter} onChange={e => setSectorFilter(e.target.value)}>
+            <option value="">All Sectors</option>
+            {sectors.map(s => <option key={s.code} value={s.code}>{s.code} — {s.name}</option>)}
+          </select>
         </div>
 
         {/* Summary Cards */}

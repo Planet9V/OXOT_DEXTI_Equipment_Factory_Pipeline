@@ -8,7 +8,14 @@ interface LogEntry { timestamp: string; level: string; stage: string; message: s
 interface PipelineRun {
   id: string; sector: string; subSector: string; facility: string; equipmentClass: string;
   quantity: number; status: string; stages: StageStatus[]; createdAt: string; completedAt?: string;
-  results: { generated: number; validated: number; stored: number; duplicatesSkipped: number };
+  results: { 
+    generated: number; 
+    validated: number; 
+    stored: number; 
+    duplicatesSkipped: number;
+    averageScore?: number;
+    verifiedCount?: number;
+  };
   logs: LogEntry[];
 }
 
@@ -169,10 +176,22 @@ export default function PipelinePage() {
                 {/* Results */}
                 {activeRun.results.stored > 0 && (
                   <div className="grid grid-cols-4 gap-2 mb-3 text-center">
-                    <div className="p-2 bg-white/[0.03] rounded"><div className="text-lg font-bold text-accent-500">{activeRun.results.generated}</div><div className="text-xs text-gray-500">Generated</div></div>
-                    <div className="p-2 bg-white/[0.03] rounded"><div className="text-lg font-bold text-green-400">{activeRun.results.validated}</div><div className="text-xs text-gray-500">Validated</div></div>
-                    <div className="p-2 bg-white/[0.03] rounded"><div className="text-lg font-bold text-purple-400">{activeRun.results.stored}</div><div className="text-xs text-gray-500">Stored</div></div>
-                    <div className="p-2 bg-white/[0.03] rounded"><div className="text-lg font-bold text-yellow-400">{activeRun.results.duplicatesSkipped}</div><div className="text-xs text-gray-500">Skipped</div></div>
+                    <div className="p-2 bg-white/[0.03] rounded">
+                      <div className="text-lg font-bold text-accent-500">{activeRun.results.generated}</div>
+                      <div className="text-[10px] text-gray-500 uppercase tracking-tight">Generated</div>
+                    </div>
+                    <div className="p-2 bg-white/[0.03] rounded">
+                      <div className="text-lg font-bold text-green-400">{activeRun.results.averageScore ?? 0}%</div>
+                      <div className="text-[10px] text-gray-500 uppercase tracking-tight">Avg Score</div>
+                    </div>
+                    <div className="p-2 bg-white/[0.03] rounded">
+                      <div className="text-lg font-bold text-purple-400">{activeRun.results.stored}</div>
+                      <div className="text-[10px] text-gray-500 uppercase tracking-tight">Stored</div>
+                    </div>
+                    <div className="p-2 bg-white/[0.03] rounded">
+                      <div className="text-lg font-bold text-blue-400">{activeRun.results.verifiedCount ?? 0}</div>
+                      <div className="text-[10px] text-gray-500 uppercase tracking-tight">Verified</div>
+                    </div>
                   </div>
                 )}
                 {/* Logs */}

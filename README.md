@@ -2,38 +2,35 @@
 
 > DEXPI 2.0 Equipment Lifecycle Management for Critical Infrastructure
 
-A standalone, Docker-based application for discovering, creating, and managing DEXPI 2.0 industrial equipment JSON files across all 16 CISA critical infrastructure sectors. No database required -- all data stored as structured JSON files in a persistent directory hierarchy.
+A standalone, Docker-based application for discovering, creating, and managing DEXPI 2.0 industrial equipment JSON files across all 16 CISA critical infrastructure sectors. Includes a **Memgraph** knowledge graph for relationship-aware queries, a **multi-level wiki** for browsing DEXPI standards and CISA sectors, and an **AI pipeline** powered by Google Gemini.
 
 ## Architecture
 
 ```
-+-----------------------------------------------------+
-|                   Next.js 14 App                     |
-|  +----------+  +----------+  +-------------------+  |
-|  | Dashboard |  | Sectors  |  | Equipment Browser |  |
-|  |   Page    |  |  Page    |  |     + Detail      |  |
-|  +----------+  +----------+  +-------------------+  |
-|  +----------+  +----------+                          |
-|  | Pipeline  |  | Coverage |                          |
-|  |   Page    |  |  Page    |                          |
-|  +----------+  +----------+                          |
-+-----------------------------------------------------+
-|                    API Layer                          |
-|  /api/sectors   /api/equipment   /api/pipeline       |
-|  /api/vendors   /api/coverage    /api/tree           |
-|  /api/init      /api/equipment/copy                  |
-+-----------------------------------------------------+
-|               Core Libraries                         |
-|  +----------+  +----------+  +-------------------+  |
-|  | Storage   |  | Pipeline |  |  Sectors Data     |  |
-|  | Engine    |  | Engine   |  |  (16 CISA)        |  |
-|  +----------+  +----------+  +-------------------+  |
-+-----------------------------------------------------+
-|           File-Based Storage (/data)                 |
-|  /data/sectors/ENER/OIL_GAS/REFINERY/equipment/     |
-|  /data/sectors/ENER/OIL_GAS/REFINERY/vendors/       |
-|  /data/pipeline-runs/                                |
-+-----------------------------------------------------+
++-----------------------------------------------------------+
+|                    Next.js 14 App                          |
+|  +----------+ +--------+ +-----------+ +------+ +------+ |
+|  | Dashboard | | Sectors| | Equipment | | Wiki | | Pipe | |
+|  |   Page    | |  Page  | |  Browser  | | 4-lv | | line | |
+|  +----------+ +--------+ +-----------+ +------+ +------+ |
++-----------------------------------------------------------+
+|                    API Layer                                |
+|  /api/sectors  /api/equipment  /api/pipeline               |
+|  /api/vendors  /api/coverage   /api/tree  /api/init        |
++-----------------------------------------------------------+
+|               Core Libraries                               |
+|  +----------+ +----------+ +---------+ +----------------+ |
+|  | Storage   | | Pipeline | | Sectors | | Memgraph       | |
+|  | Engine    | | Engine   | | (16)    | | Graph DB       | |
+|  +----------+ +----------+ +---------+ +----------------+ |
++-----------------------------------------------------------+
+|     File Storage (/data)      |   Memgraph (Bolt:7687)    |
+|  sectors/ENER/.../equipment/  |   Knowledge Graph with    |
+|  pipeline-runs/               |   DEXPI 2.0 Schema        |
++-----------------------------------------------------------+
+|              supervisord (PID 1)                           |
+|     memgraph (priority 10)  |  next.js (priority 20)     |
++-----------------------------------------------------------+
 ```
 
 ## Features
@@ -253,11 +250,14 @@ Equipment cards follow the DEXPI 2.0 (Data Exchange in Process Industry) standar
 - **Framer Motion** -- Page transitions and UI animations
 - **Lucide React** -- Icon system
 - **Google Gemini** -- AI equipment specification research and generation
+- **Memgraph** -- In-process graph database (Bolt protocol, neo4j-driver)
+- **neo4j-driver** -- JavaScript driver for Memgraph queries
 - **Zod** -- Runtime schema validation for equipment cards
 - **node-cron** -- Scheduled pipeline execution
 - **fast-xml-parser** -- DEXPI XML interop support
-- **File-based storage** -- No database required, all JSON files
-- **Docker** -- Multi-stage build with Alpine for minimal image size
+- **supervisord** -- Process manager running Memgraph + Next.js in a single container
+- **File-based storage** -- JSON files on persistent volume
+- **Docker** -- Debian-slim base with Memgraph installed
 
 ## Environment Variables
 
@@ -266,6 +266,8 @@ Equipment cards follow the DEXPI 2.0 (Data Exchange in Process Industry) standar
 | `GEMINI_API_KEY` | Yes | -- | Google Gemini API key for AI pipeline |
 | `DATA_DIR` | No | `./data` | Path to persistent data directory |
 | `PORT` | No | `3000` | Server port |
+| `MEMGRAPH_HOST` | No | `127.0.0.1` | Memgraph Bolt host |
+| `MEMGRAPH_PORT` | No | `7687` | Memgraph Bolt port |
 | `PIPELINE_SCHEDULE` | No | `0 */6 * * *` | Cron schedule for automated pipeline runs |
 
 ## Docker Details
@@ -329,6 +331,14 @@ src/
     equipment/page.tsx          # Equipment browser
     pipeline/page.tsx           # Pipeline management
     coverage/page.tsx           # Coverage analysis
+    wiki/
+      page.tsx                  # Wiki home
+      layout.tsx                # Wiki sidebar layout
+      dexpi/
+        page.tsx                # DEXPI 2.0 overview
+        equipment-classes/page.tsx  # Equipment taxonomy
+      sectors/
+        [code]/page.tsx         # Dynamic sector wiki pages (×16)
     api/
       sectors/route.ts          # Sector CRUD
       equipment/route.ts        # Equipment CRUD
@@ -341,7 +351,24 @@ src/
   lib/
     storage.ts                  # File-based storage engine
     pipeline.ts                 # 5-stage AI pipeline engine
-    sectors.ts                  # CISA sector definitions
+    memgraph.ts                 # Memgraph connection (singleton + retry)
+    graph-schema.ts             # DEXPI knowledge graph schema
+    sectors-data.ts             # Backward-compat re-export facade
+    sectors/
+      index.ts                  # Aggregated sector index
+      types.ts                  # DexpiSector type definitions
+      uris.ts                   # POSC Caesar RDL URI constants
+      chemical.ts               # Chemical sector (5 sub-sectors)
+      energy.ts                 # Energy sector (3 sub-sectors)
+      water.ts                  # Water & Wastewater
+      nuclear.ts                # Nuclear sector
+      manufacturing.ts          # Critical Manufacturing
+      transportation.ts         # Transportation Systems
+      financial.ts              # Financial Services
+      food.ts                   # Food & Agriculture
+      healthcare.ts             # Healthcare & Public Health
+      infrastructure.ts         # Comms, Commercial, Dams, Defense
+      services.ts               # Emergency, Government, IT
     types.ts                    # TypeScript interfaces
     validation.ts               # Zod schemas and scoring
 ```
@@ -355,10 +382,11 @@ npm run build         # Type check + production build
 
 ### Adding a New Sector
 
-1. Add the sector definition to `src/lib/sectors.ts`
-2. Include sub-sectors, facilities, and expected equipment types
-3. Run `POST /api/init` to create the directory structure
-4. Use the Pipeline page to generate equipment cards
+1. Create a new sector file in `src/lib/sectors/` (e.g., `new-sector.ts`)
+2. Define the `DexpiSector` object with sub-sectors, facilities, and equipment
+3. Import and add it to `src/lib/sectors/index.ts`
+4. Run `POST /api/init` to create the directory structure
+5. Wiki pages are auto-generated from the sector data
 
 ## Contributing
 

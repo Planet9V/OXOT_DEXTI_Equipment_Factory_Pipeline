@@ -1,0 +1,33 @@
+# =============================================================================
+# DEXPI Equipment Factory — Dev Memgraph Only
+#
+# Starts ONLY Memgraph so that `npm run dev` can connect to it.
+#
+# Usage:
+#   docker compose -f docker-compose.dev.yml up -d
+#   npm run dev
+#
+# Memgraph will be available at bolt://localhost:7687
+# =============================================================================
+
+services:
+  memgraph:
+    image: memgraph/memgraph:latest
+    platform: linux/amd64
+    container_name: dexpi-memgraph-dev
+    ports:
+      - "7687:7687"
+      - "7444:7444"
+    volumes:
+      - memgraph-dev-data:/var/lib/memgraph
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "echo 'RETURN 1;' | mgconsole || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+volumes:
+  memgraph-dev-data:
+    driver: local

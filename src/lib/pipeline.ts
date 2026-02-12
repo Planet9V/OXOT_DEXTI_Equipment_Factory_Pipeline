@@ -1,17 +1,46 @@
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import crypto from 'crypto';
+import * as pca from './pca-sparql';
 import { EquipmentCard, PipelineRun, PipelineStage, StageStatus, LogEntry } from './types';
 import * as storage from './storage';
 import { getSector, getSubSector, getFacilityType } from './sectors-data';
 
+/**
+ * ISA/DEXPI tag prefix mapping.
+ *
+ * Maps ComponentClass names to ISA-standard instrument/equipment tag prefixes.
+ * Includes both legacy names and official DEXPI 2.0 ComponentClass names so
+ * the pipeline resolves tags correctly regardless of which name is used.
+ */
 const ISA_TAG_PREFIX: Record<string, string> = {
-  Pump: 'P', HeatExchanger: 'E', PressureVessel: 'V', Tank: 'TK',
-  ControlValve: 'CV', ShutoffValve: 'XV', Compressor: 'C', Turbine: 'T',
-  Generator: 'G', Motor: 'M', Transmitter: 'TT', Analyzer: 'AT',
-  SafetyValve: 'PSV', Filter: 'FL', Column: 'COL', Reactor: 'R',
-  Boiler: 'BLR', Condenser: 'CND', Cooler: 'CLR', Fan: 'FN',
-  Agitator: 'AG', Conveyor: 'CNV', Transformer: 'XF', CircuitBreaker: 'CB',
-  Pipe: 'PIPE', Flare: 'FLR',
+  // Rotating equipment
+  Pump: 'P', CentrifugalPump: 'P', Compressor: 'C', CentrifugalCompressor: 'C',
+  Turbine: 'T', SteamTurbine: 'ST', GasTurbine: 'GT', Fan: 'FN', Blower: 'BL',
+  Agitator: 'AG', Centrifuge: 'CF', Conveyor: 'CNV', Mixer: 'MX',
+
+  // Static equipment
+  PressureVessel: 'V', Vessel: 'V', Tank: 'TK', StorageTank: 'TK',
+  Column: 'COL', ProcessColumn: 'COL', Reactor: 'R', Drum: 'D',
+  Separator: 'SEP', Filter: 'FL', Scrubber: 'SCR', Silo: 'SI',
+  Thickener: 'TH', Clarifier: 'CL', Autoclave: 'AC',
+
+  // Heat transfer
+  HeatExchanger: 'E', ShellTubeHeatExchanger: 'E', AirCooledHeatExchanger: 'E',
+  Boiler: 'BLR', Furnace: 'H', Heater: 'H', Condenser: 'CND', Cooler: 'CLR',
+  Evaporator: 'EV', CoolingTower: 'CT', Dryer: 'DR', Deaerator: 'DA', Kiln: 'KN',
+
+  // Electrical
+  Generator: 'G', ElectricGenerator: 'G', Motor: 'M', Transformer: 'XF',
+  Switchgear: 'SWG', CircuitBreaker: 'CB', UPS: 'UPS', VFD: 'VFD',
+  Electrolyzer: 'EL',
+
+  // Piping
+  ControlValve: 'CV', ShutoffValve: 'XV', SafetyValve: 'PSV', GateValve: 'GV',
+  Pipe: 'PIPE', FlareStack: 'FLR', Strainer: 'STR', Cyclone: 'CY',
+
+  // Instrumentation
+  Transmitter: 'TT', Analyzer: 'AT', FlowMeter: 'FE', GasAnalyzer: 'AT',
+  LevelIndicator: 'LI',
 };
 
 export class DexpiPipeline {
@@ -137,8 +166,14 @@ export class DexpiPipeline {
     this.setStageStatus(run, 'validate', 'running');
     this.addLog(run, 'info', 'validate', 'Validating equipment cards...');
     const validCards = await this.stageValidate(run, cards);
+    
+    // Calculate aggregate validation metrics
+    const totalScore = validCards.reduce((s, c) => s + c.metadata.validationScore, 0);
     run.results.validated = validCards.length;
-    this.setStageStatus(run, 'validate', 'completed', `${validCards.length}/${cards.length} passed validation`);
+    run.results.averageScore = validCards.length > 0 ? Math.round(totalScore / validCards.length) : 0;
+    run.results.verifiedCount = validCards.filter(c => c.metadata.source === 'dexpi-verified').length;
+
+    this.setStageStatus(run, 'validate', 'completed', `${validCards.length}/${cards.length} passed validation (Avg Score: ${run.results.averageScore}%)`);
     await storage.savePipelineRun(run);
 
     if (this.isCancelled(run)) return;
@@ -309,6 +344,29 @@ Return ONLY a valid JSON array, no markdown.`;
       maxScore += 10;
       if (card.description && card.description.length > 20) score += 10;
       else if (card.description) score += 5;
+      else {
+        this.addLog(run, 'warn', 'validate', `${card.tag}: missing or short description`);
+      }
+
+      // Check URI format and live verify with PCA
+      maxScore += 20;
+      if (card.componentClassURI && /^http:\/\/(data\.posccaesar.org|sandbox\.dexpi\.org)\/rdl\//.test(card.componentClassURI)) {
+        score += 10;
+
+        // High-fidelity live check
+        try {
+          const pcaLabel = await pca.validateClassUri(card.componentClassURI);
+          if (pcaLabel) {
+            score += 10;
+            card.metadata.source = 'dexpi-verified';
+            this.addLog(run, 'info', 'validate', `✅ Validated URI against PCA RDL: ${pcaLabel}`);
+          } else {
+            this.addLog(run, 'warn', 'validate', `⚠️ URI not found in PCA RDL: ${card.componentClassURI}`);
+          }
+        } catch (err) {
+          this.addLog(run, 'error', 'validate', `❌ PCA connection error: ${err instanceof Error ? err.message : String(err)}`);
+        }
+      }
 
       // Check specifications populated
       maxScore += 15;
@@ -414,7 +472,7 @@ Return ONLY a valid JSON array, no markdown.`;
     await storage.createFacility(
       run.sector, run.subSector, run.facility,
       run.facility, `${run.facility} facility`
-    ).catch(() => {});
+    ).catch(() => { });
 
     for (const card of cards) {
       try {

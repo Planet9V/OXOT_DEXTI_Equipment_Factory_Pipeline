@@ -1,6 +1,6 @@
 // DEXPI 2.0 Equipment Factory Pipeline — Core Types
 
-export type EquipmentCategory = "rotating" | "static" | "instrumentation" | "electrical" | "piping";
+export type EquipmentCategory = "rotating" | "static" | "heat-transfer" | "instrumentation" | "electrical" | "piping";
 
 export interface DexpiEquipmentType {
   componentClass: string;
@@ -70,7 +70,7 @@ export interface EquipmentCard {
     createdBy: string;
     contentHash: string;
     validationScore: number;
-    source: "manual" | "ai-generated" | "imported" | "vendor";
+    source: "manual" | "ai-generated" | "imported" | "vendor" | "dexpi-verified" | "non-standard-uri";
   };
 }
 
@@ -124,6 +124,8 @@ export interface PipelineRun {
     validated: number;
     stored: number;
     duplicatesSkipped: number;
+    averageScore?: number;
+    verifiedCount?: number;
   };
   logs: LogEntry[];
 }

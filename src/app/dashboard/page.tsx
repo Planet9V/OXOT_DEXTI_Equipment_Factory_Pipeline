@@ -18,10 +18,15 @@ interface Stats {
   sectors: number;
   totalEquipment: number;
   totalVendors: number;
+  totalFacilities: number;
   pipelineRuns: number;
+  pipelineHealth: number;
+  dexpiCoverage: number;
+  graphSource: string;
 }
 
 interface TreeNode {
+  path: string;
   name: string;
   type: string;
   equipmentCount: number;
@@ -30,7 +35,17 @@ interface TreeNode {
 }
 
 export default function DashboardPage() {
-  const [stats, setStats] = useState<Stats>({ sectors: 0, totalEquipment: 0, totalVendors: 0, pipelineRuns: 0 });
+  const [stats, setStats] = useState<Stats>({
+    sectors: 0,
+    totalEquipment: 0,
+    totalVendors: 0,
+    totalFacilities: 0,
+    pipelineRuns: 0,
+    pipelineHealth: 0,
+    dexpiCoverage: 0,
+    graphSource: 'loading',
+  });
+  const [loading, setLoading] = useState(true);
   const [tree, setTree] = useState<TreeNode[]>([]);
   const [initializing, setInitializing] = useState(false);
   const [initialized, setInitialized] = useState(false);
@@ -40,23 +55,59 @@ export default function DashboardPage() {
   }, []);
 
   async function loadData() {
+    setLoading(true);
     try {
       const [treeRes, pipeRes] = await Promise.all([
         fetch('/api/tree').then(r => r.json()),
-        fetch('/api/pipeline').then(r => r.json()),
+        fetch('/api/pipeline').then(r => r.json()).catch(() => ({ data: [] })),
       ]);
       const treeData: TreeNode[] = treeRes.data || [];
+      const graphSource: string = treeRes.source || 'unknown';
       setTree(treeData);
+
+      // Calculate real totals from tree data
       const totalEq = treeData.reduce((sum: number, s: TreeNode) => sum + s.equipmentCount, 0);
       const totalV = treeData.reduce((sum: number, s: TreeNode) => sum + s.vendorCount, 0);
+      const totalFacilities = treeData.reduce(
+        (sum: number, s: TreeNode) => sum + s.children.reduce(
+          (sub: number, ss: TreeNode) => sub + ss.children.length, 0
+        ), 0
+      );
+
+      // Real pipeline stats
+      const runs = pipeRes.data || [];
+      const successCount = runs.filter((r: any) => r.status === 'completed').length;
+      const pipelineHealth = runs.length > 0 ? Math.round((successCount / runs.length) * 100) : 100;
+
+      // Calculate real DEXPI coverage: % of facilities that have equipment
+      let facilitiesWithEquipment = 0;
+      for (const sector of treeData) {
+        for (const sub of sector.children) {
+          for (const fac of sub.children) {
+            if (fac.equipmentCount > 0) facilitiesWithEquipment++;
+          }
+        }
+      }
+      const dexpiCoverage = totalFacilities > 0
+        ? Math.round((facilitiesWithEquipment / totalFacilities) * 100)
+        : 0;
+
       setStats({
         sectors: treeData.length,
         totalEquipment: totalEq,
         totalVendors: totalV,
-        pipelineRuns: pipeRes.data?.length || 0,
+        totalFacilities,
+        pipelineRuns: runs.length,
+        pipelineHealth,
+        dexpiCoverage,
+        graphSource,
       });
       if (treeData.length > 0) setInitialized(true);
-    } catch {}
+    } catch (err) {
+      console.error('Failed to load dashboard data:', err);
+    } finally {
+      setLoading(false);
+    }
   }
 
   async function handleInit() {
@@ -65,7 +116,7 @@ export default function DashboardPage() {
       await fetch('/api/init', { method: 'POST' });
       setInitialized(true);
       await loadData();
-    } catch {}
+    } catch { }
     setInitializing(false);
   }
 
@@ -82,7 +133,10 @@ export default function DashboardPage() {
           DEXPI Equipment Factory Dashboard
         </motion.h2>
         <motion.p variants={fadeInUp} className="text-gray-400">
-          Manage DEXPI 2.0 equipment across 16 CISA critical infrastructure sectors
+          Manage DEXPI 2.0 equipment across {stats.sectors > 0 ? stats.sectors : '...'} CISA critical infrastructure sectors
+          {stats.graphSource && stats.graphSource !== 'loading' && (
+            <span className="ml-2 text-xs opacity-50">({stats.graphSource === 'graph' ? '● Live' : '○ Cached'})</span>
+          )}
         </motion.p>
       </motion.div>
 
@@ -111,10 +165,10 @@ export default function DashboardPage() {
         className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8"
       >
         {[
-          { label: 'Sectors', value: stats.sectors, Icon: Building2, color: 'text-accent-500' },
-          { label: 'Equipment Cards', value: stats.totalEquipment, Icon: Cog, color: 'text-green-400' },
-          { label: 'Vendor Variations', value: stats.totalVendors, Icon: Factory, color: 'text-purple-400' },
-          { label: 'Pipeline Runs', value: stats.pipelineRuns, Icon: RefreshCw, color: 'text-yellow-400' },
+          { label: 'Sectors', value: loading ? '...' : stats.sectors, Icon: Building2, color: 'text-accent-500' },
+          { label: 'Equipment', value: loading ? '...' : stats.totalEquipment, Icon: Cog, color: 'text-green-400' },
+          { label: 'Facilities', value: loading ? '...' : stats.totalFacilities, Icon: Factory, color: 'text-purple-400' },
+          { label: 'Coverage', value: loading ? '...' : `${stats.dexpiCoverage}%`, Icon: BarChart3, color: 'text-yellow-400' },
         ].map((stat, i) => (
           <motion.div
             key={stat.label}
@@ -171,6 +225,16 @@ export default function DashboardPage() {
             Analyze <ArrowRight className="w-4 h-4" />
           </div>
         </a>
+        <a href="/wiki" className="glass-card p-6 hover:border-yellow-500/30 group cursor-pointer transition-all duration-500">
+          <div className="flex items-center gap-3 mb-2">
+            <BookOpen className="w-5 h-5 text-yellow-400/70 group-hover:text-yellow-400 transition-colors" />
+            <h3 className="text-lg font-heading font-semibold text-white group-hover:text-yellow-400 transition-colors">Wiki</h3>
+          </div>
+          <p className="text-sm text-gray-400">Browse DEXPI standards, equipment classes, and sector documentation</p>
+          <div className="mt-4 flex items-center gap-2 text-yellow-400 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+            Explore <ArrowRight className="w-4 h-4" />
+          </div>
+        </a>
       </motion.div>
 
       {/* Sector Overview */}
@@ -183,23 +247,26 @@ export default function DashboardPage() {
         >
           <h3 className="text-lg font-heading font-semibold text-white mb-4">Sector Overview</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-            {tree.map((sector) => (
-              <a
-                key={sector.name}
-                href={`/sectors/${sector.name}`}
-                className="p-3 bg-white/[0.03] rounded-lg hover:bg-white/[0.06] border border-white/[0.06] hover:border-accent-500/20 transition-all duration-300"
-              >
-                <div className="flex items-center justify-between mb-1">
-                  <span className="font-heading font-medium text-white text-sm">{sector.name}</span>
-                  <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium" style={{ background: 'rgba(255, 107, 0, 0.1)', color: '#fb923c' }}>
-                    {sector.equipmentCount}
-                  </span>
-                </div>
-                <div className="text-xs text-gray-400">
-                  {sector.children.length} sub-sectors · {sector.vendorCount} vendors
-                </div>
-              </a>
-            ))}
+            {tree.map((sector) => {
+              const totalFac = sector.children.reduce((s: number, sub: any) => s + (sub.children?.length || 0), 0);
+              return (
+                <a
+                  key={sector.path || sector.name}
+                  href={`/wiki/sectors/${sector.path || sector.name}`}
+                  className="p-3 bg-white/[0.03] rounded-lg hover:bg-white/[0.06] border border-white/[0.06] hover:border-accent-500/20 transition-all duration-300"
+                >
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="font-heading font-medium text-white text-sm">{sector.name}</span>
+                    <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium" style={{ background: 'rgba(255, 107, 0, 0.1)', color: '#fb923c' }}>
+                      {sector.equipmentCount}
+                    </span>
+                  </div>
+                  <div className="text-xs text-gray-400">
+                    {sector.children.length} sub-sectors · {totalFac} facilities
+                  </div>
+                </a>
+              );
+            })}
           </div>
         </motion.div>
       )}

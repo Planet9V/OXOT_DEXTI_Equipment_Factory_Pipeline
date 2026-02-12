@@ -1,17 +1,43 @@
 version: '3.8'
 
 services:
+  # ── Memgraph ─────────────────────────────────────────────────────────────────
+  # Official Memgraph image, forced to AMD64 for Apple Silicon compatibility.
+  # Rosetta 2 handles the translation transparently on M-series Macs.
+  memgraph:
+    image: memgraph/memgraph:latest
+    platform: linux/amd64
+    container_name: dexpi-memgraph
+    ports:
+      - "7687:7687"      # Bolt protocol
+      - "7444:7444"      # Monitoring / Lab
+    volumes:
+      - memgraph-data:/var/lib/memgraph
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "echo 'RETURN 1;' | mgconsole || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  # ── Next.js App ──────────────────────────────────────────────────────────────
   app:
     build:
       context: .
       dockerfile: Dockerfile
     container_name: dexpi-equipment-factory
+    depends_on:
+      memgraph:
+        condition: service_healthy
     ports:
       - "${PORT:-3000}:3000"
     environment:
       - GEMINI_API_KEY=${GEMINI_API_KEY}
       - DATA_DIR=/data
       - NODE_ENV=production
+      - MEMGRAPH_HOST=memgraph
+      - MEMGRAPH_PORT=7687
       - PIPELINE_SCHEDULE=${PIPELINE_SCHEDULE:-0 */6 * * *}
     volumes:
       - dexpi-data:/data
@@ -24,4 +50,6 @@ services:
 
 volumes:
   dexpi-data:
+    driver: local
+  memgraph-data:
     driver: local

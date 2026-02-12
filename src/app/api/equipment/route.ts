@@ -12,12 +12,12 @@ export async function GET(req: NextRequest) {
       facility: url.searchParams.get('facility') || undefined,
       category: (url.searchParams.get('category') as any) || undefined,
       componentClass: url.searchParams.get('componentClass') || undefined,
-      searchTerm: url.searchParams.get('q') || undefined,
+      searchTerm: url.searchParams.get('searchTerm') || url.searchParams.get('q') || undefined,
       source: url.searchParams.get('source') || undefined,
       minValidationScore: url.searchParams.get('minScore') ? Number(url.searchParams.get('minScore')) : undefined,
     };
-    const page = Number(url.searchParams.get('page')) || 1;
-    const pageSize = Math.min(Number(url.searchParams.get('pageSize')) || 50, 200);
+    const page = parseInt(url.searchParams.get('page') || '1', 10) || 1;
+    const pageSize = Math.min(parseInt(url.searchParams.get('pageSize') || '50', 10) || 50, 200);
 
     const result = await storage.searchEquipment(filter, page, pageSize);
     return NextResponse.json({ success: true, data: result, timestamp: new Date().toISOString() });

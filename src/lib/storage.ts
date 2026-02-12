@@ -1,5 +1,13 @@
-import { promises as fs } from 'fs';
-import path from 'path';
+/**
+ * Graph-based Storage Layer.
+ *
+ * Implements the storage interface using Memgraph/Neo4j instead of the local filesystem.
+ * This module ensures persistence of the DEXPI hierarchy and provides faceted search
+ * and directory tree generation via Cypher queries.
+ *
+ * @module storage
+ */
+
 import crypto from 'crypto';
 import {
   EquipmentCard,
@@ -10,50 +18,12 @@ import {
   CoverageReport,
   PipelineRun,
 } from './types';
-
-const DATA_DIR = process.env.DATA_DIR || path.join(process.cwd(), 'data');
-
-// ----- Path helpers -----
-
-function sectorPath(sector: string): string {
-  return path.join(DATA_DIR, 'sectors', sector.toUpperCase());
-}
-
-function subSectorPath(sector: string, subSector: string): string {
-  return path.join(sectorPath(sector), subSector.toUpperCase());
-}
-
-function facilityPath(sector: string, subSector: string, facility: string): string {
-  return path.join(subSectorPath(sector, subSector), facility.toUpperCase());
-}
-
-function equipmentDir(sector: string, subSector: string, facility: string): string {
-  return path.join(facilityPath(sector, subSector, facility), 'equipment');
-}
-
-function vendorDir(
-  sector: string,
-  subSector: string,
-  facility: string,
-  equipmentTag: string,
-): string {
-  return path.join(facilityPath(sector, subSector, facility), 'vendors', equipmentTag);
-}
-
-function contentHash(obj: object): string {
-  return crypto
-    .createHash('sha256')
-    .update(JSON.stringify(obj))
-    .digest('hex')
-    .slice(0, 16);
-}
+import * as schema from './graph-schema';
 
 // ----- Initialization -----
 
 export async function initializeDataDir(): Promise<void> {
-  await fs.mkdir(path.join(DATA_DIR, 'sectors'), { recursive: true });
-  await fs.mkdir(path.join(DATA_DIR, 'pipeline-runs'), { recursive: true });
-  await fs.mkdir(path.join(DATA_DIR, 'exports'), { recursive: true });
+  await schema.initializeSchema();
 }
 
 // ----- Sector / SubSector / Facility CRUD -----
@@ -63,21 +33,13 @@ export async function createSector(
   name: string,
   description: string,
 ): Promise<void> {
-  const dir = sectorPath(code);
-  await fs.mkdir(dir, { recursive: true });
-  await fs.writeFile(
-    path.join(dir, '_meta.json'),
-    JSON.stringify(
-      {
-        code: code.toUpperCase(),
-        name,
-        description,
-        createdAt: new Date().toISOString(),
-      },
-      null,
-      2,
-    ),
-  );
+  await schema.mergeSector({
+    code: code.toUpperCase(),
+    name,
+    description,
+    icon: 'Folder', // Default icon
+    color: '#3b82f6', // Default color
+  });
 }
 
 export async function createSubSector(
@@ -86,22 +48,11 @@ export async function createSubSector(
   name: string,
   description: string,
 ): Promise<void> {
-  const dir = subSectorPath(sector, code);
-  await fs.mkdir(dir, { recursive: true });
-  await fs.writeFile(
-    path.join(dir, '_meta.json'),
-    JSON.stringify(
-      {
-        code: code.toUpperCase(),
-        name,
-        description,
-        parentSector: sector.toUpperCase(),
-        createdAt: new Date().toISOString(),
-      },
-      null,
-      2,
-    ),
-  );
+  await schema.mergeSubSector(sector.toUpperCase(), {
+    code: code.toUpperCase(),
+    name,
+    description,
+  });
 }
 
 export async function createFacility(
@@ -111,72 +62,84 @@ export async function createFacility(
   name: string,
   description: string,
 ): Promise<void> {
-  const eqDir = equipmentDir(sector, subSector, code);
-  const vDir = path.join(facilityPath(sector, subSector, code), 'vendors');
-  await fs.mkdir(eqDir, { recursive: true });
-  await fs.mkdir(vDir, { recursive: true });
-  await fs.writeFile(
-    path.join(facilityPath(sector, subSector, code), '_meta.json'),
-    JSON.stringify(
-      {
-        code: code.toUpperCase(),
-        name,
-        description,
-        parentSector: sector.toUpperCase(),
-        parentSubSector: subSector.toUpperCase(),
-        createdAt: new Date().toISOString(),
-      },
-      null,
-      2,
-    ),
+  await schema.mergeFacility(subSector.toUpperCase(), {
+    code: code.toUpperCase(),
+    name,
+    description,
+  });
+}
+
+/**
+ * Renames a sector and cascades the change to all equipment referencing the old code.
+ *
+ * @param oldCode - Current sector code.
+ * @param newCode - New sector code.
+ */
+export async function renameSector(oldCode: string, newCode: string): Promise<void> {
+  await schema.runWrite(
+    `MATCH (s:Sector {code: $oldCode})
+     SET s.code = $newCode
+     WITH s
+     OPTIONAL MATCH (e:Equipment)
+     WHERE e.sector = $oldCode
+     SET e.sector = $newCode`,
+    { oldCode: oldCode.toUpperCase(), newCode: newCode.toUpperCase() }
   );
 }
 
-export async function renameSector(oldCode: string, newCode: string): Promise<void> {
-  await fs.rename(sectorPath(oldCode), sectorPath(newCode));
-  const metaPath = path.join(sectorPath(newCode), '_meta.json');
-  const meta = JSON.parse(await fs.readFile(metaPath, 'utf-8'));
-  meta.code = newCode.toUpperCase();
-  meta.updatedAt = new Date().toISOString();
-  await fs.writeFile(metaPath, JSON.stringify(meta, null, 2));
-}
-
+/**
+ * Renames a sub-sector and cascades the change to all equipment referencing the old code.
+ *
+ * @param sector - Parent sector code.
+ * @param oldCode - Current sub-sector code.
+ * @param newCode - New sub-sector code.
+ */
 export async function renameSubSector(
   sector: string,
   oldCode: string,
   newCode: string,
 ): Promise<void> {
-  await fs.rename(subSectorPath(sector, oldCode), subSectorPath(sector, newCode));
-  const metaPath = path.join(subSectorPath(sector, newCode), '_meta.json');
-  const meta = JSON.parse(await fs.readFile(metaPath, 'utf-8'));
-  meta.code = newCode.toUpperCase();
-  meta.updatedAt = new Date().toISOString();
-  await fs.writeFile(metaPath, JSON.stringify(meta, null, 2));
+  await schema.runWrite(
+    `MATCH (s:SubSector {code: $oldCode})
+     SET s.code = $newCode
+     WITH s
+     OPTIONAL MATCH (e:Equipment)
+     WHERE e.subSector = $oldCode
+     SET e.subSector = $newCode`,
+    { oldCode: oldCode.toUpperCase(), newCode: newCode.toUpperCase() }
+  );
 }
 
+/**
+ * Renames a facility and cascades the change to all equipment facilityCode references.
+ *
+ * @param sector - Parent sector code.
+ * @param subSector - Parent sub-sector code.
+ * @param oldCode - Current facility code.
+ * @param newCode - New facility code.
+ */
 export async function renameFacility(
   sector: string,
   subSector: string,
   oldCode: string,
   newCode: string,
 ): Promise<void> {
-  await fs.rename(
-    facilityPath(sector, subSector, oldCode),
-    facilityPath(sector, subSector, newCode),
+  await schema.runWrite(
+    `MATCH (f:Facility {code: $oldCode})
+     SET f.code = $newCode
+     WITH f
+     OPTIONAL MATCH (e:Equipment {facilityCode: $oldCode})
+     SET e.facilityCode = $newCode`,
+    { oldCode: oldCode.toUpperCase(), newCode: newCode.toUpperCase() }
   );
-  const metaPath = path.join(facilityPath(sector, subSector, newCode), '_meta.json');
-  const meta = JSON.parse(await fs.readFile(metaPath, 'utf-8'));
-  meta.code = newCode.toUpperCase();
-  meta.updatedAt = new Date().toISOString();
-  await fs.writeFile(metaPath, JSON.stringify(meta, null, 2));
 }
 
 export async function deleteSector(code: string): Promise<void> {
-  await fs.rm(sectorPath(code), { recursive: true, force: true });
+  await schema.deleteSectorNode(code.toUpperCase());
 }
 
 export async function deleteSubSector(sector: string, code: string): Promise<void> {
-  await fs.rm(subSectorPath(sector, code), { recursive: true, force: true });
+  await schema.deleteSubSectorNode(code.toUpperCase());
 }
 
 export async function deleteFacility(
@@ -184,20 +147,33 @@ export async function deleteFacility(
   subSector: string,
   code: string,
 ): Promise<void> {
-  await fs.rm(facilityPath(sector, subSector, code), { recursive: true, force: true });
+  await schema.deleteFacilityNode(code.toUpperCase());
 }
 
 // ----- Equipment CRUD -----
 
 export async function saveEquipment(card: EquipmentCard): Promise<void> {
-  const dir = equipmentDir(card.sector, card.subSector, card.facility);
-  await fs.mkdir(dir, { recursive: true });
-  card.metadata.contentHash = contentHash({ ...card, metadata: undefined });
-  card.metadata.updatedAt = new Date().toISOString();
-  await fs.writeFile(
-    path.join(dir, `${card.tag}.json`),
-    JSON.stringify(card, null, 2),
-  );
+  const facilityCode = card.facility.toUpperCase();
+
+  // 1. Merge the main equipment node
+  await schema.mergeEquipment(facilityCode, card);
+
+  // 2. Merge Nozzles
+  for (const nozzle of card.nozzles) {
+    await schema.mergeNozzle(card.tag, facilityCode, nozzle);
+  }
+
+  // 3. Merge Materials
+  for (const [usage, material] of Object.entries(card.materials)) {
+    if (material) {
+      await schema.mergeEquipmentMaterial(card.tag, facilityCode, material, usage);
+    }
+  }
+
+  // 4. Merge Standards
+  for (const std of card.standards) {
+    await schema.mergeEquipmentStandard(card.tag, facilityCode, std);
+  }
 }
 
 export async function getEquipment(
@@ -206,13 +182,7 @@ export async function getEquipment(
   facility: string,
   tag: string,
 ): Promise<EquipmentCard | null> {
-  try {
-    const filePath = path.join(equipmentDir(sector, subSector, facility), `${tag}.json`);
-    const data = await fs.readFile(filePath, 'utf-8');
-    return JSON.parse(data) as EquipmentCard;
-  } catch {
-    return null;
-  }
+  return await schema.getEquipmentNode(tag, facility.toUpperCase());
 }
 
 export async function listEquipment(
@@ -220,20 +190,7 @@ export async function listEquipment(
   subSector: string,
   facility: string,
 ): Promise<EquipmentCard[]> {
-  try {
-    const dir = equipmentDir(sector, subSector, facility);
-    const files = await fs.readdir(dir);
-    const cards: EquipmentCard[] = [];
-    for (const file of files) {
-      if (file.endsWith('.json')) {
-        const data = await fs.readFile(path.join(dir, file), 'utf-8');
-        cards.push(JSON.parse(data));
-      }
-    }
-    return cards;
-  } catch {
-    return [];
-  }
+  return await schema.listEquipmentNodes(facility.toUpperCase());
 }
 
 export async function deleteEquipment(
@@ -243,16 +200,7 @@ export async function deleteEquipment(
   tag: string,
 ): Promise<boolean> {
   try {
-    await fs.unlink(path.join(equipmentDir(sector, subSector, facility), `${tag}.json`));
-    // Also delete associated vendor variations
-    try {
-      await fs.rm(vendorDir(sector, subSector, facility, tag), {
-        recursive: true,
-        force: true,
-      });
-    } catch {
-      // Vendor dir may not exist — acceptable
-    }
+    await schema.deleteEquipmentNode(tag, facility.toUpperCase());
     return true;
   } catch {
     return false;
@@ -293,14 +241,7 @@ export async function saveVendorVariation(
   equipmentTag: string,
   variation: VendorVariation,
 ): Promise<void> {
-  const dir = vendorDir(sector, subSector, facility, equipmentTag);
-  await fs.mkdir(dir, { recursive: true });
-  variation.metadata.updatedAt = new Date().toISOString();
-  const filename = `${variation.manufacturer}-${variation.model}`.replace(
-    /[^a-zA-Z0-9_-]/g,
-    '_',
-  );
-  await fs.writeFile(path.join(dir, `${filename}.json`), JSON.stringify(variation, null, 2));
+  await schema.mergeVendorVariationNode(equipmentTag, facility.toUpperCase(), variation);
 }
 
 export async function listVendorVariations(
@@ -309,19 +250,7 @@ export async function listVendorVariations(
   facility: string,
   equipmentTag: string,
 ): Promise<VendorVariation[]> {
-  try {
-    const dir = vendorDir(sector, subSector, facility, equipmentTag);
-    const files = await fs.readdir(dir);
-    const variations: VendorVariation[] = [];
-    for (const f of files) {
-      if (f.endsWith('.json')) {
-        variations.push(JSON.parse(await fs.readFile(path.join(dir, f), 'utf-8')));
-      }
-    }
-    return variations;
-  } catch {
-    return [];
-  }
+  return await schema.listVendorVariationNodes(equipmentTag, facility.toUpperCase());
 }
 
 export async function deleteVendorVariation(
@@ -332,16 +261,11 @@ export async function deleteVendorVariation(
   variationId: string,
 ): Promise<boolean> {
   try {
-    const dir = vendorDir(sector, subSector, facility, equipmentTag);
-    const files = await fs.readdir(dir);
-    for (const f of files) {
-      const data = JSON.parse(await fs.readFile(path.join(dir, f), 'utf-8'));
-      if (data.id === variationId) {
-        await fs.unlink(path.join(dir, f));
-        return true;
-      }
-    }
-    return false;
+    await schema.runWrite(
+      `MATCH (v:VendorVariation {id: $variationId}) DETACH DELETE v`,
+      { variationId }
+    );
+    return true;
   } catch {
     return false;
   }
@@ -354,76 +278,7 @@ export async function searchEquipment(
   page = 1,
   pageSize = 50,
 ): Promise<PaginatedResult<EquipmentCard>> {
-  const allCards: EquipmentCard[] = [];
-  const sectorsDir = path.join(DATA_DIR, 'sectors');
-
-  try {
-    const sectors = filter.sector
-      ? [filter.sector.toUpperCase()]
-      : await fs.readdir(sectorsDir);
-
-    for (const sec of sectors) {
-      const secPath = path.join(sectorsDir, sec);
-      const secStat = await fs.stat(secPath).catch(() => null);
-      if (!secStat?.isDirectory()) continue;
-
-      const subSectors = filter.subSector
-        ? [filter.subSector.toUpperCase()]
-        : (await fs.readdir(secPath)).filter((f) => !f.startsWith('_'));
-
-      for (const sub of subSectors) {
-        const subPath = path.join(secPath, sub);
-        const subStat = await fs.stat(subPath).catch(() => null);
-        if (!subStat?.isDirectory()) continue;
-
-        const facilities = filter.facility
-          ? [filter.facility.toUpperCase()]
-          : (await fs.readdir(subPath)).filter((f) => !f.startsWith('_'));
-
-        for (const fac of facilities) {
-          const eqDir = path.join(subPath, fac, 'equipment');
-          try {
-            const files = await fs.readdir(eqDir);
-            for (const file of files) {
-              if (!file.endsWith('.json')) continue;
-              const card: EquipmentCard = JSON.parse(
-                await fs.readFile(path.join(eqDir, file), 'utf-8'),
-              );
-
-              if (filter.category && card.category !== filter.category) continue;
-              if (filter.componentClass && card.componentClass !== filter.componentClass)
-                continue;
-              if (filter.source && card.metadata.source !== filter.source) continue;
-              if (
-                filter.minValidationScore &&
-                card.metadata.validationScore < filter.minValidationScore
-              )
-                continue;
-              if (filter.searchTerm) {
-                const term = filter.searchTerm.toLowerCase();
-                const matches =
-                  card.tag.toLowerCase().includes(term) ||
-                  card.displayName.toLowerCase().includes(term) ||
-                  card.description.toLowerCase().includes(term) ||
-                  card.componentClass.toLowerCase().includes(term);
-                if (!matches) continue;
-              }
-
-              allCards.push(card);
-            }
-          } catch {
-            // No equipment directory for this facility — skip
-          }
-        }
-      }
-    }
-  } catch {
-    // Sectors directory does not exist yet
-  }
-
-  const total = allCards.length;
-  const start = (page - 1) * pageSize;
-  const items = allCards.slice(start, start + pageSize);
+  const { items, total } = await schema.searchEquipmentNodes(filter, page, pageSize);
 
   return {
     items,
@@ -437,99 +292,53 @@ export async function searchEquipment(
 // ----- Directory Info -----
 
 export async function getDirectoryTree(): Promise<DirectoryInfo[]> {
-  const result: DirectoryInfo[] = [];
-  const sectorsDir = path.join(DATA_DIR, 'sectors');
+  const flatTree = await schema.getGraphTree();
+  const sectorsMap = new Map<string, DirectoryInfo>();
 
-  try {
-    const sectors = await fs.readdir(sectorsDir);
-    for (const sec of sectors) {
-      const secPath = path.join(sectorsDir, sec);
-      const stat = await fs.stat(secPath);
-      if (!stat.isDirectory()) continue;
-
-      const sectorInfo: DirectoryInfo = {
-        path: sec,
-        name: sec,
+  for (const item of flatTree) {
+    // Ensure Sector
+    if (!sectorsMap.has(item.sector)) {
+      sectorsMap.set(item.sector, {
+        path: item.sector,
+        name: item.sectorName,
         type: 'sector',
         children: [],
         equipmentCount: 0,
         vendorCount: 0,
-      };
-
-      const subs = (await fs.readdir(secPath)).filter(
-        (f) => !f.startsWith('_') && !f.startsWith('.'),
-      );
-      for (const sub of subs) {
-        const subPath = path.join(secPath, sub);
-        const subStat = await fs.stat(subPath).catch(() => null);
-        if (!subStat?.isDirectory()) continue;
-
-        const subInfo: DirectoryInfo = {
-          path: `${sec}/${sub}`,
-          name: sub,
-          type: 'subsector',
-          children: [],
-          equipmentCount: 0,
-          vendorCount: 0,
-        };
-
-        const facs = (await fs.readdir(subPath)).filter(
-          (f) => !f.startsWith('_') && !f.startsWith('.'),
-        );
-        for (const fac of facs) {
-          const facPath = path.join(subPath, fac);
-          const facStat = await fs.stat(facPath).catch(() => null);
-          if (!facStat?.isDirectory()) continue;
-
-          let eqCount = 0;
-          let vendorCount = 0;
-          try {
-            eqCount = (await fs.readdir(path.join(facPath, 'equipment'))).filter((f) =>
-              f.endsWith('.json'),
-            ).length;
-          } catch {
-            // No equipment directory yet
-          }
-          try {
-            const vendorDirs = await fs.readdir(path.join(facPath, 'vendors'));
-            for (const vd of vendorDirs) {
-              try {
-                vendorCount += (
-                  await fs.readdir(path.join(facPath, 'vendors', vd))
-                ).filter((f) => f.endsWith('.json')).length;
-              } catch {
-                // Empty vendor subdirectory
-              }
-            }
-          } catch {
-            // No vendors directory yet
-          }
-
-          const facInfo: DirectoryInfo = {
-            path: `${sec}/${sub}/${fac}`,
-            name: fac,
-            type: 'facility',
-            children: [],
-            equipmentCount: eqCount,
-            vendorCount,
-          };
-          subInfo.children.push(facInfo);
-          subInfo.equipmentCount += eqCount;
-          subInfo.vendorCount += vendorCount;
-        }
-
-        sectorInfo.children.push(subInfo);
-        sectorInfo.equipmentCount += subInfo.equipmentCount;
-        sectorInfo.vendorCount += subInfo.vendorCount;
-      }
-
-      result.push(sectorInfo);
+      });
     }
-  } catch {
-    // Sectors directory does not exist yet
+    const sector = sectorsMap.get(item.sector)!;
+
+    // Ensure SubSector
+    let subSector = sector.children.find(c => c.path === `${item.sector}/${item.subSector}`);
+    if (!subSector) {
+      subSector = {
+        path: `${item.sector}/${item.subSector}`,
+        name: item.subSectorName,
+        type: 'subsector',
+        children: [],
+        equipmentCount: 0,
+        vendorCount: 0,
+      };
+      sector.children.push(subSector);
+    }
+
+    // Add Facility
+    subSector.children.push({
+      path: `${item.sector}/${item.subSector}/${item.facility}`,
+      name: item.facilityName,
+      type: 'facility',
+      children: [],
+      equipmentCount: item.equipmentCount,
+      vendorCount: 0, // Simplified for now
+    });
+
+    // Update aggregation
+    subSector.equipmentCount += item.equipmentCount;
+    sector.equipmentCount += item.equipmentCount;
   }
 
-  return result;
+  return Array.from(sectorsMap.values());
 }
 
 // ----- Coverage Analysis -----
@@ -561,37 +370,13 @@ export async function getCoverageReport(
 // ----- Pipeline Run Persistence -----
 
 export async function savePipelineRun(run: PipelineRun): Promise<void> {
-  const dir = path.join(DATA_DIR, 'pipeline-runs');
-  await fs.mkdir(dir, { recursive: true });
-  await fs.writeFile(path.join(dir, `${run.id}.json`), JSON.stringify(run, null, 2));
+  await schema.mergePipelineRunNode(run);
 }
 
 export async function getPipelineRun(id: string): Promise<PipelineRun | null> {
-  try {
-    const data = await fs.readFile(
-      path.join(DATA_DIR, 'pipeline-runs', `${id}.json`),
-      'utf-8',
-    );
-    return JSON.parse(data);
-  } catch {
-    return null;
-  }
+  return await schema.getPipelineRunNode(id);
 }
 
 export async function listPipelineRuns(): Promise<PipelineRun[]> {
-  try {
-    const dir = path.join(DATA_DIR, 'pipeline-runs');
-    const files = await fs.readdir(dir);
-    const runs: PipelineRun[] = [];
-    for (const f of files) {
-      if (f.endsWith('.json')) {
-        runs.push(JSON.parse(await fs.readFile(path.join(dir, f), 'utf-8')));
-      }
-    }
-    return runs.sort(
-      (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
-    );
-  } catch {
-    return [];
-  }
+  return await schema.listPipelineRunNodes();
 }

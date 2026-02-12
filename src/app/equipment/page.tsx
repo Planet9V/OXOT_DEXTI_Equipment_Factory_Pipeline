@@ -13,21 +13,30 @@ interface EquipmentCard {
 
 interface PaginatedResult { items: EquipmentCard[]; total: number; page: number; pageSize: number; totalPages: number }
 
-const CATEGORIES = ['', 'rotating', 'static', 'instrumentation', 'electrical', 'piping'];
+/** Human-readable labels for equipment categories */
+const CATEGORY_LABELS: Record<string, string> = {
+  rotating: 'Rotating Machinery',
+  static: 'Static Equipment',
+  instrumentation: 'Instrumentation & Control',
+  electrical: 'Electrical Systems',
+  piping: 'Piping & Valves',
+};
 
 export default function EquipmentPage() {
   const [result, setResult] = useState<PaginatedResult>({ items: [], total: 0, page: 1, pageSize: 50, totalPages: 0 });
+  const [sectors, setSectors] = useState<any[]>([]);
   const [search, setSearch] = useState('');
   const [category, setCategory] = useState('');
   const [sector, setSector] = useState('');
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(true);
   const [selected, setSelected] = useState<EquipmentCard | null>(null);
+  const [liveCategories, setLiveCategories] = useState<string[]>([]);
 
   const loadEquipment = useCallback(async () => {
     setLoading(true);
     const params = new URLSearchParams();
-    if (search) params.set('q', search);
+    if (search) params.set('searchTerm', search);
     if (category) params.set('category', category);
     if (sector) params.set('sector', sector);
     params.set('page', String(page));
@@ -36,10 +45,23 @@ export default function EquipmentPage() {
       const res = await fetch(`/api/equipment?${params}`);
       const data = await res.json();
       setResult(data.data || { items: [], total: 0, page: 1, pageSize: 50, totalPages: 0 });
-    } catch {} finally { setLoading(false); }
+    } catch { } finally { setLoading(false); }
   }, [search, category, sector, page]);
 
+  useEffect(() => {
+    fetch('/api/sectors').then(r => r.json()).then(d => setSectors(d.data || []));
+    // Fetch real categories from Memgraph
+    fetch('/api/equipment/categories').then(r => r.json())
+      .then(d => { if (d.data) setLiveCategories(d.data); })
+      .catch(() => { });
+  }, []);
+
   useEffect(() => { loadEquipment(); }, [loadEquipment]);
+
+  /** Get human-readable label for a category code */
+  function getCategoryLabel(code: string): string {
+    return CATEGORY_LABELS[code] || code.charAt(0).toUpperCase() + code.slice(1);
+  }
 
   async function deleteCard(card: EquipmentCard) {
     if (!confirm(`Delete ${card.tag}?`)) return;
@@ -52,12 +74,19 @@ export default function EquipmentPage() {
     rotating: 'badge-blue', static: 'badge-green', instrumentation: 'badge-yellow', electrical: 'badge-purple', piping: 'badge-red',
   };
 
+  // Use live categories from DB if available, otherwise fall back to known defaults
+  const displayCategories = liveCategories.length > 0
+    ? liveCategories
+    : Object.keys(CATEGORY_LABELS);
+
   return (
     <motion.div initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-6">
           <h2 className="text-2xl font-bold text-white font-heading">Equipment Library</h2>
-          <p className="text-gray-400 text-sm">{result.total} equipment cards</p>
+          <p className="text-gray-400 text-sm">
+            {loading ? 'Loading...' : `${result.total} equipment cards`}
+          </p>
         </div>
 
         {/* Filters */}
@@ -66,9 +95,12 @@ export default function EquipmentPage() {
             <input className="input" placeholder="Search equipment..." value={search} onChange={e => { setSearch(e.target.value); setPage(1); }} />
             <select className="input" value={category} onChange={e => { setCategory(e.target.value); setPage(1); }}>
               <option value="">All Categories</option>
-              {CATEGORIES.filter(Boolean).map(c => <option key={c} value={c}>{c}</option>)}
+              {displayCategories.map(c => <option key={c} value={c}>{getCategoryLabel(c)}</option>)}
             </select>
-            <input className="input" placeholder="Sector code (e.g. ENER)" value={sector} onChange={e => { setSector(e.target.value); setPage(1); }} />
+            <select className="input" value={sector} onChange={e => { setSector(e.target.value); setPage(1); }}>
+              <option value="">All Sectors</option>
+              {sectors.map(s => <option key={s.code} value={s.code}>{s.code} — {s.name}</option>)}
+            </select>
             <button onClick={loadEquipment} className="btn-primary">Search</button>
           </div>
         </div>

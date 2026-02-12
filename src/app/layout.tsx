@@ -46,6 +46,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     { href: '/equipment', label: 'Equipment' },
                     { href: '/pipeline', label: 'Pipeline' },
                     { href: '/coverage', label: 'Coverage' },
+                    { href: '/wiki', label: 'Wiki' },
                   ].map((link) => (
                     <a
                       key={link.href}
