@@ -40,18 +40,7 @@ Generate a YAML frontmatter block with these fields:
 ### Link Conversion
 - Convert internal href links (e.g., '/wiki/energy/bess') to [[wikilinks]]
 - Use the page title as the display text: [[Battery Energy Storage|BESS]]
-- Map common slugs to page titles:
-  - /wiki/energy → [[Energy Sector Hub]]
-  - /wiki/energy/transmission → [[Transmission Facilities]]
-  - /wiki/energy/distribution → [[Distribution Facilities]]
-  - /wiki/energy/distribution-points → [[Distribution Points]]
-  - /wiki/energy/microgrids → [[Microgrids]]
-  - /wiki/energy/smart-homes → [[Smart Homes]]
-  - /wiki/energy/bess → [[Battery Energy Storage]]
-  - /wiki/energy/vpp-derms → [[VPP DERMS]]
-  - /wiki/sectors/ENER → [[Energy Sector Overview]]
-  - /wiki/dexpi → [[DEXPI 2.0 Standard]]
-  - /wiki/neo4j → [[Neo4j Migration Wiki]]
+- A complete slug-to-title mapping is provided in the user message — always use it for wikilink resolution
 
 ### References
 - Preserve all APA citations in a ## References section
@@ -63,6 +52,10 @@ Return ONLY the complete Markdown document — frontmatter + content. No comment
 /* ─── Slug-to-Title Map ─────────────────────────────────────────────────── */
 
 const SLUG_TITLE_MAP: Record<string, string> = {
+    /* ─── Wiki Home ────────────────────────────────────────────────────── */
+    '/wiki': 'Wiki Home',
+
+    /* ─── Energy Sector ────────────────────────────────────────────────── */
     '/wiki/energy': 'Energy Sector Hub',
     '/wiki/energy/transmission': 'Transmission Facilities',
     '/wiki/energy/distribution': 'Distribution Facilities',
@@ -71,10 +64,53 @@ const SLUG_TITLE_MAP: Record<string, string> = {
     '/wiki/energy/smart-homes': 'Smart Homes',
     '/wiki/energy/bess': 'Battery Energy Storage',
     '/wiki/energy/vpp-derms': 'VPP DERMS',
-    '/wiki/sectors/ENER': 'Energy Sector Overview',
+
+    /* ─── Water Sector ─────────────────────────────────────────────────── */
+    '/wiki/water': 'Water & Wastewater Systems',
+    '/wiki/water/treatment-plants': 'Surface Water Treatment Plants',
+    '/wiki/water/distribution': 'Water Distribution Networks',
+    '/wiki/water/pump-stations': 'Pump Stations',
+    '/wiki/water/wastewater': 'Wastewater Treatment (POTW)',
+    '/wiki/water/collection-systems': 'Collection Systems',
+    '/wiki/water/stormwater': 'Stormwater Management Facilities',
+
+    /* ─── DEXPI 2.0 ───────────────────────────────────────────────────── */
     '/wiki/dexpi': 'DEXPI 2.0 Standard',
-    '/wiki/neo4j': 'Neo4j Migration Wiki',
+    '/wiki/dexpi/data-model': 'Data Model',
+    '/wiki/dexpi/equipment-classes': 'Equipment Classes',
+    '/wiki/dexpi/xml-schema': 'DEXPI 2.0 XML Schema',
+    '/wiki/dexpi/standards': 'Engineering Standards',
+
+    /* ─── Neo4j ────────────────────────────────────────────────────────── */
+    '/wiki/neo4j': 'Neo4j Graph Database',
+    '/wiki/neo4j/docker-setup': 'Docker Setup',
+    '/wiki/neo4j/cypher-guide': 'Cypher Query Language',
+    '/wiki/neo4j/data-model': 'Data Model & Schema',
+    '/wiki/neo4j/migration-guide': 'Migration from Memgraph',
+    '/wiki/neo4j/javascript-driver': 'JavaScript Driver',
+    '/wiki/neo4j/api-integration': 'API Integration',
+    '/wiki/neo4j/example-queries': 'Example Queries',
+
+    /* ─── AI Pipeline ──────────────────────────────────────────────────── */
     '/wiki/pipeline': 'AI Pipeline V2',
+
+    /* ─── CISA Critical Infrastructure Sector Pages ────────────────────── */
+    '/wiki/sectors/CHEM': 'Chemical Sector',
+    '/wiki/sectors/COMM': 'Commercial Facilities Sector',
+    '/wiki/sectors/COMU': 'Communications Sector',
+    '/wiki/sectors/CMAN': 'Critical Manufacturing Sector',
+    '/wiki/sectors/DAMS': 'Dams Sector',
+    '/wiki/sectors/DEFN': 'Defense Industrial Base Sector',
+    '/wiki/sectors/EMER': 'Emergency Services Sector',
+    '/wiki/sectors/ENER': 'Energy Sector Overview',
+    '/wiki/sectors/FINA': 'Financial Services Sector',
+    '/wiki/sectors/FOOD': 'Food and Agriculture Sector',
+    '/wiki/sectors/GOVT': 'Government Facilities Sector',
+    '/wiki/sectors/HLTH': 'Healthcare and Public Health Sector',
+    '/wiki/sectors/ITEC': 'Information Technology Sector',
+    '/wiki/sectors/NUCL': 'Nuclear Reactors, Materials, and Waste Sector',
+    '/wiki/sectors/TRAN': 'Transportation Systems Sector',
+    '/wiki/sectors/WATR': 'Water and Wastewater Systems Sector',
 };
 
 /* ─── Agent ──────────────────────────────────────────────────────────────── */
