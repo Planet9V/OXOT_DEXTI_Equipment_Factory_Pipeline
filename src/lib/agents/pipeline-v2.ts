@@ -1,33 +1,37 @@
 /**
  * Pipeline V2 — Agent-Orchestrated Deterministic Pipeline.
  *
- * Replaces the Gemini-powered DexpiPipeline with a 6-step deterministic
+ * Replaces the Gemini-powered DexpiPipeline with a 7-stage deterministic
  * pipeline where each step is executed by a specialist agent. Full audit
- * trail and typed outputs at every stage.
+ * trail and typed outputs at every stage. Includes audit-fix remediation
+ * loop for rejected cards (max 3 attempts per card).
  *
- * Flow: Research → Generate → Validate → Enrich → Quality Gate → Write
+ * Flow: Research → Generate → Validate → Enrich → Quality Gate → Audit/Fix → Write
  *
  * @module agents/pipeline-v2
  */
 
 import crypto from 'crypto';
 import { AuditLogger, getAuditLogger } from './audit-logger';
-import { chatWithTools } from './openrouter-client';
-import { TOOL_DEFINITIONS, TOOL_HANDLERS } from './tools';
 import { ResearchAgent } from './specialist/research-agent';
+import { GeneratorAgent } from './specialist/generator-agent';
 import { ComplianceAgent } from './specialist/compliance-agent';
 import { EnrichmentAgent, type EnrichmentInput } from './specialist/enrichment-agent';
 import { QualityGateAgent, type QualityGateInput } from './specialist/quality-gate-agent';
 import { GraphWriterAgent, type GraphWriterInput } from './specialist/graph-writer-agent';
+import { AuditAgent } from './specialist/audit-agent';
 import type {
     PipelineV2Params,
+    PipelineV2BatchParams,
     PipelineV2Result,
     PipelineV2Stage,
     ResearchReport,
     ComplianceReport,
     QualityReport,
     WriteReport,
-    ChatMessage,
+    GeneratorInput,
+    AuditInput,
+    RemediationPlan,
 } from './types';
 import type { EquipmentCard } from '../types';
 
@@ -47,10 +51,15 @@ export class PipelineV2 {
 
     // Specialist agents (lazy-init singletons)
     private researchAgent = new ResearchAgent();
+    private generatorAgent = new GeneratorAgent();
     private complianceAgent = new ComplianceAgent();
     private enrichmentAgent = new EnrichmentAgent();
     private qualityGateAgent = new QualityGateAgent();
     private graphWriterAgent = new GraphWriterAgent();
+    private auditAgent = new AuditAgent();
+
+    /** Maximum remediation attempts per card before dropping. */
+    private static readonly MAX_REMEDIATION_ATTEMPTS = 3;
 
     /**
      * Creates a new Pipeline V2 instance.
@@ -83,6 +92,7 @@ export class PipelineV2 {
                 validate: { ...defaultStageStatus },
                 enrich: { ...defaultStageStatus },
                 'quality-gate': { ...defaultStageStatus },
+                audit: { ...defaultStageStatus },
                 write: { ...defaultStageStatus },
             },
             results: {
@@ -91,6 +101,7 @@ export class PipelineV2 {
                 validated: 0,
                 enriched: 0,
                 approved: 0,
+                remediationAttempts: 0,
                 written: 0,
                 duplicatesSkipped: 0,
                 averageScore: 0,
@@ -136,6 +147,71 @@ export class PipelineV2 {
     }
 
     /**
+     * Submits a batch run for multiple equipment names.
+     *
+     * Each equipment name is processed sequentially through the full
+     * 6-stage pipeline. Results are aggregated into a single run.
+     *
+     * @param batchParams - Batch input parameters.
+     * @returns The unique run identifier.
+     */
+    async submitBatchRun(batchParams: PipelineV2BatchParams): Promise<string> {
+        // Create a synthetic PipelineV2Params for the first item to bootstrap the run
+        const firstItem = batchParams.equipmentNames[0] || 'Unknown';
+        const syntheticParams: PipelineV2Params = {
+            sector: batchParams.sectorHint || 'STANDALONE',
+            subSector: 'STANDALONE',
+            facility: 'STANDALONE',
+            equipmentClass: firstItem,
+            quantity: 1,
+            minQualityScore: batchParams.minQualityScore || 80,
+        };
+
+        const runId = crypto.randomUUID();
+        const defaultStageStatus = { status: 'pending' as const };
+
+        const result: PipelineV2Result = {
+            runId,
+            status: 'queued',
+            params: syntheticParams,
+            stages: {
+                research: { ...defaultStageStatus },
+                generate: { ...defaultStageStatus },
+                validate: { ...defaultStageStatus },
+                enrich: { ...defaultStageStatus },
+                'quality-gate': { ...defaultStageStatus },
+                audit: { ...defaultStageStatus },
+                write: { ...defaultStageStatus },
+            },
+            results: {
+                researched: false,
+                generated: 0,
+                validated: 0,
+                enriched: 0,
+                approved: 0,
+                remediationAttempts: 0,
+                written: 0,
+                duplicatesSkipped: 0,
+                averageScore: 0,
+            },
+            createdAt: new Date().toISOString(),
+        };
+
+        this.runs.set(runId, result);
+
+        // Execute batch pipeline asynchronously
+        this.executeBatchPipeline(result, batchParams).catch(async (err) => {
+            result.status = 'failed';
+            await this.audit.log(
+                runId, 'pipeline-v2-batch', 'Batch pipeline failed', 'failure',
+                batchParams, { error: err instanceof Error ? err.message : String(err) }, 0,
+            );
+        });
+
+        return runId;
+    }
+
+    /**
      * Lists all pipeline runs.
      *
      * @returns Array of pipeline results.
@@ -176,13 +252,23 @@ export class PipelineV2 {
             return;
         }
 
-        // ── Step 2: Generate ─────────────────────────────────────────────
+        // ── Step 2: Generate (via Generator Agent) ───────────────────────
         if (this.isCancelled(runId)) return;
         this.setStage(run, 'generate', 'running');
 
         let generatedCards: EquipmentCard[];
         try {
-            generatedCards = await this.generateEquipmentCards(params, researchReport, runId);
+            const generatorInput: GeneratorInput = {
+                params: {
+                    equipmentClass: params.equipmentClass,
+                    quantity: params.quantity,
+                    sector: params.sector,
+                    subSector: params.subSector,
+                    facility: params.facility,
+                },
+                research: researchReport,
+            };
+            generatedCards = await this.generatorAgent.run(generatorInput, runId);
             run.results.generated = generatedCards.length;
             this.setStage(run, 'generate', 'completed', `Generated ${generatedCards.length} cards`);
         } catch (err) {
@@ -242,25 +328,116 @@ export class PipelineV2 {
             return;
         }
 
-        // ── Step 5: Quality Gate ─────────────────────────────────────────
+        // ── Step 5: Quality Gate + Audit-Fix Loop ────────────────────────
         if (this.isCancelled(runId)) return;
         this.setStage(run, 'quality-gate', 'running');
 
         const approvedCards: EquipmentCard[] = [];
         const qualityReports: QualityReport[] = [];
+        let cardsToGate = [...enrichedCards];
+        let totalRemediationAttempts = 0;
+
         try {
-            for (const card of enrichedCards) {
-                const gateInput: QualityGateInput = { card, minScore };
-                const report = await this.qualityGateAgent.run(gateInput, runId);
-                qualityReports.push(report);
-                if (report.approved) {
-                    approvedCards.push(card);
+            // Cards enter the quality gate; rejected cards enter the audit-fix loop
+            while (cardsToGate.length > 0) {
+                if (this.isCancelled(runId)) return;
+
+                const rejectedCards: Array<{ card: EquipmentCard; report: QualityReport }> = [];
+
+                for (const card of cardsToGate) {
+                    const gateInput: QualityGateInput = { card, minScore };
+                    const report = await this.qualityGateAgent.run(gateInput, runId);
+                    qualityReports.push(report);
+                    if (report.approved) {
+                        approvedCards.push(card);
+                    } else {
+                        rejectedCards.push({ card, report });
+                    }
                 }
+
+                // No rejections or all approved — done
+                if (rejectedCards.length === 0) break;
+
+                // Check if we've hit max remediation attempts
+                totalRemediationAttempts++;
+                if (totalRemediationAttempts >= PipelineV2.MAX_REMEDIATION_ATTEMPTS) {
+                    console.log(
+                        `[pipeline-v2] Run ${runId}: Max remediation attempts (${PipelineV2.MAX_REMEDIATION_ATTEMPTS}) reached, ` +
+                        `dropping ${rejectedCards.length} cards`,
+                    );
+                    await this.audit.log(
+                        runId, 'pipeline', `Dropped ${rejectedCards.length} cards after max remediation attempts`,
+                        'partial', { droppedTags: rejectedCards.map((r) => r.card.tag) }, undefined, 0,
+                    );
+                    break;
+                }
+
+                // ── Audit-Fix Loop ────────────────────────────────────────
+                this.setStage(run, 'audit', 'running', `Remediating ${rejectedCards.length} rejected cards (attempt ${totalRemediationAttempts}/${PipelineV2.MAX_REMEDIATION_ATTEMPTS})`);
+
+                const remediatedCards: EquipmentCard[] = [];
+                for (const { card, report } of rejectedCards) {
+                    if (this.isCancelled(runId)) return;
+
+                    try {
+                        // Step 5b: Audit — produce remediation plan
+                        const auditInput: AuditInput = { card, qualityReport: report, research: researchReport };
+                        const remediationPlan: RemediationPlan = await this.auditAgent.run(auditInput, runId);
+
+                        console.log(
+                            `[pipeline-v2] Run ${runId}: Audit of ${card.tag} — ${remediationPlan.fixes.length} fixes, ` +
+                            `confidence ${remediationPlan.confidence}%`,
+                        );
+
+                        // Step 5c: Fix — re-generate with remediation plan
+                        const fixInput: GeneratorInput = {
+                            params: {
+                                equipmentClass: params.equipmentClass,
+                                quantity: 1,
+                                sector: params.sector,
+                                subSector: params.subSector,
+                                facility: params.facility,
+                            },
+                            research: researchReport,
+                            remediationPlan,
+                        };
+                        const fixedCards = await this.generatorAgent.run(fixInput, runId);
+
+                        if (fixedCards.length > 0) {
+                            // Step 5d: Re-validate the fixed card
+                            const fixedCard = fixedCards[0];
+                            const complianceReport = await this.complianceAgent.run(fixedCard, runId);
+                            if (complianceReport.passed) {
+                                fixedCard.metadata = { ...fixedCard.metadata, validationScore: complianceReport.score };
+                                // Step 5e: Re-enrich
+                                const reEnrichInput: EnrichmentInput = { card: fixedCard, research: researchReport };
+                                const reEnriched = await this.enrichmentAgent.run(reEnrichInput, runId);
+                                remediatedCards.push(reEnriched);
+                            } else {
+                                console.log(`[pipeline-v2] Run ${runId}: Fixed card ${fixedCard.tag} still failed compliance`);
+                            }
+                        }
+                    } catch (err) {
+                        console.error(
+                            `[pipeline-v2] Run ${runId}: Remediation failed for ${card.tag}: ` +
+                            `${err instanceof Error ? err.message : String(err)}`,
+                        );
+                    }
+                }
+
+                // Re-enter the loop with remediated cards for quality gate
+                cardsToGate = remediatedCards;
+                this.setStage(run, 'audit', 'completed', `Remediation attempt ${totalRemediationAttempts}: ${remediatedCards.length}/${rejectedCards.length} cards fixed`);
             }
+
             run.results.approved = approvedCards.length;
+            run.results.remediationAttempts = totalRemediationAttempts;
             const totalScore = qualityReports.reduce((s, r) => s + r.score, 0);
             run.results.averageScore = qualityReports.length > 0 ? Math.round(totalScore / qualityReports.length) : 0;
-            this.setStage(run, 'quality-gate', 'completed', `${approvedCards.length}/${enrichedCards.length} approved (avg score: ${run.results.averageScore})`);
+            this.setStage(run, 'quality-gate', 'completed',
+                `${approvedCards.length} approved (avg score: ${run.results.averageScore})` +
+                (totalRemediationAttempts > 0 ? ` after ${totalRemediationAttempts} remediation rounds` : ''),
+            );
         } catch (err) {
             this.setStage(run, 'quality-gate', 'failed', err instanceof Error ? err.message : String(err));
             run.status = 'failed';
@@ -292,121 +469,12 @@ export class PipelineV2 {
 
         run.status = 'completed';
         run.completedAt = new Date().toISOString();
-        console.log(`[pipeline-v2] Run ${runId} completed: ${run.results.written} cards written`);
+        console.log(`[pipeline-v2] Run ${runId} completed: ${run.results.written} cards written (${totalRemediationAttempts} remediation rounds)`);
     }
 
-    /* ─── Generate via OpenRouter ────────────────────────────────────────── */
-
-    /**
-     * Generates equipment cards using OpenRouter LLM.
-     *
-     * @param params  - Pipeline parameters.
-     * @param research - Research report for context.
-     * @param runId   - Pipeline run identifier.
-     * @returns Array of generated equipment cards.
-     */
-    private async generateEquipmentCards(
-        params: PipelineV2Params,
-        research: ResearchReport,
-        runId: string,
-    ): Promise<EquipmentCard[]> {
-        const startTime = Date.now();
-
-        const systemPrompt = `You are a DEXPI 2.0 Equipment Card Generator. Generate realistic, standards-compliant equipment cards.
-
-CRITICAL REQUIREMENTS:
-- Tags MUST follow ISA-5.1 format: e.g. P-1001, E-2001, V-3001
-- componentClassURI MUST use PCA RDL format: http://data.posccaesar.org/rdl/...
-- All specifications MUST include units
-- Design conditions MUST exceed operating conditions
-- Include at least 3 manufacturers, 3 standards, and 3 specifications
-
-Return a JSON array of equipment card objects.`;
-
-        const userPrompt = `Generate ${params.quantity} equipment cards for "${params.equipmentClass}" in:
-- Sector: ${params.sector}
-- Sub-sector: ${params.subSector}
-- Facility: ${params.facility}
-
-## Research Data:
-${JSON.stringify(research, null, 2)}
-
-Return a JSON array of ${params.quantity} cards, each with this structure:
-{
-  "tag": "string (ISA-5.1 format, e.g. ${research.isaTagPrefix}-${1001})",
-  "componentClass": "${params.equipmentClass}",
-  "componentClassURI": "${research.pcaUri || 'http://data.posccaesar.org/rdl/...'}",
-  "displayName": "string",
-  "category": "string",
-  "description": "string (50+ chars)",
-  "sector": "${params.sector}",
-  "subSector": "${params.subSector}",
-  "facility": "${params.facility}",
-  "specifications": { "key": { "value": "number|string", "unit": "string" } },
-  "operatingConditions": {
-    "designPressure": number, "operatingPressure": number,
-    "designTemperature": number, "operatingTemperature": number,
-    "flowRate": number
-  },
-  "materials": { "body": "string", "internals": "string", "gaskets": "string", "bolting": "string" },
-  "standards": ["string"],
-  "manufacturers": ["string"],
-  "nozzles": [{ "id": "string", "size": "string", "rating": "string", "facing": "RF", "service": "string" }],
-  "metadata": { "version": 1, "source": "pipeline-v2", "createdAt": "ISO-8601", "validationScore": 0 }
-}
-
-Return ONLY the JSON array.`;
-
-        const messages: ChatMessage[] = [
-            { role: 'system', content: systemPrompt },
-            { role: 'user', content: userPrompt },
-        ];
-
-        const { response } = await chatWithTools(
-            messages,
-            TOOL_DEFINITIONS,
-            TOOL_HANDLERS,
-            { temperature: 0.4, max_tokens: 8192, response_format: { type: 'json_object' } },
-            5,
-        );
-
-        const content = response.choices?.[0]?.message?.content || '';
-        let cards: EquipmentCard[];
-
-        try {
-            const cleaned = content
-                .replace(/```json\n?/g, '')
-                .replace(/```\n?/g, '')
-                .trim();
-            const parsed = JSON.parse(cleaned);
-            cards = Array.isArray(parsed) ? parsed : (parsed.cards || parsed.equipment || [parsed]);
-        } catch {
-            throw new Error(`Failed to parse generated cards: ${content.substring(0, 200)}`);
-        }
-
-        // Ensure metadata on each card
-        cards = cards.map((card, i) => ({
-            ...card,
-            sector: params.sector,
-            subSector: params.subSector,
-            facility: params.facility,
-            metadata: {
-                ...card.metadata,
-                version: card.metadata?.version ?? 1,
-                source: card.metadata?.source ?? 'pipeline-v2',
-                createdAt: card.metadata?.createdAt ?? new Date().toISOString(),
-                validationScore: card.metadata?.validationScore ?? 0,
-            },
-        }));
-
-        const durationMs = Date.now() - startTime;
-        await this.audit.log(
-            runId, 'generator', `Generated ${cards.length} equipment cards`,
-            'success', params, { cardCount: cards.length }, durationMs,
-        );
-
-        return cards;
-    }
+    /* ─── NOTE: Generation is now handled by GeneratorAgent ──────────────── */
+    /* The inline generateEquipmentCards() method has been replaced by the  */
+    /* GeneratorAgent specialist (specialist/generator-agent.ts).           */
 
     /* ─── Helpers ────────────────────────────────────────────────────────── */
 
@@ -444,6 +512,186 @@ Return ONLY the JSON array.`;
         if (status === 'running') stageInfo.startedAt = new Date().toISOString();
         if (['completed', 'failed', 'skipped'].includes(status)) stageInfo.completedAt = new Date().toISOString();
         if (message) stageInfo.message = message;
+    }
+
+    /**
+     * Executes the batch pipeline: processes each equipment name through the
+     * full 6-stage pipeline sequentially, aggregating results.
+     *
+     * @param run - Pipeline run result to populate.
+     * @param batchParams - Batch input parameters.
+     */
+    private async executeBatchPipeline(
+        run: PipelineV2Result,
+        batchParams: PipelineV2BatchParams,
+    ): Promise<void> {
+        run.status = 'running';
+        const { runId } = run;
+        const names = batchParams.equipmentNames;
+        const minScore = batchParams.minQualityScore || 80;
+        const total = names.length;
+
+        console.log(`[pipeline-v2-batch] Starting batch run ${runId}: ${total} items`);
+
+        let totalScore = 0;
+        let scoreCount = 0;
+
+        for (let idx = 0; idx < names.length; idx++) {
+            const equipmentName = names[idx];
+            const progress = `[${idx + 1}/${total}]`;
+
+            if (this.isCancelled(runId)) return;
+
+            // ── Research ──
+            this.setStage(run, 'research', 'running', `${progress} Researching ${equipmentName}...`);
+            let researchReport: ResearchReport;
+            try {
+                researchReport = await this.researchAgent.run(
+                    {
+                        sector: batchParams.sectorHint || 'General',
+                        subSector: 'General',
+                        facility: 'Standalone',
+                        equipmentClass: equipmentName,
+                    },
+                    runId,
+                );
+                run.results.researched = true;
+                this.setStage(run, 'research', 'completed', `${progress} ${equipmentName}: ${researchReport.standards.length} standards found`);
+            } catch (err) {
+                this.setStage(run, 'research', 'completed', `${progress} ${equipmentName}: research failed, continuing...`);
+                console.warn(`[batch] Research failed for ${equipmentName}:`, err);
+                continue;
+            }
+
+            if (this.isCancelled(runId)) return;
+
+            // ── Generate ──
+            this.setStage(run, 'generate', 'running', `${progress} Generating card for ${equipmentName}...`);
+            const itemParams: PipelineV2Params = {
+                sector: batchParams.sectorHint || 'STANDALONE',
+                subSector: 'STANDALONE',
+                facility: 'STANDALONE',
+                equipmentClass: equipmentName,
+                quantity: 1,
+                minQualityScore: minScore,
+            };
+
+            let generatedCards: EquipmentCard[];
+            try {
+                const batchGenInput: GeneratorInput = {
+                    params: {
+                        equipmentClass: itemParams.equipmentClass,
+                        quantity: 1,
+                        sector: itemParams.sector,
+                        subSector: itemParams.subSector,
+                        facility: itemParams.facility,
+                    },
+                    research: researchReport,
+                };
+                generatedCards = await this.generatorAgent.run(batchGenInput, runId);
+                run.results.generated += generatedCards.length;
+                this.setStage(run, 'generate', 'completed', `${progress} ${equipmentName}: ${generatedCards.length} card(s) generated`);
+            } catch (err) {
+                this.setStage(run, 'generate', 'completed', `${progress} ${equipmentName}: generation failed, continuing...`);
+                console.warn(`[batch] Generate failed for ${equipmentName}:`, err);
+                continue;
+            }
+
+            if (this.isCancelled(runId)) return;
+
+            // ── Validate ──
+            this.setStage(run, 'validate', 'running', `${progress} Validating ${equipmentName}...`);
+            const validatedCards: EquipmentCard[] = [];
+            try {
+                for (const card of generatedCards) {
+                    const report = await this.complianceAgent.run(card, runId);
+                    if (report.passed) {
+                        card.metadata = { ...card.metadata, validationScore: report.score };
+                        validatedCards.push(card);
+                        totalScore += report.score;
+                        scoreCount++;
+                    }
+                }
+                run.results.validated += validatedCards.length;
+                this.setStage(run, 'validate', 'completed', `${progress} ${equipmentName}: ${validatedCards.length} passed`);
+            } catch (err) {
+                this.setStage(run, 'validate', 'completed', `${progress} ${equipmentName}: validation failed, continuing...`);
+                continue;
+            }
+
+            if (validatedCards.length === 0) continue;
+            if (this.isCancelled(runId)) return;
+
+            // ── Enrich ──
+            this.setStage(run, 'enrich', 'running', `${progress} Enriching ${equipmentName}...`);
+            const enrichedCards: EquipmentCard[] = [];
+            try {
+                for (const card of validatedCards) {
+                    const enriched = await this.enrichmentAgent.run({ card, research: researchReport }, runId);
+                    enrichedCards.push(enriched);
+                }
+                run.results.enriched += enrichedCards.length;
+                this.setStage(run, 'enrich', 'completed', `${progress} ${equipmentName}: enriched`);
+            } catch (err) {
+                this.setStage(run, 'enrich', 'completed', `${progress} ${equipmentName}: enrichment failed, continuing...`);
+                continue;
+            }
+
+            if (this.isCancelled(runId)) return;
+
+            // ── Quality Gate ──
+            this.setStage(run, 'quality-gate', 'running', `${progress} Quality gate for ${equipmentName}...`);
+            const approvedCards: EquipmentCard[] = [];
+            try {
+                for (const card of enrichedCards) {
+                    const report = await this.qualityGateAgent.run({ card, minScore }, runId);
+                    if (report.approved) approvedCards.push(card);
+                }
+                run.results.approved += approvedCards.length;
+                this.setStage(run, 'quality-gate', 'completed', `${progress} ${equipmentName}: ${approvedCards.length} approved`);
+            } catch (err) {
+                this.setStage(run, 'quality-gate', 'completed', `${progress} ${equipmentName}: quality gate failed, continuing...`);
+                continue;
+            }
+
+            if (approvedCards.length === 0) continue;
+            if (this.isCancelled(runId)) return;
+
+            // ── Write ──
+            this.setStage(run, 'write', 'running', `${progress} Writing ${equipmentName} to graph...`);
+            try {
+                const writeInput = {
+                    cards: approvedCards,
+                    sector: batchParams.sectorHint || 'STANDALONE',
+                    subSector: 'STANDALONE',
+                    facility: 'STANDALONE',
+                };
+                const report = await this.graphWriterAgent.run(writeInput, runId);
+                run.results.written += report.nodesCreated;
+                run.results.duplicatesSkipped += report.duplicatesSkipped;
+                this.setStage(run, 'write', 'completed', `${progress} ${equipmentName}: ${report.nodesCreated} written`);
+            } catch (err) {
+                this.setStage(run, 'write', 'completed', `${progress} ${equipmentName}: write failed, continuing...`);
+                continue;
+            }
+
+            // Update average score
+            if (scoreCount > 0) {
+                run.results.averageScore = Math.round(totalScore / scoreCount);
+            }
+        }
+
+        // Final status
+        if (!this.isCancelled(runId)) {
+            run.status = 'completed';
+            run.completedAt = new Date().toISOString();
+
+            // Update stage messages with final totals
+            this.setStage(run, 'write', 'completed',
+                `Batch complete: ${run.results.written} cards written, ${run.results.duplicatesSkipped} duplicates skipped`);
+        }
+
+        console.log(`[pipeline-v2-batch] Run ${runId} complete: ${run.results.written} written from ${total} inputs`);
     }
 }
 

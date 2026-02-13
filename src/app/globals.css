@@ -118,6 +118,18 @@
     transform: translateY(-1px);
   }
 
+  .btn-ghost {
+    @apply px-5 py-2.5 rounded-lg font-medium transition-all duration-300;
+    color: rgba(255, 255, 255, 0.6);
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+  }
+
   /* === Input System === */
   .input {
     @apply w-full px-4 py-2.5 rounded-lg text-gray-100 placeholder-gray-500 transition-all duration-300;

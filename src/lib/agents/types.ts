@@ -230,6 +230,56 @@ export interface WriteReport {
     verified: boolean;
 }
 
+/** Input for the generator agent. */
+export interface GeneratorInput {
+    /** Pipeline parameters. */
+    params: {
+        equipmentClass: string;
+        quantity: number;
+        sector: string;
+        subSector: string;
+        facility: string;
+    };
+    /** Research report for grounding. */
+    research: ResearchReport;
+    /** Optional remediation plan from audit agent (for fix loop). */
+    remediationPlan?: RemediationPlan;
+}
+
+/** A single field-level fix in a remediation plan. */
+export interface RemediationFix {
+    /** Field path (e.g. 'operatingConditions.designPressure'). */
+    field: string;
+    /** Current value that is wrong. */
+    currentValue: unknown;
+    /** Suggested replacement value. */
+    suggestedValue: unknown;
+    /** Reason for the fix. */
+    reason: string;
+}
+
+/** Structured remediation plan from the audit agent. */
+export interface RemediationPlan {
+    /** Equipment tag being remediated. */
+    cardTag: string;
+    /** List of specific fixes. */
+    fixes: RemediationFix[];
+    /** Confidence score 0-100. */
+    confidence: number;
+    /** True if all fixes can be applied automatically. */
+    canAutoFix: boolean;
+}
+
+/** Input for the audit agent. */
+export interface AuditInput {
+    /** Equipment card that was rejected. */
+    card: import('../types').EquipmentCard;
+    /** Quality gate report with rejection reasons. */
+    qualityReport: QualityReport;
+    /** Optional research data for context. */
+    research?: ResearchReport;
+}
+
 /** Input parameters for Pipeline V2. */
 export interface PipelineV2Params {
     /** CISA sector code. */
@@ -246,8 +296,18 @@ export interface PipelineV2Params {
     minQualityScore?: number;
 }
 
+/** Input parameters for Pipeline V2 batch mode (equipment factory). */
+export interface PipelineV2BatchParams {
+    /** List of equipment names to generate cards for. */
+    equipmentNames: string[];
+    /** Optional sector hint for better research accuracy. */
+    sectorHint?: string;
+    /** Minimum quality score to accept (default: 80). */
+    minQualityScore?: number;
+}
+
 /** Stage status for Pipeline V2. */
-export type PipelineV2Stage = 'research' | 'generate' | 'validate' | 'enrich' | 'quality-gate' | 'write';
+export type PipelineV2Stage = 'research' | 'generate' | 'validate' | 'enrich' | 'quality-gate' | 'audit' | 'write';
 
 /** Full result from a Pipeline V2 run. */
 export interface PipelineV2Result {
@@ -271,6 +331,7 @@ export interface PipelineV2Result {
         validated: number;
         enriched: number;
         approved: number;
+        remediationAttempts: number;
         written: number;
         duplicatesSkipped: number;
         averageScore: number;

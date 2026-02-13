@@ -10,22 +10,61 @@
 import { NextResponse } from 'next/server';
 import { getPipelineV2 } from '@/lib/agents/pipeline-v2';
 import { getAuditLogger } from '@/lib/agents/audit-logger';
-import type { PipelineV2Params } from '@/lib/agents/types';
+import type { PipelineV2Params, PipelineV2BatchParams } from '@/lib/agents/types';
 
 /**
  * POST /api/agents/pipeline — Submit a new pipeline run.
  *
- * @param request - JSON body with PipelineV2Params.
+ * Supports two modes:
+ * - **Batch mode**: `{ equipmentNames: string[], sectorHint?, minQualityScore? }`
+ * - **Legacy mode**: `{ sector, subSector, facility, equipmentClass, quantity }`
+ *
+ * @param request - JSON body.
  * @returns JSON with runId.
  */
 export async function POST(request: Request) {
     try {
-        const body = (await request.json()) as PipelineV2Params;
+        const body = await request.json();
+        const pipeline = getPipelineV2();
 
-        // Validate required fields
+        // ── Batch mode (Equipment Factory) ──
+        if (body.equipmentNames && Array.isArray(body.equipmentNames)) {
+            const batchParams: PipelineV2BatchParams = {
+                equipmentNames: body.equipmentNames.map((n: string) => n.trim()).filter((n: string) => n),
+                sectorHint: body.sectorHint || undefined,
+                minQualityScore: body.minQualityScore || undefined,
+            };
+
+            if (batchParams.equipmentNames.length === 0) {
+                return NextResponse.json(
+                    { error: 'equipmentNames must contain at least one non-empty entry' },
+                    { status: 400 },
+                );
+            }
+
+            if (batchParams.equipmentNames.length > 100) {
+                return NextResponse.json(
+                    { error: 'Maximum 100 equipment names per batch run' },
+                    { status: 400 },
+                );
+            }
+
+            const runId = await pipeline.submitBatchRun(batchParams);
+
+            return NextResponse.json({
+                success: true,
+                runId,
+                mode: 'batch',
+                itemCount: batchParams.equipmentNames.length,
+                message: `Batch pipeline submitted for ${batchParams.equipmentNames.length} equipment items`,
+            });
+        }
+
+        // ── Legacy single-item mode ──
+        const params = body as PipelineV2Params;
         const required: (keyof PipelineV2Params)[] = ['sector', 'subSector', 'facility', 'equipmentClass', 'quantity'];
         for (const field of required) {
-            if (!body[field]) {
+            if (!params[field]) {
                 return NextResponse.json(
                     { error: `Missing required field: ${field}` },
                     { status: 400 },
@@ -33,20 +72,20 @@ export async function POST(request: Request) {
             }
         }
 
-        if (body.quantity < 1 || body.quantity > 50) {
+        if (params.quantity < 1 || params.quantity > 50) {
             return NextResponse.json(
                 { error: 'Quantity must be between 1 and 50' },
                 { status: 400 },
             );
         }
 
-        const pipeline = getPipelineV2();
-        const runId = await pipeline.submitRun(body);
+        const runId = await pipeline.submitRun(params);
 
         return NextResponse.json({
             success: true,
             runId,
-            message: `Pipeline run submitted for ${body.equipmentClass}`,
+            mode: 'single',
+            message: `Pipeline run submitted for ${params.equipmentClass}`,
         });
     } catch (err) {
         const message = err instanceof Error ? err.message : String(err);

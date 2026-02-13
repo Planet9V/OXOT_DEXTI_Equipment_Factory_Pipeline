@@ -45,12 +45,18 @@ const ISA_TAG_PREFIX: Record<string, string> = {
 
 export class DexpiPipeline {
   private runs: Map<string, PipelineRun> = new Map();
-  private ai: GoogleGenerativeAI;
+  private ai: GoogleGenerativeAI | null = null;
+  private readonly disabled: boolean;
 
   constructor() {
     const apiKey = process.env.GEMINI_API_KEY;
-    if (!apiKey) throw new Error('GEMINI_API_KEY environment variable required');
-    this.ai = new GoogleGenerativeAI(apiKey);
+    if (!apiKey) {
+      console.warn('[pipeline-v1] GEMINI_API_KEY not set — V1 pipeline disabled. Use V2 (OpenRouter) instead.');
+      this.disabled = true;
+    } else {
+      this.disabled = false;
+      this.ai = new GoogleGenerativeAI(apiKey);
+    }
   }
 
   async submitRun(params: {
@@ -60,6 +66,7 @@ export class DexpiPipeline {
     equipmentClass: string;
     quantity: number;
   }): Promise<string> {
+    if (this.disabled) throw new Error('V1 pipeline disabled — GEMINI_API_KEY not set. Use V2 (agent) pipeline instead.');
     const runId = crypto.randomUUID();
     const run: PipelineRun = {
       id: runId,
@@ -122,6 +129,7 @@ export class DexpiPipeline {
   }
 
   private async aiCall(prompt: string, retries = 3): Promise<string> {
+    if (!this.ai) throw new Error('Gemini AI client not initialized — GEMINI_API_KEY required.');
     const model = this.ai.getGenerativeModel({ model: 'gemini-2.0-flash' });
     for (let i = 0; i < retries; i++) {
       try {
@@ -166,7 +174,7 @@ export class DexpiPipeline {
     this.setStageStatus(run, 'validate', 'running');
     this.addLog(run, 'info', 'validate', 'Validating equipment cards...');
     const validCards = await this.stageValidate(run, cards);
-    
+
     // Calculate aggregate validation metrics
     const totalScore = validCards.reduce((s, c) => s + c.metadata.validationScore, 0);
     run.results.validated = validCards.length;
