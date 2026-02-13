@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'OXOT DEXTI Equipment Factory',
-  description: 'DEXTI 2.0 Equipment Pipeline — Discover, create, and manage industrial equipment across 16 CISA critical infrastructure sectors',
+  title: 'OXOT | Predictive Cyber Assurance',
+  description: 'Industrial cybersecurity and critical infrastructure protection — Equipment pipeline across 16 CISA sectors',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -26,16 +26,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex items-center justify-between h-16">
                 {/* Logo */}
-                <a href="/" className="flex items-center gap-3 group">
-                  <div className="w-12 h-9 rounded-lg flex items-center justify-center font-bold text-[10px] text-white relative overflow-hidden shrink-0" style={{ background: 'linear-gradient(135deg, #FF6B00 0%, #ea580c 100%)' }}>
-                    <span className="relative z-10 tracking-tight">OX</span>
-                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: 'linear-gradient(135deg, #fb923c 0%, #FF6B00 100%)' }} />
-                  </div>
-                  <div className="flex flex-col min-w-0">
-                    <h1 className="text-sm font-heading font-semibold text-white tracking-tight truncate">DEXTI Equipment Factory</h1>
-                    <p className="text-[10px] text-gray-500 font-medium tracking-wider uppercase truncate">Critical Infrastructure</p>
-                  </div>
+                <a href="/" className="flex flex-col group">
+                  <span className="text-[22px] font-heading font-semibold text-white/90 tracking-[-0.02em] leading-none group-hover:text-white transition-colors duration-300">OXOT</span>
+                  <span className="text-[9px] font-medium text-white/50 tracking-[0.15em] uppercase mt-0.5 leading-tight">Predictive Cyber Assurance</span>
+                  <span className="text-[8px] font-mono font-medium tracking-[0.1em] mt-px leading-tight" style={{ color: '#ff6b00' }}>Industrial Cybersecurity</span>
                 </a>
+
 
                 {/* Navigation */}
                 <nav className="flex items-center gap-0.5">
@@ -69,10 +65,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <div className="w-5 h-5 rounded flex items-center justify-center text-[8px] font-bold text-white" style={{ background: 'linear-gradient(135deg, #FF6B00, #ea580c)' }}>OX</div>
-                <span className="text-xs text-gray-600">OXOT DEXTI Equipment Factory v1.0.0</span>
+                <span className="text-xs text-gray-600">OXOT Predictive Cyber Assurance v1.0.0</span>
               </div>
               <div className="flex items-center gap-4 text-xs text-gray-600">
-                <span>DEXPI 2.0 Standard</span>
+                <span>Industrial Cybersecurity</span>
                 <span className="w-px h-3 bg-white/[0.06]" />
                 <span>16 CISA Sectors</span>
                 <span className="w-px h-3 bg-white/[0.06]" />
