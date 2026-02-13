@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'OXOT DEXPI Equipment Factory',
-  description: 'DEXPI 2.0 Equipment Pipeline — Discover, create, and manage industrial equipment across 16 CISA critical infrastructure sectors',
+  title: 'OXOT DEXTI Equipment Factory',
+  description: 'DEXTI 2.0 Equipment Pipeline — Discover, create, and manage industrial equipment across 16 CISA critical infrastructure sectors',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -69,7 +69,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <div className="w-5 h-5 rounded flex items-center justify-center text-[8px] font-bold text-white" style={{ background: 'linear-gradient(135deg, #FF6B00, #ea580c)' }}>OX</div>
-                <span className="text-xs text-gray-600">OXOT DEXPI Equipment Factory v1.0.0</span>
+                <span className="text-xs text-gray-600">OXOT DEXTI Equipment Factory v1.0.0</span>
               </div>
               <div className="flex items-center gap-4 text-xs text-gray-600">
                 <span>DEXPI 2.0 Standard</span>

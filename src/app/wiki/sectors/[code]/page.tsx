@@ -42,7 +42,7 @@ export function generateMetadata({ params }: { params: { code: string } }) {
     const sector = SECTORS.find((s) => s.code === params.code);
     if (!sector) return { title: 'Sector Not Found' };
     return {
-        title: `${sector.name} — DEXPI Wiki`,
+        title: `${sector.name} — DEXTI Wiki`,
         description: sector.description,
     };
 }
@@ -213,6 +213,66 @@ export default function SectorWikiPage({ params }: { params: { code: string } })
                             { href: '/wiki/food-agriculture/greenhouse', label: 'Greenhouse / CEA', color: '#10B981' },
                             { href: '/wiki/food-agriculture/beverage-plant', label: 'Beverage Plant', color: '#F59E0B' },
                             { href: '/wiki/food-agriculture/feed-mill', label: 'Feed Mill Complex', color: '#A855F7' },
+                        ].map((link) => (
+                            <a
+                                key={link.href}
+                                href={link.href}
+                                className="text-xs px-3 py-2 rounded-lg border transition-colors hover:bg-white/[0.04]"
+                                style={{ borderColor: `${link.color}30`, color: link.color }}
+                            >
+                                {link.label} →
+                            </a>
+                        ))}
+                    </div>
+                </section>
+            )}
+
+            {/* Government deep-dive backlinks (GOVT sector only) */}
+            {sector.code === 'GOVT' && (
+                <section className="space-y-3 rounded-xl border border-[#64748B]/20 p-5" style={{ background: 'rgba(100,116,139,0.04)' }}>
+                    <h2 className="text-sm font-heading font-semibold text-white flex items-center gap-2">
+                        <span className="text-[#64748B]">🏛️</span> Government Sector Deep Dives
+                    </h2>
+                    <p className="text-xs text-gray-500">
+                        Comprehensive TOGAF reference architectures for critical government facilities — from National Labs to Public Monuments.
+                    </p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2">
+                        {[
+                            { href: '/wiki/government', label: 'Government Hub', color: '#64748B' },
+                            { href: '/wiki/government/national-laboratory', label: 'National Laboratory', color: '#EF4444' },
+                            { href: '/wiki/government/municipal-complex', label: 'Municipal Complex', color: '#3B82F6' },
+                            { href: '/wiki/government/university-campus', label: 'University Campus', color: '#F59E0B' },
+                            { href: '/wiki/government/national-monument', label: 'National Monument', color: '#10B981' },
+                        ].map((link) => (
+                            <a
+                                key={link.href}
+                                href={link.href}
+                                className="text-xs px-3 py-2 rounded-lg border transition-colors hover:bg-white/[0.04]"
+                                style={{ borderColor: `${link.color}30`, color: link.color }}
+                            >
+                                {link.label} →
+                            </a>
+                        ))}
+                    </div>
+                </section>
+            )}
+
+            {/* Defense deep-dive backlinks (DEFN sector only) */}
+            {sector.code === 'DEFN' && (
+                <section className="space-y-3 rounded-xl border border-[#A855F7]/20 p-5" style={{ background: 'rgba(168,85,247,0.04)' }}>
+                    <h2 className="text-sm font-heading font-semibold text-white flex items-center gap-2">
+                        <span className="text-[#A855F7]">🛡️</span> Defense Sector Deep Dives
+                    </h2>
+                    <p className="text-xs text-gray-500">
+                        Comprehensive TOGAF reference architectures for critical defense facilities — from Fighter Assembly to Trusted Foundries.
+                    </p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2">
+                        {[
+                            { href: '/wiki/defense', label: 'Defense Sector Hub', color: '#A855F7' },
+                            { href: '/wiki/defense/fighter-aircraft-assembly', label: 'Fighter Aircraft Assembly', color: '#3B82F6' },
+                            { href: '/wiki/defense/naval-shipyard', label: 'Naval Shipyard', color: '#0EA5E9' },
+                            { href: '/wiki/defense/armored-vehicle-plant', label: 'Armored Vehicle Plant', color: '#F59E0B' },
+                            { href: '/wiki/defense/electronics-fab', label: 'Defense Electronics Fab', color: '#A855F7' },
                         ].map((link) => (
                             <a
                                 key={link.href}

@@ -3,7 +3,7 @@
 import { useEffect } from 'react';
 
 /**
- * Root error boundary for the DEXPI Equipment Factory Pipeline.
+ * Root error boundary for the DEXTI Equipment Factory Pipeline.
  *
  * Catches unhandled errors in any route segment and displays a
  * user-friendly error message with a retry button.

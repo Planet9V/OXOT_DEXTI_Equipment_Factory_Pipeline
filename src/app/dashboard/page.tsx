@@ -130,7 +130,7 @@ export default function DashboardPage() {
         className="mb-8"
       >
         <motion.h2 variants={fadeInUp} className="text-3xl font-heading font-bold text-white mb-2">
-          DEXPI Equipment Factory Dashboard
+          DEXTI Equipment Factory Dashboard
         </motion.h2>
         <motion.p variants={fadeInUp} className="text-gray-400">
           Manage DEXPI 2.0 equipment across {stats.sectors > 0 ? stats.sectors : '...'} CISA critical infrastructure sectors

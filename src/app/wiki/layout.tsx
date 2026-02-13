@@ -89,6 +89,7 @@ const BREADCRUMB_LABELS: Record<string, string> = {
     dexpi: 'DEXPI',
     neo4j: 'Neo4j',
     pipeline: 'Pipeline',
+    defense: 'Defense',
 };
 
 /* ─── Collapsible Section Component ────────────────────────────────────────── */
