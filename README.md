@@ -1,8 +1,31 @@
 # OXOT DEXPI Equipment Factory Pipeline
 
-> DEXPI 2.0 Equipment Lifecycle Management for Critical Infrastructure
+> **Open-Standard Equipment Intelligence for the OXOT Cyber Digital Twin**
 
-A standalone, Docker-based application for discovering, creating, and managing DEXPI 2.0 industrial equipment JSON files across all 16 CISA critical infrastructure sectors. Includes a **Memgraph** knowledge graph for relationship-aware queries, a **multi-level wiki** for browsing DEXPI standards and CISA sectors, and an **AI pipeline** powered by Google Gemini.
+## Why This Exists
+
+Critical infrastructure operators are trapped in a **vendor lock-in cycle**. Proprietary equipment databases from Siemens, Honeywell, ABB, and Emerson lock facility data behind expensive licenses, incompatible formats, and closed ecosystems. When building a Cyber Digital Twin — a living, queryable replica of an entire infrastructure sector — this fragmentation is the single biggest obstacle.
+
+The **OXOT DEXPI Equipment Factory Pipeline** breaks this cycle by creating an **open, vendor-neutral equipment library** built on the [DEXPI 2.0](https://dexpi.org/) international standard (Data Exchange in the Process Industry). Every pump, valve, heat exchanger, turbine, and sensor across all **16 CISA critical infrastructure sectors** is catalogued in a standardised JSON format with POSC Caesar RDL classification URIs, ISA tag naming, and full material/nozzle specifications.
+
+This is a standalone, Docker-based application that discovers, creates, and manages DEXPI 2.0 industrial equipment records. It includes a **Memgraph** knowledge graph for relationship-aware queries, a **comprehensive wiki** with TOGAF-based reference architectures for every sector, and an **AI pipeline** powered by Google Gemini for automated equipment specification research and generation.
+
+### What It Covers
+
+- **16 CISA Sectors** — Energy, Nuclear, Water, Chemical, Manufacturing, Transportation, Dams, Healthcare, Financial Services, Food & Agriculture, Communications, IT, Defense, Emergency Services, Government, and Commercial Facilities
+- **100+ Facility Types** — From 1,500 MWe nuclear reactors to container port terminals to semiconductor fabs
+- **1,000+ Equipment Types** — Pumps, compressors, turbines, heat exchangers, vessels, instruments, control systems
+- **TOGAF Reference Architectures** — Academic-quality, long-form technical documents for each sector with Purdue/ISA-95 model mappings, protocol stacks, cybersecurity zone architectures, and bills of materials
+
+### How It Helps the OXOT Cyber Digital Twin
+
+The equipment library produced by this pipeline feeds directly into the [OXOT Cyber Digital Twin](https://github.com/Planet9V) platform:
+
+1. **Vendor-Neutral Foundation** — Equipment definitions use open DEXPI 2.0 URIs instead of proprietary vendor IDs, enabling cross-vendor comparison and substitution analysis
+2. **Sector-Wide Coverage** — Complete equipment taxonomies for all 16 CISA sectors provide the "bill of materials" layer for digital twin construction
+3. **AI-Augmented Cataloguing** — The Gemini-powered pipeline researches real-world specifications, generates compliant equipment cards, and validates them against engineering standards
+4. **Graph-Native Architecture** — Equipment relationships (containment, connection, dependency) are modelled in Memgraph, mirroring the physical topology of real facilities
+5. **Reference Architecture Wiki** — TOGAF-structured sector analyses provide the architectural context that transforms raw equipment data into actionable intelligence
 
 ## Architecture
 
@@ -40,17 +63,27 @@ A standalone, Docker-based application for discovering, creating, and managing D
 - **16 CISA Sectors** with sub-sectors, facilities, and equipment type definitions
 - **Full CRUD** for sectors, sub-sectors, facilities, and equipment cards
 - **Copy and rename** equipment between facilities
-- **Vendor variations** -- manufacturer-specific specs linked to base equipment
+- **Vendor variations** — manufacturer-specific specs linked to base equipment
 - **Search and filter** by sector, category, component class, validation score
 - **Paginated browsing** with detail panel
 
+### Wiki & TOGAF Reference Architectures
+
+- **16 Sector Hub Pages** — Long-form, academic-quality TOGAF reference architecture documents
+- **100+ Facility Deep-Dive Articles** — Detailed equipment BOM, process diagrams, Purdue model mappings
+- **Cross-Facility Purdue Model Tables** — Side-by-side L0–L4 automation hierarchy comparison
+- **Communication Protocol Stacks** — From 4–20 mA field signals to enterprise OPC UA
+- **Cybersecurity Zone Architectures** — ISA/IEC 62443 and NERC CIP aligned zone models
+- **APA-Formatted References** — Primary standards citations (NRC, FERC, IEEE, NIST, IEC, OSHA)
+- **Sidebar Navigation** — Collapsible sector menus with direct links to Reference Architecture pages
+
 ### AI Pipeline (5 Stages)
 
-1. **Research** -- AI researches equipment specs, materials, manufacturers, standards
-2. **Generate** -- Creates DEXPI 2.0 compliant equipment cards in batches
-3. **Validate** -- ISA tag format, schema validation, plausibility checks, scoring
-4. **Catalog** -- Duplicate detection by tag and content hash, suffix resolution
-5. **Store** -- Persist validated cards to filesystem
+1. **Research** — AI researches equipment specs, materials, manufacturers, standards
+2. **Generate** — Creates DEXPI 2.0 compliant equipment cards in batches
+3. **Validate** — ISA tag format, schema validation, plausibility checks, scoring
+4. **Catalog** — Duplicate detection by tag and content hash, suffix resolution
+5. **Store** — Persist validated cards to filesystem
 
 ### Coverage Analysis
 
@@ -333,12 +366,27 @@ src/
     coverage/page.tsx           # Coverage analysis
     wiki/
       page.tsx                  # Wiki home
-      layout.tsx                # Wiki sidebar layout
-      dexpi/
-        page.tsx                # DEXPI 2.0 overview
-        equipment-classes/page.tsx  # Equipment taxonomy
-      sectors/
-        [code]/page.tsx         # Dynamic sector wiki pages (×16)
+      layout.tsx                # Wiki sidebar layout (collapsible sectors)
+      dexpi/                    # DEXPI 2.0 standard documentation
+      neo4j/                    # Graph database documentation
+      pipeline/                 # AI pipeline documentation
+      sectors/[code]/page.tsx   # Dynamic sector data pages (×16)
+      energy/                   # ⚡ Energy TOGAF hub + 7 facility articles
+      nuclear/                  # ⚛️ Nuclear TOGAF hub + 7 facility articles
+      chemical/                 # 🧪 Chemical TOGAF hub + 5 facility articles
+      water/                    # 💧 Water TOGAF hub + 6 facility articles
+      critical-manufacturing/   # 🏭 Manufacturing TOGAF hub + 7 articles
+      transportation/           # 🚛 Transportation TOGAF hub + 7 articles
+      dams/                     # 🌊 Dams TOGAF hub + 5 facility articles
+      healthcare/               # ❤️ Healthcare TOGAF hub + 6 articles
+      food-agriculture/         # 🌾 Food & Ag TOGAF hub + 7 articles
+      financial-services/       # 🏦 Financial TOGAF hub + 5 articles
+      emergency-services/       # 🚒 Emergency TOGAF hub + 5 articles
+      communications/           # 📡 Communications TOGAF hub + 7 articles
+      information-technology/   # 💻 IT TOGAF hub + 6 articles
+      defense/                  # 🛡️ Defense TOGAF hub + 4 articles
+      government/               # 🏛️ Government TOGAF hub + 4 articles
+      commercial-facilities/    # 🏢 Commercial TOGAF hub + 6 articles
     api/
       sectors/route.ts          # Sector CRUD
       equipment/route.ts        # Equipment CRUD
@@ -356,7 +404,7 @@ src/
     sectors-data.ts             # Backward-compat re-export facade
     sectors/
       index.ts                  # Aggregated sector index
-      types.ts                  # DexpiSector type definitions
+      types.ts                  # DexpiSector type definitions (with slug)
       uris.ts                   # POSC Caesar RDL URI constants
       chemical.ts               # Chemical sector (5 sub-sectors)
       energy.ts                 # Energy sector (3 sub-sectors)
@@ -399,8 +447,8 @@ npm run build         # Type check + production build
 
 ## License
 
-MIT License -- OXOT Cyber Digital Twin Project
+MIT License — OXOT Cyber Digital Twin Project
 
 ---
 
-*Built with the OXOT Critical Infrastructure Digital Twin platform*
+*Part of the [OXOT Cyber Digital Twin](https://github.com/Planet9V) platform — Sovereign critical infrastructure intelligence through open standards, vendor-neutral equipment modelling, and AI-augmented architectural analysis.*
