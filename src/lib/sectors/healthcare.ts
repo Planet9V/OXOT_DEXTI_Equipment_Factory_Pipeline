@@ -21,6 +21,7 @@ import * as URI from './uris';
 
 export const HEALTHCARE_SECTOR: DexpiSector = {
     code: 'HLTH',
+    slug: 'healthcare',
     name: 'Healthcare and Public Health',
     icon: 'Heart',
     description:

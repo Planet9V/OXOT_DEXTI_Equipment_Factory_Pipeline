@@ -23,6 +23,7 @@ import * as URI from './uris';
 
 export const FOOD_SECTOR: DexpiSector = {
     code: 'FOOD',
+    slug: 'food-agriculture',
     name: 'Food and Agriculture',
     icon: 'Wheat',
     description:

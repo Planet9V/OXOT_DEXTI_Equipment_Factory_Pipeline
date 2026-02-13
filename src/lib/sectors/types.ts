@@ -88,6 +88,8 @@ export interface DexpiSubSector {
 export interface DexpiSector {
     /** Short uppercase sector code (e.g., "ENER"). */
     code: string;
+    /** URL slug matching the wiki directory name (e.g., "energy"). */
+    slug: string;
     /** Official PPD-21 sector name. */
     name: string;
     /** Lucide icon name for UI rendering. */

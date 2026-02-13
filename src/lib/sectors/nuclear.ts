@@ -22,6 +22,7 @@ import * as URI from './uris';
 
 export const NUCLEAR_SECTOR: DexpiSector = {
     code: 'NUCL',
+    slug: 'nuclear',
     name: 'Nuclear Reactors, Materials, and Waste',
     icon: 'Atom',
     description:

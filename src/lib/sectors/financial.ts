@@ -20,6 +20,7 @@ import * as URI from './uris';
 
 export const FINANCIAL_SECTOR: DexpiSector = {
     code: 'FINA',
+    slug: 'financial-services',
     name: 'Financial Services',
     icon: 'Landmark',
     description:

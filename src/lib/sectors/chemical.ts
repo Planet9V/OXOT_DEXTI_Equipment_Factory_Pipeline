@@ -22,6 +22,7 @@ import * as URI from './uris';
 
 export const CHEMICAL_SECTOR: DexpiSector = {
     code: 'CHEM',
+    slug: 'chemical',
     name: 'Chemical',
     icon: 'FlaskConical',
     description:

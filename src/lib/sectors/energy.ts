@@ -21,6 +21,7 @@ import * as URI from './uris';
 
 export const ENERGY_SECTOR: DexpiSector = {
     code: 'ENER',
+    slug: 'energy',
     name: 'Energy',
     icon: 'Zap',
     description:

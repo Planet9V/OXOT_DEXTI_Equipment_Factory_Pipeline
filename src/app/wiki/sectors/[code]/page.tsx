@@ -287,7 +287,97 @@ export default function SectorWikiPage({ params }: { params: { code: string } })
                 </section>
             )}
 
-            {/* Sub-Sectors */}
+            {/* Financial Services deep-dive backlinks (FINA sector only) */}
+            {sector.code === 'FINA' && (
+                <section className="space-y-3 rounded-xl border border-[#10B981]/20 p-5" style={{ background: 'rgba(16,185,129,0.04)' }}>
+                    <h2 className="text-sm font-heading font-semibold text-white flex items-center gap-2">
+                        <span className="text-[#10B981]">🏦</span> Financial Services Sector Deep Dives
+                    </h2>
+                    <p className="text-xs text-gray-500">
+                        Comprehensive TOGAF reference architectures for critical financial facilities — from Tier IV Data Centers to Securities Exchange Trading Floors.
+                    </p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2">
+                        {[
+                            { href: '/wiki/financial-services', label: 'Financial Services Hub', color: '#10B981' },
+                            { href: '/wiki/financial-services/data-center', label: 'Financial Data Center', color: '#10B981' },
+                            { href: '/wiki/financial-services/trading-exchange', label: 'Securities Exchange', color: '#3B82F6' },
+                            { href: '/wiki/financial-services/clearinghouse', label: 'Clearinghouse & Payments', color: '#8B5CF6' },
+                            { href: '/wiki/financial-services/atm-branch-network', label: 'ATM & Branch Network', color: '#F59E0B' },
+                            { href: '/wiki/financial-services/insurance-processing', label: 'Insurance Processing', color: '#EC4899' },
+                        ].map((link) => (
+                            <a
+                                key={link.href}
+                                href={link.href}
+                                className="text-xs px-3 py-2 rounded-lg border transition-colors hover:bg-white/[0.04]"
+                                style={{ borderColor: `${link.color}30`, color: link.color }}
+                            >
+                                {link.label} →
+                            </a>
+                        ))}
+                    </div>
+                </section>
+            )}
+
+            {/* Emergency Services deep-dive backlinks (EMER sector only) */}
+            {sector.code === 'EMER' && (
+                <section className="space-y-3 rounded-xl border border-[#DC2626]/20 p-5" style={{ background: 'rgba(220,38,38,0.04)' }}>
+                    <h2 className="text-sm font-heading font-semibold text-white flex items-center gap-2">
+                        <span className="text-[#DC2626]">🚨</span> Emergency Services Sector Deep Dives
+                    </h2>
+                    <p className="text-xs text-gray-500">
+                        Comprehensive TOGAF reference architectures for critical emergency services facilities — from 911 PSAPs to HazMat Response Teams.
+                    </p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2">
+                        {[
+                            { href: '/wiki/emergency-services', label: 'Emergency Services Hub', color: '#DC2626' },
+                            { href: '/wiki/emergency-services/psap-911', label: '911/PSAP Communications', color: '#DC2626' },
+                            { href: '/wiki/emergency-services/fire-station', label: 'Fire Station', color: '#F97316' },
+                            { href: '/wiki/emergency-services/eoc', label: 'Emergency Operations Ctr', color: '#3B82F6' },
+                            { href: '/wiki/emergency-services/ems-base', label: 'EMS Base Station', color: '#10B981' },
+                            { href: '/wiki/emergency-services/hazmat-response', label: 'HazMat Response', color: '#EAB308' },
+                        ].map((link) => (
+                            <a
+                                key={link.href}
+                                href={link.href}
+                                className="text-xs px-3 py-2 rounded-lg border transition-colors hover:bg-white/[0.04]"
+                                style={{ borderColor: `${link.color}30`, color: link.color }}
+                            >
+                                {link.label} →
+                            </a>
+                        ))}
+                    </div>
+                </section>
+            )}
+            {/* Dams deep-dive backlinks (DAMS sector only) */}
+            {sector.code === 'DAMS' && (
+                <section className="space-y-3 rounded-xl border border-[#0EA5E9]/20 p-5" style={{ background: 'rgba(14,165,233,0.04)' }}>
+                    <h2 className="text-sm font-heading font-semibold text-white flex items-center gap-2">
+                        <span className="text-[#0EA5E9]">🏗️</span> Dams Sector Deep Dives
+                    </h2>
+                    <p className="text-xs text-gray-500">
+                        Comprehensive TOGAF reference architectures for critical dam and levee infrastructure — from hydroelectric generation to mine tailings management.
+                    </p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2">
+                        {[
+                            { href: '/wiki/dams', label: 'Dams Hub', color: '#0EA5E9' },
+                            { href: '/wiki/dams/hydroelectric-dam', label: 'Hydroelectric Dam', color: '#0EA5E9' },
+                            { href: '/wiki/dams/levee-system', label: 'Levee System', color: '#3B82F6' },
+                            { href: '/wiki/dams/navigation-lock', label: 'Navigation Lock', color: '#10B981' },
+                            { href: '/wiki/dams/irrigation-diversion', label: 'Irrigation Diversion', color: '#84CC16' },
+                            { href: '/wiki/dams/tailings-facility', label: 'Tailings Facility', color: '#F59E0B' },
+                        ].map((link) => (
+                            <a
+                                key={link.href}
+                                href={link.href}
+                                className="text-xs px-3 py-2 rounded-lg border transition-colors hover:bg-white/[0.04]"
+                                style={{ borderColor: `${link.color}30`, color: link.color }}
+                            >
+                                {link.label} →
+                            </a>
+                        ))}
+                    </div>
+                </section>
+            )}
             {sector.subSectors.map((subSector, subIdx) => (
                 <SubSectorSection
                     key={subSector.code}

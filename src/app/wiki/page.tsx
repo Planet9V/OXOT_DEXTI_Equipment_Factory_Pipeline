@@ -98,7 +98,7 @@ export default function WikiHomePage() {
                     {filteredSectors.map((sector) => (
                         <Link
                             key={sector.code}
-                            href={`/wiki/sectors/${sector.code}`}
+                            href={sector.slug ? `/wiki/${sector.slug}` : `/wiki/sectors/${sector.code}`}
                             className="group relative flex flex-col p-5 rounded-xl border border-white/[0.06] bg-white/[0.01] hover:bg-white/[0.03] hover:border-white/[0.12] transition-all duration-300"
                         >
                             {/* Color Accent */}

@@ -21,6 +21,7 @@ import * as URI from './uris';
 
 export const WATER_SECTOR: DexpiSector = {
     code: 'WATR',
+    slug: 'water',
     name: 'Water and Wastewater Systems',
     icon: 'Droplets',
     description:

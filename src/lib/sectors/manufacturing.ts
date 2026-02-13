@@ -21,6 +21,7 @@ import * as URI from './uris';
 
 export const MANUFACTURING_SECTOR: DexpiSector = {
     code: 'CMAN',
+    slug: 'critical-manufacturing',
     name: 'Critical Manufacturing',
     icon: 'Factory',
     description:

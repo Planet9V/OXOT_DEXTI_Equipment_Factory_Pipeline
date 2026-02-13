@@ -13,6 +13,7 @@ import * as URI from './uris';
 /** CISA Sector 07: Emergency Services. SRMA: DHS/FEMA. */
 export const EMERGENCY_SECTOR: DexpiSector = {
     code: 'EMER',
+    slug: 'emergency-services',
     name: 'Emergency Services',
     icon: 'Siren',
     description:
@@ -76,6 +77,7 @@ export const EMERGENCY_SECTOR: DexpiSector = {
 /** CISA Sector 11: Government Facilities. SRMA: DHS/GSA. */
 export const GOVERNMENT_SECTOR: DexpiSector = {
     code: 'GOVT',
+    slug: 'government',
     name: 'Government Facilities',
     icon: 'Building',
     description:
@@ -140,6 +142,7 @@ export const GOVERNMENT_SECTOR: DexpiSector = {
 /** CISA Sector 13: Information Technology. SRMA: DHS/CISA. */
 export const IT_SECTOR: DexpiSector = {
     code: 'ITEC',
+    slug: 'information-technology',
     name: 'Information Technology',
     icon: 'Cpu',
     description:

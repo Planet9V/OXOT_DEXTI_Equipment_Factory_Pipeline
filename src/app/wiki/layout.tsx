@@ -61,8 +61,12 @@ const WIKI_NAV_FIXED = [
 const SECTOR_NAV_GROUPS = SECTORS.map(sector => ({
     title: `${sector.name} Sector`,
     pathPrefix: `/wiki/sectors/${sector.code}`,
+    slugPrefix: sector.slug ? `/wiki/${sector.slug}` : undefined,
     links: [
-        { href: `/wiki/sectors/${sector.code}`, label: 'Sector Hub' },
+        {
+            href: sector.slug ? `/wiki/${sector.slug}` : `/wiki/sectors/${sector.code}`,
+            label: 'Sector Hub'
+        },
         ...sector.subSectors.map(sub => ({
             href: `/wiki/sectors/${sector.code}#${sub.code}`,
             label: sub.name
@@ -90,6 +94,14 @@ const BREADCRUMB_LABELS: Record<string, string> = {
     neo4j: 'Neo4j',
     pipeline: 'Pipeline',
     defense: 'Defense',
+    'financial-services': 'Financial Services',
+    'emergency-services': 'Emergency Services',
+    dams: 'Dams',
+    'hydroelectric-dam': 'Hydroelectric Dam',
+    'levee-system': 'Levee System',
+    'navigation-lock': 'Navigation Lock',
+    'irrigation-diversion': 'Irrigation Diversion',
+    'tailings-facility': 'Tailings Facility',
 };
 
 /* ─── Collapsible Section Component ────────────────────────────────────────── */
@@ -243,7 +255,7 @@ export default function WikiLayout({ children }: { children: React.ReactNode }) 
                                     links={group.links}
                                     pathPrefix={group.pathPrefix}
                                     pathname={pathname}
-                                    isActive={pathname.startsWith(group.pathPrefix)}
+                                    isActive={pathname.startsWith(group.pathPrefix) || (!!group.slugPrefix && pathname.startsWith(group.slugPrefix))}
                                 />
                             ))}
                         </div>

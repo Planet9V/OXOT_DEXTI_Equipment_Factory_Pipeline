@@ -23,6 +23,7 @@ import * as URI from './uris';
 
 export const TRANSPORTATION_SECTOR: DexpiSector = {
     code: 'TRAN',
+    slug: 'transportation',
     name: 'Transportation Systems',
     icon: 'Truck',
     description:
