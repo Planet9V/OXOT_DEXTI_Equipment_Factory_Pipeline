@@ -27,13 +27,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <div className="flex items-center justify-between h-16">
                 {/* Logo */}
                 <a href="/" className="flex items-center gap-3 group">
-                  <div className="w-9 h-9 rounded-lg flex items-center justify-center font-bold text-sm text-white relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #FF6B00 0%, #ea580c 100%)' }}>
-                    <span className="relative z-10">DX</span>
+                  <div className="w-12 h-9 rounded-lg flex items-center justify-center font-bold text-[10px] text-white relative overflow-hidden shrink-0" style={{ background: 'linear-gradient(135deg, #FF6B00 0%, #ea580c 100%)' }}>
+                    <span className="relative z-10 tracking-tight">OX</span>
                     <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: 'linear-gradient(135deg, #fb923c 0%, #FF6B00 100%)' }} />
                   </div>
-                  <div>
-                    <h1 className="text-base font-heading font-semibold text-white tracking-tight">DEXPI Equipment Factory</h1>
-                    <p className="text-[10px] text-gray-500 font-medium tracking-wider uppercase">OXOT Critical Infrastructure</p>
+                  <div className="flex flex-col min-w-0">
+                    <h1 className="text-sm font-heading font-semibold text-white tracking-tight truncate">DEXTI Equipment Factory</h1>
+                    <p className="text-[10px] text-gray-500 font-medium tracking-wider uppercase truncate">Critical Infrastructure</p>
                   </div>
                 </a>
 
@@ -68,7 +68,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <footer className="relative z-10 border-t border-white/[0.04] py-6">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <div className="w-5 h-5 rounded flex items-center justify-center text-[8px] font-bold text-white" style={{ background: 'linear-gradient(135deg, #FF6B00, #ea580c)' }}>DX</div>
+                <div className="w-5 h-5 rounded flex items-center justify-center text-[8px] font-bold text-white" style={{ background: 'linear-gradient(135deg, #FF6B00, #ea580c)' }}>OX</div>
                 <span className="text-xs text-gray-600">OXOT DEXPI Equipment Factory v1.0.0</span>
               </div>
               <div className="flex items-center gap-4 text-xs text-gray-600">

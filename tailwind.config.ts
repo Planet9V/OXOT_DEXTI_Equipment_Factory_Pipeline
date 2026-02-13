@@ -12,24 +12,34 @@ const config: Config = {
       colors: {
         oxot: {
           bg: {
-            primary: '#050507',
-            secondary: '#0a0b0f',
-            tertiary: '#0f1117',
-            elevated: '#141620',
-            surface: '#1a1c2a',
+            primary: '#050505', // Deep Black
+            secondary: '#0a0a0a',
+            tertiary: '#111111',
+            elevated: '#1a1a1a',
+            surface: '#222222',
+          },
+          orange: {
+            DEFAULT: '#FF6B00', // Dutch Orange
+            dim: 'rgba(255, 107, 0, 0.1)',
+            glow: 'rgba(255, 107, 0, 0.5)',
+          },
+          teal: {
+            DEFAULT: '#00D1FF', // Cyber Teal
+            dim: 'rgba(0, 209, 255, 0.1)',
+            glow: 'rgba(0, 209, 255, 0.5)',
           },
           grey: {
             50: '#f8f9fa',
             100: '#e9ecef',
             200: '#dee2e6',
             300: '#adb5bd',
-            400: '#868e96',
-            500: '#6c757d',
-            600: '#495057',
-            700: '#343a40',
-            800: '#212529',
-            900: '#16181d',
-            950: '#0d0f14',
+            400: '#9ca3af',
+            500: '#6b7280',
+            600: '#4b5563',
+            700: '#374151',
+            800: '#1f2937',
+            900: '#111827',
+            950: '#030712',
           },
         },
         accent: {

@@ -60,6 +60,24 @@ export const NUCLEAR_SECTOR: DexpiSector = {
                         { componentClass: 'Transformer', componentClassURI: URI.TRANSFORMER_URI, displayName: 'Main Power Transformer', category: 'electrical', typicalQuantity: { min: 1, max: 3 } },
                     ],
                 },
+                {
+                    code: 'NUCL-PR-BWR',
+                    name: 'Boiling Water Reactor (BWR) Plant',
+                    description:
+                        'Direct-cycle BWR generating station where primary coolant boils in the reactor vessel ' +
+                        'producing steam that directly drives the turbine generator. Capacity 500–1,400 MWe. ' +
+                        'Jet pumps and internal steam separators/dryers replace external steam generators.',
+                    equipment: [
+                        { componentClass: 'PressureVessel', componentClassURI: URI.PRESSURE_VESSEL_URI, displayName: 'Reactor Pressure Vessel', category: 'static', typicalQuantity: { min: 1, max: 1 } },
+                        { componentClass: 'SteamTurbine', componentClassURI: URI.STEAM_TURBINE_URI, displayName: 'Steam Turbine (HP/LP)', category: 'rotating', typicalQuantity: { min: 1, max: 2 } },
+                        { componentClass: 'ElectricGenerator', componentClassURI: URI.ELECTRIC_GENERATOR_URI, displayName: 'Turbo Generator', category: 'electrical', typicalQuantity: { min: 1, max: 1 } },
+                        { componentClass: 'CentrifugalPump', componentClassURI: URI.CENTRIFUGAL_PUMP_URI, displayName: 'Recirculation Pump', category: 'rotating', typicalQuantity: { min: 2, max: 2 } },
+                        { componentClass: 'Condenser', componentClassURI: URI.CONDENSER_URI, displayName: 'Main Condenser', category: 'heat-transfer', typicalQuantity: { min: 1, max: 1 } },
+                        { componentClass: 'CentrifugalPump', componentClassURI: URI.CENTRIFUGAL_PUMP_URI, displayName: 'ECCS / HPCI Pump', category: 'rotating', typicalQuantity: { min: 2, max: 4 } },
+                        { componentClass: 'StorageTank', componentClassURI: URI.TANK_URI, displayName: 'Condensate Storage Tank', category: 'static', typicalQuantity: { min: 1, max: 2 } },
+                        { componentClass: 'Transformer', componentClassURI: URI.TRANSFORMER_URI, displayName: 'Main Power Transformer', category: 'electrical', typicalQuantity: { min: 1, max: 3 } },
+                    ],
+                },
             ],
         },
         {
@@ -106,6 +124,20 @@ export const NUCLEAR_SECTOR: DexpiSector = {
                         { componentClass: 'Autoclave', componentClassURI: URI.AUTOCLAVE_URI, displayName: 'UF₆ Feed Autoclave', category: 'static', typicalQuantity: { min: 2, max: 8 } },
                     ],
                 },
+                {
+                    code: 'NUCL-NM-FAB',
+                    name: 'Nuclear Fuel Fabrication Plant',
+                    description:
+                        'Converts enriched UF₆ into UO₂ ceramic pellets, loads them into Zircaloy cladding ' +
+                        'tubes, and assembles finished fuel bundles for commercial reactors. Regulated under ' +
+                        '10 CFR Part 70 with ISA criticality safety requirements.',
+                    equipment: [
+                        { componentClass: 'Furnace', componentClassURI: URI.FURNACE_URI, displayName: 'Sintering Furnace (H₂, 1700°C)', category: 'heat-transfer', typicalQuantity: { min: 2, max: 6 } },
+                        { componentClass: 'Compressor', componentClassURI: URI.COMPRESSOR_URI, displayName: 'Hydraulic Pellet Press', category: 'rotating', typicalQuantity: { min: 4, max: 8 } },
+                        { componentClass: 'Analyzer', componentClassURI: URI.ANALYZER_URI, displayName: 'Mass Spectrometer (TIMS)', category: 'instrumentation', typicalQuantity: { min: 1, max: 2 } },
+                        { componentClass: 'Filter', componentClassURI: URI.FILTER_URI, displayName: 'HEPA Confinement System', category: 'static', typicalQuantity: { min: 4, max: 8 } },
+                    ],
+                },
             ],
         },
         {
@@ -127,6 +159,19 @@ export const NUCLEAR_SECTOR: DexpiSector = {
                         { componentClass: 'PressureVessel', componentClassURI: URI.PRESSURE_VESSEL_URI, displayName: 'Dry Storage Cask', category: 'static', typicalQuantity: { min: 10, max: 200 } },
                         { componentClass: 'CentrifugalPump', componentClassURI: URI.CENTRIFUGAL_PUMP_URI, displayName: 'Transfer Canal Pump', category: 'rotating', typicalQuantity: { min: 1, max: 4 } },
                         { componentClass: 'Analyzer', componentClassURI: URI.ANALYZER_URI, displayName: 'Radiation Monitor', category: 'instrumentation', typicalQuantity: { min: 4, max: 16 } },
+                    ],
+                },
+                {
+                    code: 'NUCL-RW-DECOM',
+                    name: 'Nuclear Decommissioning Site',
+                    description:
+                        'Safe dismantlement of reactors and fuel cycle facilities via DECON (immediate) or ' +
+                        'SAFSTOR (deferred) strategies, including RPV segmentation, decontamination, ' +
+                        'waste packaging, and MARSSIM final status surveys for license termination.',
+                    equipment: [
+                        { componentClass: 'Analyzer', componentClassURI: URI.ANALYZER_URI, displayName: 'HPGe Gamma Spectrometer', category: 'instrumentation', typicalQuantity: { min: 2, max: 6 } },
+                        { componentClass: 'CentrifugalPump', componentClassURI: URI.CENTRIFUGAL_PUMP_URI, displayName: 'Decon Pump System', category: 'rotating', typicalQuantity: { min: 2, max: 4 } },
+                        { componentClass: 'Filter', componentClassURI: URI.FILTER_URI, displayName: 'Temporary HEPA Enclosure', category: 'static', typicalQuantity: { min: 4, max: 8 } },
                     ],
                 },
             ],

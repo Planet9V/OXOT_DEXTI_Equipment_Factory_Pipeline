@@ -1,16 +1,7 @@
-# =============================================================================
-# DEXPI Equipment Factory — Dev Memgraph Only
-#
-# Starts ONLY Memgraph so that `npm run dev` can connect to it.
-#
-# Usage:
-#   docker compose -f docker-compose.dev.yml up -d
-#   npm run dev
-#
-# Memgraph will be available at bolt://localhost:7687
-# =============================================================================
+version: '3.8'
 
 services:
+  # ── Memgraph (Same as Production) ──────────────────────────────────────────────
   memgraph:
     image: memgraph/memgraph:latest
     platform: linux/amd64
@@ -19,15 +10,37 @@ services:
       - "7687:7687"
       - "7444:7444"
     volumes:
-      - memgraph-dev-data:/var/lib/memgraph
-    restart: unless-stopped
-    healthcheck:
-      test: ["CMD-SHELL", "echo 'RETURN 1;' | mgconsole || exit 1"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-      start_period: 10s
+      - memgraph-data-dev:/var/lib/memgraph
+    environment:
+      - MEMGRAPH_HOST=memgraph
+      - MEMGRAPH_PORT=7687
+
+  # ── Next.js App (Development Mode) ─────────────────────────────────────────────
+  app:
+    # Use standard Node image instead of building production info
+    image: node:20-buster
+    container_name: dexpi-equipment-factory-dev
+    working_dir: /app
+    
+    # Mount local directory to container for hot-reload
+    volumes:
+      - ./:/app
+      - /app/node_modules
+    
+    # Run Next.js dev server
+    command: npm run dev
+    
+    ports:
+      - "3000:3000"
+    
+    environment:
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - MEMGRAPH_HOST=memgraph
+      - MEMGRAPH_PORT=7687
+      - PORT=3000
+    
+    depends_on:
+      - memgraph
 
 volumes:
-  memgraph-dev-data:
-    driver: local
+  memgraph-data-dev:

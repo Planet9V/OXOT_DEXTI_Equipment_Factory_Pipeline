@@ -52,6 +52,20 @@ export const FOOD_SECTOR: DexpiSector = {
                         { componentClass: 'Motor', componentClassURI: URI.MOTOR_URI, displayName: 'Conveyor Drive Motor', category: 'electrical', typicalQuantity: { min: 8, max: 30 } },
                     ],
                 },
+                {
+                    code: 'FOOD-AG-GRNH',
+                    name: 'Commercial Greenhouse / CEA Facility',
+                    description:
+                        'Controlled-environment agriculture (CEA) greenhouse complex with climate computers, ' +
+                        'fertigation systems, supplemental HPS/LED lighting, CO₂ enrichment, and IPM. 5–50+ acres.',
+                    equipment: [
+                        { componentClass: 'Boiler', componentClassURI: URI.BOILER_URI, displayName: 'Hot-Water Boiler (Climate)', category: 'heat-transfer', typicalQuantity: { min: 2, max: 6 } },
+                        { componentClass: 'CentrifugalPump', componentClassURI: URI.CENTRIFUGAL_PUMP_URI, displayName: 'Fertigation Dosing Pump', category: 'rotating', typicalQuantity: { min: 4, max: 16 } },
+                        { componentClass: 'Fan', componentClassURI: URI.FAN_URI, displayName: 'HAF Circulation Fan', category: 'rotating', typicalQuantity: { min: 20, max: 100 } },
+                        { componentClass: 'StorageTank', componentClassURI: URI.TANK_URI, displayName: 'Nutrient Stock Tank', category: 'static', typicalQuantity: { min: 4, max: 12 } },
+                        { componentClass: 'Motor', componentClassURI: URI.MOTOR_URI, displayName: 'Roof Vent Actuator Motor', category: 'electrical', typicalQuantity: { min: 10, max: 50 } },
+                    ],
+                },
             ],
         },
         {
@@ -97,6 +111,34 @@ export const FOOD_SECTOR: DexpiSector = {
                         { componentClass: 'CentrifugalPump', componentClassURI: URI.CENTRIFUGAL_PUMP_URI, displayName: 'CIP Pump', category: 'rotating', typicalQuantity: { min: 4, max: 16 } },
                         { componentClass: 'Conveyor', componentClassURI: URI.CONVEYOR_URI, displayName: 'Processing Line Conveyor', category: 'rotating', typicalQuantity: { min: 10, max: 40 } },
                         { componentClass: 'StorageTank', componentClassURI: URI.TANK_URI, displayName: 'Wastewater Equalization Tank', category: 'static', typicalQuantity: { min: 1, max: 4 } },
+                    ],
+                },
+                {
+                    code: 'FOOD-FP-BVRG',
+                    name: 'Beverage Manufacturing Plant',
+                    description:
+                        'Beverage production facility with water treatment, ISA-88 batch blending, ' +
+                        'pasteurization/UHT, high-speed filling lines, CIP sanitation, and cold storage.',
+                    equipment: [
+                        { componentClass: 'StorageTank', componentClassURI: URI.TANK_URI, displayName: 'Bright/Blending Tank', category: 'static', typicalQuantity: { min: 6, max: 24 } },
+                        { componentClass: 'HeatExchanger', componentClassURI: URI.HEAT_EXCHANGER_URI, displayName: 'Plate Pasteurizer (HTST)', category: 'heat-transfer', typicalQuantity: { min: 2, max: 6 } },
+                        { componentClass: 'CentrifugalPump', componentClassURI: URI.CENTRIFUGAL_PUMP_URI, displayName: 'Product Transfer Pump', category: 'rotating', typicalQuantity: { min: 8, max: 30 } },
+                        { componentClass: 'Compressor', componentClassURI: URI.COMPRESSOR_URI, displayName: 'CO₂ Carbonation System', category: 'rotating', typicalQuantity: { min: 1, max: 4 } },
+                        { componentClass: 'Conveyor', componentClassURI: URI.CONVEYOR_URI, displayName: 'Filling Line Conveyor', category: 'rotating', typicalQuantity: { min: 6, max: 20 } },
+                    ],
+                },
+                {
+                    code: 'FOOD-FP-FEED',
+                    name: 'Feed Mill Complex',
+                    description:
+                        'Animal feed manufacturing with grain receiving, hammer/roller milling, ' +
+                        'ISA-88 batch mixing, pelleting, fat coating, and FSMA PCAF compliance. 10–100+ TPH.',
+                    equipment: [
+                        { componentClass: 'Separator', componentClassURI: URI.SEPARATOR_URI, displayName: 'Hammer Mill', category: 'rotating', typicalQuantity: { min: 2, max: 6 } },
+                        { componentClass: 'Mixer', componentClassURI: URI.MIXER_URI, displayName: 'Batch Ribbon Mixer', category: 'rotating', typicalQuantity: { min: 2, max: 8 } },
+                        { componentClass: 'Conveyor', componentClassURI: URI.CONVEYOR_URI, displayName: 'Bucket Elevator / Drag', category: 'rotating', typicalQuantity: { min: 8, max: 24 } },
+                        { componentClass: 'Silo', componentClassURI: URI.SILO_URI, displayName: 'Ingredient/Finished Bin', category: 'static', typicalQuantity: { min: 10, max: 40 } },
+                        { componentClass: 'Boiler', componentClassURI: URI.BOILER_URI, displayName: 'Pellet Mill Steam Conditioner', category: 'heat-transfer', typicalQuantity: { min: 2, max: 6 } },
                     ],
                 },
             ],

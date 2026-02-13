@@ -168,29 +168,56 @@ export const IT_SECTOR: DexpiSector = {
         {
             code: 'ITEC-CL', name: 'Cloud and Data Centers',
             description: 'Hyperscale data centers, colocation facilities, and edge computing.',
-            facilities: [{
-                code: 'ITEC-CL-HYPER', name: 'Hyperscale Data Center', description: 'Large-scale cloud data center (50+ MW) with modular design, free cooling, and 2N power redundancy.',
-                equipment: [
-                    { componentClass: 'ElectricGenerator', componentClassURI: URI.ELECTRIC_GENERATOR_URI, displayName: 'Diesel Rotary UPS/Generator', category: 'electrical', typicalQuantity: { min: 20, max: 80 } },
-                    { componentClass: 'UPS', componentClassURI: URI.UPS_URI, displayName: 'Modular UPS', category: 'electrical', typicalQuantity: { min: 20, max: 80 } },
-                    { componentClass: 'CoolingTower', componentClassURI: URI.COOLING_TOWER_URI, displayName: 'Evaporative Cooling Tower', category: 'heat-transfer', typicalQuantity: { min: 10, max: 40 } },
-                    { componentClass: 'CentrifugalPump', componentClassURI: URI.CENTRIFUGAL_PUMP_URI, displayName: 'Chilled Water Pump', category: 'rotating', typicalQuantity: { min: 10, max: 40 } },
-                    { componentClass: 'Transformer', componentClassURI: URI.TRANSFORMER_URI, displayName: 'Medium Voltage Transformer', category: 'electrical', typicalQuantity: { min: 10, max: 40 } },
-                    { componentClass: 'Switchgear', componentClassURI: URI.SWITCHGEAR_URI, displayName: 'ATS/Switchgear', category: 'electrical', typicalQuantity: { min: 10, max: 40 } },
-                ],
-            }],
+            facilities: [
+                {
+                    code: 'ITEC-CL-HYPER', name: 'Hyperscale Data Center', description: 'Large-scale cloud data center (50+ MW) with modular design, free cooling, and 2N power redundancy.',
+                    equipment: [
+                        { componentClass: 'ElectricGenerator', componentClassURI: URI.ELECTRIC_GENERATOR_URI, displayName: 'Diesel Rotary UPS/Generator', category: 'electrical', typicalQuantity: { min: 20, max: 80 } },
+                        { componentClass: 'UPS', componentClassURI: URI.UPS_URI, displayName: 'Modular UPS', category: 'electrical', typicalQuantity: { min: 20, max: 80 } },
+                        { componentClass: 'CoolingTower', componentClassURI: URI.COOLING_TOWER_URI, displayName: 'Evaporative Cooling Tower', category: 'heat-transfer', typicalQuantity: { min: 10, max: 40 } },
+                        { componentClass: 'CentrifugalPump', componentClassURI: URI.CENTRIFUGAL_PUMP_URI, displayName: 'Chilled Water Pump', category: 'rotating', typicalQuantity: { min: 10, max: 40 } },
+                        { componentClass: 'Transformer', componentClassURI: URI.TRANSFORMER_URI, displayName: 'Medium Voltage Transformer', category: 'electrical', typicalQuantity: { min: 10, max: 40 } },
+                        { componentClass: 'Switchgear', componentClassURI: URI.SWITCHGEAR_URI, displayName: 'ATS/Switchgear', category: 'electrical', typicalQuantity: { min: 10, max: 40 } },
+                    ],
+                },
+                {
+                    code: 'ITEC-CL-IXP', name: 'Internet Exchange Point (IXP)', description: 'Shared L2 peering fabric where 500+ member networks exchange traffic via BGP with RPKI/ROV route validation.',
+                    equipment: [
+                        { componentClass: 'Switchgear', componentClassURI: URI.SWITCHGEAR_URI, displayName: 'Core Fabric Switch (400G)', category: 'electrical', typicalQuantity: { min: 4, max: 8 } },
+                        { componentClass: 'UPS', componentClassURI: URI.UPS_URI, displayName: 'Dual-Feed PDU/UPS', category: 'electrical', typicalQuantity: { min: 2, max: 8 } },
+                    ],
+                },
+                {
+                    code: 'ITEC-CL-COLO', name: 'Enterprise Colocation Facility', description: 'Tier III multi-tenant data center with carrier-neutral MMR, shared power/cooling, and 99.999% uptime SLA.',
+                    equipment: [
+                        { componentClass: 'ElectricGenerator', componentClassURI: URI.ELECTRIC_GENERATOR_URI, displayName: 'Diesel Generator', category: 'electrical', typicalQuantity: { min: 2, max: 8 } },
+                        { componentClass: 'UPS', componentClassURI: URI.UPS_URI, displayName: 'Static UPS Module', category: 'electrical', typicalQuantity: { min: 4, max: 16 } },
+                        { componentClass: 'CoolingTower', componentClassURI: URI.COOLING_TOWER_URI, displayName: 'Cooling Tower', category: 'heat-transfer', typicalQuantity: { min: 4, max: 12 } },
+                        { componentClass: 'Transformer', componentClassURI: URI.TRANSFORMER_URI, displayName: 'Step-Down Transformer', category: 'electrical', typicalQuantity: { min: 2, max: 8 } },
+                    ],
+                },
+            ],
         },
         {
             code: 'ITEC-SW', name: 'Software and IT Services',
             description: 'Software development, managed IT services, cybersecurity operations.',
-            facilities: [{
-                code: 'ITEC-SW-SOC', name: 'Security Operations Center (SOC)', description: 'Cybersecurity operations facility with 24/7 monitoring, redundant connectivity, and hardened physical security.',
-                equipment: [
-                    { componentClass: 'ElectricGenerator', componentClassURI: URI.ELECTRIC_GENERATOR_URI, displayName: 'Backup Generator', category: 'electrical', typicalQuantity: { min: 1, max: 4 } },
-                    { componentClass: 'UPS', componentClassURI: URI.UPS_URI, displayName: 'Critical Systems UPS', category: 'electrical', typicalQuantity: { min: 4, max: 12 } },
-                    { componentClass: 'CoolingTower', componentClassURI: URI.COOLING_TOWER_URI, displayName: 'Precision Cooling', category: 'heat-transfer', typicalQuantity: { min: 1, max: 4 } },
-                ],
-            }],
+            facilities: [
+                {
+                    code: 'ITEC-SW-SOC', name: 'Security Operations Center (SOC)', description: 'Cybersecurity operations facility with 24/7 monitoring, redundant connectivity, and hardened physical security.',
+                    equipment: [
+                        { componentClass: 'ElectricGenerator', componentClassURI: URI.ELECTRIC_GENERATOR_URI, displayName: 'Backup Generator', category: 'electrical', typicalQuantity: { min: 1, max: 4 } },
+                        { componentClass: 'UPS', componentClassURI: URI.UPS_URI, displayName: 'Critical Systems UPS', category: 'electrical', typicalQuantity: { min: 4, max: 12 } },
+                        { componentClass: 'CoolingTower', componentClassURI: URI.COOLING_TOWER_URI, displayName: 'Precision Cooling', category: 'heat-transfer', typicalQuantity: { min: 1, max: 4 } },
+                    ],
+                },
+                {
+                    code: 'ITEC-SW-NOC', name: 'Network Operations Center (NOC)', description: 'ISP/carrier NOC with 24/7 FCAPS management for 50K+ network elements using NMS/SNMP/gNMI tooling.',
+                    equipment: [
+                        { componentClass: 'ElectricGenerator', componentClassURI: URI.ELECTRIC_GENERATOR_URI, displayName: 'Emergency Generator', category: 'electrical', typicalQuantity: { min: 1, max: 2 } },
+                        { componentClass: 'UPS', componentClassURI: URI.UPS_URI, displayName: 'NOC UPS', category: 'electrical', typicalQuantity: { min: 2, max: 4 } },
+                    ],
+                },
+            ],
         },
     ],
 };

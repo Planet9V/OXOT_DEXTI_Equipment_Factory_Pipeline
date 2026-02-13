@@ -163,6 +163,70 @@ export default function SectorWikiPage({ params }: { params: { code: string } })
                 </section>
             )}
 
+            {/* Chemical deep-dive backlinks (CHEM sector only) */}
+            {sector.code === 'CHEM' && (
+                <section className="space-y-3 rounded-xl border border-[#EF4444]/20 p-5" style={{ background: 'rgba(239,68,68,0.04)' }}>
+                    <h2 className="text-sm font-heading font-semibold text-white flex items-center gap-2">
+                        <span className="text-[#EF4444]">🧪</span> Chemical Sector Deep Dives
+                    </h2>
+                    <p className="text-xs text-gray-500">
+                        Comprehensive TOGAF reference architectures for 6 chemical facility types — from Petrochemical Complexes to API Manufacturing.
+                    </p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2">
+                        {[
+                            { href: '/wiki/chemical', label: 'Chemical Sector Hub', color: '#EF4444' },
+                            { href: '/wiki/chemical/petrochemical', label: 'Petrochemical Complex', color: '#EF4444' },
+                            { href: '/wiki/chemical/chlor-alkali', label: 'Chlor-Alkali Plant', color: '#06B6D4' },
+                            { href: '/wiki/chemical/batch-processing', label: 'Batch Chemical Processing', color: '#8B5CF6' },
+                            { href: '/wiki/chemical/ammonia-fertilizer', label: 'Ammonia & Fertilizer', color: '#10B981' },
+                            { href: '/wiki/chemical/api-manufacturing', label: 'API Manufacturing', color: '#EC4899' },
+                            { href: '/wiki/chemical/consumer-formulation', label: 'Consumer Formulation', color: '#F97316' },
+                        ].map((link) => (
+                            <a
+                                key={link.href}
+                                href={link.href}
+                                className="text-xs px-3 py-2 rounded-lg border transition-colors hover:bg-white/[0.04]"
+                                style={{ borderColor: `${link.color}30`, color: link.color }}
+                            >
+                                {link.label} →
+                            </a>
+                        ))}
+                    </div>
+                </section>
+            )}
+            {/* Food & Agriculture deep-dive backlinks (FOOD sector only) */}
+            {sector.code === 'FOOD' && (
+                <section className="space-y-3 rounded-xl border border-[#84CC16]/20 p-5" style={{ background: 'rgba(132,204,22,0.04)' }}>
+                    <h2 className="text-sm font-heading font-semibold text-white flex items-center gap-2">
+                        <span className="text-[#84CC16]">🌾</span> Food &amp; Agriculture Sector Deep Dives
+                    </h2>
+                    <p className="text-xs text-gray-500">
+                        Comprehensive TOGAF reference architectures for 7 food and agriculture facility types — from Grain Elevators and Dairy Farms to Beverage Plants and Feed Mills.
+                    </p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2">
+                        {[
+                            { href: '/wiki/food-agriculture', label: 'Food & Agriculture Hub', color: '#84CC16' },
+                            { href: '/wiki/food-agriculture/grain-elevator', label: 'Grain Elevator & Storage', color: '#84CC16' },
+                            { href: '/wiki/food-agriculture/dairy-farm', label: 'Commercial Dairy Farm', color: '#22C55E' },
+                            { href: '/wiki/food-agriculture/meatpacking', label: 'Meatpacking Plant', color: '#EF4444' },
+                            { href: '/wiki/food-agriculture/cold-storage', label: 'Cold Storage DC', color: '#0EA5E9' },
+                            { href: '/wiki/food-agriculture/greenhouse', label: 'Greenhouse / CEA', color: '#10B981' },
+                            { href: '/wiki/food-agriculture/beverage-plant', label: 'Beverage Plant', color: '#F59E0B' },
+                            { href: '/wiki/food-agriculture/feed-mill', label: 'Feed Mill Complex', color: '#A855F7' },
+                        ].map((link) => (
+                            <a
+                                key={link.href}
+                                href={link.href}
+                                className="text-xs px-3 py-2 rounded-lg border transition-colors hover:bg-white/[0.04]"
+                                style={{ borderColor: `${link.color}30`, color: link.color }}
+                            >
+                                {link.label} →
+                            </a>
+                        ))}
+                    </div>
+                </section>
+            )}
+
             {/* Sub-Sectors */}
             {sector.subSectors.map((subSector, subIdx) => (
                 <SubSectorSection
@@ -187,7 +251,7 @@ function SubSectorSection({
     subIndex: number;
 }) {
     return (
-        <section className="space-y-6">
+        <section id={subSector.code} className="space-y-6 scroll-mt-24">
             <div className="space-y-2">
                 <div className="flex items-center gap-2">
                     <div className="w-1.5 h-8 rounded-full" style={{ background: sectorColor }} />

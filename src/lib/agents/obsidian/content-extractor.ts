@@ -91,6 +91,15 @@ const SLUG_TITLE_MAP: Record<string, string> = {
     '/wiki/neo4j/api-integration': 'API Integration',
     '/wiki/neo4j/example-queries': 'Example Queries',
 
+    /* ─── Chemical Sector ─────────────────────────────────────────────── */
+    '/wiki/chemical': 'Chemical Sector Hub',
+    '/wiki/chemical/petrochemical': 'Petrochemical Complex',
+    '/wiki/chemical/chlor-alkali': 'Chlor-Alkali Plants',
+    '/wiki/chemical/batch-processing': 'Batch Chemical Processing',
+    '/wiki/chemical/ammonia-fertilizer': 'Ammonia & Fertilizer Complex',
+    '/wiki/chemical/api-manufacturing': 'API Manufacturing Plant',
+    '/wiki/chemical/consumer-formulation': 'Consumer Chemical Formulation Plant',
+
     /* ─── AI Pipeline ──────────────────────────────────────────────────── */
     '/wiki/pipeline': 'AI Pipeline V2',
 

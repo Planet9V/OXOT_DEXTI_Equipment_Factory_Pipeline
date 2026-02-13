@@ -150,6 +150,21 @@ export const HEALTHCARE_SECTOR: DexpiSector = {
                         { componentClass: 'UPS', componentClassURI: URI.UPS_URI, displayName: 'BSC/Freezer UPS', category: 'electrical', typicalQuantity: { min: 2, max: 8 } },
                     ],
                 },
+                {
+                    code: 'HLTH-LB-CLIN',
+                    name: 'Clinical Diagnostic Laboratory',
+                    description:
+                        'High-throughput reference laboratory (50 000+ tests/day) with total laboratory ' +
+                        'automation (TLA) track, chemistry/hematology/molecular analyzers, MALDI-TOF ' +
+                        'microbiology, and LIS/middleware integration under CLIA and CAP.',
+                    equipment: [
+                        { componentClass: 'Centrifuge', componentClassURI: URI.CENTRIFUGE_URI, displayName: 'Specimen Centrifuge', category: 'rotating', typicalQuantity: { min: 6, max: 20 } },
+                        { componentClass: 'Compressor', componentClassURI: URI.COMPRESSOR_URI, displayName: 'Pneumatic Tube Compressor', category: 'rotating', typicalQuantity: { min: 2, max: 6 } },
+                        { componentClass: 'UPS', componentClassURI: URI.UPS_URI, displayName: 'LIS Server UPS', category: 'electrical', typicalQuantity: { min: 2, max: 8 } },
+                        { componentClass: 'Fan', componentClassURI: URI.FAN_URI, displayName: 'Fume Hood Exhaust Fan', category: 'rotating', typicalQuantity: { min: 4, max: 12 } },
+                        { componentClass: 'Filter', componentClassURI: URI.FILTER_URI, displayName: 'Molecular Lab HEPA Filter', category: 'static', typicalQuantity: { min: 4, max: 16 } },
+                    ],
+                },
             ],
         },
     ],

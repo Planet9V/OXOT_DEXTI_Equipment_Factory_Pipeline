@@ -398,12 +398,41 @@ Edit `src/app/wiki/sectors/[code]/page.tsx` — add conditional backlinks:
 
 ---
 
-## Phase 5: Verification
+## Phase 5: Verification & Deployment
 
 // turbo
 1. Run `npm run build` — must exit with code 0
 2. Verify all new routes appear in build output
 3. Count: should have 1 hub + N facility articles = N+1 total new routes
+
+### 5.1 Docker Deployment (MANDATORY)
+
+> **CRITICAL:** The app runs inside a Docker container (`dexpi-equipment-factory`) with a baked-in
+> build. Changes to source code are INVISIBLE until the container is rebuilt. Failing to rebuild
+> is the #1 cause of "content missing on localhost:3000" issues.
+
+// turbo
+4. Rebuild and restart the Docker container:
+```bash
+docker compose up --build -d
+```
+5. Wait ~30s for the container health check to pass
+6. Verify the new wiki pages are accessible at `http://localhost:3000/wiki`
+
+### Development Workflow Alternative
+
+For iterative development (editing pages and seeing changes live), use the dev compose:
+
+```bash
+# Start Memgraph only via Docker
+docker compose -f docker-compose.dev.yml up -d
+
+# Run Next.js dev server on host (hot-reload enabled)
+npm run dev
+```
+
+This gives instant hot-reload on file save. Use `docker compose up --build -d` only for
+final deployment verification.
 
 ---
 
