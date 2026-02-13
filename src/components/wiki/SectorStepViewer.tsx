@@ -24,6 +24,16 @@ import FacilityCanvas from './FacilityCanvas';
 
 /* ─── Types ────────────────────────────────────────────────────────────────── */
 
+/** Lightweight summary for sectors hub. */
+export interface SectorSummary {
+    /** Sector profile items for the hub card. */
+    profile: { label: string; value: string }[];
+    /** Primary business architecture blurb (Value Chain). */
+    businessBlurb: string;
+    /** Sub-sectors for badge list. */
+    subSectors: { code: string; name: string; description: string }[];
+}
+
 /** Architecture Vision tab content (Tab 1). */
 export interface ArchitectureVisionContent {
     /** Sector profile items (left column). */

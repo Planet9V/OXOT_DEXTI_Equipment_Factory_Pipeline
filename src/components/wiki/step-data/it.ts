@@ -8,7 +8,7 @@
  * @module components/wiki/step-data/it
  */
 
-import { type SectorStepData } from '../SectorStepViewer';
+import { type SectorStepData, type SectorSummary } from '../SectorStepViewer';
 import { IT_SECTOR } from '@/lib/sectors/services';
 
 /**
@@ -130,6 +130,22 @@ export function getITStepData(): SectorStepData {
                     typicalQuantity: eq.typicalQuantity,
                 })),
             })),
+        })),
+    };
+}
+
+/**
+ * Returns a lightweight summary of the IT sector for the hub page.
+ */
+export function getITSummary(): SectorSummary {
+    const data = getITStepData();
+    return {
+        profile: data.architectureVision.profile,
+        businessBlurb: data.architectureVision.businessArchitecture[0]?.body || '',
+        subSectors: data.subSectors.map(s => ({
+            code: s.code,
+            name: s.name,
+            description: s.description,
         })),
     };
 }

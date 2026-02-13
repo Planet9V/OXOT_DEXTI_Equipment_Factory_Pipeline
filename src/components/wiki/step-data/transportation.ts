@@ -4,7 +4,7 @@
  * @module components/wiki/step-data/transportation
  */
 
-import { type SectorStepData } from '../SectorStepViewer';
+import { type SectorStepData, type SectorSummary } from '../SectorStepViewer';
 import { TRANSPORTATION_SECTOR } from '@/lib/sectors/transportation';
 
 /**
@@ -122,6 +122,22 @@ export function getTransportationStepData(): SectorStepData {
                     typicalQuantity: eq.typicalQuantity,
                 })),
             })),
+        })),
+    };
+}
+
+/**
+ * Returns a lightweight summary of the Transportation sector for the hub page.
+ */
+export function getTransportationSummary(): SectorSummary {
+    const data = getTransportationStepData();
+    return {
+        profile: data.architectureVision.profile,
+        businessBlurb: data.architectureVision.businessArchitecture[0]?.body || '',
+        subSectors: data.subSectors.map(s => ({
+            code: s.code,
+            name: s.name,
+            description: s.description,
         })),
     };
 }

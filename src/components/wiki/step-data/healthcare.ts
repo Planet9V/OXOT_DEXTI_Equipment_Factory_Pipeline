@@ -4,7 +4,7 @@
  * @module components/wiki/step-data/healthcare
  */
 
-import { type SectorStepData } from '../SectorStepViewer';
+import { type SectorStepData, type SectorSummary } from '../SectorStepViewer';
 import { HEALTHCARE_SECTOR } from '@/lib/sectors/healthcare';
 
 /**
@@ -122,6 +122,22 @@ export function getHealthcareStepData(): SectorStepData {
                     typicalQuantity: eq.typicalQuantity,
                 })),
             })),
+        })),
+    };
+}
+
+/**
+ * Returns a lightweight summary of the Healthcare sector for the hub page.
+ */
+export function getHealthcareSummary(): SectorSummary {
+    const data = getHealthcareStepData();
+    return {
+        profile: data.architectureVision.profile,
+        businessBlurb: data.architectureVision.businessArchitecture[0]?.body || '',
+        subSectors: data.subSectors.map(s => ({
+            code: s.code,
+            name: s.name,
+            description: s.description,
         })),
     };
 }

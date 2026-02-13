@@ -4,7 +4,7 @@
  * @module components/wiki/step-data/manufacturing
  */
 
-import { type SectorStepData } from '../SectorStepViewer';
+import { type SectorStepData, type SectorSummary } from '../SectorStepViewer';
 import { MANUFACTURING_SECTOR } from '@/lib/sectors/manufacturing';
 
 /**
@@ -122,6 +122,22 @@ export function getManufacturingStepData(): SectorStepData {
                     typicalQuantity: eq.typicalQuantity,
                 })),
             })),
+        })),
+    };
+}
+
+/**
+ * Returns a lightweight summary of the Manufacturing sector for the hub page.
+ */
+export function getManufacturingSummary(): SectorSummary {
+    const data = getManufacturingStepData();
+    return {
+        profile: data.architectureVision.profile,
+        businessBlurb: data.architectureVision.businessArchitecture[0]?.body || '',
+        subSectors: data.subSectors.map(s => ({
+            code: s.code,
+            name: s.name,
+            description: s.description,
         })),
     };
 }

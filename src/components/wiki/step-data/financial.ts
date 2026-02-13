@@ -4,7 +4,7 @@
  * @module components/wiki/step-data/financial
  */
 
-import { type SectorStepData } from '../SectorStepViewer';
+import { type SectorStepData, type SectorSummary } from '../SectorStepViewer';
 import { FINANCIAL_SECTOR } from '@/lib/sectors/financial';
 
 /**
@@ -122,6 +122,22 @@ export function getFinancialStepData(): SectorStepData {
                     typicalQuantity: eq.typicalQuantity,
                 })),
             })),
+        })),
+    };
+}
+
+/**
+ * Returns a lightweight summary of the Financial sector for the hub page.
+ */
+export function getFinancialSummary(): SectorSummary {
+    const data = getFinancialStepData();
+    return {
+        profile: data.architectureVision.profile,
+        businessBlurb: data.architectureVision.businessArchitecture[0]?.body || '',
+        subSectors: data.subSectors.map(s => ({
+            code: s.code,
+            name: s.name,
+            description: s.description,
         })),
     };
 }

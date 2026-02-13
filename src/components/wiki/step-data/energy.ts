@@ -8,7 +8,7 @@
  * @module components/wiki/step-data/energy
  */
 
-import { type SectorStepData } from '../SectorStepViewer';
+import { type SectorStepData, type SectorSummary } from '../SectorStepViewer';
 import { ENERGY_SECTOR } from '@/lib/sectors/energy';
 
 /**
@@ -130,6 +130,22 @@ export function getEnergyStepData(): SectorStepData {
                     typicalQuantity: eq.typicalQuantity,
                 })),
             })),
+        })),
+    };
+}
+
+/**
+ * Returns a lightweight summary of the Energy sector for the hub page.
+ */
+export function getEnergySummary(): SectorSummary {
+    const data = getEnergyStepData();
+    return {
+        profile: data.architectureVision.profile,
+        businessBlurb: data.architectureVision.businessArchitecture[0]?.body || '',
+        subSectors: data.subSectors.map(s => ({
+            code: s.code,
+            name: s.name,
+            description: s.description,
         })),
     };
 }

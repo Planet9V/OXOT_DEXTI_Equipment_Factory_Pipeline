@@ -7,7 +7,7 @@
  * @module components/wiki/step-data/chemical
  */
 
-import { type SectorStepData } from '../SectorStepViewer';
+import { type SectorStepData, type SectorSummary } from '../SectorStepViewer';
 import { CHEMICAL_SECTOR } from '@/lib/sectors/chemical';
 
 /**
@@ -125,6 +125,22 @@ export function getChemicalStepData(): SectorStepData {
                     typicalQuantity: eq.typicalQuantity,
                 })),
             })),
+        })),
+    };
+}
+
+/**
+ * Returns a lightweight summary of the Chemical sector for the hub page.
+ */
+export function getChemicalSummary(): SectorSummary {
+    const data = getChemicalStepData();
+    return {
+        profile: data.architectureVision.profile,
+        businessBlurb: data.architectureVision.businessArchitecture[0]?.body || '',
+        subSectors: data.subSectors.map(s => ({
+            code: s.code,
+            name: s.name,
+            description: s.description,
         })),
     };
 }

@@ -8,7 +8,7 @@
  * @module components/wiki/step-data/dams
  */
 
-import { type SectorStepData } from '../SectorStepViewer';
+import { type SectorStepData, type SectorSummary } from '../SectorStepViewer';
 import { DAMS_SECTOR } from '@/lib/sectors/infrastructure';
 
 /**
@@ -130,6 +130,22 @@ export function getDamsStepData(): SectorStepData {
                     typicalQuantity: eq.typicalQuantity,
                 })),
             })),
+        })),
+    };
+}
+
+/**
+ * Returns a lightweight summary of the Dams sector for the hub page.
+ */
+export function getDamsSummary(): SectorSummary {
+    const data = getDamsStepData();
+    return {
+        profile: data.architectureVision.profile,
+        businessBlurb: data.architectureVision.businessArchitecture[0]?.body || '',
+        subSectors: data.subSectors.map(s => ({
+            code: s.code,
+            name: s.name,
+            description: s.description,
         })),
     };
 }

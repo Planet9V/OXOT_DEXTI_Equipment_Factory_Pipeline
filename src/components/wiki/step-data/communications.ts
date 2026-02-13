@@ -8,7 +8,7 @@
  * @module components/wiki/step-data/communications
  */
 
-import { type SectorStepData } from '../SectorStepViewer';
+import { type SectorStepData, type SectorSummary } from '../SectorStepViewer';
 import { COMMUNICATIONS_SECTOR } from '@/lib/sectors/infrastructure';
 
 /**
@@ -130,6 +130,22 @@ export function getCommunicationsStepData(): SectorStepData {
                     typicalQuantity: eq.typicalQuantity,
                 })),
             })),
+        })),
+    };
+}
+
+/**
+ * Returns a lightweight summary of the Communications sector for the hub page.
+ */
+export function getCommunicationsSummary(): SectorSummary {
+    const data = getCommunicationsStepData();
+    return {
+        profile: data.architectureVision.profile,
+        businessBlurb: data.architectureVision.businessArchitecture[0]?.body || '',
+        subSectors: data.subSectors.map(s => ({
+            code: s.code,
+            name: s.name,
+            description: s.description,
         })),
     };
 }
