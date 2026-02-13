@@ -11,6 +11,8 @@
  * @module wiki/defense/page
  */
 
+import DefenseStepSection from './DefenseStepSection';
+
 import Link from 'next/link';
 
 export const metadata = {
@@ -60,7 +62,16 @@ const FACILITY_ARTICLES = [
 
 export default function DefenseHubPage() {
     return (
-        <div className="max-w-5xl space-y-12 pb-20">
+        <div className="max-w-7xl space-y-12 pb-20">
+            {/* 4-Step Sector Architecture Viewer */}
+            <DefenseStepSection />
+
+            {/* Separator between step viewer and TOGAF reference */}
+            <div className="border-t border-white/[0.06] pt-12">
+                <h2 className="text-lg font-heading font-semibold text-gray-500 mb-8">
+                    📖 Full TOGAF Reference Architecture
+                </h2>
+            </div>
 
             {/* ── Header ───────────────────────────────────────────────────────── */}
             <div className="space-y-4">

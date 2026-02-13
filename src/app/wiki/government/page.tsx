@@ -1,3 +1,5 @@
+import GovernmentStepSection from './GovernmentStepSection';
+
 /**
  * Government Facilities Sector Reference Architecture — Wiki Hub Page.
  *
@@ -65,7 +67,17 @@ const FACILITY_ARTICLES = [
 
 export default function GovernmentHubPage() {
     return (
-        <div className="max-w-5xl space-y-12">
+        <div className="max-w-7xl space-y-12">
+            {/* 4-Step Sector Architecture Viewer */}
+            <GovernmentStepSection />
+
+            {/* Separator between step viewer and TOGAF reference */}
+            <div className="border-t border-white/[0.06] pt-12">
+                <h2 className="text-lg font-heading font-semibold text-gray-500 mb-8">
+                    📖 Full TOGAF Reference Architecture
+                </h2>
+            </div>
+
             {/* Header */}
             <div className="space-y-4">
                 <div className="flex items-center gap-3">
