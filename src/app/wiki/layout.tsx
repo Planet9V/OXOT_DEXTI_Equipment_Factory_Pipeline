@@ -63,8 +63,12 @@ const SECTOR_NAV_GROUPS = SECTORS.map(sector => ({
     pathPrefix: `/wiki/sectors/${sector.code}`,
     slugPrefix: sector.slug ? `/wiki/${sector.slug}` : undefined,
     links: [
+        ...(sector.slug ? [{
+            href: `/wiki/${sector.slug}`,
+            label: '📄 Reference Architecture'
+        }] : []),
         {
-            href: sector.slug ? `/wiki/${sector.slug}` : `/wiki/sectors/${sector.code}`,
+            href: `/wiki/sectors/${sector.code}`,
             label: 'Sector Hub'
         },
         ...sector.subSectors.map(sub => ({
