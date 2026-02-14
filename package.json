@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest --verbose"
+    "test": "jest --verbose",
+    "backup": "node scripts/backup_memgraph.js",
+    "restore": "node scripts/restore_memgraph.js"
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.0",

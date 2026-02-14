@@ -138,6 +138,11 @@ docker-compose up -d
 open http://localhost:3000
 ```
 
+### Database Management
+- **[Restoration Guide](docs/MEMGRAPH_RESTORE.md)** - How to load data from backup.
+- **[Backup & Persistence](BACKUP_RESTORE.md)** - Detailed technical documentation.
+
+
 ### Local Development
 
 ```bash
