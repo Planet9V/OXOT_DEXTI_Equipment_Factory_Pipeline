@@ -30,19 +30,22 @@ export async function POST(request: Request) {
         // ── Batch mode (Equipment Factory) ──
         if (body.equipmentNames && Array.isArray(body.equipmentNames)) {
             const batchParams: PipelineV2BatchParams = {
-                equipmentNames: body.equipmentNames.map((n: string) => n.trim()).filter((n: string) => n),
+                items: body.equipmentNames.map((n: string) => n.trim()).filter((n: string) => n),
                 sectorHint: body.sectorHint || undefined,
+                sector: body.sector || undefined,
+                subSector: body.subSector || undefined,
+                facility: body.facility || undefined,
                 minQualityScore: body.minQualityScore || undefined,
             };
 
-            if (batchParams.equipmentNames.length === 0) {
+            if (batchParams.items.length === 0) {
                 return NextResponse.json(
                     { error: 'equipmentNames must contain at least one non-empty entry' },
                     { status: 400 },
                 );
             }
 
-            if (batchParams.equipmentNames.length > 100) {
+            if (batchParams.items.length > 100) {
                 return NextResponse.json(
                     { error: 'Maximum 100 equipment names per batch run' },
                     { status: 400 },
@@ -55,8 +58,8 @@ export async function POST(request: Request) {
                 success: true,
                 runId,
                 mode: 'batch',
-                itemCount: batchParams.equipmentNames.length,
-                message: `Batch pipeline submitted for ${batchParams.equipmentNames.length} equipment items`,
+                itemCount: batchParams.items.length,
+                message: `Batch pipeline submitted for ${batchParams.items.length} equipment items`,
             });
         }
 

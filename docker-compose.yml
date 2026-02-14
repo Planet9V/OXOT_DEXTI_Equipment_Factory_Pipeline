@@ -8,11 +8,19 @@ services:
     image: memgraph/memgraph:latest
     platform: linux/amd64
     container_name: dexpi-memgraph
+    command:
+      - "--storage-recover-on-startup=true"
+      - "--storage-snapshot-interval-sec=300"
+      - "--storage-wal-enabled=true"
+      - "--storage-snapshot-on-exit=true"
+      - "--log-level=WARNING"
+      - "--also-log-to-stderr=true"
     ports:
       - "7687:7687"      # Bolt protocol
       - "7444:7444"      # Monitoring / Lab
     volumes:
       - memgraph-data:/var/lib/memgraph
+      - memgraph-log:/var/log/memgraph
     restart: unless-stopped
     healthcheck:
       test: ["CMD-SHELL", "echo 'RETURN 1;' | mgconsole || exit 1"]
@@ -41,6 +49,7 @@ services:
       - PIPELINE_SCHEDULE=${PIPELINE_SCHEDULE:-0 */6 * * *}
     volumes:
       - dexpi-data:/data
+      - app-logs:/app/logs
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000/api/tree"]
@@ -53,3 +62,8 @@ volumes:
     driver: local
   memgraph-data:
     driver: local
+  memgraph-log:
+    driver: local
+  app-logs:
+    driver: local
+

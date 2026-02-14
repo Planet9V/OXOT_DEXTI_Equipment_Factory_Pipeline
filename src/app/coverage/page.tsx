@@ -32,7 +32,7 @@ export default function CoveragePage() {
       const data = await res.json();
       setReports(data.data?.reports || []);
       setSummary(data.data?.summary || { totalExpected: 0, totalExisting: 0, overallCoverage: 0, totalFacilities: 0 });
-    } catch {} finally { setLoading(false); }
+    } catch { } finally { setLoading(false); }
   }
 
   const coverageColor = (pct: number) => pct >= 80 ? 'text-green-400' : pct >= 50 ? 'text-yellow-400' : pct > 0 ? 'text-orange-400' : 'text-red-400';
@@ -62,15 +62,15 @@ export default function CoveragePage() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
           <div className="card text-center">
             <div className={`text-3xl font-bold ${coverageColor(summary.overallCoverage)}`}>{summary.overallCoverage}%</div>
-            <div className="text-sm text-gray-400">Overall Coverage</div>
+            <div className="text-sm text-gray-400">Overall Sector Coverage</div>
           </div>
           <div className="card text-center">
             <div className="text-3xl font-bold text-accent-500">{summary.totalFacilities}</div>
-            <div className="text-sm text-gray-400">Facilities Tracked</div>
+            <div className="text-sm text-gray-400">Reference Facilities</div>
           </div>
           <div className="card text-center">
             <div className="text-3xl font-bold text-green-400">{summary.totalExisting}</div>
-            <div className="text-sm text-gray-400">Equipment Types Found</div>
+            <div className="text-sm text-gray-400">Total Equipment</div>
           </div>
           <div className="card text-center">
             <div className="text-3xl font-bold text-red-400">{summary.totalExpected - summary.totalExisting}</div>

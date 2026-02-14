@@ -205,7 +205,7 @@ export class GeneratorAgent extends BaseSpecialist<GeneratorInput, EquipmentCard
      * @returns Complete user prompt string.
      */
     private buildPrompt(
-        params: { equipmentClass: string; quantity: number; sector: string; subSector: string; facility: string },
+        params: { equipmentClass: string; quantity: number; sector: string; subSector: string; facility: string; tag?: string },
         research: ResearchReport,
         defaults: ReferenceDefaults,
         tagPrefix: string,
@@ -218,7 +218,12 @@ export class GeneratorAgent extends BaseSpecialist<GeneratorInput, EquipmentCard
         sections.push(`- Sector: ${params.sector}`);
         sections.push(`- Sub-sector: ${params.subSector}`);
         sections.push(`- Facility: ${params.facility}`);
-        sections.push(`- Tag prefix: ${tagPrefix} (e.g. ${tagPrefix}-1001, ${tagPrefix}-1002)`);
+
+        if (params.tag) {
+            sections.push(`- **MANDATORY TAG**: You MUST use the tag "${params.tag}". Do not generate a new one.`);
+        } else {
+            sections.push(`- Tag prefix: ${tagPrefix} (e.g. ${tagPrefix}-1001, ${tagPrefix}-1002)`);
+        }
 
         // Reference baseline
         sections.push('');

@@ -53,6 +53,7 @@ const WIKI_NAV_FIXED = [
             { href: '/wiki/dexpi', label: 'DEXPI 2.0 Standard', icon: BookOpen },
             { href: '/wiki/pipeline', label: 'AI Pipeline', icon: Activity },
             { href: '/wiki/neo4j', label: 'Neo4j Graph', icon: Database },
+            { href: '/wiki/developers', label: 'Developer Hub', icon: Terminal },
         ],
     },
 ];

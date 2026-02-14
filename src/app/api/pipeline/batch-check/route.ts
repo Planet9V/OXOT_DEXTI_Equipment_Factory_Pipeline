@@ -59,7 +59,7 @@ export async function POST(req: NextRequest) {
                 .filter(s => s.length > 0),
         )];
 
-        const existing: ExistingItem[] = [];
+        const existing: any[] = [];
         const missing: string[] = [];
 
         for (const name of cleaned) {
@@ -79,13 +79,8 @@ export async function POST(req: NextRequest) {
                 );
 
                 if (match) {
-                    existing.push({
-                        name,
-                        id: match.id,
-                        tag: match.tag,
-                        componentClass: match.componentClass,
-                        displayName: match.displayName,
-                    });
+                    // Return the full card for the UI to display details
+                    existing.push(match);
                 } else {
                     missing.push(name);
                 }

@@ -239,6 +239,7 @@ export interface GeneratorInput {
         sector: string;
         subSector: string;
         facility: string;
+        tag?: string;
     };
     /** Research report for grounding. */
     research: ResearchReport;
@@ -294,14 +295,22 @@ export interface PipelineV2Params {
     quantity: number;
     /** Minimum quality score to accept (default: 80). */
     minQualityScore?: number;
+    /** Optional explicit tag override (e.g. "AC-179"). */
+    tag?: string;
 }
 
 /** Input parameters for Pipeline V2 batch mode (equipment factory). */
 export interface PipelineV2BatchParams {
-    /** List of equipment names to generate cards for. */
-    equipmentNames: string[];
+    /** List of equipment to generate. Can be strings (names only) or objects (name + tag). */
+    items: Array<string | { equipmentClass: string; tag: string }>;
     /** Optional sector hint for better research accuracy. */
     sectorHint?: string;
+    /** CISA sector code (e.g. 'ENERGY'). */
+    sector?: string;
+    /** Sub-sector code (e.g. 'OIL_GAS'). */
+    subSector?: string;
+    /** Facility code (e.g. 'FAC-01'). */
+    facility?: string;
     /** Minimum quality score to accept (default: 80). */
     minQualityScore?: number;
 }

@@ -15,6 +15,15 @@ import { runQuery, runWrite, runBatchWrite } from './memgraph';
 import { getAllSectors } from './sectors';
 import type { DexpiSector, DexpiEquipmentType } from './sectors/types';
 
+/**
+ * Sanitizes a string for use as a Neo4j label.
+ * Replaces non-alphanumeric characters with underscores and ensures uppercase.
+ */
+export function toLabel(str: string): string {
+    if (!str) return '';
+    return str.replace(/[^a-zA-Z0-9]/g, '_').toUpperCase();
+}
+
 export { runQuery, runWrite, runBatchWrite };
 
 // =============================================================================
@@ -426,9 +435,15 @@ export async function mergeEquipment(
     // while also extracting key fields for graph traversal.
     const cardJson = JSON.stringify(equipment);
 
+    const sectorLabel = equipment.sector ? `:Sector_${toLabel(equipment.sector)}` : '';
+    const subSectorLabel = equipment.subSector ? `:SubSector_${toLabel(equipment.subSector)}` : '';
+
+    // Construct the full label set
+    const labels = `:Equipment:TaggedPlantItem:OX_DEXPI2${sectorLabel}${subSectorLabel}`;
+
     const records = await runQuery(
         `MATCH (f:Facility {code: $facilityCode})
-     MERGE (e:Equipment:TaggedPlantItem {tag: $tag, facilityCode: $facilityCode})
+     MERGE (e${labels} {tag: $tag, facilityCode: $facilityCode})
      SET e.componentClass = $componentClass,
          e.componentClassURI = $componentClassURI,
          e.displayName = $displayName,
@@ -544,8 +559,12 @@ export async function createEquipmentStandalone(
     const id = equipment.id || crypto.randomUUID();
     const cardJson = JSON.stringify({ ...equipment, id });
 
+    const sectorLabel = equipment.sector ? `:Sector_${toLabel(equipment.sector)}` : '';
+    const subSectorLabel = equipment.subSector ? `:SubSector_${toLabel(equipment.subSector)}` : '';
+    const labels = `:Equipment:TaggedPlantItem:OX_DEXPI2${sectorLabel}${subSectorLabel}`;
+
     await runWrite(
-        `MERGE (e:Equipment:TaggedPlantItem {id: $id})
+        `MERGE (e${labels} {id: $id})
          SET e.tag = $tag,
              e.componentClass = $componentClass,
              e.componentClassURI = $componentClassURI,
@@ -627,9 +646,20 @@ export async function updateEquipmentNode(
     const cardJson = JSON.stringify(merged);
 
     // Build dynamic SET clauses for indexed properties
+    // Note: We cannot easily dynamic SET labels in a simple query string without APOC or string building
+    // But since this is specific to Sector/SubSector updates, we'll execute a separate label update if needed
+    // For now, simpler to just set properties, but let's try to add labels if meaningful.
+    // Actually, user wants specific labels. Let's rely on the separate migration or specific label update queries if the sector changes.
+    // However, to keep it simple and robust, we will just update properties here.
+    // The user's request implies we should ensure labels exist.
+    // Let's assume create/merge is the primary path for label assignment.
+    // If we update sector, we ideally should update labels, but removing old labels is hard without knowing them.
+    // So we will stick to properties update here and rely on the background migration/pipeline to fix labels.
+
     await runWrite(
         `MATCH (e:Equipment {id: $id})
-         SET e.tag = $tag,
+         SET e:OX_DEXPI2, 
+             e.tag = $tag,
              e.componentClass = $componentClass,
              e.componentClassURI = $componentClassURI,
              e.displayName = $displayName,

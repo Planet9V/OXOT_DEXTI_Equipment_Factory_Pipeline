@@ -421,12 +421,32 @@ src/
     validation.ts               # Zod schemas and scoring
 ```
 
-### Running Tests
+### Testing
+
+Test procedures are documented in the [`Test_Suite/`](Test_Suite/README.md) folder.
 
 ```bash
-npm run lint          # ESLint check
-npm run build         # Type check + production build
+# Run all unit tests (TS-001)
+npm test
+
+# Run with coverage
+npm test -- --coverage
+
+# ESLint
+npm run lint
+
+# Type check + production build
+npm run build
 ```
+
+| Procedure | Description | Type |
+|-----------|-------------|------|
+| [TS-001](Test_Suite/TS-001_unit_tests.md) | Jest unit tests (11 files) | Automated |
+| [TS-002](Test_Suite/TS-002_graph_integrity.md) | Graph data integrity | Script |
+| [TS-003](Test_Suite/TS-003_api_smoke_tests.md) | API endpoint smoke tests | Script |
+| [TS-004](Test_Suite/TS-004_persistence_validation.md) | Docker persistence | Manual |
+| [TS-005](Test_Suite/TS-005_coverage_accuracy.md) | Coverage API accuracy | Script |
+| [TS-006](Test_Suite/TS-006_pipeline_e2e.md) | Pipeline end-to-end | Manual |
 
 ### Adding a New Sector
 

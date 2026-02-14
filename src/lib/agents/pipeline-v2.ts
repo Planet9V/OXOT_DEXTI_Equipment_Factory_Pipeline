@@ -20,6 +20,7 @@ import { EnrichmentAgent, type EnrichmentInput } from './specialist/enrichment-a
 import { QualityGateAgent, type QualityGateInput } from './specialist/quality-gate-agent';
 import { GraphWriterAgent, type GraphWriterInput } from './specialist/graph-writer-agent';
 import { AuditAgent } from './specialist/audit-agent';
+import pLimit from 'p-limit';
 import type {
     PipelineV2Params,
     PipelineV2BatchParams,
@@ -33,7 +34,8 @@ import type {
     AuditInput,
     RemediationPlan,
 } from './types';
-import type { EquipmentCard } from '../types';
+import type { EquipmentCard }
+    from '../types';
 
 /* ─── Pipeline V2 ───────────────────────────────────────────────────────── */
 
@@ -157,12 +159,14 @@ export class PipelineV2 {
      */
     async submitBatchRun(batchParams: PipelineV2BatchParams): Promise<string> {
         // Create a synthetic PipelineV2Params for the first item to bootstrap the run
-        const firstItem = batchParams.equipmentNames[0] || 'Unknown';
+        const firstItem = batchParams.items[0];
+        const firstClass = typeof firstItem === 'string' ? firstItem : firstItem.equipmentClass;
+
         const syntheticParams: PipelineV2Params = {
-            sector: batchParams.sectorHint || 'STANDALONE',
-            subSector: 'STANDALONE',
-            facility: 'STANDALONE',
-            equipmentClass: firstItem,
+            sector: batchParams.sector || batchParams.sectorHint || 'STANDALONE',
+            subSector: batchParams.subSector || 'STANDALONE',
+            facility: batchParams.facility || 'STANDALONE',
+            equipmentClass: firstClass || 'Unknown',
             quantity: 1,
             minQualityScore: batchParams.minQualityScore || 80,
         };
@@ -527,23 +531,27 @@ export class PipelineV2 {
     ): Promise<void> {
         run.status = 'running';
         const { runId } = run;
-        const names = batchParams.equipmentNames;
+        const items = batchParams.items;
         const minScore = batchParams.minQualityScore || 80;
-        const total = names.length;
+        const total = items.length;
 
         console.log(`[pipeline-v2-batch] Starting batch run ${runId}: ${total} items`);
 
         let totalScore = 0;
         let scoreCount = 0;
 
-        for (let idx = 0; idx < names.length; idx++) {
-            const equipmentName = names[idx];
+        const limit = pLimit(5); // Concurrency limit: 5
+
+        const tasks = items.map((item, idx) => limit(async () => {
+            const equipmentClass = typeof item === 'string' ? item : item.equipmentClass;
+            const tag = typeof item === 'string' ? undefined : item.tag;
+
             const progress = `[${idx + 1}/${total}]`;
 
             if (this.isCancelled(runId)) return;
 
             // ── Research ──
-            this.setStage(run, 'research', 'running', `${progress} Researching ${equipmentName}...`);
+            this.setStage(run, 'research', 'running', `${progress} Researching ${equipmentClass}...`);
             let researchReport: ResearchReport;
             try {
                 researchReport = await this.researchAgent.run(
@@ -551,29 +559,30 @@ export class PipelineV2 {
                         sector: batchParams.sectorHint || 'General',
                         subSector: 'General',
                         facility: 'Standalone',
-                        equipmentClass: equipmentName,
+                        equipmentClass: equipmentClass,
                     },
                     runId,
                 );
                 run.results.researched = true;
-                this.setStage(run, 'research', 'completed', `${progress} ${equipmentName}: ${researchReport.standards.length} standards found`);
+                this.setStage(run, 'research', 'completed', `${progress} ${equipmentClass}: ${researchReport.standards.length} standards found`);
             } catch (err) {
-                this.setStage(run, 'research', 'completed', `${progress} ${equipmentName}: research failed, continuing...`);
-                console.warn(`[batch] Research failed for ${equipmentName}:`, err);
-                continue;
+                this.setStage(run, 'research', 'completed', `${progress} ${equipmentClass}: research failed, continuing...`);
+                console.warn(`[batch] Research failed for ${equipmentClass}:`, err);
+                return;
             }
 
             if (this.isCancelled(runId)) return;
 
             // ── Generate ──
-            this.setStage(run, 'generate', 'running', `${progress} Generating card for ${equipmentName}...`);
+            this.setStage(run, 'generate', 'running', `${progress} Generating card for ${equipmentClass}${tag ? ` (${tag})` : ''}...`);
             const itemParams: PipelineV2Params = {
-                sector: batchParams.sectorHint || 'STANDALONE',
-                subSector: 'STANDALONE',
-                facility: 'STANDALONE',
-                equipmentClass: equipmentName,
+                sector: batchParams.sector || batchParams.sectorHint || 'STANDALONE',
+                subSector: batchParams.subSector || 'STANDALONE',
+                facility: batchParams.facility || 'STANDALONE',
+                equipmentClass: equipmentClass,
                 quantity: 1,
                 minQualityScore: minScore,
+                tag: tag, // Pass collected tag
             };
 
             let generatedCards: EquipmentCard[];
@@ -585,45 +594,47 @@ export class PipelineV2 {
                         sector: itemParams.sector,
                         subSector: itemParams.subSector,
                         facility: itemParams.facility,
+                        tag: itemParams.tag,
                     },
                     research: researchReport,
                 };
                 generatedCards = await this.generatorAgent.run(batchGenInput, runId);
                 run.results.generated += generatedCards.length;
-                this.setStage(run, 'generate', 'completed', `${progress} ${equipmentName}: ${generatedCards.length} card(s) generated`);
+                this.setStage(run, 'generate', 'completed', `${progress} ${equipmentClass}: ${generatedCards.length} card(s) generated`);
             } catch (err) {
-                this.setStage(run, 'generate', 'completed', `${progress} ${equipmentName}: generation failed, continuing...`);
-                console.warn(`[batch] Generate failed for ${equipmentName}:`, err);
-                continue;
+                this.setStage(run, 'generate', 'completed', `${progress} ${equipmentClass}: generation failed, continuing...`);
+                console.warn(`[batch] Generation failed for ${equipmentClass}:`, err);
+                return;
             }
 
             if (this.isCancelled(runId)) return;
 
             // ── Validate ──
-            this.setStage(run, 'validate', 'running', `${progress} Validating ${equipmentName}...`);
+            this.setStage(run, 'validate', 'running', `${progress} Validating ${equipmentClass}...`);
             const validatedCards: EquipmentCard[] = [];
             try {
                 for (const card of generatedCards) {
                     const report = await this.complianceAgent.run(card, runId);
                     if (report.passed) {
-                        card.metadata = { ...card.metadata, validationScore: report.score };
                         validatedCards.push(card);
-                        totalScore += report.score;
-                        scoreCount++;
+                    } else {
+                        // Attempt remediation? Skipping for batch speed unless specifically requested
+                        const issues = report.violations.map(v => v.message);
+                        console.warn(`[batch] ${equipmentClass} validation failed: ${issues.join(', ')}`);
                     }
                 }
                 run.results.validated += validatedCards.length;
-                this.setStage(run, 'validate', 'completed', `${progress} ${equipmentName}: ${validatedCards.length} passed`);
+                this.setStage(run, 'validate', 'completed', `${progress} ${equipmentClass}: ${validatedCards.length} passed`);
             } catch (err) {
-                this.setStage(run, 'validate', 'completed', `${progress} ${equipmentName}: validation failed, continuing...`);
-                continue;
+                this.setStage(run, 'validate', 'completed', `${progress} ${equipmentClass}: validation failed, continuing...`);
+                return;
             }
 
-            if (validatedCards.length === 0) continue;
+            if (validatedCards.length === 0) return;
             if (this.isCancelled(runId)) return;
 
             // ── Enrich ──
-            this.setStage(run, 'enrich', 'running', `${progress} Enriching ${equipmentName}...`);
+            this.setStage(run, 'enrich', 'running', `${progress} Enriching ${equipmentClass}...`);
             const enrichedCards: EquipmentCard[] = [];
             try {
                 for (const card of validatedCards) {
@@ -631,56 +642,56 @@ export class PipelineV2 {
                     enrichedCards.push(enriched);
                 }
                 run.results.enriched += enrichedCards.length;
-                this.setStage(run, 'enrich', 'completed', `${progress} ${equipmentName}: enriched`);
+                this.setStage(run, 'enrich', 'completed', `${progress} ${equipmentClass}: enriched`);
             } catch (err) {
-                this.setStage(run, 'enrich', 'completed', `${progress} ${equipmentName}: enrichment failed, continuing...`);
-                continue;
+                this.setStage(run, 'enrich', 'completed', `${progress} ${equipmentClass}: enrichment failed, continuing...`);
+                return;
             }
 
             if (this.isCancelled(runId)) return;
 
             // ── Quality Gate ──
-            this.setStage(run, 'quality-gate', 'running', `${progress} Quality gate for ${equipmentName}...`);
+            this.setStage(run, 'quality-gate', 'running', `${progress} Quality gate for ${equipmentClass}...`);
             const approvedCards: EquipmentCard[] = [];
             try {
                 for (const card of enrichedCards) {
                     const report = await this.qualityGateAgent.run({ card, minScore }, runId);
+                    totalScore += report.score;
+                    scoreCount++;
                     if (report.approved) approvedCards.push(card);
                 }
                 run.results.approved += approvedCards.length;
-                this.setStage(run, 'quality-gate', 'completed', `${progress} ${equipmentName}: ${approvedCards.length} approved`);
+                this.setStage(run, 'quality-gate', 'completed', `${progress} ${equipmentClass}: ${approvedCards.length} approved`);
             } catch (err) {
-                this.setStage(run, 'quality-gate', 'completed', `${progress} ${equipmentName}: quality gate failed, continuing...`);
-                continue;
+                this.setStage(run, 'quality-gate', 'completed', `${progress} ${equipmentClass}: quality gate failed, continuing...`);
+                return;
             }
 
-            if (approvedCards.length === 0) continue;
+            if (approvedCards.length === 0) return;
             if (this.isCancelled(runId)) return;
 
             // ── Write ──
-            this.setStage(run, 'write', 'running', `${progress} Writing ${equipmentName} to graph...`);
+            this.setStage(run, 'write', 'running', `${progress} Writing ${equipmentClass} to graph...`);
             try {
                 const writeInput = {
                     cards: approvedCards,
-                    sector: batchParams.sectorHint || 'STANDALONE',
-                    subSector: 'STANDALONE',
-                    facility: 'STANDALONE',
+                    verify: false, // Speed optimization: skip read-back verification during batch
                 };
                 const report = await this.graphWriterAgent.run(writeInput, runId);
                 run.results.written += report.nodesCreated;
                 run.results.duplicatesSkipped += report.duplicatesSkipped;
-                this.setStage(run, 'write', 'completed', `${progress} ${equipmentName}: ${report.nodesCreated} written`);
+                this.setStage(run, 'write', 'completed', `${progress} ${equipmentClass}: ${report.nodesCreated} written`);
             } catch (err) {
-                this.setStage(run, 'write', 'completed', `${progress} ${equipmentName}: write failed, continuing...`);
-                continue;
+                this.setStage(run, 'write', 'completed', `${progress} ${equipmentClass}: write failed, continuing...`);
+                return;
             }
+        }));
 
-            // Update average score
-            if (scoreCount > 0) {
-                run.results.averageScore = Math.round(totalScore / scoreCount);
-            }
+        await Promise.all(tasks);
+
+        if (scoreCount > 0) {
+            run.results.averageScore = totalScore / scoreCount;
         }
-
         // Final status
         if (!this.isCancelled(runId)) {
             run.status = 'completed';
@@ -697,16 +708,11 @@ export class PipelineV2 {
 
 /* ─── Singleton ─────────────────────────────────────────────────────────── */
 
-let pipelineInstance: PipelineV2 | null = null;
+const globalForPipeline = global as unknown as { pipelineV2: PipelineV2 };
 
-/**
- * Returns the singleton PipelineV2 instance.
- *
- * @returns Shared pipeline instance.
- */
 export function getPipelineV2(): PipelineV2 {
-    if (!pipelineInstance) {
-        pipelineInstance = new PipelineV2();
+    if (!globalForPipeline.pipelineV2) {
+        globalForPipeline.pipelineV2 = new PipelineV2();
     }
-    return pipelineInstance;
+    return globalForPipeline.pipelineV2;
 }

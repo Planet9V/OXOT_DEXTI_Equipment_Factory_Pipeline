@@ -14,6 +14,8 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronDown, ChevronUp } from 'lucide-react';
+import { getAllSectors, DexpiSector, DexpiSubSector, DexpiFacilityType } from '@/lib/sectors';
 
 /* ─── Types ─────────────────────────────────────────────────────────────── */
 
@@ -50,11 +52,25 @@ interface PipelineRun {
 }
 
 interface ExistingItem {
-  name: string;
   id: string;
   tag: string;
   componentClass: string;
   displayName: string;
+  category: string;
+  sector: string;
+  subSector: string;
+  facility: string;
+  description: string;
+  specifications?: Record<string, { value: string | number; unit?: string }>;
+  standards?: string[];
+  manufacturers?: string[];
+  metadata: {
+    version: number;
+    validationScore: number;
+    source: string;
+    createdAt: string;
+    updatedAt: string;
+  };
 }
 
 interface BatchCheckResult {
@@ -132,6 +148,116 @@ function parseCSV(content: string): string[] {
   return [...new Set(names)];
 }
 
+/* ─── Components ─────────────────────────────────────────────────────────── */
+
+function ExistingEquipmentCard({ item }: { item: ExistingItem }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div className="bg-green-900/10 border border-green-800/20 rounded-lg overflow-hidden transition-all duration-200">
+      <div
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex items-center justify-between p-3 cursor-pointer hover:bg-green-900/20 transition-colors"
+      >
+        <div className="flex items-center gap-3">
+          <div className={`p-1 rounded bg-green-500/10 text-green-400`}>
+            {isOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+          </div>
+          <div>
+            <div className="flex items-center gap-2">
+              <span className="text-sm font-bold text-white font-mono">{item.tag}</span>
+              <span className="text-xs text-green-400 border border-green-800/40 px-1.5 py-0.5 rounded bg-green-900/20">
+                v{item.metadata.version}
+              </span>
+            </div>
+            <div className="text-xs text-gray-400">{item.displayName}</div>
+          </div>
+        </div>
+        <div className="flex items-center gap-4">
+          <div className="text-right hidden sm:block">
+            <div className="text-[10px] text-gray-500 uppercase tracking-widest">Class</div>
+            <div className="text-xs text-gray-300 font-mono">{item.componentClass}</div>
+          </div>
+          <div className="text-right hidden sm:block">
+            <div className="text-[10px] text-gray-500 uppercase tracking-widest">Score</div>
+            <div className={`text-xs font-bold ${item.metadata.validationScore >= 80 ? 'text-green-400' : 'text-yellow-400'}`}>
+              {item.metadata.validationScore}%
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            className="border-t border-green-800/20 bg-black/20"
+          >
+            <div className="p-4 grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+              {/* General Info */}
+              <div className="space-y-3">
+                <h4 className="text-xs font-bold text-green-400 uppercase tracking-widest mb-2 border-b border-green-900/30 pb-1">
+                  General Data
+                </h4>
+                <div className="grid grid-cols-[100px_1fr] gap-y-2">
+                  <span className="text-gray-500">Facility</span>
+                  <span className="text-gray-300">{item.facility} ({item.subSector})</span>
+
+                  <span className="text-gray-500">Category</span>
+                  <span className="text-gray-300">{item.category}</span>
+
+                  <span className="text-gray-500">Source</span>
+                  <span className="text-gray-300">{item.metadata.source}</span>
+
+                  <span className="text-gray-500">Description</span>
+                  <span className="text-gray-400 italic">{item.description}</span>
+                </div>
+
+                {/* Standards */}
+                {item.standards && item.standards.length > 0 && (
+                  <div className="mt-4">
+                    <span className="text-xs text-gray-500 block mb-1">Standards</span>
+                    <div className="flex flex-wrap gap-1">
+                      {item.standards.map(s => (
+                        <span key={s} className="px-1.5 py-0.5 rounded bg-blue-500/10 text-blue-400 text-xs border border-blue-500/20">
+                          {s}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Specifications */}
+              <div className="space-y-3">
+                <h4 className="text-xs font-bold text-green-400 uppercase tracking-widest mb-2 border-b border-green-900/30 pb-1">
+                  DEXPI Specifications
+                </h4>
+                {item.specifications && Object.keys(item.specifications).length > 0 ? (
+                  <div className="grid grid-cols-[1fr_auto] gap-y-1 gap-x-4">
+                    {Object.entries(item.specifications).map(([key, spec]) => (
+                      <div key={key} className="contents hover:bg-white/[0.02]">
+                        <span className="text-gray-400 truncate py-0.5">{key}</span>
+                        <span className="text-white font-mono text-right py-0.5">
+                          {spec.value} <span className="text-gray-600">{spec.unit}</span>
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="text-gray-500 italic">No detailed specifications available.</p>
+                )}
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
 /* ─── Component ──────────────────────────────────────────────────────────── */
 
 export default function PipelinePage() {
@@ -139,7 +265,13 @@ export default function PipelinePage() {
   const [step, setStep] = useState<WizardStep>('input');
   const [inputText, setInputText] = useState('');
   const [equipmentNames, setEquipmentNames] = useState<string[]>([]);
-  const [sectorHint, setSectorHint] = useState('');
+
+  // Sector Selection State
+  const [sectors] = useState<DexpiSector[]>(getAllSectors());
+  const [selectedSector, setSelectedSector] = useState<string>('');
+  const [selectedSubSector, setSelectedSubSector] = useState<string>('');
+  const [selectedFacility, setSelectedFacility] = useState<string>('');
+
   const [checkResult, setCheckResult] = useState<BatchCheckResult | null>(null);
   const [checking, setChecking] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -258,7 +390,9 @@ export default function PipelinePage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           equipmentNames: checkResult.missing,
-          sectorHint: sectorHint || undefined,
+          sector: selectedSector,
+          subSector: selectedSubSector,
+          facility: selectedFacility,
         }),
       });
       const data = await res.json();
@@ -299,7 +433,9 @@ export default function PipelinePage() {
     setInputText('');
     setCheckResult(null);
     setActiveRun(null);
-    setSectorHint('');
+    setSelectedSector('');
+    setSelectedSubSector('');
+    setSelectedFacility('');
   }
 
   /** Get ordered stages array. */
@@ -405,18 +541,59 @@ export default function PipelinePage() {
                     <p className="text-xs text-gray-600 mt-1">Accepts .csv and .txt files</p>
                   </div>
 
-                  {/* Sector Hint (Optional) */}
-                  <div className="mb-4">
-                    <label className="text-xs text-gray-400 mb-1.5 block font-medium tracking-wide uppercase">
-                      Sector Hint <span className="text-gray-600">(optional — improves research accuracy)</span>
+                  {/* Sector Selection (Optional but Recommended) */}
+                  <div className="mb-4 space-y-3">
+                    <label className="text-xs text-gray-400 block font-medium tracking-wide uppercase">
+                      Target Sector <span className="text-gray-600">(Applying to all {equipmentNames.length || 'new'} items)</span>
                     </label>
-                    <input
-                      type="text"
-                      className="input"
-                      placeholder="e.g. Chemical, Energy, Water..."
-                      value={sectorHint}
-                      onChange={e => setSectorHint(e.target.value)}
-                    />
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                      {/* Sector Dropdown */}
+                      <select
+                        className="input text-sm"
+                        value={selectedSector}
+                        onChange={e => {
+                          setSelectedSector(e.target.value);
+                          setSelectedSubSector('');
+                          setSelectedFacility('');
+                        }}
+                      >
+                        <option value="">Select Sector...</option>
+                        {sectors.map(s => <option key={s.code} value={s.code}>{s.name}</option>)}
+                      </select>
+
+                      {/* SubSector Dropdown */}
+                      <select
+                        className="input text-sm"
+                        value={selectedSubSector}
+                        disabled={!selectedSector}
+                        onChange={e => {
+                          setSelectedSubSector(e.target.value);
+                          setSelectedFacility('');
+                        }}
+                      >
+                        <option value="">Select Sub-Sector...</option>
+                        {selectedSector && sectors.find(s => s.code === selectedSector)?.subSectors.map(ss => (
+                          <option key={ss.code} value={ss.code}>{ss.name}</option>
+                        ))}
+                      </select>
+
+                      {/* Facility Dropdown */}
+                      <select
+                        className="input text-sm"
+                        value={selectedFacility}
+                        disabled={!selectedSubSector}
+                        onChange={e => setSelectedFacility(e.target.value)}
+                      >
+                        <option value="">Select Facility...</option>
+                        {selectedSector && selectedSubSector &&
+                          sectors.find(s => s.code === selectedSector)
+                            ?.subSectors.find(ss => ss.code === selectedSubSector)
+                            ?.facilities.map(f => (
+                              <option key={f.code} value={f.code}>{f.name}</option>
+                            ))
+                        }
+                      </select>
+                    </div>
                   </div>
 
                   {/* Equipment Chips */}
@@ -482,13 +659,7 @@ export default function PipelinePage() {
                       </h4>
                       <div className="space-y-1.5">
                         {checkResult.existing.map(item => (
-                          <div key={item.id} className="flex items-center justify-between p-2.5 bg-green-900/10 border border-green-800/20 rounded-lg">
-                            <div>
-                              <span className="text-sm text-white">{item.displayName || item.name}</span>
-                              <span className="text-xs text-gray-500 ml-2">{item.tag}</span>
-                            </div>
-                            <span className="text-xs text-green-500 font-mono">{item.componentClass}</span>
-                          </div>
+                          <ExistingEquipmentCard key={item.id} item={item} />
                         ))}
                       </div>
                     </div>
@@ -598,9 +769,9 @@ export default function PipelinePage() {
                       .filter(s => s.message || s.status !== 'pending')
                       .map((stage, i) => (
                         <div key={i} className={`py-0.5 ${stage.status === 'failed' ? 'text-red-400' :
-                            stage.status === 'running' ? 'text-yellow-400' :
-                              stage.status === 'completed' ? 'text-green-400' :
-                                'text-gray-500'}`}>
+                          stage.status === 'running' ? 'text-yellow-400' :
+                            stage.status === 'completed' ? 'text-green-400' :
+                              'text-gray-500'}`}>
                           <span className="text-gray-600">[{stage.label}]</span> {stage.message || stage.status}
                         </div>
                       ))}
@@ -659,9 +830,9 @@ export default function PipelinePage() {
                     >
                       <div className="flex items-center gap-2 min-w-0">
                         <span className={`w-2 h-2 rounded-full flex-shrink-0 ${run.status === 'completed' ? 'bg-green-500' :
-                            run.status === 'failed' ? 'bg-red-500' :
-                              run.status === 'running' ? 'bg-orange-500 animate-pulse' :
-                                'bg-gray-500'}`}
+                          run.status === 'failed' ? 'bg-red-500' :
+                            run.status === 'running' ? 'bg-orange-500 animate-pulse' :
+                              'bg-gray-500'}`}
                         />
                         <span className="text-sm text-white truncate">{run.params.equipmentClass}</span>
                       </div>

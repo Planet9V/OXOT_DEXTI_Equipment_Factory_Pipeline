@@ -19,6 +19,7 @@ import {
 import { getSectorSummary } from '@/components/wiki/step-data';
 import SectorOverviewCard from '@/components/sectors/SectorOverviewCard';
 import Link from 'next/link';
+import SectorTicker from '@/components/sectors/SectorTicker';
 
 /** Lucide icon lookup by name */
 const ICON_MAP: Record<string, any> = {
@@ -145,45 +146,14 @@ export default function SectorsPage() {
           </div>
         </header>
 
-        {/* ── Sector Icon Nav Bar ─────────────────────────────────────────── */}
+        {/* ── Sector Ticker Nav ───────────────────────────────────────────── */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="bg-white/[0.02] border border-white/[0.06] rounded-2xl p-4"
+          className="w-full -mx-4 sm:mx-0 sm:w-auto" // Negative margin on mobile to go edge-to-edge
         >
-          <div className="flex items-center justify-between gap-2 overflow-x-auto">
-            {sectors.map((sector) => {
-              const Icon = ICON_MAP[sector.icon] || Factory;
-              return (
-                <motion.button
-                  key={sector.code}
-                  onClick={() => scrollToSector(sector.code)}
-                  whileHover={{ scale: 1.15, y: -3 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="group relative flex flex-col items-center gap-1.5 px-2 py-2 rounded-xl transition-colors duration-200 hover:bg-white/[0.05] flex-shrink-0 min-w-[52px]"
-                  title={sector.name}
-                >
-                  <div
-                    className="w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:shadow-lg"
-                    style={{
-                      background: `${sector.color}15`,
-                      border: `1px solid ${sector.color}25`,
-                    }}
-                  >
-                    <Icon className="w-5 h-5 transition-colors duration-200" style={{ color: sector.color }} strokeWidth={1.5} />
-                  </div>
-                  <span className="text-[8px] font-mono text-gray-600 group-hover:text-gray-300 transition-colors duration-200 text-center leading-tight whitespace-nowrap max-w-[56px] truncate">
-                    {sector.code}
-                  </span>
-                  {/* Hover tooltip */}
-                  <div className="absolute -top-9 left-1/2 -translate-x-1/2 px-2 py-1 rounded-md bg-gray-900 border border-white/[0.1] text-[10px] text-white whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none shadow-xl z-10">
-                    {sector.name}
-                  </div>
-                </motion.button>
-              );
-            })}
-          </div>
+          <SectorTicker sectors={sectors} onSectorClick={scrollToSector} />
         </motion.div>
 
         {/* Search */}
