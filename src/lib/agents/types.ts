@@ -8,7 +8,7 @@
  */
 
 /** Agent persona names. */
-export type PersonaName = 'coordinator' | 'processEngineer' | 'standardsExpert' | 'safetyAnalyst' | 'qualityReviewer';
+export type PersonaName = 'coordinator' | 'processEngineer' | 'standardsExpert' | 'safetyAnalyst' | 'qualityReviewer' | 'procurementOfficer';
 
 /* ─── Chat Messages ─────────────────────────────────────────────────────── */
 
