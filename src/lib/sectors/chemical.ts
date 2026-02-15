@@ -48,18 +48,74 @@ export const CHEMICAL_SECTOR: DexpiSector = {
                         'aromatics (benzene, toluene, xylene) through steam cracking of naphtha or ethane. ' +
                         'Downstream units polymerize olefins into polyethylene, polypropylene, and synthetic rubbers.',
                     equipment: [
-                        { componentClass: 'Furnace', componentClassURI: URI.FURNACE_URI, displayName: 'Steam Cracking Furnace', category: 'heat-transfer', typicalQuantity: { min: 4, max: 12 } },
+                        // Core Process Equipment - Rotating
+                        { componentClass: 'CentrifugalPump', componentClassURI: URI.CENTRIFUGAL_PUMP_URI, displayName: 'Process Centrifugal Pump', category: 'rotating', typicalQuantity: { min: 50, max: 200 } },
+                        { componentClass: 'ReciprocatingPump', componentClassURI: URI.PD_PUMP_URI, displayName: 'High-Pressure Injection Pump', category: 'rotating', typicalQuantity: { min: 5, max: 20 } },
+                        { componentClass: 'GearPump', componentClassURI: URI.PD_PUMP_URI, displayName: 'Lube Oil Gear Pump', category: 'rotating', typicalQuantity: { min: 10, max: 40 } },
+                        { componentClass: 'DiaphragmPump', componentClassURI: URI.PD_PUMP_URI, displayName: 'Chemical Dosing Pump', category: 'rotating', typicalQuantity: { min: 20, max: 80 } },
+                        { componentClass: 'ScrewPump', componentClassURI: URI.PD_PUMP_URI, displayName: 'Heavy Oil Screw Pump', category: 'rotating', typicalQuantity: { min: 2, max: 10 } },
                         { componentClass: 'CentrifugalCompressor', componentClassURI: URI.COMPRESSOR_URI, displayName: 'Cracked Gas Compressor', category: 'rotating', typicalQuantity: { min: 3, max: 8 } },
+                        { componentClass: 'ReciprocatingCompressor', componentClassURI: URI.RECIPROCATING_COMPRESSOR_URI, displayName: 'Hydrogen Makeup Compressor', category: 'rotating', typicalQuantity: { min: 2, max: 6 } },
+                        { componentClass: 'ScrewCompressor', componentClassURI: URI.COMPRESSOR_URI, displayName: 'Refrigeration Screw Compressor', category: 'rotating', typicalQuantity: { min: 2, max: 6 } },
+                        { componentClass: 'AxialCompressor', componentClassURI: URI.AXIAL_COMPRESSOR_URI, displayName: 'Main Air Blower', category: 'rotating', typicalQuantity: { min: 1, max: 2 } },
+                        { componentClass: 'SteamTurbine', componentClassURI: URI.STEAM_TURBINE_URI, displayName: 'Compressor Drive Turbine', category: 'rotating', typicalQuantity: { min: 3, max: 10 } },
+                        { componentClass: 'GasTurbine', componentClassURI: URI.GAS_TURBINE_URI, displayName: 'Cogeneration Gas Turbine', category: 'rotating', typicalQuantity: { min: 1, max: 3 } },
+
+                        // Core Process Equipment - Static (Reactors & Columns)
+                        { componentClass: 'Furnace', componentClassURI: URI.FURNACE_URI, displayName: 'Steam Cracking Furnace', category: 'heat-transfer', typicalQuantity: { min: 6, max: 18 } },
+                        { componentClass: 'Reactor', componentClassURI: URI.REACTOR_URI, displayName: 'Polymerization Reactor (Loop)', category: 'static', typicalQuantity: { min: 2, max: 8 } },
+                        { componentClass: 'Reactor', componentClassURI: URI.REACTOR_URI, displayName: 'Hydrotreating Reactor', category: 'static', typicalQuantity: { min: 2, max: 6 } },
+                        { componentClass: 'Reactor', componentClassURI: URI.REACTOR_URI, displayName: 'Fluidized Bed Reactor', category: 'static', typicalQuantity: { min: 1, max: 4 } },
                         { componentClass: 'ProcessColumn', componentClassURI: URI.COLUMN_URI, displayName: 'Fractionation Column', category: 'static', typicalQuantity: { min: 6, max: 20 } },
-                        { componentClass: 'ShellTubeHeatExchanger', componentClassURI: URI.SHELL_TUBE_HX_URI, displayName: 'Transfer Line Exchanger', category: 'heat-transfer', typicalQuantity: { min: 20, max: 80 } },
-                        { componentClass: 'CentrifugalPump', componentClassURI: URI.CENTRIFUGAL_PUMP_URI, displayName: 'Process Pump', category: 'rotating', typicalQuantity: { min: 30, max: 120 } },
+                        { componentClass: 'ProcessColumn', componentClassURI: URI.PROCESS_COLUMN_URI, displayName: 'Amine Absorber', category: 'static', typicalQuantity: { min: 2, max: 6 } },
+                        { componentClass: 'ProcessColumn', componentClassURI: URI.PROCESS_COLUMN_URI, displayName: 'Stripper Column', category: 'static', typicalQuantity: { min: 2, max: 6 } },
+                        { componentClass: 'ProcessColumn', componentClassURI: URI.PROCESS_COLUMN_URI, displayName: 'Extraction Column', category: 'static', typicalQuantity: { min: 1, max: 4 } },
                         { componentClass: 'PressureVessel', componentClassURI: URI.PRESSURE_VESSEL_URI, displayName: 'Quench Tower', category: 'static', typicalQuantity: { min: 2, max: 6 } },
-                        { componentClass: 'Reactor', componentClassURI: URI.REACTOR_URI, displayName: 'Polymerization Reactor', category: 'static', typicalQuantity: { min: 2, max: 10 } },
-                        { componentClass: 'StorageTank', componentClassURI: URI.TANK_URI, displayName: 'Product Storage Tank', category: 'static', typicalQuantity: { min: 10, max: 40 } },
+
+                        // Core Process Equipment - Heat Transfer
+                        { componentClass: 'ShellTubeHeatExchanger', componentClassURI: URI.SHELL_TUBE_HX_URI, displayName: 'Transfer Line Exchanger (TLE)', category: 'heat-transfer', typicalQuantity: { min: 20, max: 80 } },
+                        { componentClass: 'PlateHeatExchanger', componentClassURI: URI.PLATE_HX_URI, displayName: 'Plate & Frame Exchanger', category: 'heat-transfer', typicalQuantity: { min: 10, max: 40 } },
+                        { componentClass: 'AirCooledHeatExchanger', componentClassURI: URI.AIR_COOLED_HX_URI, displayName: 'Fin Fan Cooler', category: 'heat-transfer', typicalQuantity: { min: 30, max: 100 } },
+                        { componentClass: 'Boiler', componentClassURI: URI.BOILER_URI, displayName: 'Waste Heat Boiler', category: 'heat-transfer', typicalQuantity: { min: 4, max: 12 } },
+                        { componentClass: 'Condenser', componentClassURI: URI.CONDENSER_URI, displayName: 'Overhead Condenser', category: 'heat-transfer', typicalQuantity: { min: 10, max: 30 } },
+                        { componentClass: 'HeatExchanger', componentClassURI: URI.HEAT_EXCHANGER_URI, displayName: 'Spiral Heat Exchanger', category: 'heat-transfer', typicalQuantity: { min: 2, max: 8 } },
+
+                        // Support Systems - Vessels & Tanks
+                        { componentClass: 'StorageTank', componentClassURI: URI.TANK_URI, displayName: 'Product Storage Tank', category: 'static', typicalQuantity: { min: 20, max: 60 } },
+                        { componentClass: 'PressureVessel', componentClassURI: URI.PRESSURE_VESSEL_URI, displayName: 'Spherical Storage Tank', category: 'static', typicalQuantity: { min: 4, max: 12 } },
+                        { componentClass: 'PressureVessel', componentClassURI: URI.PRESSURE_VESSEL_URI, displayName: 'Bullet Tank', category: 'static', typicalQuantity: { min: 6, max: 20 } },
+                        { componentClass: 'Separator', componentClassURI: URI.SEPARATOR_URI, displayName: 'Two-Phase Separator', category: 'static', typicalQuantity: { min: 10, max: 30 } },
+                        { componentClass: 'Separator', componentClassURI: URI.SEPARATOR_URI, displayName: 'Three-Phase Separator', category: 'static', typicalQuantity: { min: 5, max: 15 } },
+                        { componentClass: 'Filter', componentClassURI: URI.FILTER_URI, displayName: 'Process Filter', category: 'static', typicalQuantity: { min: 20, max: 60 } },
+                        { componentClass: 'Strainer', componentClassURI: URI.STRAINER_URI, displayName: 'Duplex Strainer', category: 'piping', typicalQuantity: { min: 10, max: 40 } },
+                        { componentClass: 'Cyclone', componentClassURI: URI.CYCLONE_URI, displayName: 'Cyclone Separator', category: 'static', typicalQuantity: { min: 4, max: 12 } },
                         { componentClass: 'FlareStack', componentClassURI: URI.FLARE_URI, displayName: 'Emergency Flare System', category: 'piping', typicalQuantity: { min: 1, max: 3 } },
-                        { componentClass: 'ControlValve', componentClassURI: URI.CONTROL_VALVE_URI, displayName: 'Control Valve', category: 'piping', typicalQuantity: { min: 100, max: 500 } },
-                        { componentClass: 'SafetyValve', componentClassURI: URI.SAFETY_VALVE_URI, displayName: 'Pressure Safety Valve', category: 'piping', typicalQuantity: { min: 50, max: 200 } },
-                        { componentClass: 'GasAnalyzer', componentClassURI: URI.ANALYZER_URI, displayName: 'Online Gas Analyzer', category: 'instrumentation', typicalQuantity: { min: 10, max: 40 } },
+
+                        // Support Systems - Valves
+                        { componentClass: 'ControlValve', componentClassURI: URI.CONTROL_VALVE_URI, displayName: 'Control Valve (Globe)', category: 'piping', typicalQuantity: { min: 200, max: 800 } },
+                        { componentClass: 'SafetyValve', componentClassURI: URI.SAFETY_VALVE_URI, displayName: 'Pressure Safety Valve (PSV)', category: 'piping', typicalQuantity: { min: 100, max: 400 } },
+                        { componentClass: 'GateValve', componentClassURI: URI.GATE_VALVE_URI, displayName: 'Isolation Gate Valve', category: 'piping', typicalQuantity: { min: 500, max: 2000 } },
+                        { componentClass: 'BallValve', componentClassURI: URI.BALL_VALVE_URI, displayName: 'Trunnion Ball Valve', category: 'piping', typicalQuantity: { min: 200, max: 800 } },
+                        { componentClass: 'CheckValve', componentClassURI: URI.CHECK_VALVE_URI, displayName: 'Swing Check Valve', category: 'piping', typicalQuantity: { min: 100, max: 400 } },
+                        { componentClass: 'ButterflyValve', componentClassURI: URI.BUTTERFLY_VALVE_URI, displayName: 'High-Performance Butterfly Valve', category: 'piping', typicalQuantity: { min: 50, max: 200 } },
+
+                        // Instrumentation
+                        { componentClass: 'FlowMeter', componentClassURI: URI.FLOW_METER_URI, displayName: 'Coriolis Mass Flow Meter', category: 'instrumentation', typicalQuantity: { min: 50, max: 200 } },
+                        { componentClass: 'FlowMeter', componentClassURI: URI.FLOW_METER_URI, displayName: 'Magnetic Flow Meter', category: 'instrumentation', typicalQuantity: { min: 30, max: 100 } },
+                        { componentClass: 'FlowMeter', componentClassURI: URI.FLOW_METER_URI, displayName: 'Orifice Plate Meter', category: 'instrumentation', typicalQuantity: { min: 100, max: 400 } },
+                        { componentClass: 'LevelTransmitter', componentClassURI: URI.LEVEL_INDICATOR_URI, displayName: 'Radar Level Transmitter', category: 'instrumentation', typicalQuantity: { min: 40, max: 150 } },
+                        { componentClass: 'PressureTransmitter', componentClassURI: URI.PRESSURE_GAUGE_URI, displayName: 'Pressure Transmitter', category: 'instrumentation', typicalQuantity: { min: 200, max: 800 } },
+                        { componentClass: 'TemperatureTransmitter', componentClassURI: URI.TEMPERATURE_SENSOR_URI, displayName: 'RTD Temperature Transmitter', category: 'instrumentation', typicalQuantity: { min: 300, max: 1000 } },
+                        { componentClass: 'GasAnalyzer', componentClassURI: URI.ANALYZER_URI, displayName: 'Process Gas Chromatograph', category: 'instrumentation', typicalQuantity: { min: 10, max: 40 } },
+
+                        // Electrical
+                        { componentClass: 'Motor', componentClassURI: URI.MOTOR_URI, displayName: 'LV Induction Motor', category: 'electrical', typicalQuantity: { min: 100, max: 400 } },
+                        { componentClass: 'Motor', componentClassURI: URI.MOTOR_URI, displayName: 'MV Synchronous Motor', category: 'electrical', typicalQuantity: { min: 5, max: 20 } },
+                        { componentClass: 'VFD', componentClassURI: URI.VFD_URI, displayName: 'Low Voltage VFD', category: 'electrical', typicalQuantity: { min: 50, max: 200 } },
+                        { componentClass: 'Switchgear', componentClassURI: URI.SWITCHGEAR_URI, displayName: 'MV Switchgear', category: 'electrical', typicalQuantity: { min: 4, max: 16 } },
+                        { componentClass: 'Transformer', componentClassURI: URI.TRANSFORMER_URI, displayName: 'Distribution Transformer', category: 'electrical', typicalQuantity: { min: 10, max: 40 } },
+                        { componentClass: 'UPS', componentClassURI: URI.UPS_URI, displayName: 'Industrial UPS System', category: 'electrical', typicalQuantity: { min: 2, max: 8 } },
+                        { componentClass: 'Generator', componentClassURI: URI.GENERATOR_URI, displayName: 'Emergency Diesel Generator', category: 'electrical', typicalQuantity: { min: 1, max: 4 } },
                     ],
                 },
                 {
