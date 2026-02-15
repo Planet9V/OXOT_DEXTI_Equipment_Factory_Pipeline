@@ -228,15 +228,41 @@ describe('DexpiAgent', () => {
         mockFetch.mockReset();
     });
 
-    test('getPersonas returns all 5 personas', () => {
+    test('getPersonas returns all 6 personas', () => {
         const personas = agent.getPersonas();
-        expect(personas).toHaveLength(5);
+        expect(personas).toHaveLength(6);
         const names = personas.map(p => p.name);
         expect(names).toContain('coordinator');
         expect(names).toContain('processEngineer');
         expect(names).toContain('standardsExpert');
         expect(names).toContain('safetyAnalyst');
         expect(names).toContain('qualityReviewer');
+        expect(names).toContain('procurementOfficer');
+    });
+
+    test('findVendorVariations returns parsed array', async () => {
+        const fakeVariations = [
+            { vendor: 'Test Vendor', model: 'Model-X', referenceId: 'P-101' },
+        ];
+
+        mockFetch.mockResolvedValueOnce({
+            ok: true,
+            json: async () => ({
+                choices: [{ message: { role: 'assistant', content: JSON.stringify(fakeVariations) }, finish_reason: 'stop' }],
+            }),
+        });
+
+        const card = { tag: 'P-101', componentClass: 'Pump' };
+        const result = await agent.findVendorVariations(card);
+
+        expect(result).toHaveLength(1);
+        expect(result[0].vendor).toBe('Test Vendor');
+
+        // Verify correct persona was used
+        const fetchCall = mockFetch.mock.calls[0];
+        const fetchBody = JSON.parse(fetchCall[1].body);
+        expect(fetchBody.messages[0].content).toContain('The Procurement Officer');
+        expect(fetchBody.messages[1].content).toContain('P-101');
     });
 
     test('each persona has a description', () => {
