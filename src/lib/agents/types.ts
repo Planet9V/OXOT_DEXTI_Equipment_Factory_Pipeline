@@ -8,7 +8,7 @@
  */
 
 /** Agent persona names. */
-export type PersonaName = 'coordinator' | 'processEngineer' | 'standardsExpert' | 'safetyAnalyst' | 'qualityReviewer';
+export type PersonaName = 'coordinator' | 'processEngineer' | 'standardsExpert' | 'safetyAnalyst' | 'qualityReviewer' | 'procurementOfficer';
 
 /* ─── Chat Messages ─────────────────────────────────────────────────────── */
 
@@ -115,6 +115,17 @@ export interface AgentResponse {
 }
 
 /* ─── Research & Review Results ──────────────────────────────────────────── */
+
+/** Vendor model variation. */
+export interface VendorVariation {
+    vendor: string;
+    model: string;
+    referenceId: string;
+    description: string;
+    differentiators: string[];
+    specifications: Record<string, string | number>;
+    documents: Array<{ title: string; url: string }>;
+}
 
 /** Parameters for equipment research. */
 export interface ResearchParams {

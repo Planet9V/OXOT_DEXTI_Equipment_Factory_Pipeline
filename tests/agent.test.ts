@@ -228,15 +228,16 @@ describe('DexpiAgent', () => {
         mockFetch.mockReset();
     });
 
-    test('getPersonas returns all 5 personas', () => {
+    test('getPersonas returns all 6 personas', () => {
         const personas = agent.getPersonas();
-        expect(personas).toHaveLength(5);
+        expect(personas).toHaveLength(6);
         const names = personas.map(p => p.name);
         expect(names).toContain('coordinator');
         expect(names).toContain('processEngineer');
         expect(names).toContain('standardsExpert');
         expect(names).toContain('safetyAnalyst');
         expect(names).toContain('qualityReviewer');
+        expect(names).toContain('procurementOfficer');
     });
 
     test('each persona has a description', () => {
@@ -325,4 +326,35 @@ describe('DexpiAgent', () => {
         expect(connected).toBe(false);
         jest.useRealTimers();
     }, 15000);
+
+    test('findVendorVariations parses JSON response', async () => {
+        const mockVariations = [
+            {
+                vendor: 'Test Vendor',
+                model: 'Model X',
+                referenceId: 'P-101',
+                description: 'A test pump',
+                differentiators: ['Fast'],
+                specifications: { Power: '10kW' },
+                documents: []
+            }
+        ];
+
+        mockFetch.mockResolvedValueOnce({
+            ok: true,
+            json: async () => ({
+                choices: [{ message: { role: 'assistant', content: JSON.stringify(mockVariations) }, finish_reason: 'stop' }],
+            }),
+        });
+
+        const variations = await agent.findVendorVariations({ tag: 'P-101', componentClass: 'Pump' });
+        expect(variations).toHaveLength(1);
+        expect(variations[0].vendor).toBe('Test Vendor');
+        expect(variations[0].model).toBe('Model X');
+
+        // Verify correct persona was used
+        const fetchBody = JSON.parse(mockFetch.mock.calls[0][1].body);
+        const systemMsg = fetchBody.messages[0].content;
+        expect(systemMsg).toContain('The Procurement Officer');
+    });
 });
