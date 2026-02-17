@@ -8,7 +8,7 @@
  */
 
 /** Agent persona names. */
-export type PersonaName = 'coordinator' | 'processEngineer' | 'standardsExpert' | 'safetyAnalyst' | 'qualityReviewer';
+export type PersonaName = 'coordinator' | 'processEngineer' | 'standardsExpert' | 'safetyAnalyst' | 'qualityReviewer' | 'procurementOfficer';
 
 /* ─── Chat Messages ─────────────────────────────────────────────────────── */
 
@@ -150,6 +150,17 @@ export interface CoverageAnalysis {
     missingTypes: string[];
     coveragePercent: number;
     recommendations: string[];
+}
+
+/** Vendor variation card output. */
+export interface VendorVariation {
+    vendor: string;
+    model: string;
+    referenceId: string;
+    description: string;
+    differentiators: string[];
+    specifications: Record<string, unknown>;
+    documents: Array<{ title: string; url: string }>;
 }
 
 /* ─── Pipeline V2 Specialist Agent Types ────────────────────────────────── */

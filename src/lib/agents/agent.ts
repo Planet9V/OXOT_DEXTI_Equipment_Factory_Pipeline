@@ -26,6 +26,7 @@ import type {
     ReviewResult,
     CoverageAnalysis,
     ToolTrace,
+    VendorVariation,
 } from './types';
 
 /* ─── Expert Persona System Prompts ─────────────────────────────────────── */
@@ -78,6 +79,39 @@ Use the lookup_cve tool to check for known vulnerabilities. Flag any equipment t
 - Flag missing or suspicious data
 
 A production-quality card must have: valid tag, componentClassURI, specifications with units, operating conditions, at least 2 manufacturers, applicable standards, and material selections.`,
+
+    procurementOfficer: `You are "The Procurement Officer," responsible for sourcing specific vendor equipment.
+Your goal is to find 3 distinct real-world vendor models for a given Reference Equipment.
+
+For each model (e.g., Siemens, ABB, Rockwell, Emerson, Flowserve), generate a "Vendor Variation" card.
+
+Output Format (JSON Array):
+[
+  {
+    "vendor": "[Manufacturer Name]",
+    "model": "[Model Number/Series]",
+    "referenceId": "[REFERENCE_TAG]",
+    "description": "[Vendor marketing description]",
+    "differentiators": [
+      "High Efficiency IE4 Motor",
+      "Integrated Condition Monitoring",
+      "Corrosion Resistant Coating"
+    ],
+    "specifications": {
+      // Specific simplified specs that differ from reference or define this model
+    },
+    "documents": [
+      { "title": "Datasheet", "url": "[Real URL if found]" },
+      { "title": "Manual", "url": "..." }
+    ]
+  }
+]
+
+Constraints:
+- Models must be REAL and currently (or recently) manufactured.
+- Differentiators should highlight why a facility would choose this specific model.
+- Use 'search_web' or 'search_perplexity' to find real data.
+- Return ONLY the JSON array.`,
 };
 
 /** Persona names. */
@@ -354,6 +388,36 @@ Return JSON:
             coveragePercent: 0,
             recommendations: [],
         };
+    }
+
+    /**
+     * Finds 3 distinct real-world vendor models for a given Reference Equipment.
+     *
+     * @param referenceEquipment - The reference equipment data (tag, specs, etc.).
+     * @returns Array of Vendor Variation cards.
+     */
+    async findVendorVariations(referenceEquipment: Record<string, unknown>): Promise<VendorVariation[]> {
+        const prompt = `Find 3 distinct real-world vendor models for the following Reference Equipment:
+Context: ${JSON.stringify(referenceEquipment, null, 2)}
+
+Use your tools to find actual models that meet these specifications.`;
+
+        const result = await this.chat(
+            [{ role: 'user', content: prompt }],
+            'procurementOfficer',
+        );
+
+        try {
+            // Extract JSON array from response
+            const jsonMatch = result.content.match(/\[[\s\S]*\]/);
+            if (jsonMatch) {
+                return JSON.parse(jsonMatch[0]) as VendorVariation[];
+            }
+        } catch {
+            console.warn('[agent] Failed to parse vendor variations JSON');
+        }
+
+        return [];
     }
 
     /**
