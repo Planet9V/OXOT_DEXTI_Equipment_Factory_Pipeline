@@ -228,15 +228,16 @@ describe('DexpiAgent', () => {
         mockFetch.mockReset();
     });
 
-    test('getPersonas returns all 5 personas', () => {
+    test('getPersonas returns all 6 personas', () => {
         const personas = agent.getPersonas();
-        expect(personas).toHaveLength(5);
+        expect(personas).toHaveLength(6);
         const names = personas.map(p => p.name);
         expect(names).toContain('coordinator');
         expect(names).toContain('processEngineer');
         expect(names).toContain('standardsExpert');
         expect(names).toContain('safetyAnalyst');
         expect(names).toContain('qualityReviewer');
+        expect(names).toContain('procurementOfficer');
     });
 
     test('each persona has a description', () => {
