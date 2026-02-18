@@ -1,0 +1,389 @@
+import * as fs from 'fs';
+import * as path from 'path';
+
+interface EquipmentRegistryItem {
+  type: string;
+  category: string;
+  tags: string[];
+  description: string;
+}
+
+const REGISTRY: EquipmentRegistryItem[] = [
+  // ─── Rotating Equipment (Pumps) ───
+  {
+    type: "Centrifugal Pump",
+    category: "rotating",
+    tags: ["PUMP", "KINETIC", "API610"],
+    description: "Standard overhung or between-bearings pump for process fluid transfer using centrifugal force."
+  },
+  {
+    type: "Reciprocating Pump",
+    category: "rotating",
+    tags: ["PUMP", "POSITIVE_DISPLACEMENT", "API674"],
+    description: "Plunger or piston pump for high-pressure, low-flow applications requiring precise dosing or injection."
+  },
+  {
+    type: "Screw Pump",
+    category: "rotating",
+    tags: ["PUMP", "POSITIVE_DISPLACEMENT", "API676"],
+    description: "Rotary positive displacement pump using intermeshing screws to move viscous fluids like crude oil or fuel oil."
+  },
+  {
+    type: "Gear Pump",
+    category: "rotating",
+    tags: ["PUMP", "POSITIVE_DISPLACEMENT"],
+    description: "Rotary pump using meshing gears to pump high-viscosity fluids in lubrication or hydraulic systems."
+  },
+  {
+    type: "Diaphragm Pump",
+    category: "rotating",
+    tags: ["PUMP", "POSITIVE_DISPLACEMENT", "METERING"],
+    description: "Positive displacement pump using a flexible diaphragm to handle corrosive or abrasive fluids."
+  },
+  {
+    type: "Submersible Pump",
+    category: "rotating",
+    tags: ["PUMP", "KINETIC", "ESP"],
+    description: "Hermetically sealed pump unit submerged in fluid, commonly used for artificial lift in oil wells or water sumps."
+  },
+  {
+    type: "Progressive Cavity Pump",
+    category: "rotating",
+    tags: ["PUMP", "POSITIVE_DISPLACEMENT"],
+    description: "Pump featuring a helical rotor turning inside a stator, ideal for shear-sensitive or solids-laden fluids."
+  },
+
+  // ─── Rotating Equipment (Compressors) ───
+  {
+    type: "Centrifugal Compressor",
+    category: "rotating",
+    tags: ["COMPRESSOR", "KINETIC", "API617"],
+    description: "Dynamic compressor using high-speed impellers for large-volume gas compression in pipelines and processing."
+  },
+  {
+    type: "Reciprocating Compressor",
+    category: "rotating",
+    tags: ["COMPRESSOR", "POSITIVE_DISPLACEMENT", "API618"],
+    description: "Piston-driven compressor for high-pressure gas applications like hydrocracking or gas injection."
+  },
+  {
+    type: "Screw Compressor",
+    category: "rotating",
+    tags: ["COMPRESSOR", "POSITIVE_DISPLACEMENT", "API619"],
+    description: "Rotary screw compressor for medium-pressure instrument air or process gas service."
+  },
+  {
+    type: "Axial Compressor",
+    category: "rotating",
+    tags: ["COMPRESSOR", "KINETIC"],
+    description: "High-flow, low-pressure-ratio compressor using rows of airfoils, common in large gas turbines and LNG trains."
+  },
+
+  // ─── Rotating Equipment (Drivers & Power Gen) ───
+  {
+    type: "Gas Turbine Generator",
+    category: "rotating",
+    tags: ["DRIVER", "POWER_GEN", "API616"],
+    description: "Internal combustion engine using continuous combustion to drive a generator for electricity production."
+  },
+  {
+    type: "Steam Turbine Generator",
+    category: "rotating",
+    tags: ["DRIVER", "POWER_GEN", "API612"],
+    description: "Device extracting thermal energy from pressurized steam to drive a generator or mechanical equipment."
+  },
+  {
+    type: "Electric Motor",
+    category: "electrical",
+    tags: ["DRIVER", "INDUCTION", "NEMA"],
+    description: "AC induction or synchronous motor converting electrical energy into mechanical motion to drive pumps and fans."
+  },
+  {
+    type: "Diesel Generator",
+    category: "rotating",
+    tags: ["DRIVER", "POWER_GEN", "EMERGENCY"],
+    description: "Reciprocating internal combustion engine generator set for backup or emergency power supply."
+  },
+
+  // ─── Heat Transfer Equipment ───
+  {
+    type: "Shell & Tube Heat Exchanger",
+    category: "heat-transfer",
+    tags: ["EXCHANGER", "TEMA", "API660"],
+    description: "Common heat exchanger design consisting of a shell with a bundle of tubes for efficient thermal transfer."
+  },
+  {
+    type: "Plate & Frame Heat Exchanger",
+    category: "heat-transfer",
+    tags: ["EXCHANGER", "COMPACT"],
+    description: "Compact exchanger using metal plates to transfer heat between two fluids, offering high efficiency."
+  },
+  {
+    type: "Air Cooled Heat Exchanger",
+    category: "heat-transfer",
+    tags: ["EXCHANGER", "FIN_FAN", "API661"],
+    description: "Fin-fan cooler using ambient air forced over finned tubes to cool process fluids without water."
+  },
+  {
+    type: "Hairpin Heat Exchanger",
+    category: "heat-transfer",
+    tags: ["EXCHANGER", "DOUBLE_PIPE"],
+    description: "U-tube double-pipe exchanger suitable for high-pressure or high-temperature differentials."
+  },
+  {
+    type: "Kettle Reboiler",
+    category: "heat-transfer",
+    tags: ["EXCHANGER", "REBOILER"],
+    description: "Shell-and-tube exchanger with an enlarged shell for vaporizing bottom products in distillation columns."
+  },
+  {
+    type: "Fired Heater (Furnace)",
+    category: "heat-transfer",
+    tags: ["HEATER", "FIRED", "API560"],
+    description: "Direct-fired furnace for heating process streams to high temperatures, such as in crude distillation or cracking."
+  },
+  {
+    type: "Industrial Boiler",
+    category: "heat-transfer",
+    tags: ["BOILER", "STEAM_GEN"],
+    description: "Water-tube or fire-tube vessel generating steam for power generation or process heating."
+  },
+  {
+    type: "Cooling Tower",
+    category: "heat-transfer",
+    tags: ["COOLING", "EVAPORATIVE"],
+    description: "Structure for rejecting waste heat to the atmosphere through the cooling of a water stream via evaporation."
+  },
+  {
+    type: "Surface Condenser",
+    category: "heat-transfer",
+    tags: ["EXCHANGER", "VACUUM"],
+    description: "Water-cooled shell-and-tube exchanger condensing exhaust steam from turbines to create vacuum."
+  },
+  {
+    type: "Deaerator",
+    category: "heat-transfer",
+    tags: ["VESSEL", "FEEDWATER"],
+    description: "Device removing dissolved oxygen and other gases from boiler feedwater to prevent corrosion."
+  },
+
+  // ─── Static Equipment (Columns & Reactors) ───
+  {
+    type: "Distillation Column",
+    category: "static",
+    tags: ["COLUMN", "SEPARATION", "TRAYED"],
+    description: "Vertical vessel using trays or packing to separate liquid mixtures based on boiling points."
+  },
+  {
+    type: "Vacuum Column",
+    category: "static",
+    tags: ["COLUMN", "SEPARATION", "VACUUM"],
+    description: "Distillation column operating at sub-atmospheric pressure to separate heavy fractions without thermal cracking."
+  },
+  {
+    type: "Absorber Column",
+    category: "static",
+    tags: ["COLUMN", "SEPARATION", "GAS_TREATING"],
+    description: "Column where gas impurities (e.g., H2S, CO2) are absorbed into a liquid solvent like amine."
+  },
+  {
+    type: "Stripper Column",
+    category: "static",
+    tags: ["COLUMN", "SEPARATION", "REGENERATION"],
+    description: "Column used to remove absorbed gases from a liquid solvent, regenerating it for reuse."
+  },
+  {
+    type: "Hydrocracking Reactor",
+    category: "static",
+    tags: ["REACTOR", "HIGH_PRESSURE"],
+    description: "Thick-walled vessel operating at high pressure/temperature to crack heavy oils in the presence of hydrogen."
+  },
+  {
+    type: "Fluid Catalytic Cracker (FCC)",
+    category: "static",
+    tags: ["REACTOR", "FLUIDIZED_BED"],
+    description: "Reactor system converting high-molecular-weight hydrocarbons into gasoline and olefinic gases using a catalyst."
+  },
+  {
+    type: "Coke Drum",
+    category: "static",
+    tags: ["VESSEL", "DELAYED_COKING"],
+    description: "Large vertical vessel where thermal cracking of residual oil takes place to produce petroleum coke."
+  },
+
+  // ─── Static Equipment (Separators & Tanks) ───
+  {
+    type: "Three-Phase Separator",
+    category: "static",
+    tags: ["VESSEL", "SEPARATION"],
+    description: "Horizontal or vertical vessel separating well fluids into oil, gas, and water phases."
+  },
+  {
+    type: "Two-Phase Separator",
+    category: "static",
+    tags: ["VESSEL", "SEPARATION"],
+    description: "Vessel designed to separate gas from liquid in a process stream."
+  },
+  {
+    type: "Knockout Drum",
+    category: "static",
+    tags: ["VESSEL", "SAFETY"],
+    description: "Vessel located before compressors or flares to remove liquid droplets from gas streams."
+  },
+  {
+    type: "Desalter",
+    category: "static",
+    tags: ["VESSEL", "ELECTROSTATIC"],
+    description: "Vessel removing salt and water from crude oil using electrostatic fields to prevent corrosion and fouling."
+  },
+  {
+    type: "Storage Tank (Fixed Roof)",
+    category: "static",
+    tags: ["TANK", "STORAGE", "API650"],
+    description: "Atmospheric tank with a permanently attached roof, used for storing low-volatility liquids like diesel or water."
+  },
+  {
+    type: "Storage Tank (Floating Roof)",
+    category: "static",
+    tags: ["TANK", "STORAGE", "API650"],
+    description: "Tank with a roof that floats on the liquid surface, minimizing vapor space and emissions for volatile fluids."
+  },
+  {
+    type: "Spherical Tank (LPG)",
+    category: "static",
+    tags: ["TANK", "PRESSURE_STORAGE", "ASME_VIII"],
+    description: "Spherical pressure vessel designed for storing liquefied petroleum gases (LPG) under pressure."
+  },
+  {
+    type: "Pig Launcher",
+    category: "piping",
+    tags: ["PIPELINE", "MAINTENANCE"],
+    description: "Device allowing insertion of pipeline inspection gauges (pigs) into a pressurized pipeline for cleaning or inspection."
+  },
+  {
+    type: "Pig Receiver",
+    category: "piping",
+    tags: ["PIPELINE", "MAINTENANCE"],
+    description: "Device at the end of a pipeline segment for retrieving pigs after a run."
+  },
+  {
+    type: "Flare Stack",
+    category: "piping",
+    tags: ["SAFETY", "DISPOSAL"],
+    description: "Vertical stack for the safe combustion of excess or relief gases during process upsets or emergencies."
+  },
+  {
+    type: "Filter Coalescer",
+    category: "static",
+    tags: ["FILTER", "SEPARATION"],
+    description: "Device combining filtration and coalescence to remove fine mists or emulsions from gas or liquid streams."
+  },
+
+  // ─── Valves & Piping ───
+  {
+    type: "Gate Valve",
+    category: "piping",
+    tags: ["VALVE", "ISOLATION"],
+    description: "Linear motion valve used for on-off service with minimal pressure drop when fully open."
+  },
+  {
+    type: "Globe Valve",
+    category: "piping",
+    tags: ["VALVE", "THROTTLING"],
+    description: "Valve designed for regulating flow, consisting of a movable plug and a stationary ring seat."
+  },
+  {
+    type: "Ball Valve",
+    category: "piping",
+    tags: ["VALVE", "ISOLATION", "QUARTER_TURN"],
+    description: "Quarter-turn valve using a spherical closure element for reliable shutoff."
+  },
+  {
+    type: "Butterfly Valve",
+    category: "piping",
+    tags: ["VALVE", "THROTTLING", "QUARTER_TURN"],
+    description: "Lightweight quarter-turn valve with a disk closure, suitable for large diameter low-pressure lines."
+  },
+  {
+    type: "Check Valve",
+    category: "piping",
+    tags: ["VALVE", "NON_RETURN"],
+    description: "Valve that allows fluid to flow in only one direction, preventing backflow."
+  },
+  {
+    type: "Safety Relief Valve",
+    category: "piping",
+    tags: ["VALVE", "SAFETY", "API526"],
+    description: "Valve designed to automatically release pressure from a vessel when it exceeds a preset limit."
+  },
+  {
+    type: "Control Valve",
+    category: "piping",
+    tags: ["VALVE", "CONTROL", "ISA"],
+    description: "Valve used to control fluid flow by varying the size of the flow passage as directed by a signal."
+  },
+
+  // ─── Instrumentation & Electrical ───
+  {
+    type: "Pressure Transmitter",
+    category: "instrumentation",
+    tags: ["SENSOR", "PRESSURE"],
+    description: "Instrument measuring process pressure and transmitting a signal to a control system."
+  },
+  {
+    type: "Temperature Transmitter",
+    category: "instrumentation",
+    tags: ["SENSOR", "TEMPERATURE"],
+    description: "Device converting temperature sensor signals (RTD/Thermocouple) to a standardized output."
+  },
+  {
+    type: "Flow Meter (Coriolis)",
+    category: "instrumentation",
+    tags: ["METER", "FLOW", "MASS"],
+    description: "High-accuracy meter measuring mass flow rate directly using the Coriolis effect."
+  },
+  {
+    type: "Level Gauge (Magnetic)",
+    category: "instrumentation",
+    tags: ["GAUGE", "LEVEL"],
+    description: "Visual level indicator using a magnetic float to flip external flags, suitable for hazardous fluids."
+  },
+  {
+    type: "Variable Frequency Drive (VFD)",
+    category: "electrical",
+    tags: ["DRIVER", "CONTROL"],
+    description: "Electronic controller adjusting the speed of an AC motor by varying input frequency and voltage."
+  },
+  {
+    type: "Switchgear (MV)",
+    category: "electrical",
+    tags: ["POWER_DIST", "PROTECTION"],
+    description: "Assembly of switching and protecting devices (breakers, fuses) for medium voltage power distribution."
+  },
+  {
+    type: "Transformer",
+    category: "electrical",
+    tags: ["POWER_DIST", "VOLTAGE"],
+    description: "Static electrical device transferring energy between circuits while changing voltage levels."
+  },
+  {
+    type: "Uninterruptible Power Supply (UPS)",
+    category: "electrical",
+    tags: ["POWER_BACKUP", "CRITICAL"],
+    description: "System providing emergency power to critical loads when the main power source fails."
+  }
+];
+
+// Ensure uniqueness by type
+const uniqueRegistry = Array.from(new Map(REGISTRY.map(item => [item.type, item])).values());
+
+const OUTPUT = {
+  sector: "ENER",
+  subSector: "ALL",
+  equipment: uniqueRegistry
+};
+
+const outputPath = path.join(__dirname, '../src/lib/resources/energy_registry.json');
+fs.writeFileSync(outputPath, JSON.stringify(OUTPUT, null, 2));
+
+console.log(`Generated registry with ${uniqueRegistry.length} items at ${outputPath}`);
