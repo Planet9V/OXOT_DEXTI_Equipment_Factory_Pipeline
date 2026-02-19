@@ -80,21 +80,12 @@ Use the lookup_cve tool to check for known vulnerabilities. Flag any equipment t
 
 A production-quality card must have: valid tag, componentClassURI, specifications with units, operating conditions, at least 2 manufacturers, applicable standards, and material selections.`,
 
-    procurementOfficer: `You are "The Procurement Officer," responsible for sourcing specific vendor equipment for industrial facilities.
-Your goal is to find real-world, currently manufactured vendor models that match the specifications of a given Reference Equipment.
+    procurementOfficer: `You are "The Procurement Officer," responsible for sourcing specific vendor equipment.
+Your task is to find 3 distinct real-world vendor models for Reference Equipment.
+Models must be REAL and currently (or recently) manufactured.
+Differentiators should highlight why a facility would choose this specific model.
 
-You have access to web search tools (Tavily, Brave, Perplexity) to find:
-- Real vendor models (e.g., Siemens, ABB, Flowserve)
-- Technical datasheets and manuals
-- Key differentiators (efficiency, maintenance features, materials)
-
-When given a reference equipment card, you must:
-1. Identify 3 distinct real-world models from different major vendors.
-2. Ensure they match the key operating conditions (flow, pressure, temperature).
-3. Extract specific differentiators that justify the choice.
-4. Provide direct URLs to documentation where possible.
-
-Output must be a JSON array of "Vendor Variation" objects.`,
+You have access to web search tools to find real-world data. Use them to verify models and specifications.`,
 };
 
 /** Persona names. */
@@ -382,14 +373,15 @@ Return JSON:
     }
 
     /**
-     * Find real-world vendor variations for a reference equipment.
+     * Find vendor variations for a given equipment card.
      *
-     * @param referenceEquipment - The reference equipment card.
-     * @returns Array of vendor variations.
+     * @param card - Reference equipment card.
+     * @returns Array of vendor variation objects.
      */
-    async findVendorVariations(referenceEquipment: Record<string, unknown>): Promise<VendorVariation[]> {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    async findVendorVariations(card: Record<string, unknown>): Promise<any[]> {
         const prompt = `Task: Find 3 distinct real-world vendor models for the following Reference Equipment:
-Context: ${JSON.stringify(referenceEquipment, null, 2)}
+Context: ${JSON.stringify(card, null, 2)}
 
 For each model (e.g., Siemens, ABB, Rockwell, Emerson, Flowserve), generate a "Vendor Variation" card:
 
@@ -398,7 +390,7 @@ Output Format (JSON Array):
   {
     "vendor": "[Manufacturer Name]",
     "model": "[Model Number/Series]",
-    "referenceId": "${(referenceEquipment['tag'] as string) || 'REF'}",
+    "referenceId": "${card.tag || 'REF'}",
     "description": "[Vendor marketing description]",
     "differentiators": [
       "High Efficiency IE4 Motor",
@@ -413,17 +405,23 @@ Output Format (JSON Array):
       { "title": "Manual", "url": "..." }
     ]
   }
-]`;
+]
 
-        const response = await this.chat(
+Constraint:
+- Models must be REAL and currently (or recently) manufactured.
+- Differentiators should highlight why a facility would choose this specific model.
+- Return ONLY valid JSON array, no markdown.`;
+
+        const result = await this.chat(
             [{ role: 'user', content: prompt }],
-            'procurementOfficer'
+            'procurementOfficer',
         );
 
         try {
-            const jsonMatch = response.content.match(/\[[\s\S]*\]/);
+            // Extract JSON from response (handling potential markdown blocks)
+            const jsonMatch = result.content.match(/\[[\s\S]*\]/);
             if (jsonMatch) {
-                return JSON.parse(jsonMatch[0]) as VendorVariation[];
+                return JSON.parse(jsonMatch[0]);
             }
         } catch (err) {
             console.warn('[agent] Failed to parse vendor variations JSON', err);
