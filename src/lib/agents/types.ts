@@ -116,7 +116,7 @@ export interface AgentResponse {
 
 /* ─── Research & Review Results ──────────────────────────────────────────── */
 
-/** Represents a real-world vendor model variation of a reference equipment. */
+/** Vendor model variation. */
 export interface VendorVariation {
     vendor: string;
     model: string;

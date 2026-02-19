@@ -351,4 +351,35 @@ describe('DexpiAgent', () => {
         expect(connected).toBe(false);
         jest.useRealTimers();
     }, 15000);
+
+    test('findVendorVariations parses JSON response', async () => {
+        const mockVariations = [
+            {
+                vendor: 'Test Vendor',
+                model: 'Model X',
+                referenceId: 'P-101',
+                description: 'A test pump',
+                differentiators: ['Fast'],
+                specifications: { Power: '10kW' },
+                documents: []
+            }
+        ];
+
+        mockFetch.mockResolvedValueOnce({
+            ok: true,
+            json: async () => ({
+                choices: [{ message: { role: 'assistant', content: JSON.stringify(mockVariations) }, finish_reason: 'stop' }],
+            }),
+        });
+
+        const variations = await agent.findVendorVariations({ tag: 'P-101', componentClass: 'Pump' });
+        expect(variations).toHaveLength(1);
+        expect(variations[0].vendor).toBe('Test Vendor');
+        expect(variations[0].model).toBe('Model X');
+
+        // Verify correct persona was used
+        const fetchBody = JSON.parse(mockFetch.mock.calls[0][1].body);
+        const systemMsg = fetchBody.messages[0].content;
+        expect(systemMsg).toContain('The Procurement Officer');
+    });
 });
