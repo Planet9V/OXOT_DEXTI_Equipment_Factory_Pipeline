@@ -26,6 +26,7 @@ import type {
     ReviewResult,
     CoverageAnalysis,
     ToolTrace,
+    VendorVariation,
 } from './types';
 
 /* ─── Expert Persona System Prompts ─────────────────────────────────────── */
