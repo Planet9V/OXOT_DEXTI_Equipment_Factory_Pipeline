@@ -382,6 +382,57 @@ Return JSON:
     }
 
     /**
+     * Find real-world vendor variations for a reference equipment.
+     *
+     * @param referenceEquipment - The reference equipment card.
+     * @returns Array of vendor variations.
+     */
+    async findVendorVariations(referenceEquipment: Record<string, unknown>): Promise<VendorVariation[]> {
+        const prompt = `Task: Find 3 distinct real-world vendor models for the following Reference Equipment:
+Context: ${JSON.stringify(referenceEquipment, null, 2)}
+
+For each model (e.g., Siemens, ABB, Rockwell, Emerson, Flowserve), generate a "Vendor Variation" card:
+
+Output Format (JSON Array):
+[
+  {
+    "vendor": "[Manufacturer Name]",
+    "model": "[Model Number/Series]",
+    "referenceId": "${(referenceEquipment['tag'] as string) || 'REF'}",
+    "description": "[Vendor marketing description]",
+    "differentiators": [
+      "High Efficiency IE4 Motor",
+      "Integrated Condition Monitoring",
+      "Corrosion Resistant Coating"
+    ],
+    "specifications": {
+      // Specific simplified specs that differ from reference or define this model
+    },
+    "documents": [
+      { "title": "Datasheet", "url": "[Real URL if found]" },
+      { "title": "Manual", "url": "..." }
+    ]
+  }
+]`;
+
+        const response = await this.chat(
+            [{ role: 'user', content: prompt }],
+            'procurementOfficer'
+        );
+
+        try {
+            const jsonMatch = response.content.match(/\[[\s\S]*\]/);
+            if (jsonMatch) {
+                return JSON.parse(jsonMatch[0]) as VendorVariation[];
+            }
+        } catch (err) {
+            console.warn('[agent] Failed to parse vendor variations JSON', err);
+        }
+
+        return [];
+    }
+
+    /**
      * Analyse equipment coverage for a facility.
      *
      * @param facility   - Facility code.
