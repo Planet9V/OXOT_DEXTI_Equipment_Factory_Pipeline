@@ -75,6 +75,7 @@ describe('Procurement Officer Persona', () => {
         const userMessage = messages.find((m: any) => m.role === 'user');
         expect(userMessage.content).toContain('P-101');
         expect(userMessage.content).toContain('Centrifugal Pump');
+        expect(userMessage.content).toContain('For each model (e.g., Siemens, ABB, Rockwell, Emerson, Flowserve)');
 
         // Verify system prompt is for procurement officer
         const systemMessage = messages.find((m: any) => m.role === 'system');
