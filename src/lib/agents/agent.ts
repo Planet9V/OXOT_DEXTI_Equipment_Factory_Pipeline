@@ -283,10 +283,10 @@ Return ONLY valid JSON, no markdown.`;
      * @returns Array of vendor variations.
      */
     async findVendorVariations(referenceEquipment: Record<string, unknown>): Promise<VendorVariation[]> {
-        const prompt = `Find 3 distinct real-world vendor models for the following Reference Equipment:
+        const prompt = `Task: Find 3 distinct real-world vendor models for the following Reference Equipment:
 Context: ${JSON.stringify(referenceEquipment, null, 2)}
 
-For each model, generate a "Vendor Variation" card.
+For each model (e.g., Siemens, ABB, Rockwell, Emerson, Flowserve), generate a "Vendor Variation" card:
 
 Output Format (JSON Array):
 [
@@ -312,7 +312,8 @@ Output Format (JSON Array):
 
 Constraint:
 - Models must be REAL and currently (or recently) manufactured.
-- Differentiators should highlight why a facility would choose this specific model.`;
+- Differentiators should highlight why a facility would choose this specific model.
+- Return ONLY valid JSON array, no markdown.`;
 
         const result = await this.chat(
             [{ role: 'user', content: prompt }],
@@ -372,63 +373,6 @@ Return JSON:
         return { score: 0, issues: ['Failed to parse review'], suggestions: [] };
     }
 
-    /**
-     * Find vendor variations for a given equipment card.
-     *
-     * @param card - Reference equipment card.
-     * @returns Array of vendor variation objects.
-     */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    async findVendorVariations(card: Record<string, unknown>): Promise<any[]> {
-        const prompt = `Task: Find 3 distinct real-world vendor models for the following Reference Equipment:
-Context: ${JSON.stringify(card, null, 2)}
-
-For each model (e.g., Siemens, ABB, Rockwell, Emerson, Flowserve), generate a "Vendor Variation" card:
-
-Output Format (JSON Array):
-[
-  {
-    "vendor": "[Manufacturer Name]",
-    "model": "[Model Number/Series]",
-    "referenceId": "${card.tag || 'REF'}",
-    "description": "[Vendor marketing description]",
-    "differentiators": [
-      "High Efficiency IE4 Motor",
-      "Integrated Condition Monitoring",
-      "Corrosion Resistant Coating"
-    ],
-    "specifications": {
-      // Specific simplified specs that differ from reference or define this model
-    },
-    "documents": [
-      { "title": "Datasheet", "url": "[Real URL if found]" },
-      { "title": "Manual", "url": "..." }
-    ]
-  }
-]
-
-Constraint:
-- Models must be REAL and currently (or recently) manufactured.
-- Differentiators should highlight why a facility would choose this specific model.
-- Return ONLY valid JSON array, no markdown.`;
-
-        const result = await this.chat(
-            [{ role: 'user', content: prompt }],
-            'procurementOfficer',
-        );
-
-        try {
-            // Extract JSON from response (handling potential markdown blocks)
-            const jsonMatch = result.content.match(/\[[\s\S]*\]/);
-            if (jsonMatch) {
-                return JSON.parse(jsonMatch[0]);
-            }
-        } catch (err) {
-            console.warn('[agent] Failed to parse vendor variations JSON', err);
-        }
-
-        return [];
-    }
 
     /**
      * Analyse equipment coverage for a facility.
