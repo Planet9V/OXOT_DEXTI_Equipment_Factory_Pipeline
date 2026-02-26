@@ -1,0 +1,626 @@
+{
+  "sector": "NUCL",
+  "subSector": "NUCL-ALL",
+  "equipment": [
+    {
+      "type": "Reactor Pressure Vessel (RPV)",
+      "category": "static",
+      "tags": [
+        "VESSEL",
+        "REACTOR",
+        "PRIMARY"
+      ],
+      "description": "Thick-walled steel vessel containing the nuclear fuel core and coolant."
+    },
+    {
+      "type": "Steam Generator (U-Tube)",
+      "category": "heat-transfer",
+      "tags": [
+        "HX",
+        "PRIMARY",
+        "STEAM"
+      ],
+      "description": "Heat exchanger transferring heat from primary coolant to secondary loop to create steam."
+    },
+    {
+      "type": "Pressurizer",
+      "category": "static",
+      "tags": [
+        "VESSEL",
+        "PRIMARY",
+        "PRESSURE_CONTROL"
+      ],
+      "description": "Vessel used to control pressure in the primary circuit of a PWR."
+    },
+    {
+      "type": "Reactor Coolant Pump (RCP)",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "PRIMARY",
+        "COOLANT"
+      ],
+      "description": "Large vertical pump circulating primary coolant through the reactor core."
+    },
+    {
+      "type": "Control Rod Drive Mechanism (CRDM)",
+      "category": "mechanical",
+      "tags": [
+        "CONTROL",
+        "REACTIVITY",
+        "MECHANISM"
+      ],
+      "description": "Electromechanical device for inserting and withdrawing control rods."
+    },
+    {
+      "type": "Fuel Assembly",
+      "category": "static",
+      "tags": [
+        "FUEL",
+        "CORE",
+        "FISSION"
+      ],
+      "description": "Bundled arrangement of fuel rods containing fissile material."
+    },
+    {
+      "type": "Moderator Tank",
+      "category": "static",
+      "tags": [
+        "VESSEL",
+        "MODERATOR",
+        "HEAVY_WATER"
+      ],
+      "description": "Vessel containing the moderator (e.g., heavy water) in certain reactor designs."
+    },
+    {
+      "type": "Calandria",
+      "category": "static",
+      "tags": [
+        "VESSEL",
+        "CORE",
+        "CANDU"
+      ],
+      "description": "Horizontal vessel housing fuel channels and moderator in CANDU reactors."
+    },
+    {
+      "type": "Steam Drum",
+      "category": "static",
+      "tags": [
+        "VESSEL",
+        "SEPARATION",
+        "STEAM"
+      ],
+      "description": "Vessel for separating steam from water in BWR or steam generator systems."
+    },
+    {
+      "type": "Jet Pump",
+      "category": "static",
+      "tags": [
+        "PUMP",
+        "RECIRCULATION",
+        "EJECTOR"
+      ],
+      "description": "Device using fluid momentum to circulate coolant in BWRs."
+    },
+    {
+      "type": "Steam Turbine (High Pressure)",
+      "category": "rotating",
+      "tags": [
+        "TURBINE",
+        "GENERATION",
+        "STEAM"
+      ],
+      "description": "Turbine stage receiving high-pressure steam directly from steam generators."
+    },
+    {
+      "type": "Steam Turbine (Low Pressure)",
+      "category": "rotating",
+      "tags": [
+        "TURBINE",
+        "GENERATION",
+        "STEAM"
+      ],
+      "description": "Large turbine stage extracting remaining energy from lower pressure steam."
+    },
+    {
+      "type": "Moisture Separator Reheater (MSR)",
+      "category": "heat-transfer",
+      "tags": [
+        "HX",
+        "SEPARATOR",
+        "STEAM"
+      ],
+      "description": "Device removing moisture and reheating steam between turbine stages."
+    },
+    {
+      "type": "Main Condenser",
+      "category": "heat-transfer",
+      "tags": [
+        "HX",
+        "CONDENSING",
+        "VACUUM"
+      ],
+      "description": "Large heat exchanger condensing exhaust steam from the turbine."
+    },
+    {
+      "type": "Condensate Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SECONDARY",
+        "WATER"
+      ],
+      "description": "Pump returning condensed water from the condenser to the feedwater system."
+    },
+    {
+      "type": "Feedwater Heater (Low Pressure)",
+      "category": "heat-transfer",
+      "tags": [
+        "HX",
+        "FEEDWATER",
+        "EFFICIENCY"
+      ],
+      "description": "Heat exchanger preheating feedwater using extraction steam."
+    },
+    {
+      "type": "Feedwater Heater (High Pressure)",
+      "category": "heat-transfer",
+      "tags": [
+        "HX",
+        "FEEDWATER",
+        "EFFICIENCY"
+      ],
+      "description": "Heavy-duty heater located after the feedwater pumps."
+    },
+    {
+      "type": "Main Feedwater Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SECONDARY",
+        "HIGH_PRESSURE"
+      ],
+      "description": "High-pressure pump delivering water to steam generators."
+    },
+    {
+      "type": "Cooling Tower (Natural Draft)",
+      "category": "heat-transfer",
+      "tags": [
+        "COOLING",
+        "ATMOSPHERIC",
+        "HEAT_REJECTION"
+      ],
+      "description": "Large hyperbolic structure for evaporative cooling of circulating water."
+    },
+    {
+      "type": "Circulating Water Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "COOLING",
+        "LARGE_FLOW"
+      ],
+      "description": "Pump moving large volumes of water for condenser cooling."
+    },
+    {
+      "type": "Safety Injection Pump (High Head)",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SAFETY",
+        "ECCS"
+      ],
+      "description": "Pump for injecting coolant at high pressure during LOCA events."
+    },
+    {
+      "type": "Residual Heat Removal (RHR) Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SAFETY",
+        "COOLING"
+      ],
+      "description": "Pump for removing decay heat during shutdown."
+    },
+    {
+      "type": "Containment Spray Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SAFETY",
+        "CONTAINMENT"
+      ],
+      "description": "Pump spraying water into containment to reduce pressure and scrub fission products."
+    },
+    {
+      "type": "Accumulator Tank",
+      "category": "static",
+      "tags": [
+        "VESSEL",
+        "SAFETY",
+        "PASSIVE"
+      ],
+      "description": "Pressurized tank for passive injection of borated water."
+    },
+    {
+      "type": "Boron Injection Tank",
+      "category": "static",
+      "tags": [
+        "VESSEL",
+        "SAFETY",
+        "REACTIVITY"
+      ],
+      "description": "Tank containing high-concentration boric acid for emergency shutdown."
+    },
+    {
+      "type": "Emergency Diesel Generator (EDG)",
+      "category": "electrical",
+      "tags": [
+        "GENERATOR",
+        "BACKUP",
+        "SAFETY"
+      ],
+      "description": "Diesel generator providing power to safety systems during loss of offsite power."
+    },
+    {
+      "type": "Hydrogen Recombiner",
+      "category": "static",
+      "tags": [
+        "SAFETY",
+        "CONTAINMENT",
+        "GAS"
+      ],
+      "description": "Device catalyticlly recombining hydrogen and oxygen to prevent explosions."
+    },
+    {
+      "type": "Standby Liquid Control Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SAFETY",
+        "SHUTDOWN"
+      ],
+      "description": "Pump for injecting neutron-absorbing solution into the reactor."
+    },
+    {
+      "type": "Spent Fuel Pool Cooling Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "COOLING",
+        "SPENT_FUEL"
+      ],
+      "description": "Pump circulating water in the spent fuel storage pool."
+    },
+    {
+      "type": "Spent Fuel Pool Heat Exchanger",
+      "category": "heat-transfer",
+      "tags": [
+        "HX",
+        "COOLING",
+        "SPENT_FUEL"
+      ],
+      "description": "Exchanger removing decay heat from the spent fuel pool water."
+    },
+    {
+      "type": "Dry Cask Storage Container",
+      "category": "static",
+      "tags": [
+        "CONTAINER",
+        "WASTE",
+        "STORAGE"
+      ],
+      "description": "Steel/concrete container for dry storage of spent fuel assemblies."
+    },
+    {
+      "type": "Gas Centrifuge",
+      "category": "rotating",
+      "tags": [
+        "ENRICHMENT",
+        "SEPARATION",
+        "ISOTOPE"
+      ],
+      "description": "Rotating device for separating uranium isotopes."
+    },
+    {
+      "type": "Pulse Column",
+      "category": "static",
+      "tags": [
+        "COLUMN",
+        "SEPARATION",
+        "REPROCESSING"
+      ],
+      "description": "Liquid-liquid extraction column used in fuel reprocessing."
+    },
+    {
+      "type": "Mixer-Settler",
+      "category": "static",
+      "tags": [
+        "VESSEL",
+        "SEPARATION",
+        "REPROCESSING"
+      ],
+      "description": "Equipment for solvent extraction processes."
+    },
+    {
+      "type": "Calciner",
+      "category": "heat-transfer",
+      "tags": [
+        "FURNACE",
+        "WASTE",
+        "VITRIFICATION"
+      ],
+      "description": "High-temperature vessel for converting liquid waste to oxide powder."
+    },
+    {
+      "type": "Melter (Waste Vitrification)",
+      "category": "heat-transfer",
+      "tags": [
+        "FURNACE",
+        "WASTE",
+        "GLASS"
+      ],
+      "description": "Furnace for melting nuclear waste with glass forming materials."
+    },
+    {
+      "type": "Main Steam Isolation Valve (MSIV)",
+      "category": "piping",
+      "tags": [
+        "VALVE",
+        "ISOLATION",
+        "SAFETY"
+      ],
+      "description": "Critical valve to isolate the containment from the turbine building."
+    },
+    {
+      "type": "Pressurizer Relief Valve (PORV)",
+      "category": "piping",
+      "tags": [
+        "VALVE",
+        "RELIEF",
+        "PRESSURE"
+      ],
+      "description": "Power-operated relief valve on the pressurizer."
+    },
+    {
+      "type": "Containment Isolation Valve",
+      "category": "piping",
+      "tags": [
+        "VALVE",
+        "ISOLATION",
+        "CONTAINMENT"
+      ],
+      "description": "Valve closing penetrations through the containment wall."
+    },
+    {
+      "type": "Feedwater Control Valve",
+      "category": "piping",
+      "tags": [
+        "VALVE",
+        "CONTROL",
+        "FEEDWATER"
+      ],
+      "description": "Valve regulating feedwater flow to steam generators."
+    },
+    {
+      "type": "Turbine Bypass Valve",
+      "category": "piping",
+      "tags": [
+        "VALVE",
+        "CONTROL",
+        "STEAM"
+      ],
+      "description": "Valve dumping steam directly to the condenser during load rejection."
+    },
+    {
+      "type": "Main Generator",
+      "category": "electrical",
+      "tags": [
+        "GENERATOR",
+        "POWER",
+        "ROTATING"
+      ],
+      "description": "Large synchronous generator coupled to the steam turbine."
+    },
+    {
+      "type": "Main Power Transformer",
+      "category": "electrical",
+      "tags": [
+        "TRANSFORMER",
+        "HV",
+        "GRID"
+      ],
+      "description": "Step-up transformer connecting the generator to the transmission grid."
+    },
+    {
+      "type": "Station Auxiliary Transformer",
+      "category": "electrical",
+      "tags": [
+        "TRANSFORMER",
+        "DISTRIBUTION",
+        "POWER"
+      ],
+      "description": "Transformer supplying house loads from the grid."
+    },
+    {
+      "type": "Motor Control Center (MCC)",
+      "category": "electrical",
+      "tags": [
+        "SWITCHGEAR",
+        "CONTROL",
+        "DISTRIBUTION"
+      ],
+      "description": "Assembly of motor starters and disconnects."
+    },
+    {
+      "type": "Switchgear (Medium Voltage)",
+      "category": "electrical",
+      "tags": [
+        "SWITCHGEAR",
+        "POWER",
+        "DISTRIBUTION"
+      ],
+      "description": "Breakers and busbars for distributing medium voltage power."
+    },
+    {
+      "type": "Uninterruptible Power Supply (UPS)",
+      "category": "electrical",
+      "tags": [
+        "POWER",
+        "BACKUP",
+        "DC"
+      ],
+      "description": "Battery-backed system for critical instrumentation and controls."
+    },
+    {
+      "type": "Radiation Monitor (Area)",
+      "category": "instrumentation",
+      "tags": [
+        "SENSOR",
+        "RADIATION",
+        "SAFETY"
+      ],
+      "description": "Fixed monitor measuring ambient radiation levels."
+    },
+    {
+      "type": "Neutron Flux Detector",
+      "category": "instrumentation",
+      "tags": [
+        "SENSOR",
+        "CORE",
+        "NUCLEAR"
+      ],
+      "description": "Instrument measuring neutron flux to determine reactor power."
+    },
+    {
+      "type": "Thermocouple (Core Exit)",
+      "category": "instrumentation",
+      "tags": [
+        "SENSOR",
+        "TEMPERATURE",
+        "CORE"
+      ],
+      "description": "Temperature sensor monitoring coolant outlet temperature."
+    },
+    {
+      "type": "Reactor Protection System (RPS) Cabinet",
+      "category": "instrumentation",
+      "tags": [
+        "CONTROL",
+        "SAFETY",
+        "LOGIC"
+      ],
+      "description": "Cabinet housing the logic circuits for reactor trip."
+    },
+    {
+      "type": "Control Room Panel",
+      "category": "instrumentation",
+      "tags": [
+        "HMI",
+        "CONTROL",
+        "OPERATOR"
+      ],
+      "description": "Interface panel for operators to monitor and control the plant."
+    },
+    {
+      "type": "Polar Crane",
+      "category": "mechanical",
+      "tags": [
+        "CRANE",
+        "LIFTING",
+        "CONTAINMENT"
+      ],
+      "description": "Large circular crane inside containment for lifting heavy components."
+    },
+    {
+      "type": "Fuel Handling Machine",
+      "category": "mechanical",
+      "tags": [
+        "CRANE",
+        "FUEL",
+        "REFUELING"
+      ],
+      "description": "Specialized machine for moving fuel assemblies."
+    },
+    {
+      "type": "Demineralizer",
+      "category": "static",
+      "tags": [
+        "VESSEL",
+        "PURIFICATION",
+        "WATER"
+      ],
+      "description": "Ion exchange vessel for purifying reactor coolant."
+    },
+    {
+      "type": "HEPA Filter Bank",
+      "category": "static",
+      "tags": [
+        "FILTER",
+        "HVAC",
+        "AIR"
+      ],
+      "description": "High-efficiency particulate air filters for ventilation exhaust."
+    },
+    {
+      "type": "Charcoal Adsorber",
+      "category": "static",
+      "tags": [
+        "FILTER",
+        "HVAC",
+        "IODINE"
+      ],
+      "description": "Filter bed for removing radioactive iodine from air streams."
+    },
+    {
+      "type": "Chiller (Essential)",
+      "category": "heat-transfer",
+      "tags": [
+        "HVAC",
+        "COOLING",
+        "SAFETY"
+      ],
+      "description": "Refrigeration unit providing chilled water for safety-related HVAC."
+    },
+    {
+      "type": "Component Cooling Water Heat Exchanger",
+      "category": "heat-transfer",
+      "tags": [
+        "HX",
+        "COOLING",
+        "INTERMEDIATE"
+      ],
+      "description": "Exchanger cooling the intermediate closed cooling loop."
+    },
+    {
+      "type": "Service Water Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "COOLING",
+        "INTAKE"
+      ],
+      "description": "Pump drawing water from the ultimate heat sink (river/ocean)."
+    },
+    {
+      "type": "Spent Fuel Storage Rack",
+      "category": "static",
+      "tags": [
+        "RACK",
+        "STORAGE",
+        "FUEL"
+      ],
+      "description": "Structure holding fuel assemblies in the spent fuel pool."
+    },
+    {
+      "type": "Gamma Spectrometer",
+      "category": "instrumentation",
+      "tags": [
+        "ANALYZER",
+        "RADIATION",
+        "LAB"
+      ],
+      "description": "Instrument for identifying radioactive isotopes."
+    }
+  ]
+}
