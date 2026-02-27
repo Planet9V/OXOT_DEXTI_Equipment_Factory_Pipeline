@@ -1,0 +1,115 @@
+import * as fs from 'fs';
+import * as path from 'path';
+
+const SECTOR_CODE = 'WATR';
+const SUB_SECTOR_CODE = 'WATR-ALL';
+
+interface RegistryItem {
+    type: string;
+    category: string;
+    tags: string[];
+    description: string;
+}
+
+const equipmentList: RegistryItem[] = [
+    // Core Process - Headworks & Primary Treatment
+    { type: "Bar Screen (Mechanical)", category: "static", tags: ["SCREEN", "MECHANICAL", "HEADWORKS"], description: "Automated screen for removing large debris from influent wastewater." },
+    { type: "Grit Chamber (Vortex)", category: "static", tags: ["SEPARATOR", "GRIT", "VORTEX"], description: "Vortex separator for removing sand and grit." },
+    { type: "Comminutor / Grinder", category: "rotating", tags: ["GRINDER", "HEADWORKS", "SIZE_REDUCTION"], description: "Device for shredding solids in the flow stream." },
+    { type: "Primary Clarifier (Circular)", category: "static", tags: ["CLARIFIER", "SEDIMENTATION", "PRIMARY"], description: "Circular tank for settling settleable solids." },
+    { type: "Primary Clarifier (Rectangular)", category: "static", tags: ["CLARIFIER", "SEDIMENTATION", "PRIMARY"], description: "Rectangular tank with chain and flight mechanism for sludge removal." },
+    { type: "Dissolved Air Flotation (DAF)", category: "static", tags: ["FLOTATION", "SEPARATION", "THICKENING"], description: "Tank using micro-bubbles to float solids to the surface." },
+
+    // Core Process - Biological Treatment
+    { type: "Aeration Basin (Fine Bubble)", category: "static", tags: ["AERATION", "BIOLOGICAL", "DIFFUSER"], description: "Tank with floor-mounted diffusers for oxygen transfer to biomass." },
+    { type: "Aeration Basin (Surface Aerator)", category: "rotating", tags: ["AERATION", "BIOLOGICAL", "MECHANICAL"], description: "Tank utilizing mechanical surface aerators." },
+    { type: "Moving Bed Biofilm Reactor (MBBR)", category: "static", tags: ["REACTOR", "BIOLOGICAL", "MEDIA"], description: "Reactor with suspended plastic media carriers for biofilm growth." },
+    { type: "Membrane Bioreactor (MBR)", category: "static", tags: ["REACTOR", "MEMBRANE", "BIOLOGICAL"], description: "Activated sludge process with integrated membrane filtration." },
+    { type: "Sequencing Batch Reactor (SBR)", category: "static", tags: ["REACTOR", "BATCH", "BIOLOGICAL"], description: "Batch process tank handling aeration and settling in one vessel." },
+    { type: "Secondary Clarifier", category: "static", tags: ["CLARIFIER", "SEDIMENTATION", "SECONDARY"], description: "Final settling tank for separating biomass from treated water." },
+    { type: "Trickling Filter", category: "static", tags: ["FILTER", "BIOLOGICAL", "ATTACHED_GROWTH"], description: "Bed of media over which wastewater is sprayed for biological treatment." },
+    { type: "Rotating Biological Contactor (RBC)", category: "rotating", tags: ["CONTACTOR", "BIOLOGICAL", "ROTATING"], description: "Series of rotating discs supporting biofilm partially submerged in flow." },
+
+    // Core Process - Tertiary & Disinfection
+    { type: "Tertiary Filter (Sand)", category: "static", tags: ["FILTER", "MEDIA", "TERTIARY"], description: "Gravity sand filter for polishing effluent." },
+    { type: "Tertiary Filter (Disc)", category: "rotating", tags: ["FILTER", "CLOTH", "TERTIARY"], description: "Rotating cloth disc filter for tertiary suspended solids removal." },
+    { type: "Reverse Osmosis (RO) Skid", category: "static", tags: ["MEMBRANE", "RO", "DESALINATION"], description: "High-pressure membrane system for dissolved solids removal." },
+    { type: "Ultrafiltration (UF) Skid", category: "static", tags: ["MEMBRANE", "UF", "FILTRATION"], description: "Low-pressure membrane system for suspended solids and pathogen removal." },
+    { type: "UV Disinfection System (Open Channel)", category: "static", tags: ["DISINFECTION", "UV", "OPEN"], description: "Banks of UV lamps in an open channel for pathogen inactivation." },
+    { type: "UV Disinfection System (Closed Vessel)", category: "static", tags: ["DISINFECTION", "UV", "CLOSED"], description: "Pressurized reactor with UV lamps for disinfection." },
+    { type: "Ozone Generator", category: "static", tags: ["GENERATOR", "OZONE", "OXIDATION"], description: "Equipment for generating ozone gas for oxidation and disinfection." },
+    { type: "Chlorine Contact Tank", category: "static", tags: ["TANK", "DISINFECTION", "CHLORINE"], description: "Baffled tank ensuring sufficient contact time for chlorination." },
+    { type: "On-Site Hypochlorite Generator", category: "static", tags: ["GENERATOR", "CHEMICAL", "ELECTROLYSIS"], description: "System generating sodium hypochlorite from brine." },
+
+    // Core Process - Sludge Handling
+    { type: "Gravity Thickener", category: "static", tags: ["THICKENER", "SLUDGE", "GRAVITY"], description: "Tank for concentrating sludge by settling." },
+    { type: "Rotary Drum Thickener", category: "rotating", tags: ["THICKENER", "SLUDGE", "MECHANICAL"], description: "Rotating drum for thickening waste activated sludge." },
+    { type: "Anaerobic Digester", category: "static", tags: ["DIGESTER", "SLUDGE", "ANAEROBIC"], description: "Sealed tank for sludge stabilization and biogas production." },
+    { type: "Belt Filter Press", category: "rotating", tags: ["DEWATERING", "PRESS", "SLUDGE"], description: "Machine using belts and rollers to squeeze water from sludge." },
+    { type: "Screw Press", category: "rotating", tags: ["DEWATERING", "PRESS", "SCREW"], description: "Slow-moving screw inside a screen for sludge dewatering." },
+    { type: "Centrifuge (Dewatering)", category: "rotating", tags: ["CENTRIFUGE", "DEWATERING", "HIGH_SPEED"], description: "High-speed centrifuge for sludge dewatering." },
+    { type: "Sludge Dryer", category: "heat-transfer", tags: ["DRYER", "SLUDGE", "THERMAL"], description: "Thermal drying system to produce Class A biosolids." },
+
+    // Support Systems - Pumps
+    { type: "Vertical Turbine Pump", category: "rotating", tags: ["PUMP", "VERTICAL", "RAW_WATER"], description: "Vertical multi-stage pump for raw water intake." },
+    { type: "Centrifugal Pump (End Suction)", category: "rotating", tags: ["PUMP", "CENTRIFUGAL", "GENERAL"], description: "Standard horizontal centrifugal pump for water." },
+    { type: "Submersible Lift Pump", category: "rotating", tags: ["PUMP", "SUBMERSIBLE", "SEWAGE"], description: "Submersible sewage pump for lift stations." },
+    { type: "Return Activated Sludge (RAS) Pump", category: "rotating", tags: ["PUMP", "SLUDGE", "RECYCLE"], description: "Pump for recycling biomass to the biological process." },
+    { type: "Waste Activated Sludge (WAS) Pump", category: "rotating", tags: ["PUMP", "SLUDGE", "WASTE"], description: "Pump for removing excess biomass." },
+    { type: "Progressive Cavity Pump", category: "rotating", tags: ["PUMP", "PD", "SLUDGE"], description: "Positive displacement pump for viscous sludge." },
+    { type: "Metering Pump (Diaphragm)", category: "rotating", tags: ["PUMP", "METERING", "CHEMICAL"], description: "Precise pump for dosing chemicals like alum or chlorine." },
+    { type: "Metering Pump (Peristaltic)", category: "rotating", tags: ["PUMP", "METERING", "CHEMICAL"], description: "Hose pump for dosing abrasive or viscous chemicals." },
+
+    // Support Systems - Blowers & Mixers
+    { type: "Positive Displacement Blower", category: "rotating", tags: ["BLOWER", "PD", "AERATION"], description: "Roots-type blower for aeration air supply." },
+    { type: "Turbo Blower", category: "rotating", tags: ["BLOWER", "HIGH_SPEED", "AERATION"], description: "High-efficiency centrifugal blower with air bearings." },
+    { type: "Submersible Mixer", category: "rotating", tags: ["MIXER", "SUBMERSIBLE", "AGITATION"], description: "Propeller mixer for anoxic zones or mixing tanks." },
+    { type: "Static Mixer", category: "static", tags: ["MIXER", "INLINE", "STATIC"], description: "In-line mixing element for chemical blending." },
+
+    // Valves & Piping
+    { type: "Knife Gate Valve", category: "piping", tags: ["VALVE", "ISOLATION", "SLUDGE"], description: "Valve with a blade gate, suitable for sludge and slurry." },
+    { type: "Eccentric Plug Valve", category: "piping", tags: ["VALVE", "CONTROL", "SLUDGE"], description: "Quarter-turn valve used for throttling sludge flow." },
+    { type: "Butterfly Valve (AWWA)", category: "piping", tags: ["VALVE", "ISOLATION", "WATER"], description: "Rubber-seated butterfly valve for water service." },
+    { type: "Swing Check Valve", category: "piping", tags: ["VALVE", "CHECK", "NON_RETURN"], description: "Valve preventing backflow in pump discharge lines." },
+    { type: "Air Release Valve", category: "piping", tags: ["VALVE", "AIR", "VENT"], description: "Valve to release accumulated air from pipelines." },
+    { type: "Telescoping Valve", category: "piping", tags: ["VALVE", "SLUDGE", "CONTROL"], description: "Valve for controlling sludge withdrawal level." },
+    { type: "Sluice Gate", category: "piping", tags: ["GATE", "ISOLATION", "CHANNEL"], description: "Heavy-duty slide gate for channel isolation." },
+
+    // Instrumentation
+    { type: "Electromagnetic Flow Meter", category: "instrumentation", tags: ["METER", "FLOW", "MAG"], description: "Flow meter for conductive liquids/slurries." },
+    { type: "Ultrasonic Level Transmitter", category: "instrumentation", tags: ["LEVEL", "ULTRASONIC", "NON_CONTACT"], description: "Non-contact level sensor using sound waves." },
+    { type: "Radar Level Transmitter", category: "instrumentation", tags: ["LEVEL", "RADAR", "PRECISE"], description: "High-precision level sensor using radar." },
+    { type: "Differential Pressure Transmitter", category: "instrumentation", tags: ["PRESSURE", "LEVEL", "FLOW"], description: "Transmitter for flow (venturi) or filter head loss." },
+    { type: "Turbidity Analyzer", category: "instrumentation", tags: ["ANALYZER", "WATER_QUALITY", "TURBIDITY"], description: "Instrument measuring water clarity." },
+    { type: "Dissolved Oxygen Probe", category: "instrumentation", tags: ["ANALYZER", "PROCESS", "DO"], description: "Sensor for controlling aeration processes." },
+    { type: "pH/ORP Analyzer", category: "instrumentation", tags: ["ANALYZER", "CHEMICAL", "PH"], description: "Analyzer for pH and oxidation-reduction potential." },
+    { type: "Chlorine Residual Analyzer", category: "instrumentation", tags: ["ANALYZER", "DISINFECTION", "CHLORINE"], description: "Analyzer for monitoring chlorine levels." },
+    { type: "Total Suspended Solids (TSS) Analyzer", category: "instrumentation", tags: ["ANALYZER", "SOLIDS", "OPTICAL"], description: "Optical sensor for TSS measurement." },
+    { type: "Refrigerated Composite Sampler", category: "instrumentation", tags: ["SAMPLER", "COMPLIANCE", "AUTOMATED"], description: "Device for collecting representative water samples." },
+
+    // Electrical
+    { type: "Induction Motor (TEFC)", category: "electrical", tags: ["MOTOR", "AC", "DRIVE"], description: "Totally Enclosed Fan Cooled motor for harsh environments." },
+    { type: "Variable Frequency Drive (VFD)", category: "electrical", tags: ["DRIVE", "CONTROL", "SPEED"], description: "Electronic drive for pump/blower speed control." },
+    { type: "Motor Control Center (MCC)", category: "electrical", tags: ["POWER", "CONTROL", "DISTRIBUTION"], description: "Assembly of motor starters and controls." },
+    { type: "Switchgear (Medium Voltage)", category: "electrical", tags: ["POWER", "HV", "DISTRIBUTION"], description: "Main power distribution equipment." },
+    { type: "Emergency Diesel Generator", category: "electrical", tags: ["POWER", "BACKUP", "GENERATOR"], description: "Backup power source for critical operations." },
+    { type: "Transformer", category: "electrical", tags: ["POWER", "VOLTAGE", "STEP_DOWN"], description: "Power transformer for facility voltage." }
+];
+
+const registry = {
+    sector: SECTOR_CODE,
+    subSector: SUB_SECTOR_CODE,
+    equipment: equipmentList
+};
+
+const outputPath = path.join(__dirname, '../src/lib/resources/water_registry.json');
+
+// Ensure directory exists
+const dir = path.dirname(outputPath);
+if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true });
+}
+
+fs.writeFileSync(outputPath, JSON.stringify(registry, null, 2));
+
+console.log(`Successfully generated water registry with ${equipmentList.length} items at: ${outputPath}`);
