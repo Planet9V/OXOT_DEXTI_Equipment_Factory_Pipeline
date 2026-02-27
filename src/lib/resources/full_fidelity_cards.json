@@ -1,0 +1,6442 @@
+[
+  {
+    "tag": "Generic-CENT-001",
+    "name": "Centrifugal Pump",
+    "componentClass": "Centrifugal Pump",
+    "dexpiType": "CentrifugalPump",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Dynamic pump using a rotating impeller to increase fluid pressure via centrifugal force, conforming to API 610.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      },
+      "pressureMax": {
+        "value": 40,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureOperating": {
+        "value": 25,
+        "unit": "bar"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Centrifugal Pump",
+    "specifications": {
+      "power": {
+        "value": 75,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "rotationalSpeed": {
+        "value": 2950,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 85,
+        "unit": "%"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      },
+      "head": {
+        "value": 60,
+        "unit": "m"
+      },
+      "NPSHr": {
+        "value": 3.5,
+        "unit": "m"
+      }
+    },
+    "standards": [
+      "API 610",
+      "ISO 5199"
+    ],
+    "materials": {
+      "casing": "ASTM A216 WCB",
+      "impeller": "ASTM A351 CF8M",
+      "shaft": "ASTM A276 Type 410",
+      "seals": "Mechanical Seal API 682",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-RECI-001",
+    "name": "Reciprocating Pump",
+    "componentClass": "Reciprocating Pump",
+    "dexpiType": "ReciprocatingPump",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Positive displacement pump using a piston or plunger for high-pressure applications.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      },
+      "pressureMax": {
+        "value": 40,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureOperating": {
+        "value": 25,
+        "unit": "bar"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Reciprocating Pump",
+    "specifications": {
+      "power": {
+        "value": 75,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "rotationalSpeed": {
+        "value": 2950,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 85,
+        "unit": "%"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      },
+      "head": {
+        "value": 60,
+        "unit": "m"
+      },
+      "NPSHr": {
+        "value": 3.5,
+        "unit": "m"
+      }
+    },
+    "standards": [
+      "API 610",
+      "ISO 5199"
+    ],
+    "materials": {
+      "casing": "ASTM A216 WCB",
+      "impeller": "ASTM A351 CF8M",
+      "shaft": "ASTM A276 Type 410",
+      "seals": "Mechanical Seal API 682",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-CENT-001",
+    "name": "Centrifugal Compressor",
+    "componentClass": "Centrifugal Compressor",
+    "dexpiType": "CentrifugalCompressor",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Dynamic compressor using rotating impellers for continuous gas compression, typical for pipeline or process gas.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      },
+      "pressureMax": {
+        "value": 40,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureOperating": {
+        "value": 25,
+        "unit": "bar"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Centrifugal Compressor",
+    "specifications": {
+      "power": {
+        "value": 75,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "rotationalSpeed": {
+        "value": 2950,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 85,
+        "unit": "%"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      },
+      "flow": {
+        "value": 5000,
+        "unit": "m3/h"
+      }
+    },
+    "standards": [
+      "API 617",
+      "ISO 10439"
+    ],
+    "materials": {
+      "casing": "ASTM A216 WCB",
+      "impeller": "17-4 PH SS",
+      "shaft": "4140 Alloy Steel",
+      "seals": "Dry Gas Seal"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-RECI-001",
+    "name": "Reciprocating Compressor",
+    "componentClass": "Reciprocating Compressor",
+    "dexpiType": "ReciprocatingCompressor",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Positive displacement compressor using pistons for high compression ratios, often used for hydrogen or makeup gas.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      },
+      "pressureMax": {
+        "value": 40,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureOperating": {
+        "value": 25,
+        "unit": "bar"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Reciprocating Compressor",
+    "specifications": {
+      "power": {
+        "value": 75,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "rotationalSpeed": {
+        "value": 2950,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 85,
+        "unit": "%"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      },
+      "flow": {
+        "value": 5000,
+        "unit": "m3/h"
+      }
+    },
+    "standards": [
+      "API 617",
+      "ISO 10439"
+    ],
+    "materials": {
+      "casing": "ASTM A216 WCB",
+      "impeller": "17-4 PH SS",
+      "shaft": "4140 Alloy Steel",
+      "seals": "Dry Gas Seal"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-SCRE-001",
+    "name": "Screw Compressor",
+    "componentClass": "Screw Compressor",
+    "dexpiType": "ScrewCompressor",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Rotary positive displacement compressor using helical screws, common for instrument air or refrigeration.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      },
+      "pressureMax": {
+        "value": 40,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureOperating": {
+        "value": 25,
+        "unit": "bar"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Screw Compressor",
+    "specifications": {
+      "power": {
+        "value": 75,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "rotationalSpeed": {
+        "value": 2950,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 85,
+        "unit": "%"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      },
+      "flow": {
+        "value": 5000,
+        "unit": "m3/h"
+      }
+    },
+    "standards": [
+      "API 617",
+      "ISO 10439"
+    ],
+    "materials": {
+      "casing": "ASTM A216 WCB",
+      "impeller": "17-4 PH SS",
+      "shaft": "4140 Alloy Steel",
+      "seals": "Dry Gas Seal"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-AXIA-001",
+    "name": "Axial Compressor",
+    "componentClass": "Axial Compressor",
+    "dexpiType": "AxialCompressor",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "High-flow dynamic compressor with multiple stages of rotating and stationary blades, used in LNG trains.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      },
+      "pressureMax": {
+        "value": 40,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureOperating": {
+        "value": 25,
+        "unit": "bar"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Axial Compressor",
+    "specifications": {
+      "power": {
+        "value": 75,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "rotationalSpeed": {
+        "value": 2950,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 85,
+        "unit": "%"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      },
+      "flow": {
+        "value": 5000,
+        "unit": "m3/h"
+      }
+    },
+    "standards": [
+      "API 617",
+      "ISO 10439"
+    ],
+    "materials": {
+      "casing": "ASTM A216 WCB",
+      "impeller": "17-4 PH SS",
+      "shaft": "4140 Alloy Steel",
+      "seals": "Dry Gas Seal"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-GAST-001",
+    "name": "Gas Turbine",
+    "componentClass": "Gas Turbine",
+    "dexpiType": "GasTurbine",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Internal combustion engine using a continuous combustion process to drive generators or mechanical equipment.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      },
+      "pressureMax": {
+        "value": 40,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureOperating": {
+        "value": 25,
+        "unit": "bar"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Gas Turbine",
+    "specifications": {
+      "power": {
+        "value": 75,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "rotationalSpeed": {
+        "value": 2950,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 85,
+        "unit": "%"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "standards": [
+      "ISO 9001"
+    ],
+    "materials": {
+      "housing": "Cast Iron",
+      "internals": "Stainless Steel"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-STEA-001",
+    "name": "Steam Turbine",
+    "componentClass": "Steam Turbine",
+    "dexpiType": "SteamTurbine",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Turbine extracting thermal energy from pressurized steam to perform mechanical work.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      },
+      "pressureMax": {
+        "value": 40,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureOperating": {
+        "value": 25,
+        "unit": "bar"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Steam Turbine",
+    "specifications": {
+      "power": {
+        "value": 75,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "rotationalSpeed": {
+        "value": 2950,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 85,
+        "unit": "%"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "standards": [
+      "ISO 9001"
+    ],
+    "materials": {
+      "housing": "Cast Iron",
+      "internals": "Stainless Steel"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-ELEC-001",
+    "name": "Electric Motor",
+    "componentClass": "Electric Motor",
+    "dexpiType": "ElectricMotor",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Electromechanical device converting electrical energy into mechanical energy, typically an AC induction motor.",
+    "operatingConditions": {},
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Electric Motor",
+    "specifications": {
+      "voltage": {
+        "value": 400,
+        "unit": "V"
+      },
+      "frequency": {
+        "value": 50,
+        "unit": "Hz"
+      },
+      "phase": {
+        "value": 3,
+        "unit": ""
+      },
+      "ipRating": {
+        "value": "IP65",
+        "unit": ""
+      }
+    },
+    "materials": {
+      "enclosure": "Painted Mild Steel",
+      "busbars": "Copper",
+      "insulation": "Class F"
+    },
+    "standards": [
+      "IEC 61439",
+      "IEC 60034"
+    ],
+    "nozzles": [
+      {
+        "id": "C1",
+        "name": "Power In",
+        "service": "Electrical",
+        "size": "M20"
+      },
+      {
+        "id": "C2",
+        "name": "Control",
+        "service": "Signal",
+        "size": "M16"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-FINF-001",
+    "name": "Fin Fan Cooler",
+    "componentClass": "Fin Fan Cooler",
+    "dexpiType": "FinFanCooler",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Air-cooled heat exchanger using fans to force air over finned tubes for process cooling.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      },
+      "pressureMax": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 10,
+        "unit": "bar"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Fin Fan Cooler",
+    "specifications": {
+      "volume": {
+        "value": 50,
+        "unit": "m3"
+      },
+      "orientation": {
+        "value": "Vertical",
+        "unit": ""
+      },
+      "designPressure": {
+        "value": 15,
+        "unit": "bar"
+      }
+    },
+    "materials": {
+      "shell": "ASTM A516 Gr. 70",
+      "heads": "ASTM A516 Gr. 70",
+      "nozzles": "ASTM A105",
+      "supports": "ASTM A36"
+    },
+    "standards": [
+      "ASME VIII Div 1"
+    ],
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-BLOW-001",
+    "name": "Blower",
+    "componentClass": "Blower",
+    "dexpiType": "Blower",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Machine for moving air or gas with a moderate pressure increase.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      },
+      "pressureMax": {
+        "value": 40,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureOperating": {
+        "value": 25,
+        "unit": "bar"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Blower",
+    "specifications": {
+      "power": {
+        "value": 75,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "rotationalSpeed": {
+        "value": 2950,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 85,
+        "unit": "%"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "standards": [
+      "ISO 9001"
+    ],
+    "materials": {
+      "housing": "Cast Iron",
+      "internals": "Stainless Steel"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-AGIT-001",
+    "name": "Agitator",
+    "componentClass": "Agitator",
+    "dexpiType": "Agitator",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Device consisting of a rotating shaft and impeller for mixing liquids or slurries in a vessel.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      },
+      "pressureMax": {
+        "value": 40,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureOperating": {
+        "value": 25,
+        "unit": "bar"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Agitator",
+    "specifications": {
+      "power": {
+        "value": 75,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "rotationalSpeed": {
+        "value": 2950,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 85,
+        "unit": "%"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "standards": [
+      "ISO 9001"
+    ],
+    "materials": {
+      "housing": "Cast Iron",
+      "internals": "Stainless Steel"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-CENT-001",
+    "name": "Centrifuge",
+    "componentClass": "Centrifuge",
+    "dexpiType": "Centrifuge",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Equipment using centrifugal force to separate fluids of different densities or solids from liquids.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      },
+      "pressureMax": {
+        "value": 40,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureOperating": {
+        "value": 25,
+        "unit": "bar"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Centrifuge",
+    "specifications": {
+      "power": {
+        "value": 75,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "rotationalSpeed": {
+        "value": 2950,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 85,
+        "unit": "%"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "standards": [
+      "ISO 9001"
+    ],
+    "materials": {
+      "housing": "Cast Iron",
+      "internals": "Stainless Steel"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-CONV-001",
+    "name": "Conveyor",
+    "componentClass": "Conveyor",
+    "dexpiType": "Conveyor",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Mechanical handling equipment for transporting bulk solid materials like coke or sulfur.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      },
+      "pressureMax": {
+        "value": 40,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureOperating": {
+        "value": 25,
+        "unit": "bar"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Conveyor",
+    "specifications": {
+      "power": {
+        "value": 75,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "rotationalSpeed": {
+        "value": 2950,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 85,
+        "unit": "%"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "standards": [
+      "ISO 9001"
+    ],
+    "materials": {
+      "housing": "Cast Iron",
+      "internals": "Stainless Steel"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-TURB-001",
+    "name": "Turboexpander",
+    "componentClass": "Turboexpander",
+    "dexpiType": "Turboexpander",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Radial inflow turbine used to cool gas streams and recover power, essential in cryogenic gas processing.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      },
+      "pressureMax": {
+        "value": 40,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureOperating": {
+        "value": 25,
+        "unit": "bar"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Turboexpander",
+    "specifications": {
+      "power": {
+        "value": 75,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "rotationalSpeed": {
+        "value": 2950,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 85,
+        "unit": "%"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "standards": [
+      "ISO 9001"
+    ],
+    "materials": {
+      "housing": "Cast Iron",
+      "internals": "Stainless Steel"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-PRES-001",
+    "name": "Pressure Vessel",
+    "componentClass": "Pressure Vessel",
+    "dexpiType": "PressureVessel",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Closed container designed to hold gases or liquids at a pressure substantially different from ambient.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      },
+      "pressureMax": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 10,
+        "unit": "bar"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Pressure Vessel",
+    "specifications": {
+      "volume": {
+        "value": 50,
+        "unit": "m3"
+      },
+      "orientation": {
+        "value": "Vertical",
+        "unit": ""
+      },
+      "designPressure": {
+        "value": 15,
+        "unit": "bar"
+      }
+    },
+    "materials": {
+      "shell": "ASTM A516 Gr. 70",
+      "heads": "ASTM A516 Gr. 70",
+      "nozzles": "ASTM A105",
+      "supports": "ASTM A36"
+    },
+    "standards": [
+      "ASME VIII Div 1"
+    ],
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-STOR-001",
+    "name": "Storage Tank",
+    "componentClass": "Storage Tank",
+    "dexpiType": "StorageTank",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Large container for holding liquids, typically atmospheric, conforming to API 650.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      },
+      "pressureMax": {
+        "value": 0.5,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 0.05,
+        "unit": "bar"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Storage Tank",
+    "specifications": {
+      "volume": {
+        "value": 50,
+        "unit": "m3"
+      },
+      "orientation": {
+        "value": "Vertical",
+        "unit": ""
+      },
+      "designPressure": {
+        "value": 0.5,
+        "unit": "bar"
+      }
+    },
+    "materials": {
+      "shell": "ASTM A516 Gr. 70",
+      "heads": "ASTM A516 Gr. 70",
+      "nozzles": "ASTM A105",
+      "supports": "ASTM A36"
+    },
+    "standards": [
+      "API 650"
+    ],
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-FLOA-001",
+    "name": "Floating Roof Tank",
+    "componentClass": "Floating Roof Tank",
+    "dexpiType": "FloatingRoofTank",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Storage tank with a roof that floats on the liquid surface to minimize evaporative emissions.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      },
+      "pressureMax": {
+        "value": 0.5,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 0.05,
+        "unit": "bar"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Floating Roof Tank",
+    "specifications": {
+      "volume": {
+        "value": 50,
+        "unit": "m3"
+      },
+      "orientation": {
+        "value": "Vertical",
+        "unit": ""
+      },
+      "designPressure": {
+        "value": 0.5,
+        "unit": "bar"
+      }
+    },
+    "materials": {
+      "shell": "ASTM A516 Gr. 70",
+      "heads": "ASTM A516 Gr. 70",
+      "nozzles": "ASTM A105",
+      "supports": "ASTM A36"
+    },
+    "standards": [
+      "ASME VIII Div 1"
+    ],
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-SPHE-001",
+    "name": "Spherical Tank",
+    "componentClass": "Spherical Tank",
+    "dexpiType": "SphericalTank",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Spherical pressure vessel for storing high-pressure fluids like LPG or ammonia.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      },
+      "pressureMax": {
+        "value": 0.5,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 0.05,
+        "unit": "bar"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Spherical Tank",
+    "specifications": {
+      "volume": {
+        "value": 50,
+        "unit": "m3"
+      },
+      "orientation": {
+        "value": "Vertical",
+        "unit": ""
+      },
+      "designPressure": {
+        "value": 0.5,
+        "unit": "bar"
+      }
+    },
+    "materials": {
+      "shell": "ASTM A516 Gr. 70",
+      "heads": "ASTM A516 Gr. 70",
+      "nozzles": "ASTM A105",
+      "supports": "ASTM A36"
+    },
+    "standards": [
+      "ASME VIII Div 1"
+    ],
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-BULL-001",
+    "name": "Bullet Tank",
+    "componentClass": "Bullet Tank",
+    "dexpiType": "BulletTank",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Horizontal cylindrical pressure vessel with hemispherical heads for pressurized storage.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      },
+      "pressureMax": {
+        "value": 0.5,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 0.05,
+        "unit": "bar"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Bullet Tank",
+    "specifications": {
+      "volume": {
+        "value": 50,
+        "unit": "m3"
+      },
+      "orientation": {
+        "value": "Vertical",
+        "unit": ""
+      },
+      "designPressure": {
+        "value": 0.5,
+        "unit": "bar"
+      }
+    },
+    "materials": {
+      "shell": "ASTM A516 Gr. 70",
+      "heads": "ASTM A516 Gr. 70",
+      "nozzles": "ASTM A105",
+      "supports": "ASTM A36"
+    },
+    "standards": [
+      "ASME VIII Div 1"
+    ],
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-REAC-001",
+    "name": "Reactor",
+    "componentClass": "Reactor",
+    "dexpiType": "Reactor",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Vessel designed to contain chemical reactions, often with catalyst beds and internal distributors.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      },
+      "pressureMax": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 10,
+        "unit": "bar"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Reactor",
+    "specifications": {
+      "volume": {
+        "value": 50,
+        "unit": "m3"
+      },
+      "orientation": {
+        "value": "Vertical",
+        "unit": ""
+      },
+      "designPressure": {
+        "value": 15,
+        "unit": "bar"
+      }
+    },
+    "materials": {
+      "shell": "ASTM A516 Gr. 70",
+      "heads": "ASTM A516 Gr. 70",
+      "nozzles": "ASTM A105",
+      "supports": "ASTM A36"
+    },
+    "standards": [
+      "ASME VIII Div 1"
+    ],
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-FCCR-001",
+    "name": "FCC Regenerator",
+    "componentClass": "FCC Regenerator",
+    "dexpiType": "FCCRegenerator",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Vessel in a Fluid Catalytic Cracking unit where coke is burned off the catalyst to restore activity.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      },
+      "pressureMax": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 10,
+        "unit": "bar"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a FCC Regenerator",
+    "specifications": {
+      "volume": {
+        "value": 50,
+        "unit": "m3"
+      },
+      "orientation": {
+        "value": "Vertical",
+        "unit": ""
+      },
+      "designPressure": {
+        "value": 15,
+        "unit": "bar"
+      }
+    },
+    "materials": {
+      "shell": "ASTM A516 Gr. 70",
+      "heads": "ASTM A516 Gr. 70",
+      "nozzles": "ASTM A105",
+      "supports": "ASTM A36"
+    },
+    "standards": [
+      "ASME VIII Div 1"
+    ],
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-COKE-001",
+    "name": "Coke Drum",
+    "componentClass": "Coke Drum",
+    "dexpiType": "CokeDrum",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Large vertical vessel used in the delayed coking process for thermal cracking of heavy residues.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      },
+      "pressureMax": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 10,
+        "unit": "bar"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Coke Drum",
+    "specifications": {
+      "volume": {
+        "value": 50,
+        "unit": "m3"
+      },
+      "orientation": {
+        "value": "Vertical",
+        "unit": ""
+      },
+      "designPressure": {
+        "value": 15,
+        "unit": "bar"
+      }
+    },
+    "materials": {
+      "shell": "ASTM A516 Gr. 70",
+      "heads": "ASTM A516 Gr. 70",
+      "nozzles": "ASTM A105",
+      "supports": "ASTM A36"
+    },
+    "standards": [
+      "ASME VIII Div 1"
+    ],
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-SEPA-001",
+    "name": "Separator",
+    "componentClass": "Separator",
+    "dexpiType": "Separator",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Vessel used to separate well fluids into gas and liquid phases (two-phase) or oil, gas, and water (three-phase).",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      },
+      "pressureMax": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 10,
+        "unit": "bar"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Separator",
+    "specifications": {
+      "volume": {
+        "value": 50,
+        "unit": "m3"
+      },
+      "orientation": {
+        "value": "Vertical",
+        "unit": ""
+      },
+      "designPressure": {
+        "value": 15,
+        "unit": "bar"
+      }
+    },
+    "materials": {
+      "shell": "ASTM A516 Gr. 70",
+      "heads": "ASTM A516 Gr. 70",
+      "nozzles": "ASTM A105",
+      "supports": "ASTM A36"
+    },
+    "standards": [
+      "ASME VIII Div 1"
+    ],
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-DIST-001",
+    "name": "Distillation Column",
+    "componentClass": "Distillation Column",
+    "dexpiType": "DistillationColumn",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Vertical vessel containing trays or packing for separating liquid mixtures based on boiling points.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      },
+      "pressureMax": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 10,
+        "unit": "bar"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Distillation Column",
+    "specifications": {
+      "volume": {
+        "value": 50,
+        "unit": "m3"
+      },
+      "orientation": {
+        "value": "Vertical",
+        "unit": ""
+      },
+      "designPressure": {
+        "value": 15,
+        "unit": "bar"
+      }
+    },
+    "materials": {
+      "shell": "ASTM A516 Gr. 70",
+      "heads": "ASTM A516 Gr. 70",
+      "nozzles": "ASTM A105",
+      "supports": "ASTM A36"
+    },
+    "standards": [
+      "ASME VIII Div 1"
+    ],
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-STRI-001",
+    "name": "Stripper Column",
+    "componentClass": "Stripper Column",
+    "dexpiType": "StripperColumn",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Column used to remove light components from a liquid stream using a stripping vapor.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      },
+      "pressureMax": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 10,
+        "unit": "bar"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Stripper Column",
+    "specifications": {
+      "volume": {
+        "value": 50,
+        "unit": "m3"
+      },
+      "orientation": {
+        "value": "Vertical",
+        "unit": ""
+      },
+      "designPressure": {
+        "value": 15,
+        "unit": "bar"
+      }
+    },
+    "materials": {
+      "shell": "ASTM A516 Gr. 70",
+      "heads": "ASTM A516 Gr. 70",
+      "nozzles": "ASTM A105",
+      "supports": "ASTM A36"
+    },
+    "standards": [
+      "ASME VIII Div 1"
+    ],
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-ABSO-001",
+    "name": "Absorber Column",
+    "componentClass": "Absorber Column",
+    "dexpiType": "AbsorberColumn",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Column where gas components are absorbed into a liquid solvent, common in amine treating.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      },
+      "pressureMax": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 10,
+        "unit": "bar"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Absorber Column",
+    "specifications": {
+      "volume": {
+        "value": 50,
+        "unit": "m3"
+      },
+      "orientation": {
+        "value": "Vertical",
+        "unit": ""
+      },
+      "designPressure": {
+        "value": 15,
+        "unit": "bar"
+      }
+    },
+    "materials": {
+      "shell": "ASTM A516 Gr. 70",
+      "heads": "ASTM A516 Gr. 70",
+      "nozzles": "ASTM A105",
+      "supports": "ASTM A36"
+    },
+    "standards": [
+      "ASME VIII Div 1"
+    ],
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-SCRU-001",
+    "name": "Scrubber",
+    "componentClass": "Scrubber",
+    "dexpiType": "Scrubber",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Vessel designed to remove particulates or liquid droplets from a gas stream.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      },
+      "pressureMax": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 10,
+        "unit": "bar"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Scrubber",
+    "specifications": {
+      "volume": {
+        "value": 50,
+        "unit": "m3"
+      },
+      "orientation": {
+        "value": "Vertical",
+        "unit": ""
+      },
+      "designPressure": {
+        "value": 15,
+        "unit": "bar"
+      }
+    },
+    "materials": {
+      "shell": "ASTM A516 Gr. 70",
+      "heads": "ASTM A516 Gr. 70",
+      "nozzles": "ASTM A105",
+      "supports": "ASTM A36"
+    },
+    "standards": [
+      "ASME VIII Div 1"
+    ],
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-DESA-001",
+    "name": "Desalter",
+    "componentClass": "Desalter",
+    "dexpiType": "Desalter",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Vessel using an electrostatic field to coalesce and remove brine and salts from crude oil.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      },
+      "pressureMax": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 10,
+        "unit": "bar"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Desalter",
+    "specifications": {
+      "volume": {
+        "value": 50,
+        "unit": "m3"
+      },
+      "orientation": {
+        "value": "Vertical",
+        "unit": ""
+      },
+      "designPressure": {
+        "value": 15,
+        "unit": "bar"
+      }
+    },
+    "materials": {
+      "shell": "ASTM A516 Gr. 70",
+      "heads": "ASTM A516 Gr. 70",
+      "nozzles": "ASTM A105",
+      "supports": "ASTM A36"
+    },
+    "standards": [
+      "ASME VIII Div 1"
+    ],
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-PIGL-001",
+    "name": "Pig Launcher",
+    "componentClass": "Pig Launcher",
+    "dexpiType": "PigLauncher",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Pressurized barrel used to insert a pipeline pig into a pipeline for cleaning or inspection.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      },
+      "pressureOperating": {
+        "value": 16,
+        "unit": "bar"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Pig Launcher",
+    "specifications": {
+      "size": {
+        "value": 6,
+        "unit": "inch"
+      },
+      "pressureClass": {
+        "value": "150#",
+        "unit": ""
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "trim": "SS316",
+      "bolting": "ASTM A193 B7"
+    },
+    "standards": [
+      "ASME B16.34",
+      "API 598"
+    ],
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-PIGR-001",
+    "name": "Pig Receiver",
+    "componentClass": "Pig Receiver",
+    "dexpiType": "PigReceiver",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Pressurized barrel used to retrieve a pipeline pig at the end of a pipeline segment.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      },
+      "pressureOperating": {
+        "value": 16,
+        "unit": "bar"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Pig Receiver",
+    "specifications": {
+      "size": {
+        "value": 6,
+        "unit": "inch"
+      },
+      "pressureClass": {
+        "value": "150#",
+        "unit": ""
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "trim": "SS316",
+      "bolting": "ASTM A193 B7"
+    },
+    "standards": [
+      "ASME B16.34",
+      "API 598"
+    ],
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-SHEL-001",
+    "name": "Shell and Tube Heat Exchanger",
+    "componentClass": "Shell and Tube Heat Exchanger",
+    "dexpiType": "ShellandTubeHeatExchanger",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Heat exchanger consisting of a shell with a bundle of tubes inside, the most common type in process industries.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      },
+      "pressureMax": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 10,
+        "unit": "bar"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Shell and Tube Heat Exchanger",
+    "specifications": {
+      "volume": {
+        "value": 50,
+        "unit": "m3"
+      },
+      "orientation": {
+        "value": "Vertical",
+        "unit": ""
+      },
+      "designPressure": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "heatTransferArea": {
+        "value": 200,
+        "unit": "m2"
+      }
+    },
+    "materials": {
+      "shell": "ASTM A516 Gr. 70",
+      "heads": "ASTM A516 Gr. 70",
+      "nozzles": "ASTM A105",
+      "supports": "ASTM A36",
+      "tubes": "ASTM A213 TP316",
+      "tubesheet": "ASTM A266 Cl. 2"
+    },
+    "standards": [
+      "TEMA R",
+      "ASME VIII Div 1"
+    ],
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-PLAT-001",
+    "name": "Plate and Frame Heat Exchanger",
+    "componentClass": "Plate and Frame Heat Exchanger",
+    "dexpiType": "PlateandFrameHeatExchanger",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Heat exchanger using metal plates to transfer heat between two fluids, offering high efficiency in a compact size.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      },
+      "pressureMax": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 10,
+        "unit": "bar"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Plate and Frame Heat Exchanger",
+    "specifications": {
+      "volume": {
+        "value": 50,
+        "unit": "m3"
+      },
+      "orientation": {
+        "value": "Vertical",
+        "unit": ""
+      },
+      "designPressure": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "heatTransferArea": {
+        "value": 200,
+        "unit": "m2"
+      }
+    },
+    "materials": {
+      "shell": "ASTM A516 Gr. 70",
+      "heads": "ASTM A516 Gr. 70",
+      "nozzles": "ASTM A105",
+      "supports": "ASTM A36",
+      "tubes": "ASTM A213 TP316",
+      "tubesheet": "ASTM A266 Cl. 2"
+    },
+    "standards": [
+      "TEMA R",
+      "ASME VIII Div 1"
+    ],
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-KETT-001",
+    "name": "Kettle Reboiler",
+    "componentClass": "Kettle Reboiler",
+    "dexpiType": "KettleReboiler",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Shell and tube heat exchanger used to vaporize the bottom product of a distillation column.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      },
+      "pressureMax": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 10,
+        "unit": "bar"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Kettle Reboiler",
+    "specifications": {
+      "volume": {
+        "value": 50,
+        "unit": "m3"
+      },
+      "orientation": {
+        "value": "Vertical",
+        "unit": ""
+      },
+      "designPressure": {
+        "value": 15,
+        "unit": "bar"
+      }
+    },
+    "materials": {
+      "shell": "ASTM A516 Gr. 70",
+      "heads": "ASTM A516 Gr. 70",
+      "nozzles": "ASTM A105",
+      "supports": "ASTM A36"
+    },
+    "standards": [
+      "ASME VIII Div 1"
+    ],
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-FIRE-001",
+    "name": "Fired Heater",
+    "componentClass": "Fired Heater",
+    "dexpiType": "FiredHeater",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Direct-fired furnace used to heat process fluids to high temperatures, such as crude feed or reformer feed.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      },
+      "pressureMax": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 10,
+        "unit": "bar"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Fired Heater",
+    "specifications": {
+      "volume": {
+        "value": 50,
+        "unit": "m3"
+      },
+      "orientation": {
+        "value": "Vertical",
+        "unit": ""
+      },
+      "designPressure": {
+        "value": 15,
+        "unit": "bar"
+      }
+    },
+    "materials": {
+      "shell": "ASTM A516 Gr. 70",
+      "heads": "ASTM A516 Gr. 70",
+      "nozzles": "ASTM A105",
+      "supports": "ASTM A36"
+    },
+    "standards": [
+      "ASME VIII Div 1"
+    ],
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-WAST-001",
+    "name": "Waste Heat Boiler",
+    "componentClass": "Waste Heat Boiler",
+    "dexpiType": "WasteHeatBoiler",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Boiler that generates steam by recovering heat from hot process gas streams.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      },
+      "pressureMax": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 10,
+        "unit": "bar"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Waste Heat Boiler",
+    "specifications": {
+      "volume": {
+        "value": 50,
+        "unit": "m3"
+      },
+      "orientation": {
+        "value": "Vertical",
+        "unit": ""
+      },
+      "designPressure": {
+        "value": 15,
+        "unit": "bar"
+      }
+    },
+    "materials": {
+      "shell": "ASTM A516 Gr. 70",
+      "heads": "ASTM A516 Gr. 70",
+      "nozzles": "ASTM A105",
+      "supports": "ASTM A36"
+    },
+    "standards": [
+      "ASME VIII Div 1"
+    ],
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-COND-001",
+    "name": "Condenser",
+    "componentClass": "Condenser",
+    "dexpiType": "Condenser",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Heat exchanger specifically designed to condense a vapor stream into a liquid.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      },
+      "pressureMax": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 10,
+        "unit": "bar"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Condenser",
+    "specifications": {
+      "volume": {
+        "value": 50,
+        "unit": "m3"
+      },
+      "orientation": {
+        "value": "Vertical",
+        "unit": ""
+      },
+      "designPressure": {
+        "value": 15,
+        "unit": "bar"
+      }
+    },
+    "materials": {
+      "shell": "ASTM A516 Gr. 70",
+      "heads": "ASTM A516 Gr. 70",
+      "nozzles": "ASTM A105",
+      "supports": "ASTM A36"
+    },
+    "standards": [
+      "ASME VIII Div 1"
+    ],
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-GATE-001",
+    "name": "Gate Valve",
+    "componentClass": "Gate Valve",
+    "dexpiType": "GateValve",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Multi-turn linear motion valve used primarily for on/off service with low pressure drop.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Gate Valve",
+    "standards": [
+      "ISO 9001"
+    ],
+    "specifications": {
+      "note": "Standard Specification"
+    },
+    "materials": {
+      "body": "Carbon Steel"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-GLOB-001",
+    "name": "Globe Valve",
+    "componentClass": "Globe Valve",
+    "dexpiType": "GlobeValve",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Linear motion valve used for stopping, starting, and regulating flow.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Globe Valve",
+    "standards": [
+      "ISO 9001"
+    ],
+    "specifications": {
+      "note": "Standard Specification"
+    },
+    "materials": {
+      "body": "Carbon Steel"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-BALL-001",
+    "name": "Ball Valve",
+    "componentClass": "Ball Valve",
+    "dexpiType": "BallValve",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Quarter-turn valve using a spherical closure element for quick shutoff.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Ball Valve",
+    "standards": [
+      "ISO 9001"
+    ],
+    "specifications": {
+      "note": "Standard Specification"
+    },
+    "materials": {
+      "body": "Carbon Steel"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-BUTT-001",
+    "name": "Butterfly Valve",
+    "componentClass": "Butterfly Valve",
+    "dexpiType": "ButterflyValve",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Quarter-turn valve with a disk closure, suitable for large diameter lines and low pressure drop.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Butterfly Valve",
+    "standards": [
+      "ISO 9001"
+    ],
+    "specifications": {
+      "note": "Standard Specification"
+    },
+    "materials": {
+      "body": "Carbon Steel"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-CHEC-001",
+    "name": "Check Valve",
+    "componentClass": "Check Valve",
+    "dexpiType": "CheckValve",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Valve that allows fluid to flow in only one direction, preventing backflow.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Check Valve",
+    "standards": [
+      "ISO 9001"
+    ],
+    "specifications": {
+      "note": "Standard Specification"
+    },
+    "materials": {
+      "body": "Carbon Steel"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-SAFE-001",
+    "name": "Safety Relief Valve",
+    "componentClass": "Safety Relief Valve",
+    "dexpiType": "SafetyReliefValve",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Spring-loaded valve designed to automatically relieve excess pressure to prevent equipment failure.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Safety Relief Valve",
+    "standards": [
+      "ISO 9001"
+    ],
+    "specifications": {
+      "note": "Standard Specification"
+    },
+    "materials": {
+      "body": "Carbon Steel"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-CONT-001",
+    "name": "Control Valve",
+    "componentClass": "Control Valve",
+    "dexpiType": "ControlValve",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Power-operated valve used to regulate fluid flow, pressure, or temperature in response to a controller signal.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Control Valve",
+    "standards": [
+      "ISO 9001"
+    ],
+    "specifications": {
+      "note": "Standard Specification"
+    },
+    "materials": {
+      "body": "Carbon Steel"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-CHOK-001",
+    "name": "Choke Valve",
+    "componentClass": "Choke Valve",
+    "dexpiType": "ChokeValve",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Specialized valve used on wellheads to control the flow rate of fluids produced from a well.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Choke Valve",
+    "standards": [
+      "ISO 9001"
+    ],
+    "specifications": {
+      "note": "Standard Specification"
+    },
+    "materials": {
+      "body": "Carbon Steel"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-CORI-001",
+    "name": "Coriolis Flow Meter",
+    "componentClass": "Coriolis Flow Meter",
+    "dexpiType": "CoriolisFlowMeter",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Mass flow meter that measures density and flow rate directly using the Coriolis effect.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Coriolis Flow Meter",
+    "standards": [
+      "ISO 9001"
+    ],
+    "specifications": {
+      "note": "Standard Specification"
+    },
+    "materials": {
+      "body": "Carbon Steel"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-ULTR-001",
+    "name": "Ultrasonic Flow Meter",
+    "componentClass": "Ultrasonic Flow Meter",
+    "dexpiType": "UltrasonicFlowMeter",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Non-intrusive flow meter using ultrasonic waves to measure fluid velocity.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Ultrasonic Flow Meter",
+    "standards": [
+      "ISO 9001"
+    ],
+    "specifications": {
+      "note": "Standard Specification"
+    },
+    "materials": {
+      "body": "Carbon Steel"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-PRES-001",
+    "name": "Pressure Transmitter",
+    "componentClass": "Pressure Transmitter",
+    "dexpiType": "PressureTransmitter",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Sensor that measures pressure and converts it into an electrical signal for control systems.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Pressure Transmitter",
+    "standards": [
+      "ISO 9001"
+    ],
+    "specifications": {
+      "note": "Standard Specification"
+    },
+    "materials": {
+      "body": "Carbon Steel"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-TEMP-001",
+    "name": "Temperature Transmitter",
+    "componentClass": "Temperature Transmitter",
+    "dexpiType": "TemperatureTransmitter",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Sensor assembly used to measure temperature and transmit the data to a control system.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Temperature Transmitter",
+    "standards": [
+      "ISO 9001"
+    ],
+    "specifications": {
+      "note": "Standard Specification"
+    },
+    "materials": {
+      "body": "Carbon Steel"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-RADA-001",
+    "name": "Radar Level Transmitter",
+    "componentClass": "Radar Level Transmitter",
+    "dexpiType": "RadarLevelTransmitter",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Non-contact level measurement device using radar pulses to determine liquid level in a tank.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Radar Level Transmitter",
+    "standards": [
+      "ISO 9001"
+    ],
+    "specifications": {
+      "note": "Standard Specification"
+    },
+    "materials": {
+      "body": "Carbon Steel"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-GASA-001",
+    "name": "Gas Analyzer",
+    "componentClass": "Gas Analyzer",
+    "dexpiType": "GasAnalyzer",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Instrument for continuous online analysis of gas stream composition (e.g., Gas Chromatograph).",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Gas Analyzer",
+    "standards": [
+      "ISO 9001"
+    ],
+    "specifications": {
+      "note": "Standard Specification"
+    },
+    "materials": {
+      "body": "Carbon Steel"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-SWIT-001",
+    "name": "Switchgear",
+    "componentClass": "Switchgear",
+    "dexpiType": "Switchgear",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Combination of electrical disconnect switches, fuses, or circuit breakers to control and protect electrical equipment.",
+    "operatingConditions": {},
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Switchgear",
+    "specifications": {
+      "voltage": {
+        "value": 400,
+        "unit": "V"
+      },
+      "frequency": {
+        "value": 50,
+        "unit": "Hz"
+      },
+      "phase": {
+        "value": 3,
+        "unit": ""
+      },
+      "ipRating": {
+        "value": "IP65",
+        "unit": ""
+      }
+    },
+    "materials": {
+      "enclosure": "Painted Mild Steel",
+      "busbars": "Copper",
+      "insulation": "Class F"
+    },
+    "standards": [
+      "IEC 61439",
+      "IEC 60034"
+    ],
+    "nozzles": [
+      {
+        "id": "C1",
+        "name": "Power In",
+        "service": "Electrical",
+        "size": "M20"
+      },
+      {
+        "id": "C2",
+        "name": "Control",
+        "service": "Signal",
+        "size": "M16"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-TRAN-001",
+    "name": "Transformer",
+    "componentClass": "Transformer",
+    "dexpiType": "Transformer",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Static electrical device that transfers energy between circuits while changing voltage levels.",
+    "operatingConditions": {},
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Transformer",
+    "specifications": {
+      "voltage": {
+        "value": 400,
+        "unit": "V"
+      },
+      "frequency": {
+        "value": 50,
+        "unit": "Hz"
+      },
+      "phase": {
+        "value": 3,
+        "unit": ""
+      },
+      "ipRating": {
+        "value": "IP65",
+        "unit": ""
+      }
+    },
+    "materials": {
+      "enclosure": "Painted Mild Steel",
+      "busbars": "Copper",
+      "insulation": "Class F"
+    },
+    "standards": [
+      "IEC 61439",
+      "IEC 60034"
+    ],
+    "nozzles": [
+      {
+        "id": "C1",
+        "name": "Power In",
+        "service": "Electrical",
+        "size": "M20"
+      },
+      {
+        "id": "C2",
+        "name": "Control",
+        "service": "Signal",
+        "size": "M16"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-VARI-001",
+    "name": "Variable Frequency Drive (VFD)",
+    "componentClass": "Variable Frequency Drive (VFD)",
+    "dexpiType": "VariableFrequencyDrive(VFD)",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Electronic controller that adjusts the speed of an AC motor by varying the frequency and voltage supplied.",
+    "operatingConditions": {},
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Variable Frequency Drive (VFD)",
+    "specifications": {
+      "voltage": {
+        "value": 400,
+        "unit": "V"
+      },
+      "frequency": {
+        "value": 50,
+        "unit": "Hz"
+      },
+      "phase": {
+        "value": 3,
+        "unit": ""
+      },
+      "ipRating": {
+        "value": "IP65",
+        "unit": ""
+      }
+    },
+    "materials": {
+      "enclosure": "Painted Mild Steel",
+      "busbars": "Copper",
+      "insulation": "Class F"
+    },
+    "standards": [
+      "IEC 61439",
+      "IEC 60034"
+    ],
+    "nozzles": [
+      {
+        "id": "C1",
+        "name": "Power In",
+        "service": "Electrical",
+        "size": "M20"
+      },
+      {
+        "id": "C2",
+        "name": "Control",
+        "service": "Signal",
+        "size": "M16"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-UNIN-001",
+    "name": "Uninterruptible Power Supply (UPS)",
+    "componentClass": "Uninterruptible Power Supply (UPS)",
+    "dexpiType": "UninterruptiblePowerSupply(UPS)",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Electrical apparatus that provides emergency power to a load when the input power source fails.",
+    "operatingConditions": {},
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Uninterruptible Power Supply (UPS)",
+    "specifications": {
+      "voltage": {
+        "value": 400,
+        "unit": "V"
+      },
+      "frequency": {
+        "value": 50,
+        "unit": "Hz"
+      },
+      "phase": {
+        "value": 3,
+        "unit": ""
+      },
+      "ipRating": {
+        "value": "IP65",
+        "unit": ""
+      }
+    },
+    "materials": {
+      "enclosure": "Painted Mild Steel",
+      "busbars": "Copper",
+      "insulation": "Class F"
+    },
+    "standards": [
+      "IEC 61439",
+      "IEC 60034"
+    ],
+    "nozzles": [
+      {
+        "id": "C1",
+        "name": "Power In",
+        "service": "Electrical",
+        "size": "M20"
+      },
+      {
+        "id": "C2",
+        "name": "Control",
+        "service": "Signal",
+        "size": "M16"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-DIES-001",
+    "name": "Diesel Generator",
+    "componentClass": "Diesel Generator",
+    "dexpiType": "DieselGenerator",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Combination of a diesel engine and an electric generator to produce electrical energy.",
+    "operatingConditions": {},
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Diesel Generator",
+    "specifications": {
+      "voltage": {
+        "value": 400,
+        "unit": "V"
+      },
+      "frequency": {
+        "value": 50,
+        "unit": "Hz"
+      },
+      "phase": {
+        "value": 3,
+        "unit": ""
+      },
+      "ipRating": {
+        "value": "IP65",
+        "unit": ""
+      }
+    },
+    "materials": {
+      "enclosure": "Painted Mild Steel",
+      "busbars": "Copper",
+      "insulation": "Class F"
+    },
+    "standards": [
+      "IEC 61439",
+      "IEC 60034"
+    ],
+    "nozzles": [
+      {
+        "id": "C1",
+        "name": "Power In",
+        "service": "Electrical",
+        "size": "M20"
+      },
+      {
+        "id": "C2",
+        "name": "Control",
+        "service": "Signal",
+        "size": "M16"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-FLAR-001",
+    "name": "Flare Stack",
+    "componentClass": "Flare Stack",
+    "dexpiType": "FlareStack",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Elevated vertical stack used for burning off unusable waste gas or flammable gas released by pressure relief valves.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      },
+      "pressureOperating": {
+        "value": 16,
+        "unit": "bar"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Flare Stack",
+    "specifications": {
+      "size": {
+        "value": 6,
+        "unit": "inch"
+      },
+      "pressureClass": {
+        "value": "150#",
+        "unit": ""
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "trim": "SS316",
+      "bolting": "ASTM A193 B7"
+    },
+    "standards": [
+      "ASME B16.34",
+      "API 598"
+    ],
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-STRA-001",
+    "name": "Strainer",
+    "componentClass": "Strainer",
+    "dexpiType": "Strainer",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Device with a mesh screen used to mechanically remove solid debris from a flowing fluid.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      },
+      "pressureOperating": {
+        "value": 16,
+        "unit": "bar"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Strainer",
+    "specifications": {
+      "size": {
+        "value": 6,
+        "unit": "inch"
+      },
+      "pressureClass": {
+        "value": "150#",
+        "unit": ""
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "trim": "SS316",
+      "bolting": "ASTM A193 B7"
+    },
+    "standards": [
+      "ASME B16.34",
+      "API 598"
+    ],
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-STEA-001",
+    "name": "Steam Trap",
+    "componentClass": "Steam Trap",
+    "dexpiType": "SteamTrap",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Automatic valve that filters out condensate and non-condensable gases while preventing the escape of live steam.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      },
+      "pressureOperating": {
+        "value": 16,
+        "unit": "bar"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Steam Trap",
+    "specifications": {
+      "size": {
+        "value": 6,
+        "unit": "inch"
+      },
+      "pressureClass": {
+        "value": "150#",
+        "unit": ""
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "trim": "SS316",
+      "bolting": "ASTM A193 B7"
+    },
+    "standards": [
+      "ASME B16.34",
+      "API 598"
+    ],
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  },
+  {
+    "tag": "Generic-FLAM-001",
+    "name": "Flame Arrestor",
+    "componentClass": "Flame Arrestor",
+    "dexpiType": "FlameArrestor",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "Safety device that stops fuel combustion by extinguishing the flame front.",
+    "operatingConditions": {
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      },
+      "pressureOperating": {
+        "value": 16,
+        "unit": "bar"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1000,
+        "unit": "mm"
+      }
+    },
+    "image_prompt": "High-fidelity 3D engineering rendering of a Flame Arrestor",
+    "specifications": {
+      "size": {
+        "value": 6,
+        "unit": "inch"
+      },
+      "pressureClass": {
+        "value": "150#",
+        "unit": ""
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "trim": "SS316",
+      "bolting": "ASTM A193 B7"
+    },
+    "standards": [
+      "ASME B16.34",
+      "API 598"
+    ],
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ]
+  }
+]
