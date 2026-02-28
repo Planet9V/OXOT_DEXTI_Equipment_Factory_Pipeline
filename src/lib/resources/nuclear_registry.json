@@ -1,0 +1,546 @@
+{
+  "sector": "NUCL",
+  "subSector": "NUCL-ALL",
+  "equipment": [
+    {
+      "type": "Reactor Pressure Vessel (RPV)",
+      "category": "static",
+      "tags": [
+        "VESSEL",
+        "NUCLEAR",
+        "PRIMARY"
+      ],
+      "description": "Thick-walled steel vessel containing the nuclear reactor core and coolant."
+    },
+    {
+      "type": "Pressurizer",
+      "category": "static",
+      "tags": [
+        "VESSEL",
+        "NUCLEAR",
+        "PRESSURE_CONTROL"
+      ],
+      "description": "Vessel used to maintain and control pressure in a PWR primary loop."
+    },
+    {
+      "type": "U-Tube Steam Generator",
+      "category": "heat-transfer",
+      "tags": [
+        "HX",
+        "NUCLEAR",
+        "STEAM"
+      ],
+      "description": "Heat exchanger converting primary coolant heat into steam for the turbine."
+    },
+    {
+      "type": "Reactor Coolant Pump (Vertical Shaft)",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "NUCLEAR",
+        "PRIMARY"
+      ],
+      "description": "Large centrifugal pump circulating coolant through the reactor core."
+    },
+    {
+      "type": "Control Rod Drive Mechanism (CRDM)",
+      "category": "mechanical",
+      "tags": [
+        "DRIVE",
+        "NUCLEAR",
+        "REACTIVITY"
+      ],
+      "description": "Electromagnetic mechanism to position control rods within the core."
+    },
+    {
+      "type": "Core Makeup Tank",
+      "category": "static",
+      "tags": [
+        "TANK",
+        "SAFETY",
+        "PASSIVE"
+      ],
+      "description": "Tank providing gravity-driven borated water injection for core cooling."
+    },
+    {
+      "type": "Accumulator Tank",
+      "category": "static",
+      "tags": [
+        "TANK",
+        "SAFETY",
+        "ECCS"
+      ],
+      "description": "Pressurized tank containing borated water for emergency core cooling."
+    },
+    {
+      "type": "Pressurizer Relief Tank",
+      "category": "static",
+      "tags": [
+        "TANK",
+        "NUCLEAR",
+        "RELIEF"
+      ],
+      "description": "Tank receiving discharges from pressurizer safety and relief valves."
+    },
+    {
+      "type": "Main Steam Isolation Valve (MSIV)",
+      "category": "piping",
+      "tags": [
+        "VALVE",
+        "STEAM",
+        "ISOLATION"
+      ],
+      "description": "Large, fast-acting valve to isolate steam generators from the turbine."
+    },
+    {
+      "type": "Moisture Separator Reheater (MSR)",
+      "category": "heat-transfer",
+      "tags": [
+        "HX",
+        "STEAM",
+        "MOISTURE"
+      ],
+      "description": "Vessel separating moisture from HP turbine exhaust and reheating steam."
+    },
+    {
+      "type": "High Pressure (HP) Steam Turbine",
+      "category": "rotating",
+      "tags": [
+        "TURBINE",
+        "STEAM",
+        "POWER"
+      ],
+      "description": "Turbine expanding high-pressure steam from the steam generators."
+    },
+    {
+      "type": "Low Pressure (LP) Steam Turbine",
+      "category": "rotating",
+      "tags": [
+        "TURBINE",
+        "STEAM",
+        "POWER"
+      ],
+      "description": "Turbine expanding low-pressure steam from the MSR."
+    },
+    {
+      "type": "Main Condenser (Surface)",
+      "category": "heat-transfer",
+      "tags": [
+        "CONDENSER",
+        "STEAM",
+        "COOLING"
+      ],
+      "description": "Large heat exchanger condensing turbine exhaust steam back to water."
+    },
+    {
+      "type": "Condensate Extraction Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "WATER",
+        "SECONDARY"
+      ],
+      "description": "Pump removing condensed water from the main condenser hotwell."
+    },
+    {
+      "type": "Feedwater Heater (Shell & Tube)",
+      "category": "heat-transfer",
+      "tags": [
+        "HX",
+        "WATER",
+        "HEATING"
+      ],
+      "description": "Heat exchanger using extraction steam to preheat boiler feedwater."
+    },
+    {
+      "type": "Main Feedwater Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "WATER",
+        "HIGH_PRESSURE"
+      ],
+      "description": "High-power pump supplying feedwater to the steam generators."
+    },
+    {
+      "type": "Circulating Water Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "WATER",
+        "COOLING"
+      ],
+      "description": "Very large capacity pump circulating cooling water to the main condenser."
+    },
+    {
+      "type": "CVCS Charging Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "CVCS",
+        "HIGH_PRESSURE"
+      ],
+      "description": "Pump returning purified, borated water to the primary loop."
+    },
+    {
+      "type": "Letdown Heat Exchanger",
+      "category": "heat-transfer",
+      "tags": [
+        "HX",
+        "CVCS",
+        "COOLING"
+      ],
+      "description": "Cools high-temperature primary coolant before purification."
+    },
+    {
+      "type": "Regenerative Heat Exchanger",
+      "category": "heat-transfer",
+      "tags": [
+        "HX",
+        "CVCS",
+        "EFFICIENCY"
+      ],
+      "description": "Transfers heat from letdown flow to charging flow."
+    },
+    {
+      "type": "Volume Control Tank (VCT)",
+      "category": "static",
+      "tags": [
+        "TANK",
+        "CVCS",
+        "STORAGE"
+      ],
+      "description": "Surge tank accommodating primary coolant volume changes."
+    },
+    {
+      "type": "Boric Acid Transfer Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "CVCS",
+        "CHEMICAL"
+      ],
+      "description": "Pump supplying concentrated boric acid for reactivity control."
+    },
+    {
+      "type": "Mixed Bed Demineralizer",
+      "category": "static",
+      "tags": [
+        "VESSEL",
+        "CVCS",
+        "PURIFICATION"
+      ],
+      "description": "Ion exchange vessel removing impurities from reactor coolant."
+    },
+    {
+      "type": "Boric Acid Storage Tank",
+      "category": "static",
+      "tags": [
+        "TANK",
+        "CVCS",
+        "STORAGE"
+      ],
+      "description": "Tank storing concentrated boric acid solution."
+    },
+    {
+      "type": "Residual Heat Removal (RHR) Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "ECCS",
+        "SAFETY"
+      ],
+      "description": "Pump circulating coolant to remove decay heat during shutdown."
+    },
+    {
+      "type": "Residual Heat Exchanger",
+      "category": "heat-transfer",
+      "tags": [
+        "HX",
+        "ECCS",
+        "SAFETY"
+      ],
+      "description": "Heat exchanger cooling primary fluid during RHR operation."
+    },
+    {
+      "type": "High Head Safety Injection Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "ECCS",
+        "SAFETY"
+      ],
+      "description": "High-pressure pump for emergency core cooling during small-break LOCAs."
+    },
+    {
+      "type": "Refueling Water Storage Tank (RWST)",
+      "category": "static",
+      "tags": [
+        "TANK",
+        "ECCS",
+        "STORAGE"
+      ],
+      "description": "Large tank providing borated water for ECCS and refueling."
+    },
+    {
+      "type": "Containment Spray Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SAFETY",
+        "CONTAINMENT"
+      ],
+      "description": "Pump supplying borated water to containment spray nozzles."
+    },
+    {
+      "type": "Containment Fan Cooler",
+      "category": "heat-transfer",
+      "tags": [
+        "HX",
+        "SAFETY",
+        "CONTAINMENT"
+      ],
+      "description": "Cooling unit reducing containment temperature and pressure."
+    },
+    {
+      "type": "Component Cooling Water Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "COOLING",
+        "SUPPORT"
+      ],
+      "description": "Pump circulating intermediate cooling water to safety-related equipment."
+    },
+    {
+      "type": "Component Cooling Heat Exchanger",
+      "category": "heat-transfer",
+      "tags": [
+        "HX",
+        "COOLING",
+        "SUPPORT"
+      ],
+      "description": "Heat exchanger rejecting heat from CCW to essential service water."
+    },
+    {
+      "type": "Essential Service Water Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "COOLING",
+        "SAFETY"
+      ],
+      "description": "Pump supplying ultimate heat sink water to CCW heat exchangers."
+    },
+    {
+      "type": "Spent Fuel Pool Cooling Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "FUEL",
+        "COOLING"
+      ],
+      "description": "Pump circulating water to cool spent nuclear fuel assemblies."
+    },
+    {
+      "type": "Spent Fuel Pool Heat Exchanger",
+      "category": "heat-transfer",
+      "tags": [
+        "HX",
+        "FUEL",
+        "COOLING"
+      ],
+      "description": "Heat exchanger removing decay heat from spent fuel pool."
+    },
+    {
+      "type": "Dry Storage Cask",
+      "category": "static",
+      "tags": [
+        "VESSEL",
+        "WASTE",
+        "STORAGE"
+      ],
+      "description": "Shielded container for dry storage of spent nuclear fuel."
+    },
+    {
+      "type": "Liquid Waste Evaporator",
+      "category": "heat-transfer",
+      "tags": [
+        "EVAPORATOR",
+        "WASTE",
+        "PROCESSING"
+      ],
+      "description": "Concentrates radioactive liquid waste for disposal."
+    },
+    {
+      "type": "Gas Decay Tank",
+      "category": "static",
+      "tags": [
+        "TANK",
+        "WASTE",
+        "GAS"
+      ],
+      "description": "Tank storing radioactive gases to allow for radioactive decay."
+    },
+    {
+      "type": "HEPA Filter Housing",
+      "category": "static",
+      "tags": [
+        "FILTER",
+        "VENTILATION",
+        "SAFETY"
+      ],
+      "description": "Housing for high-efficiency particulate air filters in HVAC systems."
+    },
+    {
+      "type": "Ex-core Neutron Detector",
+      "category": "instrumentation",
+      "tags": [
+        "SENSOR",
+        "NUCLEAR",
+        "FLUX"
+      ],
+      "description": "Measures neutron flux leaking from the reactor vessel."
+    },
+    {
+      "type": "In-core Thermocouple",
+      "category": "instrumentation",
+      "tags": [
+        "SENSOR",
+        "TEMPERATURE",
+        "CORE"
+      ],
+      "description": "Measures coolant temperature exiting the fuel assemblies."
+    },
+    {
+      "type": "Reactor Protection System (RPS) Cabinet",
+      "category": "electrical",
+      "tags": [
+        "CONTROL",
+        "SAFETY",
+        "RPS"
+      ],
+      "description": "Electronic system initiating reactor trip upon unsafe conditions."
+    },
+    {
+      "type": "Area Radiation Monitor",
+      "category": "instrumentation",
+      "tags": [
+        "SENSOR",
+        "RADIATION",
+        "SAFETY"
+      ],
+      "description": "Monitors ambient gamma radiation levels in plant areas."
+    },
+    {
+      "type": "Process Radiation Monitor",
+      "category": "instrumentation",
+      "tags": [
+        "SENSOR",
+        "RADIATION",
+        "PROCESS"
+      ],
+      "description": "Monitors radioactivity levels in fluid systems (e.g., effluent)."
+    },
+    {
+      "type": "Containment Pressure Transmitter",
+      "category": "instrumentation",
+      "tags": [
+        "SENSOR",
+        "PRESSURE",
+        "CONTAINMENT"
+      ],
+      "description": "Measures pressure inside the reactor containment building."
+    },
+    {
+      "type": "Post-Accident Monitoring (PAM) Display",
+      "category": "instrumentation",
+      "tags": [
+        "DISPLAY",
+        "SAFETY",
+        "PAM"
+      ],
+      "description": "Qualified display system for critical safety parameters."
+    },
+    {
+      "type": "Emergency Diesel Generator (EDG)",
+      "category": "rotating",
+      "tags": [
+        "GENERATOR",
+        "POWER",
+        "SAFETY"
+      ],
+      "description": "Provides backup AC power for safety-related equipment."
+    },
+    {
+      "type": "Station Blackout (SBO) Generator",
+      "category": "rotating",
+      "tags": [
+        "GENERATOR",
+        "POWER",
+        "BACKUP"
+      ],
+      "description": "Alternate AC power source during a complete loss of offsite power."
+    },
+    {
+      "type": "Main Power Transformer",
+      "category": "electrical",
+      "tags": [
+        "TRANSFORMER",
+        "POWER",
+        "GRID"
+      ],
+      "description": "Steps up generator voltage to transmission grid voltage."
+    },
+    {
+      "type": "Unit Auxiliary Transformer",
+      "category": "electrical",
+      "tags": [
+        "TRANSFORMER",
+        "POWER",
+        "PLANT"
+      ],
+      "description": "Supplies power to plant equipment during normal operation."
+    },
+    {
+      "type": "Class 1E Battery Bank",
+      "category": "electrical",
+      "tags": [
+        "BATTERY",
+        "POWER",
+        "SAFETY"
+      ],
+      "description": "Safety-related DC power source for critical controls and instruments."
+    },
+    {
+      "type": "Class 1E Inverter",
+      "category": "electrical",
+      "tags": [
+        "INVERTER",
+        "POWER",
+        "SAFETY"
+      ],
+      "description": "Converts vital DC power to AC for critical instrumentation."
+    },
+    {
+      "type": "Medium Voltage Switchgear (Safety)",
+      "category": "electrical",
+      "tags": [
+        "SWITCHGEAR",
+        "POWER",
+        "SAFETY"
+      ],
+      "description": "Distributes AC power to large safety-related motors."
+    },
+    {
+      "type": "Motor Control Center (MCC)",
+      "category": "electrical",
+      "tags": [
+        "MCC",
+        "POWER",
+        "CONTROL"
+      ],
+      "description": "Assembly to control and distribute power to smaller motors and valves."
+    }
+  ]
+}
