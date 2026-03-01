@@ -283,7 +283,9 @@ Return ONLY valid JSON, no markdown.`;
      * @returns Array of vendor variations.
      */
     async findVendorVariations(referenceEquipment: Record<string, unknown>): Promise<VendorVariation[]> {
-        const prompt = `Task: Find 3 distinct real-world vendor models for the following Reference Equipment:
+        const prompt = `Role: You are "The Procurement Officer," responsible for sourcing specific vendor equipment.
+
+Task: Find 3 distinct real-world vendor models for the following Reference Equipment:
 Context: ${JSON.stringify(referenceEquipment, null, 2)}
 
 For each model (e.g., Siemens, ABB, Rockwell, Emerson, Flowserve), generate a "Vendor Variation" card:
