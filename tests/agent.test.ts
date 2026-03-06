@@ -228,9 +228,9 @@ describe('DexpiAgent', () => {
         mockFetch.mockReset();
     });
 
-    test('getPersonas returns all 6 personas', () => {
+    test('getPersonas returns all 8 personas', () => {
         const personas = agent.getPersonas();
-        expect(personas).toHaveLength(6);
+        expect(personas).toHaveLength(8);
         const names = personas.map(p => p.name);
         expect(names).toContain('coordinator');
         expect(names).toContain('processEngineer');
@@ -238,6 +238,8 @@ describe('DexpiAgent', () => {
         expect(names).toContain('safetyAnalyst');
         expect(names).toContain('qualityReviewer');
         expect(names).toContain('procurementOfficer');
+        expect(names).toContain('theSurveyor');
+        expect(names).toContain('theEngineer');
     });
 
     test('findVendorVariations returns parsed array', async () => {
