@@ -228,9 +228,9 @@ describe('DexpiAgent', () => {
         mockFetch.mockReset();
     });
 
-    test('getPersonas returns all 6 personas', () => {
+    test('getPersonas returns all 8 personas', () => {
         const personas = agent.getPersonas();
-        expect(personas).toHaveLength(6);
+        expect(personas).toHaveLength(8);
         const names = personas.map(p => p.name);
         expect(names).toContain('coordinator');
         expect(names).toContain('processEngineer');
@@ -238,6 +238,8 @@ describe('DexpiAgent', () => {
         expect(names).toContain('safetyAnalyst');
         expect(names).toContain('qualityReviewer');
         expect(names).toContain('procurementOfficer');
+        expect(names).toContain('theSurveyor');
+        expect(names).toContain('theEngineer');
     });
 
     test('findVendorVariations returns parsed array', async () => {
@@ -351,6 +353,59 @@ describe('DexpiAgent', () => {
         expect(connected).toBe(false);
         jest.useRealTimers();
     }, 15000);
+
+    test('generateEquipmentRegistry returns parsed JSON object', async () => {
+        const mockRegistry = {
+            sector: 'ENER',
+            subSector: 'OG',
+            equipment: [
+                { type: 'Centrifugal Pump', category: 'rotating' }
+            ]
+        };
+
+        mockFetch.mockResolvedValueOnce({
+            ok: true,
+            json: async () => ({
+                choices: [{ message: { role: 'assistant', content: JSON.stringify(mockRegistry) }, finish_reason: 'stop' }],
+            }),
+        });
+
+        const result = await agent.generateEquipmentRegistry('Oil & Gas', 'ENER', 'OG');
+        expect(result).toBeDefined();
+        expect(result?.sector).toBe('ENER');
+        expect((result?.equipment as any[])).toHaveLength(1);
+
+        const fetchBody = JSON.parse(mockFetch.mock.calls[0][1].body);
+        const systemMsg = fetchBody.messages[0].content;
+        expect(systemMsg).toContain('The Surveyor');
+        expect(systemMsg).toContain('Oil & Gas');
+        expect(systemMsg).toContain('ENER');
+        expect(systemMsg).toContain('OG');
+    });
+
+    test('generateReferenceCards returns parsed JSON array', async () => {
+        const mockCards = [
+            { tag: 'P-101', componentClass: 'Pump' }
+        ];
+
+        mockFetch.mockResolvedValueOnce({
+            ok: true,
+            json: async () => ({
+                choices: [{ message: { role: 'assistant', content: JSON.stringify(mockCards) }, finish_reason: 'stop' }],
+            }),
+        });
+
+        const types = ['Centrifugal Pump', 'Compressor'];
+        const result = await agent.generateReferenceCards(types);
+        expect(result).toHaveLength(1);
+        expect(result[0].tag).toBe('P-101');
+
+        const fetchBody = JSON.parse(mockFetch.mock.calls[0][1].body);
+        const systemMsg = fetchBody.messages[0].content;
+        expect(systemMsg).toContain('The Engineer');
+        expect(systemMsg).toContain('Centrifugal Pump');
+        expect(systemMsg).toContain('Compressor');
+    });
 
     test('findVendorVariations parses JSON response', async () => {
         const mockVariations = [
