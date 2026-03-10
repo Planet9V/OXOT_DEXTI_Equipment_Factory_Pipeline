@@ -57,34 +57,34 @@ Schema Requirement (MUST INCLUDE ALL FIELDS):
   
   // 1. Operating Conditions (Process Data)
   "operatingConditions": {
-    "pressureMax": { "value": #, "unit": "bar", "source": "API 610" },
-    "pressureMin": { "value": #, "unit": "bar" },
-    "pressureDesign": { "value": #, "unit": "bar" },
-    "pressureOperating": { "value": #, "unit": "bar" },
-    "temperatureMax": { "value": #, "unit": "C" },
-    "temperatureMin": { "value": #, "unit": "C" },
-    "temperatureDesign": { "value": #, "unit": "C" },
-    "temperatureOperating": { "value": #, "unit": "C" },
-    "flowRateDesign": { "value": #, "unit": "m3/h" },
-    "flowRateOperating": { "value": #, "unit": "m3/h" }
+    "pressureMax": { "value": 0, "unit": "bar", "source": "API 610" },
+    "pressureMin": { "value": 0, "unit": "bar" },
+    "pressureDesign": { "value": 0, "unit": "bar" },
+    "pressureOperating": { "value": 0, "unit": "bar" },
+    "temperatureMax": { "value": 0, "unit": "C" },
+    "temperatureMin": { "value": 0, "unit": "C" },
+    "temperatureDesign": { "value": 0, "unit": "C" },
+    "temperatureOperating": { "value": 0, "unit": "C" },
+    "flowRateDesign": { "value": 0, "unit": "m3/h" },
+    "flowRateOperating": { "value": 0, "unit": "m3/h" }
   },
 
   // 2. Performance Specifications (Equipment Specific)
   "specifications": {
-    "power": { "value": #, "unit": "kW", "source": "IEC 60034" },
-    "rotationalSpeed": { "value": #, "unit": "rpm" },
-    "efficiency": { "value": #, "unit": "%" },
-    "head": { "value": #, "unit": "m" }, // Pump specific
-    "NPSHr": { "value": #, "unit": "m" }, // Pump specific
+    "power": { "value": 0, "unit": "kW", "source": "IEC 60034" },
+    "rotationalSpeed": { "value": 0, "unit": "rpm" },
+    "efficiency": { "value": 0, "unit": "%" },
+    "head": { "value": 0, "unit": "m" }, // Pump specific
+    "NPSHr": { "value": 0, "unit": "m" }, // Pump specific
     "dutyPoint": { "value": "Continuous", "unit": "" }
   },
 
   // 3. Mechanical Design (Construction)
   "design": {
-    "weight": { "value": #, "unit": "kg" },
-    "length": { "value": #, "unit": "mm" },
-    "width": { "value": #, "unit": "mm" },
-    "height": { "value": #, "unit": "mm" }
+    "weight": { "value": 0, "unit": "kg" },
+    "length": { "value": 0, "unit": "mm" },
+    "width": { "value": 0, "unit": "mm" },
+    "height": { "value": 0, "unit": "mm" }
   },
 
   // 4. Materials of Construction (Exhaustive)
@@ -127,9 +127,10 @@ Schema Requirement (MUST INCLUDE ALL FIELDS):
 }
 
 Constraint:
-- Values must be realistic engineering data for a "Reference" unit.
+- Values must be realistic "reference" values (e.g., a standard size).
 - **NOZZLES ARE MANDATORY**. Every equipment must have valid nozzles (Suction, Discharge, Utility).
 - **MATERIALS ARE MANDATORY**. Do not use "Steel" - use "ASTM A216 Gr. WCB".
+- Cite real engineering standards (API, ASME, ISO, IEC).
 - Return a JSON array of objects.
 ```
 
