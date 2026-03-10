@@ -86,6 +86,126 @@ Models must be REAL and currently (or recently) manufactured.
 Differentiators should highlight why a facility would choose this specific model.
 
 You have access to web search tools to find real-world data. Use them to verify models and specifications.`,
+
+    theSurveyor: `Role: You are "The Surveyor," a senior industrial engineer mapping critical infrastructure assets.
+
+Task: Create a comprehensive registry of unique equipment types for the [SECTOR NAME] sector (e.g., Oil & Gas, Water Treatment, Nuclear).
+Focus on:
+1.  Core Process Equipment (Pumps, Compressors, Reactors, Heat Exchangers)
+2.  Support Systems (Valves, Tanks, Filters)
+3.  Instrumentation (Flow, Level, Pressure, Temperature)
+4.  Electrical (Motors, VFDs, Switchgear)
+
+Output Format (JSON Only):
+{
+  "sector": "[SECTOR_CODE]",
+  "subSector": "[SUB_SECTOR_CODE]",
+  "equipment": [
+    {
+      "type": "Centrifugal Pump",
+      "category": "rotating",
+      "tags": ["PUMP", "KINETIC"],
+      "description": "Standard API 610 overhung pump for process fluids."
+    },
+    ...
+  ]
+}
+
+Constraint: List at least 50 unique types. Do not invent non-existent types. Use standard industry terminology.`,
+
+    theEngineer: `Role: You are "The Engineer," a detailed mechanical specification expert.
+
+Task: Generate **Full-Fidelity** DEXPI 2.0 equipment cards for the following list of equipment types:
+[LIST_OF_TYPES_FROM_REGISTRY]
+
+For each item, generate a JSON object that is **100% compliant** with the DEXPI 2.0 Schema. Do NOT produce simplified or partial records.
+
+Schema Requirement (MUST INCLUDE ALL FIELDS):
+{
+  "tag": "Generic-[TYPE_CODE]-001",
+  "name": "[Standard Industry Name]",
+  "componentClass": "[DEXPI Class]",
+  "dexpiType": "[Specific DEXPI Type, e.g., CentrifugalPump]",
+  "rdlUri": "[POSC Caesar RDL URI]",
+  "description": "[Technical description]",
+
+  // 1. Operating Conditions (Process Data)
+  "operatingConditions": {
+    "pressureMax": { "value": 0, "unit": "bar", "source": "API 610" },
+    "pressureMin": { "value": 0, "unit": "bar" },
+    "pressureDesign": { "value": 0, "unit": "bar" },
+    "pressureOperating": { "value": 0, "unit": "bar" },
+    "temperatureMax": { "value": 0, "unit": "C" },
+    "temperatureMin": { "value": 0, "unit": "C" },
+    "temperatureDesign": { "value": 0, "unit": "C" },
+    "temperatureOperating": { "value": 0, "unit": "C" },
+    "flowRateDesign": { "value": 0, "unit": "m3/h" },
+    "flowRateOperating": { "value": 0, "unit": "m3/h" }
+  },
+
+  // 2. Performance Specifications (Equipment Specific)
+  "specifications": {
+    "power": { "value": 0, "unit": "kW", "source": "IEC 60034" },
+    "rotationalSpeed": { "value": 0, "unit": "rpm" },
+    "efficiency": { "value": 0, "unit": "%" },
+    "head": { "value": 0, "unit": "m" }, // Pump specific
+    "NPSHr": { "value": 0, "unit": "m" }, // Pump specific
+    "dutyPoint": { "value": "Continuous", "unit": "" }
+  },
+
+  // 3. Mechanical Design (Construction)
+  "design": {
+    "weight": { "value": 0, "unit": "kg" },
+    "length": { "value": 0, "unit": "mm" },
+    "width": { "value": 0, "unit": "mm" },
+    "height": { "value": 0, "unit": "mm" }
+  },
+
+  // 4. Materials of Construction (Exhaustive)
+  "materials": {
+    "casing": "[ASTM Spec, e.g., ASTM A216 WCB]",
+    "impeller": "[Material]",
+    "shaft": "[Material]",
+    "seals": "[Material]",
+    "gaskets": "[Material]",
+    "bolting": "[Material]",
+    "baseplate": "[Material]"
+  },
+
+  // 5. Nozzle Schedule (Connections) - CRITICAL
+  "nozzles": [
+    {
+      "id": "N1",
+      "name": "Suction",
+      "service": "Process Inlet",
+      "size": "DN150",
+      "rating": "PN16",
+      "facing": "RF",
+      "position": "End"
+    },
+    {
+      "id": "N2",
+      "name": "Discharge",
+      "service": "Process Outlet",
+      "size": "DN100",
+      "rating": "PN40",
+      "facing": "RF",
+      "position": "Top"
+    },
+    { "id": "N3", "name": "Drain", "service": "Drain", "size": "DN25" },
+    { "id": "N4", "name": "Vent", "service": "Vent", "size": "DN25" }
+  ],
+
+  "standards": ["API 610", "ASME B73.1", "ISO 5199", "IEC 60034"],
+  "image_prompt": "[Detailed prompt for 3D model generation]"
+}
+
+Constraint:
+- Values must be realistic "reference" values (e.g., a standard size).
+- **NOZZLES ARE MANDATORY**. Every equipment must have valid nozzles (Suction, Discharge, Utility).
+- **MATERIALS ARE MANDATORY**. Do not use "Steel" - use "ASTM A216 Gr. WCB".
+- Cite real engineering standards (API, ASME, ISO, IEC).
+- Return a JSON array of objects.`,
 };
 
 /** Persona names. */
@@ -327,6 +447,74 @@ Constraint:
             }
         } catch {
             console.warn('[agent] Failed to parse vendor variations JSON');
+        }
+
+        return [];
+    }
+
+    /**
+     * Generates an equipment registry for a specific sector using The Surveyor persona.
+     *
+     * @param sectorName - The full name of the sector (e.g., "Nuclear Power").
+     * @param sectorCode - The sector code (e.g., "NUCL").
+     * @param subSectorCode - The sub-sector code (e.g., "PWR").
+     * @param additionalContext - Optional additional context to append to the prompt.
+     * @returns A structured registry object or null if parsing fails.
+     */
+    async generateEquipmentRegistry(
+        sectorName: string,
+        sectorCode: string,
+        subSectorCode: string,
+        additionalContext?: string
+    ): Promise<Record<string, unknown> | null> {
+        let prompt = PERSONAS['theSurveyor']
+            .replace('[SECTOR NAME]', sectorName)
+            .replace('[SECTOR_CODE]', sectorCode)
+            .replace('[SUB_SECTOR_CODE]', subSectorCode);
+
+        if (additionalContext) {
+            prompt += `\n\nAdditional Context:\n${additionalContext}`;
+        }
+
+        const result = await this.chat(
+            [{ role: 'user', content: prompt }],
+            'theSurveyor'
+        );
+
+        try {
+            const jsonMatch = result.content.match(/\{[\s\S]*\}/);
+            if (jsonMatch) {
+                return JSON.parse(jsonMatch[0]);
+            }
+        } catch {
+            console.warn('[agent] Failed to parse equipment registry JSON');
+        }
+
+        return null;
+    }
+
+    /**
+     * Generates Full-Fidelity DEXPI 2.0 equipment reference cards using The Engineer persona.
+     *
+     * @param equipmentTypes - An array of equipment type descriptions or objects.
+     * @returns An array of generated equipment card objects.
+     */
+    async generateReferenceCards(equipmentTypes: Array<unknown>): Promise<Array<Record<string, unknown>>> {
+        const typesJson = JSON.stringify(equipmentTypes, null, 2);
+        const prompt = PERSONAS['theEngineer'].replace('[LIST_OF_TYPES_FROM_REGISTRY]', typesJson);
+
+        const result = await this.chat(
+            [{ role: 'user', content: prompt }],
+            'theEngineer'
+        );
+
+        try {
+            const jsonMatch = result.content.match(/\[[\s\S]*\]/);
+            if (jsonMatch) {
+                return JSON.parse(jsonMatch[0]);
+            }
+        } catch {
+            console.warn('[agent] Failed to parse reference cards JSON array');
         }
 
         return [];
