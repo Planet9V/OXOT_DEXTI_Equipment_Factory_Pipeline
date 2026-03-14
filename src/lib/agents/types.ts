@@ -86,6 +86,14 @@ export interface AgentContext {
     equipmentClass?: string;
     /** Extra instructions appended to system prompt. */
     additionalInstructions?: string;
+    /** JSON string representation of reference equipment */
+    referenceEquipment?: string;
+    /** The reference ID/Tag */
+    referenceTag?: string;
+    /** Sector Code replacement */
+    sectorCode?: string;
+    /** Sub Sector Code replacement */
+    subSectorCode?: string;
 }
 
 /* ─── Agent Responses ───────────────────────────────────────────────────── */
