@@ -228,9 +228,9 @@ describe('DexpiAgent', () => {
         mockFetch.mockReset();
     });
 
-    test('getPersonas returns all 6 personas', () => {
+    test('getPersonas returns all 8 personas', () => {
         const personas = agent.getPersonas();
-        expect(personas).toHaveLength(6);
+        expect(personas).toHaveLength(8);
         const names = personas.map(p => p.name);
         expect(names).toContain('coordinator');
         expect(names).toContain('processEngineer');
@@ -238,6 +238,8 @@ describe('DexpiAgent', () => {
         expect(names).toContain('safetyAnalyst');
         expect(names).toContain('qualityReviewer');
         expect(names).toContain('procurementOfficer');
+        expect(names).toContain('theSurveyor');
+        expect(names).toContain('theEngineer');
     });
 
     test('findVendorVariations returns parsed array', async () => {
@@ -322,6 +324,27 @@ describe('DexpiAgent', () => {
         expect(systemMsg).toContain('Senior Process Engineer');
         expect(systemMsg).toContain('Sector: ENER');
         expect(systemMsg).toContain('Facility: Transmission Station');
+    });
+
+    test('chat injects context replacements into system prompt for theSurveyor', async () => {
+        mockFetch.mockResolvedValueOnce({
+            ok: true,
+            json: async () => ({
+                choices: [{ message: { role: 'assistant', content: 'OK' }, finish_reason: 'stop' }],
+            }),
+        });
+
+        await agent.chat(
+            [{ role: 'user', content: 'Hi' }],
+            'theSurveyor',
+            { sectorName: 'Energy', sectorCode: 'ENER', subSectorCode: 'OIL_GAS' },
+        );
+
+        const fetchBody = JSON.parse(mockFetch.mock.calls[0][1].body);
+        const systemMsg = fetchBody.messages[0].content;
+        expect(systemMsg).toContain('for the Energy sector');
+        expect(systemMsg).toContain('"sector": "ENER"');
+        expect(systemMsg).toContain('"subSector": "OIL_GAS"');
     });
 
     test('testConnection returns boolean', async () => {
