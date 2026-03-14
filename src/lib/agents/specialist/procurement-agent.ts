@@ -104,16 +104,34 @@ export class ProcurementAgent extends BaseSpecialist<ProcurementInput, Procureme
     async execute(input: ProcurementInput, runId: string): Promise<ProcurementOutput> {
         const { equipment } = input;
 
-        // Construct the prompt with the reference equipment context
-        const userMessage = `
-Context: ${JSON.stringify(equipment, null, 2)}
+        // Construct the dynamic system prompt without mutating the class config
+        const dynamicSystemPrompt = SYSTEM_PROMPT
+            .replace(/\[REFERENCE_EQUIPMENT_JSON\]/g, JSON.stringify(equipment, null, 2))
+            .replace(/\[REFERENCE_TAG\]/g, String(equipment.tag || 'REF'));
 
-Find 3 distinct real-world vendor models for this Reference Equipment.
-Ensure the models are compatible with the specifications provided in the context.
-        `;
+        // Call the LLM with tools bypassing BaseSpecialist.callLLM to avoid mutating config
+        const { chatWithTools } = require('../openrouter-client');
+        const messages = [
+            { role: 'system', content: dynamicSystemPrompt },
+            { role: 'user', content: "Please execute your task based on the system prompt instructions." },
+        ];
 
-        // Call the LLM with tools
-        const response = await this.callLLM(userMessage);
+        const options = {
+            temperature: 0.3,
+            max_tokens: 4096,
+            ...this.config.completionOptions,
+        };
+
+        const { response: openRouterResponse } = await chatWithTools(
+            messages,
+            this.config.tools,
+            this.config.toolHandlers,
+            options,
+            this.config.maxIterations || 10,
+        );
+
+        const content = openRouterResponse.choices?.[0]?.message?.content || '';
+        const response = this.parseJSON(content);
 
         // Parse and validate the response
         // The BaseSpecialist.parseJSON returns Record<string, unknown>, but we expect an array.
