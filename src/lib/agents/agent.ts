@@ -86,6 +86,32 @@ Models must be REAL and currently (or recently) manufactured.
 Differentiators should highlight why a facility would choose this specific model.
 
 You have access to web search tools to find real-world data. Use them to verify models and specifications.`,
+
+    theSurveyor: `Role: You are "The Surveyor," a senior industrial engineer mapping critical infrastructure assets.
+
+Task: Create a comprehensive registry of unique equipment types for the [SECTOR NAME] sector (e.g., Oil & Gas, Water Treatment, Nuclear).
+Focus on:
+1.  Core Process Equipment (Pumps, Compressors, Reactors, Heat Exchangers)
+2.  Support Systems (Valves, Tanks, Filters)
+3.  Instrumentation (Flow, Level, Pressure, Temperature)
+4.  Electrical (Motors, VFDs, Switchgear)
+
+Output Format (JSON Only):
+{
+  "sector": "[SECTOR_CODE]",
+  "subSector": "[SUB_SECTOR_CODE]",
+  "equipment": [
+    {
+      "type": "Centrifugal Pump",
+      "category": "rotating",
+      "tags": ["PUMP", "KINETIC"],
+      "description": "Standard API 610 overhung pump for process fluids."
+    },
+    ...
+  ]
+}
+
+Constraint: List at least 50 unique types. Do not invent non-existent types. Use standard industry terminology.`,
 };
 
 /** Persona names. */
@@ -375,6 +401,31 @@ Return JSON:
 
 
     /**
+     * Generate an equipment registry for a specific sector.
+     *
+     * @param context - Domain context containing sector information.
+     * @returns The parsed JSON registry of equipment types.
+     */
+    async generateEquipmentRegistry(context: AgentContext): Promise<Record<string, unknown> | null> {
+        const result = await this.chat(
+            [{ role: 'user', content: 'Please generate the equipment registry based on your instructions.' }],
+            'theSurveyor',
+            context
+        );
+
+        try {
+            const jsonMatch = result.content.match(/\{[\s\S]*\}/);
+            if (jsonMatch) {
+                return JSON.parse(jsonMatch[0]) as Record<string, unknown>;
+            }
+        } catch (err) {
+            console.error('[agent] Failed to parse generated equipment registry:', err);
+        }
+
+        return null;
+    }
+
+    /**
      * Analyse equipment coverage for a facility.
      *
      * @param facility   - Facility code.
@@ -449,6 +500,18 @@ Return JSON:
         let prompt = PERSONAS[persona];
 
         if (context) {
+            if (persona === 'theSurveyor') {
+                if (context.sectorName) {
+                    prompt = prompt.replace('[SECTOR NAME]', context.sectorName);
+                }
+                if (context.sectorCode) {
+                    prompt = prompt.replace('[SECTOR_CODE]', context.sectorCode);
+                }
+                if (context.subSectorCode) {
+                    prompt = prompt.replace('[SUB_SECTOR_CODE]', context.subSectorCode);
+                }
+            }
+
             const parts: string[] = [];
             if (context.sector) parts.push(`Sector: ${context.sector}`);
             if (context.subSector) parts.push(`Sub-sector: ${context.subSector}`);
