@@ -1,0 +1,1636 @@
+
+> oxot-dexpi-equipment-factory@1.0.0 test
+> jest --verbose
+
+  console.error
+    [memgraph] Query failed (attempt 1/3): Connection reset
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+      at Object.<anonymous> (tests/memgraph.test.ts:66:24)
+
+  console.warn
+    [graph-schema] assignEquipment failed: Equipment '613d992d-01d6-45ee-bec8-966062cee58d' or Facility 'ENER-EG-TRAN' not found.
+
+      728 |     const created = (counters as Record<string, number>).relationshipsCreated ?? 0;
+      729 |     if (created === 0) {
+    > 730 |         console.warn(
+          |                 ^
+      731 |             `[graph-schema] assignEquipment failed: Equipment '${equipmentId}' or ` +
+      732 |             `Facility '${facilityCode}' not found.`,
+      733 |         );
+
+      at assignEquipmentToFacility (src/lib/graph-schema.ts:730:17)
+      at createEquipmentStandalone (src/lib/graph-schema.ts:599:9)
+      at Object.<anonymous> (tests/equipment-standalone.test.ts:115:9)
+
+  console.warn
+    [graph-schema] assignEquipment failed: Equipment 'eq-1' or Facility 'FAC-1' not found.
+
+      728 |     const created = (counters as Record<string, number>).relationshipsCreated ?? 0;
+      729 |     if (created === 0) {
+    > 730 |         console.warn(
+          |                 ^
+      731 |             `[graph-schema] assignEquipment failed: Equipment '${equipmentId}' or ` +
+      732 |             `Facility '${facilityCode}' not found.`,
+      733 |         );
+
+      at assignEquipmentToFacility (src/lib/graph-schema.ts:730:17)
+      at Object.<anonymous> (tests/equipment-standalone.test.ts:207:25)
+
+  console.warn
+    [graph-schema] assignEquipment failed: Equipment 'missing' or Facility 'FAC-1' not found.
+
+      728 |     const created = (counters as Record<string, number>).relationshipsCreated ?? 0;
+      729 |     if (created === 0) {
+    > 730 |         console.warn(
+          |                 ^
+      731 |             `[graph-schema] assignEquipment failed: Equipment '${equipmentId}' or ` +
+      732 |             `Facility '${facilityCode}' not found.`,
+      733 |         );
+
+      at assignEquipmentToFacility (src/lib/graph-schema.ts:730:17)
+      at Object.<anonymous> (tests/equipment-standalone.test.ts:217:25)
+
+FAIL tests/equipment-standalone.test.ts
+  Standalone Equipment CRUD
+    ✕ createEquipmentStandalone generates UUID and writes to graph (12 ms)
+    ✓ createEquipmentStandalone uses provided ID (2 ms)
+    ✓ createEquipmentStandalone does NOT require facility (1 ms)
+    ✓ createEquipmentStandalone auto-assigns when facility provided (60 ms)
+  Equipment Retrieval
+    ✓ getEquipmentById returns card with assignments (2 ms)
+    ✓ getEquipmentById returns null for missing equipment (1 ms)
+  Equipment Update
+    ✓ updateEquipmentNode merges updates with existing card (2 ms)
+    ✓ updateEquipmentNode returns false for missing equipment (1 ms)
+  Equipment Delete
+    ✓ deleteEquipmentById detach-deletes with children (1 ms)
+  Facility Assignment
+    ✕ assignEquipmentToFacility creates ASSIGNED_TO relationship (4 ms)
+    ✓ assignEquipmentToFacility returns false when not found (2 ms)
+    ✕ removeEquipmentFromFacility deletes relationship only (1 ms)
+    ✓ removeEquipmentFromFacility returns false when no relationship
+  listAllEquipment
+    ✓ returns all equipment (2 ms)
+    ✓ filters unassigned only (1 ms)
+    ✓ handles corrupted JSON gracefully (1 ms)
+
+  ● Standalone Equipment CRUD › createEquipmentStandalone generates UUID and writes to graph
+
+    expect(jest.fn()).toHaveBeenCalledWith(...expected)
+
+    Expected: StringContaining "MERGE (e:Equipment:TaggedPlantItem {id: $id})", ObjectContaining {"category": "electrical", "componentClass": "Transformer", "displayName": "Power Transformer", "tag": "TF-101"}
+    Received: "MERGE (e:Equipment:TaggedPlantItem:OX_DEXPI2 {id: $id})
+             SET e.tag = $tag,
+                 e.componentClass = $componentClass,
+                 e.componentClassURI = $componentClassURI,
+                 e.displayName = $displayName,
+                 e.category = $category,
+                 e.description = $description,
+                 e.sector = $sector,
+                 e.subSector = $subSector,
+                 e.source = $source,
+                 e.validationScore = $validationScore,
+                 e.card = $cardJson,
+                 e.createdAt = COALESCE(e.createdAt, timestamp()),
+                 e.updatedAt = timestamp()", {"cardJson": "{\"tag\":\"TF-101\",\"componentClass\":\"Transformer\",\"componentClassURI\":\"http://data.posccaesar.org/rdl/RDS1234\",\"displayName\":\"Power Transformer\",\"category\":\"electrical\",\"id\":\"4a208b0e-d5a9-441e-9889-1c219995dd4e\"}", "category": "electrical", "componentClass": "Transformer", "componentClassURI": "http://data.posccaesar.org/rdl/RDS1234", "description": "", "displayName": "Power Transformer", "id": "4a208b0e-d5a9-441e-9889-1c219995dd4e", "sector": "", "source": "manual", "subSector": "", "tag": "TF-101", "validationScore": 0}
+
+    Number of calls: 1
+
+      66 |         expect(typeof id).toBe('string');
+      67 |         // Should have called runWrite with MERGE
+    > 68 |         expect(mockRunWrite).toHaveBeenCalledWith(
+         |                              ^
+      69 |             expect.stringContaining('MERGE (e:Equipment:TaggedPlantItem {id: $id})'),
+      70 |             expect.objectContaining({
+      71 |                 tag: 'TF-101',
+
+      at Object.<anonymous> (tests/equipment-standalone.test.ts:68:30)
+
+  ● Facility Assignment › assignEquipmentToFacility creates ASSIGNED_TO relationship
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      206 |         mockRunWrite.mockResolvedValueOnce([mockRecord({ eid: 'eq-1' })]);
+      207 |         const success = await assignEquipmentToFacility('eq-1', 'FAC-1');
+    > 208 |         expect(success).toBe(true);
+          |                         ^
+      209 |         expect(mockRunWrite).toHaveBeenCalledWith(
+      210 |             expect.stringContaining('MERGE (e)-[:ASSIGNED_TO]->(f)'),
+      211 |             expect.objectContaining({ equipmentId: 'eq-1', facilityCode: 'FAC-1' }),
+
+      at Object.<anonymous> (tests/equipment-standalone.test.ts:208:25)
+
+  ● Facility Assignment › removeEquipmentFromFacility deletes relationship only
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      222 |         mockRunWrite.mockResolvedValueOnce([mockRecord({ eid: 'eq-1' })]);
+      223 |         const removed = await removeEquipmentFromFacility('eq-1', 'FAC-1');
+    > 224 |         expect(removed).toBe(true);
+          |                         ^
+      225 |         expect(mockRunWrite).toHaveBeenCalledWith(
+      226 |             expect.stringContaining('DELETE r'),
+      227 |             expect.objectContaining({ equipmentId: 'eq-1', facilityCode: 'FAC-1' }),
+
+      at Object.<anonymous> (tests/equipment-standalone.test.ts:224:25)
+
+  console.error
+    [audit-logger] Tampered entry detected: b9b267ef-7930-4c4a-8300-6932315323f5
+
+      186 |             const computed = sha256(hashable);
+      187 |             if (computed !== entry.entryHash) {
+    > 188 |                 console.error(`[audit-logger] Tampered entry detected: ${entry.id}`);
+          |                         ^
+      189 |                 return false;
+      190 |             }
+      191 |
+
+      at AuditLogger.verifyIntegrity (src/lib/agents/audit-logger.ts:188:25)
+      at Object.<anonymous> (tests/agents/specialist-agents.test.ts:144:23)
+
+  console.log
+    [compliance-agent] Run test-run: P-1001 — score 100, 0 violations, passed=true
+
+      at ComplianceAgent.execute (src/lib/agents/specialist/compliance-agent.ts:270:17)
+
+  console.error
+    [memgraph] Query failed (attempt 2/3): Connection reset
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+      at Object.<anonymous> (tests/memgraph.test.ts:66:24)
+
+  console.log
+    [compliance-agent] Run test-run: invalid-tag — score 87, 1 violations, passed=false
+
+      at ComplianceAgent.execute (src/lib/agents/specialist/compliance-agent.ts:270:17)
+
+  console.log
+    [compliance-agent] Run test-run: P-1001 — score 83, 1 violations, passed=false
+
+      at ComplianceAgent.execute (src/lib/agents/specialist/compliance-agent.ts:270:17)
+
+  console.log
+    [compliance-agent] Run test-run: P-1001 — score 87, 1 violations, passed=true
+
+      at ComplianceAgent.execute (src/lib/agents/specialist/compliance-agent.ts:270:17)
+
+  console.log
+    [compliance-agent] Run test-run: P-1001 — score 91, 1 violations, passed=false
+
+      at ComplianceAgent.execute (src/lib/agents/specialist/compliance-agent.ts:270:17)
+
+  console.log
+    [quality-gate-agent] Run test-run: P-1001 — score 100/100, approved=true
+
+      at QualityGateAgent.execute (src/lib/agents/specialist/quality-gate-agent.ts:215:17)
+
+  console.log
+    [quality-gate-agent] Run test-run:  — score 0/100, approved=false
+
+      at QualityGateAgent.execute (src/lib/agents/specialist/quality-gate-agent.ts:215:17)
+
+  console.log
+    [quality-gate-agent] Run test-run: P-1001 — score 100/100, approved=true
+
+      at QualityGateAgent.execute (src/lib/agents/specialist/quality-gate-agent.ts:215:17)
+
+  console.log
+    [quality-gate-agent] Run test-run: P-1001 — score 100/100, approved=true
+
+      at QualityGateAgent.execute (src/lib/agents/specialist/quality-gate-agent.ts:215:17)
+
+  console.log
+    [quality-gate-agent] Run test-run: P-1001 — score 100/100, approved=false
+
+      at QualityGateAgent.execute (src/lib/agents/specialist/quality-gate-agent.ts:215:17)
+
+  console.log
+    [enrichment-agent] Run test-run: P-1001 — 1 enrichments applied
+
+      at EnrichmentAgent.execute (src/lib/agents/specialist/enrichment-agent.ts:162:17)
+
+  console.log
+    [enrichment-agent] Run test-run: P-1001 — 1 enrichments applied
+
+      at EnrichmentAgent.execute (src/lib/agents/specialist/enrichment-agent.ts:162:17)
+
+  console.log
+    [enrichment-agent] Run test-run: P-1001 — 1 enrichments applied
+
+      at EnrichmentAgent.execute (src/lib/agents/specialist/enrichment-agent.ts:162:17)
+
+  console.log
+    [enrichment-agent] Run test-run: P-1001 — 0 enrichments applied
+
+      at EnrichmentAgent.execute (src/lib/agents/specialist/enrichment-agent.ts:162:17)
+
+  console.log
+    [enrichment-agent] Run test-run: P-1001 — 1 enrichments applied
+
+      at EnrichmentAgent.execute (src/lib/agents/specialist/enrichment-agent.ts:162:17)
+
+PASS tests/agents/specialist-agents.test.ts
+  AuditLogger
+    ✓ should log an entry and return it (4 ms)
+    ✓ should build a hash chain across entries (3 ms)
+    ✓ should verify integrity of a valid chain (5 ms)
+    ✓ should detect tampering in the chain (10 ms)
+    ✓ should filter trail by runId (3 ms)
+    ✓ should track size correctly (2 ms)
+  ComplianceAgent
+    ✓ should pass a fully valid card (374 ms)
+    ✓ should fail a card with invalid tag (346 ms)
+    ✓ should fail a card with invalid URI (340 ms)
+    ✓ should fail a card with insufficient specifications (335 ms)
+    ✓ should flag when design pressure < operating pressure (335 ms)
+  QualityGateAgent
+    ✓ should approve a high-quality card with score >= 80 (4 ms)
+    ✓ should reject a low-quality card (3 ms)
+    ✓ should score each dimension independently (2 ms)
+    ✓ should respect custom minScore threshold (3 ms)
+  EnrichmentAgent
+    ✓ should backfill missing manufacturers from research (3 ms)
+    ✓ should backfill missing standards from research (1 ms)
+    ✓ should fix tag prefix based on component class (2 ms)
+    ✓ should not overwrite existing valid data (1 ms)
+    ✓ should generate substantive description if missing (1 ms)
+
+  console.warn
+    [openrouter] Request failed (500), attempt 1/3: {"error":"Server error"}
+
+      131 |                 const errorText = await response.text().catch(() => 'unknown error');
+      132 |                 if (isRetryable(response.status) && attempt < MAX_RETRIES) {
+    > 133 |                     console.warn(
+          |                             ^
+      134 |                         `[openrouter] Request failed (${response.status}), attempt ${attempt}/${MAX_RETRIES}: ${errorText}`,
+      135 |                     );
+      136 |                     await sleep(RETRY_BASE_DELAY_MS * attempt);
+
+      at chatCompletion (src/lib/agents/openrouter-client.ts:133:29)
+      at extractContent (src/lib/agents/obsidian/content-extractor.ts:163:30)
+      at Object.<anonymous> (tests/obsidian-export.test.ts:141:24)
+
+  console.error
+    [memgraph] Query failed (attempt 1/3): Persistent failure
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+      at Object.<anonymous> (tests/memgraph.test.ts:75:9)
+
+  console.error
+    PCA SPARQL Search Error: TypeError: Cannot read properties of undefined (reading 'ok')
+        at runSparqlQuery (/app/src/lib/pca-sparql.ts:123:27)
+        at searchEquipmentClass (/app/src/lib/pca-sparql.ts:67:32)
+        at Object.<anonymous> (/app/tests/pca-sparql.test.ts:72:9)
+
+      72 |
+      73 |     } catch (err) {
+    > 74 |         console.error('PCA SPARQL Search Error:', err);
+         |                 ^
+      75 |         return [];
+      76 |     }
+      77 | }
+
+      at searchEquipmentClass (src/lib/pca-sparql.ts:74:17)
+      at Object.<anonymous> (tests/pca-sparql.test.ts:72:9)
+
+PASS tests/pca-sparql.test.ts
+  pca-sparql utility
+    ✓ searchEquipmentClass uses text:query and returns results (16 ms)
+    ✓ validateClassUri returns label for existing URI (1 ms)
+    ✓ retries on failure (4053 ms)
+
+  console.error
+    [memgraph] Query failed (attempt 2/3): Persistent failure
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+      at Object.<anonymous> (tests/memgraph.test.ts:75:9)
+
+  console.error
+    [memgraph] Write failed (attempt 1/3): Transient error
+
+      135 |     } catch (err: unknown) {
+      136 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 137 |       console.error(
+          |               ^
+      138 |         `[memgraph] Write failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      139 |       );
+      140 |       if (attempt < MAX_RETRIES) {
+
+      at runWrite (src/lib/memgraph.ts:137:15)
+      at Object.<anonymous> (tests/pipeline-graph-writes.test.ts:82:13)
+
+PASS tests/obsidian-export.test.ts
+  Obsidian Export Types
+    ✓ ObsidianExportInput shape is importable (2 ms)
+  ContentExtractor Agent
+    ✓ extractContent returns structured result with frontmatter (4 ms)
+    ✓ extractContent retries on LLM failure (2008 ms)
+  DiagramConverter Agent
+    ✓ convertDiagrams skips LLM when no code blocks exist (2 ms)
+    ✓ convertDiagrams converts ASCII art to Mermaid (1 ms)
+  AuditAgent
+    ✓ auditExport returns structured audit result (3 ms)
+    ✓ auditExport returns corrections on failure (1 ms)
+  API Endpoint Validation
+    ✓ rejects requests without slug
+    ✓ sanitizes path traversal attempts (1 ms)
+    ✓ constructs correct TSX file path (1 ms)
+
+PASS tests/pipeline-agents.test.ts
+  Reference Defaults Registry
+    getCategories
+      ✓ should return all registered categories (1 ms)
+    getDefaults
+      ✓ should return Pump defaults for exact class match
+      ✓ should return Pump defaults for CentrifugalPump
+      ✓ should return HeatExchanger defaults for ShellTubeHeatExchanger
+      ✓ should return MiscMechanical as fallback for unknown class (1 ms)
+      ✓ should fuzzy match partial names
+      ✓ should have complete structure for every category (9 ms)
+    isWithinRange
+      ✓ should return true for value within range
+      ✓ should return false for value outside range (1 ms)
+      ✓ should return true if no range defined
+    checkConditionRanges
+      ✓ should return no findings for values within range (1 ms)
+      ✓ should flag values outside plausible range
+      ✓ should skip undefined values
+  Reference Defaults Data Quality
+    ✓ design pressure range should encompass operating pressure range for all categories (1 ms)
+    ✓ design temperature range should encompass operating temperature range for all categories (1 ms)
+    ✓ all specs with ranges should have min < max (9 ms)
+    ✓ typical values should be within their own range for all conditions (5 ms)
+  RemediationPlan Interface Compliance
+    ✓ should accept a valid remediation plan structure (1 ms)
+    ✓ should accept empty fixes array
+  Pipeline Stage Configuration
+    ✓ should include audit in PipelineV2Stage type
+
+PASS tests/pipeline-stages.test.ts
+  Pipeline Stages
+    Stage 3: Validate — Scoring Algorithm
+      ✓ fully-populated card scores above 80 (1 ms)
+      ✓ card with valid ISA tag scores tag points
+      ✓ card with invalid tag format loses tag points (1 ms)
+      ✓ card with empty description loses description points
+      ✓ card with no specs scores lower (1 ms)
+      ✓ card with design pressure < operating pressure loses plausibility points
+      ✓ minimal card fails validation (score < 40) (1 ms)
+      ✓ cards with partial data score between 40-80
+    Stage 4: Catalog — Deduplication
+      ✓ unique cards pass through unchanged
+      ✓ duplicate tags are detected (1 ms)
+      ✓ tag collision resolves with A-Z suffix
+      ✓ content hash deduplication detects near-duplicates (1 ms)
+      ✓ different specs produce different content hashes
+      ✓ all 26 suffix slots can be exhausted (1 ms)
+    Stage 5: Store — Persistence
+      ✓ PipelineRun results track stored count
+      ✓ PipelineRun transitions to completed after store (1 ms)
+    Run Structure
+      ✓ createMockRun produces valid 5-stage structure (1 ms)
+      ✓ run ID is a valid UUID
+      ✓ run sector codes use canonical short codes
+
+PASS tests/procurement-agent.test.ts
+  ProcurementAgent
+    ✓ should successfully find vendor variations (3 ms)
+    ✓ should handle wrapped JSON responses (object with variations key) (1 ms)
+    ✓ should handle wrapped JSON responses (object with models key) (1 ms)
+
+PASS tests/sectors.test.ts
+  CISA Sector Taxonomy
+    ✓ should have exactly 16 sectors (1 ms)
+    ✓ every sector should have a unique code (1 ms)
+    ✓ every sector should have required fields (18 ms)
+    ✓ every sub-sector should have at least one facility (25 ms)
+    ✓ every facility should have at least one equipment entry (17 ms)
+    ✓ every equipment should have valid category and URI (150 ms)
+    ✓ getAllSectors returns a deep clone (2 ms)
+    ✓ getSectorByCode finds existing sectors (1 ms)
+    ✓ aggregate functions return positive numbers (1 ms)
+    ✓ all 16 official CISA sector names are represented (1 ms)
+
+PASS tests/pipeline-e2e.test.ts
+  Pipeline E2E Orchestration
+    Stage Progression
+      ✓ all 5 stages execute in correct order (1 ms)
+      ✓ each stage transitions: pending → running → completed (1 ms)
+      ✓ stage failure stops at failed stage (1 ms)
+    Status Transitions
+      ✓ run starts in queued status
+      ✓ run transitions queued → running → completed on success (1 ms)
+      ✓ run transitions queued → running → failed on error
+      ✓ cancelled run can be detected
+    Results Tracking
+      ✓ completed run has correct result counts (1 ms)
+      ✓ average validation score is tracked
+      ✓ duplicate skipping is tracked correctly
+    Logging
+      ✓ log entries have required fields (1 ms)
+      ✓ pipeline generates system-level log at start (1 ms)
+      ✓ error logs contain error details
+    Cancellation
+      ✓ isCancelled check detects cancelled status (1 ms)
+      ✓ non-cancelled run passes cancellation check
+
+  console.log
+    Generated 50 cards for verification.
+
+      at Object.<anonymous> (tests/dexpi_generation.test.ts:13:17)
+
+PASS tests/dexpi_generation.test.ts
+  DEXPI Equipment Card Generation
+    ✓ should generate a non-empty list of equipment cards (2 ms)
+    ✓ should have all required fields in a sample card (2 ms)
+    ✓ should have valid nozzles for all cards (53 ms)
+    ✓ should have specific materials (not just "Steel") (3 ms)
+
+PASS tests/pipeline-connectivity.test.ts
+  Pipeline Connectivity
+    Memgraph Connection
+      ✓ testConnection returns true when Memgraph is reachable (2 ms)
+      ✓ testConnection returns false when Memgraph is unreachable
+      ✓ getDriver returns a valid driver object
+      ✓ getDriver returns the same singleton instance on repeated calls (1 ms)
+      ✓ driver creates sessions with correct configuration
+    Run Status Polling
+      ✓ getRunStatus returns undefined for non-existent run (10 ms)
+      ✓ getRunHistory returns empty array when no runs exist (1 ms)
+      ✓ cancelRun returns false for non-existent run (1 ms)
+
+  console.warn
+    [openrouter] Request failed (attempt 1/3): Network error
+
+      147 |             lastError = err instanceof Error ? err : new Error(String(err));
+      148 |             if (attempt < MAX_RETRIES) {
+    > 149 |                 console.warn(
+          |                         ^
+      150 |                     `[openrouter] Request failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      151 |                 );
+      152 |                 await sleep(RETRY_BASE_DELAY_MS * attempt);
+
+      at chatCompletion (src/lib/agents/openrouter-client.ts:149:25)
+      at testOpenRouterConnection (src/lib/agents/openrouter-client.ts:270:26)
+
+  console.warn
+    [openrouter] Request failed (attempt 2/3): Network error
+
+      147 |             lastError = err instanceof Error ? err : new Error(String(err));
+      148 |             if (attempt < MAX_RETRIES) {
+    > 149 |                 console.warn(
+          |                         ^
+      150 |                     `[openrouter] Request failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      151 |                 );
+      152 |                 await sleep(RETRY_BASE_DELAY_MS * attempt);
+
+      at chatCompletion (src/lib/agents/openrouter-client.ts:149:25)
+      at testOpenRouterConnection (src/lib/agents/openrouter-client.ts:270:26)
+
+PASS tests/agent.test.ts
+  Agent Tool Definitions
+    ✓ should define 11 tools (1 ms)
+    ✓ each tool has valid JSON Schema (4 ms)
+    ✓ all tool definitions have matching handlers (1 ms)
+    ✓ tool names match expected set
+  Agent Tool Handlers
+    query_memgraph
+      ✓ blocks mutation queries (1 ms)
+      ✓ blocks DELETE queries (1 ms)
+      ✓ blocks MERGE queries (1 ms)
+      ✓ allows MATCH queries
+    search_equipment
+      ✓ builds correct Cypher query with filters (1 ms)
+    validate_class_uri
+      ✓ returns validation result (1 ms)
+    search_web
+      ✓ calls Tavily API correctly (1 ms)
+      ✓ calls Brave API when engine=brave (1 ms)
+    lookup_cve
+      ✓ calls NIST NVD API (1 ms)
+    search_news
+      ✓ calls NewsAPI (1 ms)
+  DexpiAgent
+    ✓ getPersonas returns all 6 personas (1 ms)
+    ✓ findVendorVariations returns parsed array (2 ms)
+    ✓ each persona has a description (1 ms)
+    ✓ chat sends correct model and auth headers (9 ms)
+    ✓ chat injects context into system prompt (1 ms)
+    ✓ testConnection returns boolean (1 ms)
+    ✓ testConnection returns false on error (6 ms)
+    ✓ findVendorVariations parses JSON response (1 ms)
+
+PASS tests/pipeline-graph-writes.test.ts
+  Pipeline Graph Writes
+    Memgraph Write Operations
+      ✓ runWrite sends Cypher to Memgraph session (2 ms)
+      ✓ runWrite opens and closes a session (1 ms)
+      ✓ runQuery returns records from Memgraph (1 ms)
+      ✓ runWrite retries on transient failure (1014 ms)
+    Equipment Node Properties
+      ✓ equipment card maps to correct Cypher properties (2 ms)
+      ✓ equipment labels are constructed correctly for Sector
+      ✓ equipment labels are constructed correctly for SubSector
+      ✓ multi-label format matches expected pattern (1 ms)
+      ✓ empty sector/subSector produce no dynamic labels (1 ms)
+    Relationship Creation
+      ✓ CONTAINS_EQUIPMENT relationship uses correct Cypher (1 ms)
+      ✓ sector hierarchy relationships are correct (1 ms)
+    Storage Layer → Graph Write Flow
+      ✓ saveEquipment calls runWrite with equipment data (2 ms)
+      ✓ sector seeding calls runWrite for each hierarchy level
+
+PASS tests/procurement.test.ts
+  Procurement Officer Persona
+    ✓ should return vendor variations when a valid JSON response is received (1 ms)
+    ✓ should return empty array when response parsing fails
+
+PASS tests/dexpi-export.test.ts
+  escapeXml
+    ✓ escapes all 5 XML entities (2 ms)
+    ✓ returns empty string for empty input (1 ms)
+  nozzleToXml
+    ✓ generates Nozzle element with attributes (1 ms)
+    ✓ self-closing for empty nozzle (1 ms)
+  equipmentToXml
+    ✓ generates Equipment with all sections (2 ms)
+    ✓ omits empty sections (1 ms)
+  cardsToPlantModelXml
+    ✓ wraps equipment in PlantModel (2 ms)
+    ✓ handles empty array (1 ms)
+  cardsToJsonExport
+    ✓ produces valid JSON with metadata (1 ms)
+  validateForExport
+    ✓ valid for complete card
+    ✓ detects missing fields
+    ✓ detects invalid URI (1 ms)
+  getExportSummary
+    ✓ calculates correct stats (1 ms)
+
+  console.log
+    === DEXPI Equipment Import Script ===
+
+      at importDexpiEquipment (scripts/import_dexpi_equipment.ts:26:13)
+
+  console.log
+    Loaded 1 cards from JSON.
+
+      at importDexpiEquipment (scripts/import_dexpi_equipment.ts:34:13)
+
+  console.log
+
+    Import Complete!
+
+      at importDexpiEquipment (scripts/import_dexpi_equipment.ts:90:17)
+
+  console.log
+    Processed: 1
+
+      at importDexpiEquipment (scripts/import_dexpi_equipment.ts:91:17)
+
+  console.log
+    Failed: 0
+
+      at importDexpiEquipment (scripts/import_dexpi_equipment.ts:92:17)
+
+PASS tests/import_dexpi.test.ts
+  DEXPI Equipment Import Script
+    ✓ should read JSON and call runBatchWrite with transformed data (12 ms)
+
+PASS tests/pipeline-batch.test.ts
+  Pipeline Batch Check API
+    POST /api/pipeline/batch-check
+      ✓ should reject requests without items array (2 ms)
+      ✓ should reject empty items array (2 ms)
+      ✓ should reject items array exceeding max size
+      ✓ should deduplicate and trim input names
+    PipelineV2BatchParams
+      ✓ should accept valid batch params
+      ✓ should work without optional fields (1 ms)
+    Pipeline API Route - Batch Mode Detection
+      ✓ should detect batch mode when equipmentNames is present (1 ms)
+      ✓ should detect legacy mode when equipmentNames is absent
+      ✓ should reject batch with more than 100 items (1 ms)
+    Equipment Name Parsing
+      ✓ should parse comma-separated names
+      ✓ should parse newline-separated names (1 ms)
+      ✓ should parse semicolon-separated names (1 ms)
+      ✓ should handle mixed delimiters
+      ✓ should deduplicate entries (1 ms)
+    CSV Parsing
+      ✓ should extract first column from CSV (1 ms)
+      ✓ should skip header rows
+      ✓ should handle quoted CSV values (1 ms)
+
+PASS tests/graph-schema.test.ts
+  generateEquipmentTag
+    ✓ produces deterministic tags for same input (1 ms)
+    ✓ uses ISA prefix for known component classes (1 ms)
+    ✓ CentrifugalPump and CentrifugalCompressor use SAME prefix as their base class (1 ms)
+    ✓ different componentClass in same facility produce different tags (1 ms)
+    ✓ same componentClass in different facilities produce different tags (1 ms)
+    ✓ unknown componentClass falls back to uppercase abbreviation
+    ✓ all-lowercase componentClass uses third fallback (1 ms)
+    ✓ numeric suffix is always 3 digits (100-999) (4 ms)
+    ✓ sector data componentClass names all resolve to ISA prefixes (7 ms)
+
+PASS tests/registry.test.ts
+  Equipment Registry
+    ✓ should exist (1 ms)
+    ✓ should contain valid JSON with required fields (1 ms)
+    ✓ should have at least 50 unique equipment types (1 ms)
+    ✓ should have required fields in equipment items (22 ms)
+
+  console.error
+    [memgraph] Query failed (attempt 3/3): Persistent failure
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+      at Object.<anonymous> (tests/memgraph.test.ts:75:9)
+
+  console.error
+    [memgraph] Write failed (attempt 1/3): Connection reset
+
+      135 |     } catch (err: unknown) {
+      136 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 137 |       console.error(
+          |               ^
+      138 |         `[memgraph] Write failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      139 |       );
+      140 |       if (attempt < MAX_RETRIES) {
+
+      at runWrite (src/lib/memgraph.ts:137:15)
+      at Object.<anonymous> (tests/memgraph.test.ts:94:24)
+
+  console.error
+    [memgraph] Write failed (attempt 1/3): Write failure
+
+      135 |     } catch (err: unknown) {
+      136 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 137 |       console.error(
+          |               ^
+      138 |         `[memgraph] Write failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      139 |       );
+      140 |       if (attempt < MAX_RETRIES) {
+
+      at runWrite (src/lib/memgraph.ts:137:15)
+      at Object.<anonymous> (tests/memgraph.test.ts:103:9)
+
+  console.error
+    [memgraph] Write failed (attempt 2/3): Write failure
+
+      135 |     } catch (err: unknown) {
+      136 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 137 |       console.error(
+          |               ^
+      138 |         `[memgraph] Write failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      139 |       );
+      140 |       if (attempt < MAX_RETRIES) {
+
+      at runWrite (src/lib/memgraph.ts:137:15)
+      at Object.<anonymous> (tests/memgraph.test.ts:103:9)
+
+  console.error
+    [memgraph] Write failed (attempt 3/3): Write failure
+
+      135 |     } catch (err: unknown) {
+      136 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 137 |       console.error(
+          |               ^
+      138 |         `[memgraph] Write failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      139 |       );
+      140 |       if (attempt < MAX_RETRIES) {
+
+      at runWrite (src/lib/memgraph.ts:137:15)
+      at Object.<anonymous> (tests/memgraph.test.ts:103:9)
+
+  console.log
+    [memgraph] Batch write complete: 5 processed, 0 failed.
+
+      at runBatchWrite (src/lib/memgraph.ts:285:11)
+
+  console.error
+    [memgraph] Write failed (attempt 1/3): Connection lost
+
+      135 |     } catch (err: unknown) {
+      136 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 137 |       console.error(
+          |               ^
+      138 |         `[memgraph] Write failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      139 |       );
+      140 |       if (attempt < MAX_RETRIES) {
+
+      at runWrite (src/lib/memgraph.ts:137:15)
+      at runBatchWrite (src/lib/memgraph.ts:273:7)
+      at Object.<anonymous> (tests/memgraph.test.ts:144:24)
+
+  console.error
+    [memgraph] Write failed (attempt 2/3): Connection lost
+
+      135 |     } catch (err: unknown) {
+      136 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 137 |       console.error(
+          |               ^
+      138 |         `[memgraph] Write failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      139 |       );
+      140 |       if (attempt < MAX_RETRIES) {
+
+      at runWrite (src/lib/memgraph.ts:137:15)
+      at runBatchWrite (src/lib/memgraph.ts:273:7)
+      at Object.<anonymous> (tests/memgraph.test.ts:144:24)
+
+  console.error
+    [memgraph] Write failed (attempt 3/3): Connection lost
+
+      135 |     } catch (err: unknown) {
+      136 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 137 |       console.error(
+          |               ^
+      138 |         `[memgraph] Write failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      139 |       );
+      140 |       if (attempt < MAX_RETRIES) {
+
+      at runWrite (src/lib/memgraph.ts:137:15)
+      at runBatchWrite (src/lib/memgraph.ts:273:7)
+      at Object.<anonymous> (tests/memgraph.test.ts:144:24)
+
+  console.error
+    [memgraph] Batch chunk 2 failed: Connection lost
+
+      277 |       result.errors.push(error);
+      278 |       result.failed += chunk.length;
+    > 279 |       console.error(
+          |               ^
+      280 |         `[memgraph] Batch chunk ${Math.floor(i / batchSize) + 1} failed: ${error.message}`,
+      281 |       );
+      282 |     }
+
+      at runBatchWrite (src/lib/memgraph.ts:279:15)
+      at Object.<anonymous> (tests/memgraph.test.ts:144:24)
+
+  console.log
+    [memgraph] Batch write complete: 3 processed, 2 failed.
+
+      at runBatchWrite (src/lib/memgraph.ts:285:11)
+
+  console.error
+    [memgraph] Query failed (attempt 1/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 2/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 3/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 1/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 2/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 3/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 1/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 2/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 3/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 1/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 2/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 3/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 1/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 2/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 3/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Circuit breaker → OPEN after 5 failures
+
+      189 |   if (circuitBreaker.failureCount >= circuitBreaker.THRESHOLD) {
+      190 |     circuitBreaker.state = 'OPEN';
+    > 191 |     console.error(`[memgraph] Circuit breaker → OPEN after ${circuitBreaker.failureCount} failures`);
+          |             ^
+      192 |   }
+      193 | }
+      194 |
+
+      at recordFailure (src/lib/memgraph.ts:191:13)
+      at runQuery (src/lib/memgraph.ts:105:3)
+
+  console.error
+    [memgraph] Query failed (attempt 1/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 2/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 3/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 1/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 2/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 3/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 1/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 2/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 3/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 1/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 2/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 3/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 1/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 2/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 3/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Circuit breaker → OPEN after 5 failures
+
+      189 |   if (circuitBreaker.failureCount >= circuitBreaker.THRESHOLD) {
+      190 |     circuitBreaker.state = 'OPEN';
+    > 191 |     console.error(`[memgraph] Circuit breaker → OPEN after ${circuitBreaker.failureCount} failures`);
+          |             ^
+      192 |   }
+      193 | }
+      194 |
+
+      at recordFailure (src/lib/memgraph.ts:191:13)
+      at runQuery (src/lib/memgraph.ts:105:3)
+
+  console.error
+    [memgraph] Query failed (attempt 1/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 2/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 3/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 1/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 2/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 3/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 1/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 2/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 3/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 1/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 2/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 3/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 1/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 2/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 3/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Circuit breaker → OPEN after 5 failures
+
+      189 |   if (circuitBreaker.failureCount >= circuitBreaker.THRESHOLD) {
+      190 |     circuitBreaker.state = 'OPEN';
+    > 191 |     console.error(`[memgraph] Circuit breaker → OPEN after ${circuitBreaker.failureCount} failures`);
+          |             ^
+      192 |   }
+      193 | }
+      194 |
+
+      at recordFailure (src/lib/memgraph.ts:191:13)
+      at runQuery (src/lib/memgraph.ts:105:3)
+
+  console.error
+    [memgraph] Query failed (attempt 1/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 2/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 3/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 1/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 2/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 3/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 1/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 2/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 3/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 1/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 2/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.error
+    [memgraph] Query failed (attempt 3/3): DB down
+
+      91 |     } catch (err: unknown) {
+      92 |       lastError = err instanceof Error ? err : new Error(String(err));
+    > 93 |       console.error(
+         |               ^
+      94 |         `[memgraph] Query failed (attempt ${attempt}/${MAX_RETRIES}): ${lastError.message}`,
+      95 |       );
+      96 |       if (attempt < MAX_RETRIES) {
+
+      at runQuery (src/lib/memgraph.ts:93:15)
+
+  console.log
+    [memgraph] Circuit breaker → CLOSED (recovered)
+
+      at recordSuccess (src/lib/memgraph.ts:200:13)
+
+PASS tests/memgraph.test.ts (13.576 s)
+  Memgraph Connection Module
+    ✓ getDriver returns consistent singleton (7 ms)
+    ✓ runQuery executes Cypher and returns records (3 ms)
+    ✓ runQuery retries on transient failure (3059 ms)
+    ✓ runQuery throws after 3 retries (3025 ms)
+    ✓ runWrite executes Cypher and returns summary (2 ms)
+    ✓ runWrite retries on transient failure (1004 ms)
+    ✓ runWrite throws after 3 retries (3010 ms)
+    ✓ runBatchWrite processes items in chunks (3 ms)
+    ✓ runBatchWrite returns zero counts for empty batch (3 ms)
+    ✓ runBatchWrite tracks partial failures across chunks (3011 ms)
+    ✓ testConnection verifies driver connectivity (1 ms)
+    ✓ testConnection returns false on failure (1 ms)
+    ✓ closeDriver closes the driver (1 ms)
+  Circuit Breaker
+    ✓ starts in CLOSED state (5 ms)
+    ✓ transitions to OPEN after 5 failed queries (18 ms)
+    ✓ OPEN state blocks queries immediately (18 ms)
+    ✓ resetCircuitBreaker restores CLOSED state (14 ms)
+    ✓ success resets failure count (11 ms)
+
+Test Suites: 1 failed, 19 passed, 20 total
+Tests:       3 failed, 224 passed, 227 total
+Snapshots:   0 total
+Time:        14.447 s
+Ran all test suites.
