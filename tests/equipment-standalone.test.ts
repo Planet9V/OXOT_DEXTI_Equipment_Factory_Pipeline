@@ -66,7 +66,7 @@ describe('Standalone Equipment CRUD', () => {
         expect(typeof id).toBe('string');
         // Should have called runWrite with MERGE
         expect(mockRunWrite).toHaveBeenCalledWith(
-            expect.stringContaining('MERGE (e:Equipment:TaggedPlantItem {id: $id})'),
+            expect.stringContaining('MERGE (e:Equipment:TaggedPlantItem:OX_DEXPI2 {id: $id})'),
             expect.objectContaining({
                 tag: 'TF-101',
                 componentClass: 'Transformer',
@@ -109,8 +109,8 @@ describe('Standalone Equipment CRUD', () => {
     test('createEquipmentStandalone auto-assigns when facility provided', async () => {
         // Mock the assignment query to return success
         mockRunWrite
-            .mockResolvedValueOnce([]) // initial create
-            .mockResolvedValueOnce([mockRecord({ eid: 'test-id' })]); // assignment
+            .mockResolvedValueOnce({ counters: { updates: () => ({ nodesCreated: 1 }) } }) // initial create
+            .mockResolvedValueOnce({ counters: { updates: () => ({ relationshipsCreated: 1 }) } }); // assignment
 
         await createEquipmentStandalone({
             tag: 'TF-102',
@@ -164,7 +164,7 @@ describe('Equipment Update', () => {
         mockRunQuery.mockResolvedValueOnce([
             mockRecord({ card: JSON.stringify(existing), facilities: [] }),
         ]);
-        mockRunWrite.mockResolvedValueOnce([]);
+        mockRunWrite.mockResolvedValueOnce({ counters: { updates: () => ({ nodesUpdated: 1 }) } });
 
         const success = await updateEquipmentNode('eq-1', { displayName: 'New Name' });
         expect(success).toBe(true);
@@ -188,7 +188,7 @@ describe('Equipment Delete', () => {
     });
 
     test('deleteEquipmentById detach-deletes with children', async () => {
-        mockRunWrite.mockResolvedValueOnce([]);
+        mockRunWrite.mockResolvedValueOnce({ counters: { updates: () => ({ nodesDeleted: 1 }) } });
         await deleteEquipmentById('eq-1');
         expect(mockRunWrite).toHaveBeenCalledWith(
             expect.stringContaining('DETACH DELETE e, child'),
@@ -203,7 +203,7 @@ describe('Facility Assignment', () => {
     });
 
     test('assignEquipmentToFacility creates ASSIGNED_TO relationship', async () => {
-        mockRunWrite.mockResolvedValueOnce([mockRecord({ eid: 'eq-1' })]);
+        mockRunWrite.mockResolvedValueOnce({ counters: { updates: () => ({ relationshipsCreated: 1 }) } });
         const success = await assignEquipmentToFacility('eq-1', 'FAC-1');
         expect(success).toBe(true);
         expect(mockRunWrite).toHaveBeenCalledWith(
@@ -213,13 +213,13 @@ describe('Facility Assignment', () => {
     });
 
     test('assignEquipmentToFacility returns false when not found', async () => {
-        mockRunWrite.mockResolvedValueOnce([]);
+        mockRunWrite.mockResolvedValueOnce({ counters: { updates: () => ({ relationshipsCreated: 0 }) } });
         const success = await assignEquipmentToFacility('missing', 'FAC-1');
         expect(success).toBe(false);
     });
 
     test('removeEquipmentFromFacility deletes relationship only', async () => {
-        mockRunWrite.mockResolvedValueOnce([mockRecord({ eid: 'eq-1' })]);
+        mockRunWrite.mockResolvedValueOnce({ counters: { updates: () => ({ relationshipsDeleted: 1 }) } });
         const removed = await removeEquipmentFromFacility('eq-1', 'FAC-1');
         expect(removed).toBe(true);
         expect(mockRunWrite).toHaveBeenCalledWith(
@@ -229,7 +229,7 @@ describe('Facility Assignment', () => {
     });
 
     test('removeEquipmentFromFacility returns false when no relationship', async () => {
-        mockRunWrite.mockResolvedValueOnce([]);
+        mockRunWrite.mockResolvedValueOnce({ counters: { updates: () => ({ relationshipsDeleted: 0 }) } });
         const removed = await removeEquipmentFromFacility('eq-1', 'FAC-UNKNOWN');
         expect(removed).toBe(false);
     });
