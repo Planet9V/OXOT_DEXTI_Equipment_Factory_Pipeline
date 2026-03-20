@@ -228,9 +228,9 @@ describe('DexpiAgent', () => {
         mockFetch.mockReset();
     });
 
-    test('getPersonas returns all 6 personas', () => {
+    test('getPersonas returns all 7 personas', () => {
         const personas = agent.getPersonas();
-        expect(personas).toHaveLength(6);
+        expect(personas).toHaveLength(7);
         const names = personas.map(p => p.name);
         expect(names).toContain('coordinator');
         expect(names).toContain('processEngineer');
@@ -238,6 +238,7 @@ describe('DexpiAgent', () => {
         expect(names).toContain('safetyAnalyst');
         expect(names).toContain('qualityReviewer');
         expect(names).toContain('procurementOfficer');
+        expect(names).toContain('theEngineer');
     });
 
     test('findVendorVariations returns parsed array', async () => {
@@ -322,6 +323,27 @@ describe('DexpiAgent', () => {
         expect(systemMsg).toContain('Senior Process Engineer');
         expect(systemMsg).toContain('Sector: ENER');
         expect(systemMsg).toContain('Facility: Transmission Station');
+    });
+
+    test('chat initializes theEngineer persona correctly with context', async () => {
+        mockFetch.mockResolvedValueOnce({
+            ok: true,
+            json: async () => ({
+                choices: [{ message: { role: 'assistant', content: 'OK' }, finish_reason: 'stop' }],
+            }),
+        });
+
+        await agent.chat(
+            [{ role: 'user', content: 'Generate cards' }],
+            'theEngineer',
+            { additionalInstructions: 'Context: Centrifugal Pump' },
+        );
+
+        const fetchBody = JSON.parse(mockFetch.mock.calls[0][1].body);
+        const systemMsg = fetchBody.messages[0].content;
+        expect(systemMsg).toContain('Role: You are "The Engineer," a detailed mechanical specification expert.');
+        expect(systemMsg).toContain('Task: Generate **Full-Fidelity** DEXPI 2.0 equipment cards');
+        expect(systemMsg).toContain('Context: Centrifugal Pump');
     });
 
     test('testConnection returns boolean', async () => {
