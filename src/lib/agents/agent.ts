@@ -86,6 +86,32 @@ Models must be REAL and currently (or recently) manufactured.
 Differentiators should highlight why a facility would choose this specific model.
 
 You have access to web search tools to find real-world data. Use them to verify models and specifications.`,
+
+    theSurveyor: `Role: You are "The Surveyor," a senior industrial engineer mapping critical infrastructure assets.
+
+Task: Create a comprehensive registry of unique equipment types for the [SECTOR NAME] sector (e.g., Oil & Gas, Water Treatment, Nuclear).
+Focus on:
+1.  Core Process Equipment (Pumps, Compressors, Reactors, Heat Exchangers)
+2.  Support Systems (Valves, Tanks, Filters)
+3.  Instrumentation (Flow, Level, Pressure, Temperature)
+4.  Electrical (Motors, VFDs, Switchgear)
+
+Output Format (JSON Only):
+{
+  "sector": "[SECTOR_CODE]",
+  "subSector": "[SUB_SECTOR_CODE]",
+  "equipment": [
+    {
+      "type": "Centrifugal Pump",
+      "category": "rotating",
+      "tags": ["PUMP", "KINETIC"],
+      "description": "Standard API 610 overhung pump for process fluids."
+    },
+    ...
+  ]
+}
+
+Constraint: List at least 50 unique types. Do not invent non-existent types. Use standard industry terminology.`,
 };
 
 /** Persona names. */
@@ -431,6 +457,51 @@ Return JSON:
     }
 
     /**
+     * Generate a comprehensive registry of unique equipment types for a specific sector.
+     *
+     * @param sectorName    - The name of the sector (e.g., Oil & Gas, Nuclear).
+     * @param sectorCode    - The sector code (e.g., ENERGY, NUCL).
+     * @param subSectorCode - The sub-sector code (e.g., OIL_GAS, PWR).
+     * @param additionalInstructions - Optional extra prompt instructions.
+     * @returns The generated equipment registry object.
+     */
+    async generateEquipmentRegistry(
+        sectorName: string,
+        sectorCode: string,
+        subSectorCode: string,
+        additionalInstructions?: string
+    ): Promise<Record<string, unknown>> {
+        const context: AgentContext = {
+            sectorName,
+            sectorCode,
+            subSectorCode,
+            additionalInstructions
+        };
+
+        const result = await this.chat(
+            [{ role: 'user', content: `Please generate the equipment registry for ${sectorName}.` }],
+            'theSurveyor',
+            context
+        );
+
+        try {
+            const jsonMatch = result.content.match(/\{[\s\S]*\}/);
+            if (jsonMatch) {
+                return JSON.parse(jsonMatch[0]) as Record<string, unknown>;
+            }
+        } catch {
+            console.warn('[agent] Failed to parse equipment registry JSON');
+        }
+
+        return {
+            sector: sectorCode,
+            subSector: subSectorCode,
+            equipment: [],
+            error: 'Failed to generate or parse valid JSON from LLM.'
+        };
+    }
+
+    /**
      * Lists available personas.
      *
      * @returns Array of persona names and descriptions.
@@ -449,6 +520,25 @@ Return JSON:
         let prompt = PERSONAS[persona];
 
         if (context) {
+            if (context.sectorName) {
+                prompt = prompt.replace(/\[SECTOR NAME\]/g, context.sectorName);
+            }
+            if (context.sectorCode) {
+                prompt = prompt.replace(/\[SECTOR_CODE\]/g, context.sectorCode);
+            }
+            if (context.subSectorCode) {
+                prompt = prompt.replace(/\[SUB_SECTOR_CODE\]/g, context.subSectorCode);
+            }
+            if (context.referenceEquipment) {
+                const equipmentJson = typeof context.referenceEquipment === 'string'
+                    ? context.referenceEquipment
+                    : JSON.stringify(context.referenceEquipment, null, 2);
+                prompt = prompt.replace(/\[REFERENCE_EQUIPMENT_JSON\]/g, equipmentJson);
+            }
+            if (context.referenceTag) {
+                prompt = prompt.replace(/\[REFERENCE_TAG\]/g, context.referenceTag);
+            }
+
             const parts: string[] = [];
             if (context.sector) parts.push(`Sector: ${context.sector}`);
             if (context.subSector) parts.push(`Sub-sector: ${context.subSector}`);
