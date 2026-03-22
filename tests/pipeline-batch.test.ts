@@ -1,10 +1,12 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { describe, it, expect, beforeEach, jest } from '@jest/globals';
 
 /**
  * Tests for the batch-check API endpoint and pipeline batch mode.
  *
  * @module tests/pipeline-batch
  */
+
+const vi = jest;
 
 describe('Pipeline Batch Check API', () => {
     beforeEach(() => {
