@@ -228,9 +228,9 @@ describe('DexpiAgent', () => {
         mockFetch.mockReset();
     });
 
-    test('getPersonas returns all 6 personas', () => {
+    test('getPersonas returns all 7 personas', () => {
         const personas = agent.getPersonas();
-        expect(personas).toHaveLength(6);
+        expect(personas).toHaveLength(7);
         const names = personas.map(p => p.name);
         expect(names).toContain('coordinator');
         expect(names).toContain('processEngineer');
@@ -238,6 +238,44 @@ describe('DexpiAgent', () => {
         expect(names).toContain('safetyAnalyst');
         expect(names).toContain('qualityReviewer');
         expect(names).toContain('procurementOfficer');
+        expect(names).toContain('theEngineer');
+    });
+
+    test('generateEquipmentCards returns parsed array and uses theEngineer persona', async () => {
+        const mockCards = [
+            {
+                tag: 'Generic-PUMP-001',
+                name: 'Centrifugal Pump',
+                componentClass: 'Pump',
+                dexpiType: 'CentrifugalPump',
+                rdlUri: 'http://data.posccaesar.org/rdl/RDS1234',
+                description: 'A test pump',
+                operatingConditions: {},
+                specifications: {},
+                design: {},
+                materials: { casing: 'ASTM A216 Gr. WCB' },
+                nozzles: [],
+                standards: ['API 610'],
+                image_prompt: 'A pump'
+            }
+        ];
+
+        mockFetch.mockResolvedValueOnce({
+            ok: true,
+            json: async () => ({
+                choices: [{ message: { role: 'assistant', content: JSON.stringify(mockCards) }, finish_reason: 'stop' }],
+            }),
+        });
+
+        const cards = await agent.generateEquipmentCards(['Centrifugal Pump']);
+        expect(cards).toHaveLength(1);
+        expect(cards[0].tag).toBe('Generic-PUMP-001');
+
+        // Verify correct persona was used
+        const fetchBody = JSON.parse(mockFetch.mock.calls[0][1].body);
+        const systemMsg = fetchBody.messages[0].content;
+        expect(systemMsg).toContain('The Engineer');
+        expect(systemMsg).toContain('Centrifugal Pump');
     });
 
     test('findVendorVariations returns parsed array', async () => {
