@@ -72,14 +72,17 @@ describe('Procurement Officer Persona', () => {
         // Verify the prompt contained the reference equipment
         const calls = (chatWithTools as jest.Mock).mock.calls;
         const messages = calls[0][0];
-        const userMessage = messages.find((m: any) => m.role === 'user');
-        expect(userMessage.content).toContain('P-101');
-        expect(userMessage.content).toContain('Centrifugal Pump');
-        expect(userMessage.content).toContain('For each model (e.g., Siemens, ABB, Rockwell, Emerson, Flowserve)');
-
-        // Verify system prompt is for procurement officer
         const systemMessage = messages.find((m: any) => m.role === 'system');
+        const userMessage = messages.find((m: any) => m.role === 'user');
+
+        // System prompt contains context and constraints
+        expect(systemMessage.content).toContain('P-101');
+        expect(systemMessage.content).toContain('Centrifugal Pump');
+        expect(systemMessage.content).toContain('For each model (e.g., Siemens, ABB, Rockwell, Emerson, Flowserve)');
         expect(systemMessage.content).toContain('The Procurement Officer');
+
+        // User prompt is concise
+        expect(userMessage.content).toContain('Find 3 distinct real-world vendor models for the provided reference equipment');
     });
 
     test('should return empty array when response parsing fails', async () => {
