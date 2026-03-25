@@ -84,6 +84,16 @@ export interface AgentContext {
     subSector?: string;
     facility?: string;
     equipmentClass?: string;
+    /** The reference equipment card data for dynamic string replacement. */
+    referenceEquipment?: Record<string, unknown>;
+    /** The reference tag for dynamic string replacement. */
+    referenceTag?: string;
+    /** The full sector name for dynamic string replacement. */
+    sectorName?: string;
+    /** The sector code for dynamic string replacement. */
+    sectorCode?: string;
+    /** The sub-sector code for dynamic string replacement. */
+    subSectorCode?: string;
     /** Extra instructions appended to system prompt. */
     additionalInstructions?: string;
 }
