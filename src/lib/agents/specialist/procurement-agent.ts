@@ -42,17 +42,12 @@ export interface VendorVariationResult {
 
 /* ─── Agent Configuration ───────────────────────────────────────────────── */
 
-const SYSTEM_PROMPT = `
-You are "The Procurement Officer," responsible for sourcing specific vendor equipment.
+const SYSTEM_PROMPT = `Role: You are "The Procurement Officer," responsible for sourcing specific vendor equipment.
 
-Task: Find 3 distinct real-world vendor models for the provided Reference Equipment.
+Task: Find 3 distinct real-world vendor models for the following Reference Equipment:
+Context: [REFERENCE_EQUIPMENT_JSON]
 
-For each model (e.g., Siemens, ABB, Rockwell, Emerson, Flowserve), generate a "Vendor Variation" card.
-
-Constraint:
-- Models must be REAL and currently (or recently) manufactured.
-- Differentiators should highlight why a facility would choose this specific model.
-- Use the provided tools (search_web, search_perplexity) to verify the existence and specifications of the models.
+For each model (e.g., Siemens, ABB, Rockwell, Emerson, Flowserve), generate a "Vendor Variation" card:
 
 Output Format (JSON Array):
 [
@@ -75,7 +70,11 @@ Output Format (JSON Array):
     ]
   }
 ]
-`;
+
+Constraint:
+- Models must be REAL and currently (or recently) manufactured.
+- Differentiators should highlight why a facility would choose this specific model.
+- Use the provided tools (search_web, search_perplexity) to verify information and prevent hallucinated data.`;
 
 /* ─── Implementation ────────────────────────────────────────────────────── */
 
@@ -104,37 +103,34 @@ export class ProcurementAgent extends BaseSpecialist<ProcurementInput, Procureme
     async execute(input: ProcurementInput, runId: string): Promise<ProcurementOutput> {
         const { equipment } = input;
 
-        // Construct the prompt with the reference equipment context
-        const userMessage = `
-Context: ${JSON.stringify(equipment, null, 2)}
+        // Construct the dynamic prompt payload locally to avoid mutating shared state
+        let dynamicSystemPrompt = this.config.systemPrompt;
+        if (dynamicSystemPrompt.includes('[REFERENCE_EQUIPMENT_JSON]')) {
+            dynamicSystemPrompt = dynamicSystemPrompt.replace(/\[REFERENCE_EQUIPMENT_JSON\]/g, () => JSON.stringify(equipment, null, 2));
+        }
+        if (dynamicSystemPrompt.includes('[REFERENCE_TAG]')) {
+            dynamicSystemPrompt = dynamicSystemPrompt.replace(/\[REFERENCE_TAG\]/g, String(equipment.tag || 'REF'));
+        }
 
-Find 3 distinct real-world vendor models for this Reference Equipment.
-Ensure the models are compatible with the specifications provided in the context.
-        `;
+        const userMessage = `Find 3 distinct real-world vendor models for this Reference Equipment.
+Ensure the models are compatible with the specifications provided in the context. Return ONLY a valid JSON array.`;
 
-        // Call the LLM with tools
-        const response = await this.callLLM(userMessage);
+        // We override this.config.systemPrompt temporarily, or just call chatWithTools directly?
+        // Let's create a local copy of config and use callLLM if it allows systemPrompt override.
+        // BaseSpecialist doesn't have an override for systemPrompt in callLLM, so we temporarily replace it
+        // BUT wait, to avoid concurrency issues, we shouldn't mutate this.config.systemPrompt.
+        // Let's override callLLM locally for this class to pass the dynamic system prompt.
+        const response = await this.callLLMWithDynamicPrompt(userMessage, dynamicSystemPrompt);
 
-        // Parse and validate the response
         // The BaseSpecialist.parseJSON returns Record<string, unknown>, but we expect an array.
-        // If the LLM returns an object wrapping the array (e.g. { "variations": [...] }), we handle that.
+        // If the LLM returns an object wrapping the array, the constraint says we strictly enforce JSON array outputs by throwing an error.
 
         let variations: VendorVariationResult[] = [];
 
         if (Array.isArray(response)) {
             variations = response as unknown as VendorVariationResult[];
-        } else if (Array.isArray((response as any).variations)) {
-             variations = (response as any).variations as unknown as VendorVariationResult[];
-        } else if (Array.isArray((response as any).models)) {
-             variations = (response as any).models as unknown as VendorVariationResult[];
         } else {
-            // Fallback: try to find any array in the values
-            const possibleArray = Object.values(response).find(val => Array.isArray(val));
-            if (possibleArray) {
-                variations = possibleArray as unknown as VendorVariationResult[];
-            } else {
-                 throw new Error('Output format invalid: Expected a JSON array of vendor variations.');
-            }
+             throw new Error('Output format invalid: Expected a JSON array of vendor variations, but received an object.');
         }
 
         // Validate basic structure of items
@@ -152,5 +148,54 @@ Ensure the models are compatible with the specifications provided in the context
         }));
 
         return validated;
+    }
+
+    /**
+     * Calls OpenRouter with a dynamic system prompt.
+     */
+    private async callLLMWithDynamicPrompt(userMessage: string, systemPrompt: string): Promise<Record<string, unknown> | unknown[]> {
+        const { chatWithTools } = await import('../openrouter-client');
+
+        const messages: import('../types').ChatMessage[] = [
+            { role: 'system', content: systemPrompt },
+            { role: 'user', content: userMessage },
+        ];
+
+        const options: import('../types').CompletionOptions = {
+            temperature: 0.3,
+            max_tokens: 4096,
+            ...this.config.completionOptions,
+        };
+
+        const { response } = await chatWithTools(
+            messages,
+            this.config.tools,
+            this.config.toolHandlers,
+            options,
+            this.config.maxIterations || 10,
+        );
+
+        const content = response.choices?.[0]?.message?.content || '';
+        return this.parseJSONWithArraySupport(content);
+    }
+
+    private parseJSONWithArraySupport(text: string): Record<string, unknown> | unknown[] {
+        // Strip markdown code fences
+        let cleaned = text
+            .replace(/```json\n?/g, '')
+            .replace(/```\n?/g, '')
+            .trim();
+
+        // Try to extract JSON object or array
+        const jsonMatch = cleaned.match(/(\{[\s\S]*\}|\[[\s\S]*\])/);
+        if (jsonMatch) {
+            cleaned = jsonMatch[1];
+        }
+
+        try {
+            return JSON.parse(cleaned);
+        } catch {
+            throw new Error(`Failed to parse JSON from agent response: ${text.substring(0, 200)}`);
+        }
     }
 }
