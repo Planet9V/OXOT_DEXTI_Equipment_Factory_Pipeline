@@ -86,6 +86,99 @@ Models must be REAL and currently (or recently) manufactured.
 Differentiators should highlight why a facility would choose this specific model.
 
 You have access to web search tools to find real-world data. Use them to verify models and specifications.`,
+
+    theEngineer: `Role: You are "The Engineer," a detailed mechanical specification expert.
+
+Task: Generate **Full-Fidelity** DEXPI 2.0 equipment cards for the following list of equipment types:
+[LIST_OF_TYPES_FROM_REGISTRY]
+
+For each item, generate a JSON object that is **100% compliant** with the DEXPI 2.0 Schema. Do NOT produce simplified or partial records.
+
+Schema Requirement (MUST INCLUDE ALL FIELDS):
+{
+  "tag": "Generic-[TYPE_CODE]-001",
+  "name": "[Standard Industry Name]",
+  "componentClass": "[DEXPI Class]",
+  "dexpiType": "[Specific DEXPI Type, e.g., CentrifugalPump]",
+  "rdlUri": "[POSC Caesar RDL URI]",
+  "description": "[Technical description]",
+
+  // 1. Operating Conditions (Process Data)
+  "operatingConditions": {
+    "pressureMax": { "value": 0, "unit": "bar", "source": "API 610" },
+    "pressureMin": { "value": 0, "unit": "bar" },
+    "pressureDesign": { "value": 0, "unit": "bar" },
+    "pressureOperating": { "value": 0, "unit": "bar" },
+    "temperatureMax": { "value": 0, "unit": "C" },
+    "temperatureMin": { "value": 0, "unit": "C" },
+    "temperatureDesign": { "value": 0, "unit": "C" },
+    "temperatureOperating": { "value": 0, "unit": "C" },
+    "flowRateDesign": { "value": 0, "unit": "m3/h" },
+    "flowRateOperating": { "value": 0, "unit": "m3/h" }
+  },
+
+  // 2. Performance Specifications (Equipment Specific)
+  "specifications": {
+    "power": { "value": 0, "unit": "kW", "source": "IEC 60034" },
+    "rotationalSpeed": { "value": 0, "unit": "rpm" },
+    "efficiency": { "value": 0, "unit": "%" },
+    "head": { "value": 0, "unit": "m" }, // Pump specific
+    "NPSHr": { "value": 0, "unit": "m" }, // Pump specific
+    "dutyPoint": { "value": "Continuous", "unit": "" }
+  },
+
+  // 3. Mechanical Design (Construction)
+  "design": {
+    "weight": { "value": 0, "unit": "kg" },
+    "length": { "value": 0, "unit": "mm" },
+    "width": { "value": 0, "unit": "mm" },
+    "height": { "value": 0, "unit": "mm" }
+  },
+
+  // 4. Materials of Construction (Exhaustive)
+  "materials": {
+    "casing": "[ASTM Spec, e.g., ASTM A216 WCB]",
+    "impeller": "[Material]",
+    "shaft": "[Material]",
+    "seals": "[Material]",
+    "gaskets": "[Material]",
+    "bolting": "[Material]",
+    "baseplate": "[Material]"
+  },
+
+  // 5. Nozzle Schedule (Connections) - CRITICAL
+  "nozzles": [
+    {
+      "id": "N1",
+      "name": "Suction",
+      "service": "Process Inlet",
+      "size": "DN150",
+      "rating": "PN16",
+      "facing": "RF",
+      "position": "End"
+    },
+    {
+      "id": "N2",
+      "name": "Discharge",
+      "service": "Process Outlet",
+      "size": "DN100",
+      "rating": "PN40",
+      "facing": "RF",
+      "position": "Top"
+    },
+    { "id": "N3", "name": "Drain", "service": "Drain", "size": "DN25" },
+    { "id": "N4", "name": "Vent", "service": "Vent", "size": "DN25" }
+  ],
+
+  "standards": ["API 610", "ASME B73.1", "ISO 5199", "IEC 60034"],
+  "image_prompt": "[Detailed prompt for 3D model generation]"
+}
+
+Constraint:
+- Values must be realistic "reference" values (e.g., a standard size).
+- Cite real engineering standards (API, ASME, ISO, IEC).
+- Return a JSON array of objects.
+`
 };
 
 /** Persona names. */
@@ -443,12 +536,60 @@ Return JSON:
     }
 
     /**
+     * Generate Full-Fidelity DEXPI 2.0 equipment cards for a list of equipment types using 'theEngineer' persona.
+     *
+     * @param types - Array of equipment types
+     * @returns Array of generated equipment cards.
+     */
+    async generateEquipmentCards(types: string[]): Promise<any[]> {
+        const context: AgentContext = {
+            listOfTypesFromRegistry: types,
+        };
+
+        const result = await this.chat(
+            [{ role: 'user', content: 'Generate the equipment cards.' }],
+            'theEngineer',
+            context
+        );
+
+        try {
+            const jsonMatch = result.content.match(/\[[\s\S]*\]/);
+            if (jsonMatch) {
+                return JSON.parse(jsonMatch[0]);
+            }
+        } catch {
+            console.warn('[agent] Failed to parse generated equipment cards JSON');
+        }
+
+        return [];
+    }
+
+    /**
      * Builds the full system prompt for a persona with optional context.
      */
     private buildSystemPrompt(persona: PersonaName, context?: AgentContext): string {
         let prompt = PERSONAS[persona];
 
         if (context) {
+            if (context.listOfTypesFromRegistry) {
+                prompt = prompt.replace(/\[LIST_OF_TYPES_FROM_REGISTRY\]/g, () => JSON.stringify(context.listOfTypesFromRegistry));
+            }
+            if (context.referenceEquipment) {
+                prompt = prompt.replace(/\[REFERENCE_EQUIPMENT_JSON\]/g, () => JSON.stringify(context.referenceEquipment));
+            }
+            if (context.referenceTag) {
+                prompt = prompt.replace(/\[REFERENCE_TAG\]/g, () => context.referenceTag || '');
+            }
+            if (context.sectorName) {
+                prompt = prompt.replace(/\[SECTOR NAME\]/g, () => context.sectorName || '');
+            }
+            if (context.sectorCode) {
+                prompt = prompt.replace(/\[SECTOR_CODE\]/g, () => context.sectorCode || '');
+            }
+            if (context.subSectorCode) {
+                prompt = prompt.replace(/\[SUB_SECTOR_CODE\]/g, () => context.subSectorCode || '');
+            }
+
             const parts: string[] = [];
             if (context.sector) parts.push(`Sector: ${context.sector}`);
             if (context.subSector) parts.push(`Sub-sector: ${context.subSector}`);
