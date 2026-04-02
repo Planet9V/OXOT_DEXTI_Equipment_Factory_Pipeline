@@ -86,6 +86,99 @@ Models must be REAL and currently (or recently) manufactured.
 Differentiators should highlight why a facility would choose this specific model.
 
 You have access to web search tools to find real-world data. Use them to verify models and specifications.`,
+
+    theEngineer: `Role: You are "The Engineer," a detailed mechanical specification expert.
+
+Task: Generate **Full-Fidelity** DEXPI 2.0 equipment cards for the following list of equipment types:
+[LIST_OF_TYPES_FROM_REGISTRY]
+
+For each item, generate a JSON object that is **100% compliant** with the DEXPI 2.0 Schema. Do NOT produce simplified or partial records.
+
+Schema Requirement (MUST INCLUDE ALL FIELDS):
+{
+  "tag": "Generic-[TYPE_CODE]-001",
+  "name": "[Standard Industry Name]",
+  "componentClass": "[DEXPI Class]",
+  "dexpiType": "[Specific DEXPI Type, e.g., CentrifugalPump]",
+  "rdlUri": "[POSC Caesar RDL URI]",
+  "description": "[Technical description]",
+
+  // 1. Operating Conditions (Process Data)
+  "operatingConditions": {
+    "pressureMax": { "value": #, "unit": "bar", "source": "API 610" },
+    "pressureMin": { "value": #, "unit": "bar" },
+    "pressureDesign": { "value": #, "unit": "bar" },
+    "pressureOperating": { "value": #, "unit": "bar" },
+    "temperatureMax": { "value": #, "unit": "C" },
+    "temperatureMin": { "value": #, "unit": "C" },
+    "temperatureDesign": { "value": #, "unit": "C" },
+    "temperatureOperating": { "value": #, "unit": "C" },
+    "flowRateDesign": { "value": #, "unit": "m3/h" },
+    "flowRateOperating": { "value": #, "unit": "m3/h" }
+  },
+
+  // 2. Performance Specifications (Equipment Specific)
+  "specifications": {
+    "power": { "value": #, "unit": "kW", "source": "IEC 60034" },
+    "rotationalSpeed": { "value": #, "unit": "rpm" },
+    "efficiency": { "value": #, "unit": "%" },
+    "head": { "value": #, "unit": "m" }, // Pump specific
+    "NPSHr": { "value": #, "unit": "m" }, // Pump specific
+    "dutyPoint": { "value": "Continuous", "unit": "" }
+  },
+
+  // 3. Mechanical Design (Construction)
+  "design": {
+    "weight": { "value": #, "unit": "kg" },
+    "length": { "value": #, "unit": "mm" },
+    "width": { "value": #, "unit": "mm" },
+    "height": { "value": #, "unit": "mm" }
+  },
+
+  // 4. Materials of Construction (Exhaustive)
+  "materials": {
+    "casing": "[ASTM Spec, e.g., ASTM A216 WCB]",
+    "impeller": "[Material]",
+    "shaft": "[Material]",
+    "seals": "[Material]",
+    "gaskets": "[Material]",
+    "bolting": "[Material]",
+    "baseplate": "[Material]"
+  },
+
+  // 5. Nozzle Schedule (Connections) - CRITICAL
+  "nozzles": [
+    {
+      "id": "N1",
+      "name": "Suction",
+      "service": "Process Inlet",
+      "size": "DN150",
+      "rating": "PN16",
+      "facing": "RF",
+      "position": "End"
+    },
+    {
+      "id": "N2",
+      "name": "Discharge",
+      "service": "Process Outlet",
+      "size": "DN100",
+      "rating": "PN40",
+      "facing": "RF",
+      "position": "Top"
+    },
+    { "id": "N3", "name": "Drain", "service": "Drain", "size": "DN25" },
+    { "id": "N4", "name": "Vent", "service": "Vent", "size": "DN25" }
+  ],
+
+  "standards": ["API 610", "ASME B73.1", "ISO 5199", "IEC 60034"],
+  "image_prompt": "[Detailed prompt for 3D model generation]"
+}
+
+Constraint:
+- Values must be realistic engineering data for a "Reference" unit.
+- **NOZZLES ARE MANDATORY**. Every equipment must have valid nozzles (Suction, Discharge, Utility).
+- **MATERIALS ARE MANDATORY**. Do not use "Steel" - use "ASTM A216 Gr. WCB".
+- Return a JSON array of objects.`,
 };
 
 /** Persona names. */
@@ -333,6 +426,45 @@ Constraint:
     }
 
     /**
+     * Generate DEXPI 2.0 equipment cards from a list of equipment types.
+     *
+     * @param listOfTypes - An array of equipment types or a formatted string from the registry.
+     * @returns Array of generated equipment cards.
+     */
+    async generateEquipmentCards(listOfTypes: string[] | string): Promise<Record<string, unknown>[]> {
+        let typesString = '';
+        if (Array.isArray(listOfTypes)) {
+            typesString = listOfTypes.map(t => `- ${t}`).join('\n');
+        } else {
+            typesString = listOfTypes;
+        }
+
+        const prompt = `Please generate equipment cards for the following types:\n${typesString}`;
+
+        // Pass the types to buildSystemPrompt via context so it replaces the placeholder
+        const context: AgentContext = {
+            listOfTypesFromRegistry: typesString
+        };
+
+        const result = await this.chat(
+            [{ role: 'user', content: prompt }],
+            'theEngineer',
+            context
+        );
+
+        try {
+            const jsonMatch = result.content.match(/\[[\s\S]*\]/);
+            if (jsonMatch) {
+                return JSON.parse(jsonMatch[0]) as Record<string, unknown>[];
+            }
+        } catch (e) {
+            console.warn('[agent] Failed to parse generated equipment cards JSON', e);
+        }
+
+        return [];
+    }
+
+    /**
      * Review an equipment card for production quality using the quality reviewer.
      *
      * @param card - Equipment card to review.
@@ -449,6 +581,26 @@ Return JSON:
         let prompt = PERSONAS[persona];
 
         if (context) {
+            // Replace dynamic placeholders if present
+            if (context.listOfTypesFromRegistry) {
+                prompt = prompt.replace(/\[LIST_OF_TYPES_FROM_REGISTRY\]/g, () => context.listOfTypesFromRegistry!);
+            }
+            if (context.referenceEquipment) {
+                prompt = prompt.replace(/\[REFERENCE_EQUIPMENT_JSON\]/g, () => JSON.stringify(context.referenceEquipment, null, 2));
+            }
+            if (context.referenceTag) {
+                prompt = prompt.replace(/\[REFERENCE_TAG\]/g, () => context.referenceTag!);
+            }
+            if (context.sectorName) {
+                prompt = prompt.replace(/\[SECTOR NAME\]/g, () => context.sectorName!);
+            }
+            if (context.sectorCode) {
+                prompt = prompt.replace(/\[SECTOR_CODE\]/g, () => context.sectorCode!);
+            }
+            if (context.subSectorCode) {
+                prompt = prompt.replace(/\[SUB_SECTOR_CODE\]/g, () => context.subSectorCode!);
+            }
+
             const parts: string[] = [];
             if (context.sector) parts.push(`Sector: ${context.sector}`);
             if (context.subSector) parts.push(`Sub-sector: ${context.subSector}`);
