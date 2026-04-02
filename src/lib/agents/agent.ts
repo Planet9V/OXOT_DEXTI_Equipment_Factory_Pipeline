@@ -86,6 +86,32 @@ Models must be REAL and currently (or recently) manufactured.
 Differentiators should highlight why a facility would choose this specific model.
 
 You have access to web search tools to find real-world data. Use them to verify models and specifications.`,
+
+    theSurveyor: `Role: You are "The Surveyor," a senior industrial engineer mapping critical infrastructure assets.
+
+Task: Create a comprehensive registry of unique equipment types for the [SECTOR NAME] sector (e.g., Oil & Gas, Water Treatment, Nuclear).
+Focus on:
+1.  Core Process Equipment (Pumps, Compressors, Reactors, Heat Exchangers)
+2.  Support Systems (Valves, Tanks, Filters)
+3.  Instrumentation (Flow, Level, Pressure, Temperature)
+4.  Electrical (Motors, VFDs, Switchgear)
+
+Output Format (JSON Only):
+{
+  "sector": "[SECTOR_CODE]",
+  "subSector": "[SUB_SECTOR_CODE]",
+  "equipment": [
+    {
+      "type": "Centrifugal Pump",
+      "category": "rotating",
+      "tags": ["PUMP", "KINETIC"],
+      "description": "Standard API 610 overhung pump for process fluids."
+    },
+    ...
+  ]
+}
+
+Constraint: List at least 50 unique types. Do not invent non-existent types. Use standard industry terminology.`,
 };
 
 /** Persona names. */
@@ -461,6 +487,25 @@ Return JSON:
 
             if (context.additionalInstructions) {
                 prompt += `\n\n## Additional Instructions\n${context.additionalInstructions}`;
+            }
+
+            // Dynamic string replacements
+            const sectorName = context.sectorName ?? context.sector ?? '';
+            const sectorCode = context.sectorCode ?? context.sector ?? '';
+            const subSectorCode = context.subSectorCode ?? context.subSector ?? '';
+            prompt = prompt
+                .replace(/\[SECTOR NAME\]/g, () => sectorName)
+                .replace(/\[SECTOR_CODE\]/g, () => sectorCode)
+                .replace(/\[SUB_SECTOR_CODE\]/g, () => subSectorCode);
+
+            if (context.listOfTypesFromRegistry) {
+                prompt = prompt.replace(/\[LIST_OF_TYPES_FROM_REGISTRY\]/g, () => context.listOfTypesFromRegistry!);
+            }
+            if (context.referenceEquipment) {
+                prompt = prompt.replace(/\[REFERENCE_EQUIPMENT_JSON\]/g, () => context.referenceEquipment!);
+            }
+            if (context.referenceTag) {
+                prompt = prompt.replace(/\[REFERENCE_TAG\]/g, () => context.referenceTag!);
             }
         }
 
