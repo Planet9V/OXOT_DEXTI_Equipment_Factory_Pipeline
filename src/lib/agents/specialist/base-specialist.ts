@@ -146,11 +146,12 @@ export abstract class BaseSpecialist<TInput, TOutput> {
      * extracts a JSON object from the response.
      *
      * @param userMessage - The user-facing prompt to send.
-     * @returns Parsed JSON object from the model's response.
+     * @param systemPromptOverride - Optional override for the system prompt.
+     * @returns Parsed JSON object or array from the model's response.
      */
-    protected async callLLM(userMessage: string): Promise<Record<string, unknown>> {
+    protected async callLLM(userMessage: string, systemPromptOverride?: string): Promise<Record<string, unknown> | Array<unknown>> {
         const messages: ChatMessage[] = [
-            { role: 'system', content: this.config.systemPrompt },
+            { role: 'system', content: systemPromptOverride || this.config.systemPrompt },
             { role: 'user', content: userMessage },
         ];
 
@@ -178,10 +179,10 @@ export abstract class BaseSpecialist<TInput, TOutput> {
      * Handles responses wrapped in markdown code fences.
      *
      * @param text - Raw model response text.
-     * @returns Parsed JSON object.
+     * @returns Parsed JSON object or array.
      * @throws Error if no valid JSON found.
      */
-    protected parseJSON(text: string): Record<string, unknown> {
+    protected parseJSON(text: string): Record<string, unknown> | Array<unknown> {
         // Strip markdown code fences
         let cleaned = text
             .replace(/```json\n?/g, '')
