@@ -1,4 +1,6 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
+// import { describe, it, expect, vi, beforeEach } from 'vitest';
+// Vitest cannot be imported in a CommonJS module using require()
+// using jest instead.
 
 /**
  * Tests for the batch-check API endpoint and pipeline batch mode.
@@ -8,7 +10,7 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 
 describe('Pipeline Batch Check API', () => {
     beforeEach(() => {
-        vi.resetAllMocks();
+        jest.resetAllMocks();
     });
 
     describe('POST /api/pipeline/batch-check', () => {
