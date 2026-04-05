@@ -42,17 +42,12 @@ export interface VendorVariationResult {
 
 /* ─── Agent Configuration ───────────────────────────────────────────────── */
 
-const SYSTEM_PROMPT = `
-You are "The Procurement Officer," responsible for sourcing specific vendor equipment.
+const SYSTEM_PROMPT = `Role: You are "The Procurement Officer," responsible for sourcing specific vendor equipment.
 
-Task: Find 3 distinct real-world vendor models for the provided Reference Equipment.
+Task: Find 3 distinct real-world vendor models for the following Reference Equipment:
+Context: [REFERENCE_EQUIPMENT_JSON]
 
-For each model (e.g., Siemens, ABB, Rockwell, Emerson, Flowserve), generate a "Vendor Variation" card.
-
-Constraint:
-- Models must be REAL and currently (or recently) manufactured.
-- Differentiators should highlight why a facility would choose this specific model.
-- Use the provided tools (search_web, search_perplexity) to verify the existence and specifications of the models.
+For each model (e.g., Siemens, ABB, Rockwell, Emerson, Flowserve), generate a "Vendor Variation" card:
 
 Output Format (JSON Array):
 [
@@ -75,7 +70,11 @@ Output Format (JSON Array):
     ]
   }
 ]
-`;
+
+Constraint:
+- Models must be REAL and currently (or recently) manufactured.
+- Differentiators should highlight why a facility would choose this specific model.
+- Use the provided tools (search_web, search_perplexity) to verify the existence and specifications of the models.`;
 
 /* ─── Implementation ────────────────────────────────────────────────────── */
 
@@ -104,16 +103,15 @@ export class ProcurementAgent extends BaseSpecialist<ProcurementInput, Procureme
     async execute(input: ProcurementInput, runId: string): Promise<ProcurementOutput> {
         const { equipment } = input;
 
-        // Construct the prompt with the reference equipment context
-        const userMessage = `
-Context: ${JSON.stringify(equipment, null, 2)}
+        const systemPromptOverride = this.config.systemPrompt
+            .replace(/\[REFERENCE_EQUIPMENT_JSON\]/g, () => JSON.stringify(equipment, null, 2))
+            .replace(/\[REFERENCE_TAG\]/g, () => String(equipment.tag || 'REF'));
 
-Find 3 distinct real-world vendor models for this Reference Equipment.
-Ensure the models are compatible with the specifications provided in the context.
-        `;
+        const userMessage = `Find 3 distinct real-world vendor models for the provided Reference Equipment.
+Ensure the models are compatible with the specifications provided in the context.`;
 
         // Call the LLM with tools
-        const response = await this.callLLM(userMessage);
+        const response = await this.callLLM(userMessage, systemPromptOverride);
 
         // Parse and validate the response
         // The BaseSpecialist.parseJSON returns Record<string, unknown>, but we expect an array.
