@@ -1,0 +1,318 @@
+{
+  "sector": "NUCL",
+  "subSector": "NUCL-ALL",
+  "equipment": [
+    {
+      "type": "Reactor Pressure Vessel",
+      "category": "static",
+      "tags": ["VESSEL", "NUCLEAR", "PRIMARY"],
+      "description": "Large cylindrical steel vessel containing the nuclear reactor core."
+    },
+    {
+      "type": "Steam Generator (U-Tube)",
+      "category": "heat-transfer",
+      "tags": ["HEAT_EXCHANGER", "NUCLEAR", "PRIMARY"],
+      "description": "Heat exchanger used to convert water into steam from heat produced in a nuclear reactor core."
+    },
+    {
+      "type": "Reactor Coolant Pump",
+      "category": "rotating",
+      "tags": ["PUMP", "NUCLEAR", "PRIMARY"],
+      "description": "Large centrifugal pump used to circulate water through the primary loop of a pressurized water reactor."
+    },
+    {
+      "type": "Pressurizer",
+      "category": "static",
+      "tags": ["VESSEL", "NUCLEAR", "PRIMARY"],
+      "description": "Component in a PWR primary circuit that maintains the high pressure of the reactor coolant."
+    },
+    {
+      "type": "Pressurizer Relief Tank",
+      "category": "static",
+      "tags": ["TANK", "NUCLEAR"],
+      "description": "Tank designed to receive and condense steam discharged from pressurizer relief valves."
+    },
+    {
+      "type": "Control Rod Drive Mechanism",
+      "category": "mechanical",
+      "tags": ["MECHANICAL", "NUCLEAR", "CONTROL"],
+      "description": "Electromechanical device that controls the insertion and withdrawal of control rods in the reactor core."
+    },
+    {
+      "type": "CVCS Charging Pump",
+      "category": "rotating",
+      "tags": ["PUMP", "NUCLEAR", "CVCS"],
+      "description": "High-pressure pump used in the Chemical and Volume Control System to inject coolant into the primary system."
+    },
+    {
+      "type": "Boric Acid Transfer Pump",
+      "category": "rotating",
+      "tags": ["PUMP", "NUCLEAR", "CVCS"],
+      "description": "Pump used to transfer concentrated boric acid solution for reactivity control."
+    },
+    {
+      "type": "Letdown Heat Exchanger",
+      "category": "heat-transfer",
+      "tags": ["HEAT_EXCHANGER", "NUCLEAR", "CVCS"],
+      "description": "Heat exchanger in the CVCS that cools the primary coolant letdown flow."
+    },
+    {
+      "type": "Regenerative Heat Exchanger",
+      "category": "heat-transfer",
+      "tags": ["HEAT_EXCHANGER", "NUCLEAR", "CVCS"],
+      "description": "Heat exchanger used to recover heat from the letdown flow to warm the charging flow."
+    },
+    {
+      "type": "Residual Heat Removal Pump",
+      "category": "rotating",
+      "tags": ["PUMP", "NUCLEAR", "RHR"],
+      "description": "Pump used to circulate coolant for decay heat removal during reactor shutdown."
+    },
+    {
+      "type": "Residual Heat Removal Heat Exchanger",
+      "category": "heat-transfer",
+      "tags": ["HEAT_EXCHANGER", "NUCLEAR", "RHR"],
+      "description": "Heat exchanger used to cool the primary coolant during shutdown operations."
+    },
+    {
+      "type": "Safety Injection Pump",
+      "category": "rotating",
+      "tags": ["PUMP", "NUCLEAR", "ECCS"],
+      "description": "High-head pump used for emergency core cooling system injection during a loss-of-coolant accident."
+    },
+    {
+      "type": "Containment Spray Pump",
+      "category": "rotating",
+      "tags": ["PUMP", "NUCLEAR", "SAFETY"],
+      "description": "Pump used to spray water into the containment building to reduce pressure and temperature following an accident."
+    },
+    {
+      "type": "Accumulator Tank",
+      "category": "static",
+      "tags": ["VESSEL", "NUCLEAR", "ECCS"],
+      "description": "Pressurized vessel storing borated water for passive injection into the reactor core during a large break LOCA."
+    },
+    {
+      "type": "Main Steam Isolation Valve",
+      "category": "mechanical",
+      "tags": ["VALVE", "ISOLATION", "NUCLEAR"],
+      "description": "Large, fast-closing valve located on the main steam lines to isolate the steam generators from the turbine."
+    },
+    {
+      "type": "Pilot-Operated Relief Valve (PORV)",
+      "category": "mechanical",
+      "tags": ["VALVE", "RELIEF", "NUCLEAR"],
+      "description": "Valve on the pressurizer used to prevent overpressurization of the primary system."
+    },
+    {
+      "type": "Main Feedwater Pump",
+      "category": "rotating",
+      "tags": ["PUMP", "SECONDARY"],
+      "description": "Large pump used to supply feedwater to the steam generators."
+    },
+    {
+      "type": "Auxiliary Feedwater Pump",
+      "category": "rotating",
+      "tags": ["PUMP", "NUCLEAR", "SAFETY"],
+      "description": "Pump used to provide feedwater to the steam generators when the main feedwater system is unavailable."
+    },
+    {
+      "type": "Condensate Extraction Pump",
+      "category": "rotating",
+      "tags": ["PUMP", "SECONDARY"],
+      "description": "Pump used to remove condensed water from the main condenser hotwell."
+    },
+    {
+      "type": "Moisture Separator Reheater",
+      "category": "heat-transfer",
+      "tags": ["HEAT_EXCHANGER", "SECONDARY"],
+      "description": "Component between the high and low-pressure turbines that removes moisture and reheats steam."
+    },
+    {
+      "type": "Main Turbine Generator",
+      "category": "rotating",
+      "tags": ["TURBINE", "GENERATOR", "ELECTRICAL"],
+      "description": "Large steam turbine coupled with an electrical generator to produce electrical power."
+    },
+    {
+      "type": "Main Condenser",
+      "category": "heat-transfer",
+      "tags": ["HEAT_EXCHANGER", "SECONDARY"],
+      "description": "Large heat exchanger that condenses exhaust steam from the main turbines back into water."
+    },
+    {
+      "type": "Circulating Water Pump",
+      "category": "rotating",
+      "tags": ["PUMP", "COOLING"],
+      "description": "High-capacity pump used to circulate cooling water from the heat sink through the main condenser."
+    },
+    {
+      "type": "Essential Service Water Pump",
+      "category": "rotating",
+      "tags": ["PUMP", "NUCLEAR", "SAFETY"],
+      "description": "Pump supplying cooling water to critical safety-related heat exchangers."
+    },
+    {
+      "type": "Component Cooling Water Heat Exchanger",
+      "category": "heat-transfer",
+      "tags": ["HEAT_EXCHANGER", "NUCLEAR"],
+      "description": "Heat exchanger that transfers heat from various nuclear plant components to the essential service water system."
+    },
+    {
+      "type": "Spent Fuel Pool Cooling Pump",
+      "category": "rotating",
+      "tags": ["PUMP", "NUCLEAR"],
+      "description": "Pump used to circulate water through the spent fuel pool cooling system to remove decay heat."
+    },
+    {
+      "type": "Spent Fuel Pool Heat Exchanger",
+      "category": "heat-transfer",
+      "tags": ["HEAT_EXCHANGER", "NUCLEAR"],
+      "description": "Heat exchanger used to remove decay heat from the spent fuel pool water."
+    },
+    {
+      "type": "Emergency Diesel Generator",
+      "category": "electrical",
+      "tags": ["GENERATOR", "NUCLEAR", "SAFETY"],
+      "description": "Standby generator providing backup electrical power to essential safety systems during a loss of offsite power."
+    },
+    {
+      "type": "Station Battery Bank",
+      "category": "electrical",
+      "tags": ["BATTERY", "NUCLEAR", "SAFETY"],
+      "description": "Large DC battery bank providing uninterruptible power to vital instruments and controls."
+    },
+    {
+      "type": "Vital AC Inverter",
+      "category": "electrical",
+      "tags": ["ELECTRICAL", "POWER", "NUCLEAR"],
+      "description": "Inverter that converts DC battery power to AC power for vital instruments and control systems."
+    },
+    {
+      "type": "Switchgear (Medium Voltage)",
+      "category": "electrical",
+      "tags": ["ELECTRICAL", "DISTRIBUTION"],
+      "description": "Electrical distribution equipment used to route power to large plant motors and transformers."
+    },
+    {
+      "type": "Motor Control Center",
+      "category": "electrical",
+      "tags": ["ELECTRICAL", "CONTROL"],
+      "description": "Assembly of motor starters and breakers for controlling lower voltage plant equipment."
+    },
+    {
+      "type": "Unit Auxiliary Transformer",
+      "category": "electrical",
+      "tags": ["TRANSFORMER", "POWER"],
+      "description": "Transformer that steps down main generator voltage to supply power to plant auxiliary systems."
+    },
+    {
+      "type": "Core Exit Thermocouple",
+      "category": "instrumentation",
+      "tags": ["SENSOR", "TEMPERATURE", "NUCLEAR"],
+      "description": "Temperature sensor located just above the reactor core to monitor coolant exit temperature."
+    },
+    {
+      "type": "Ex-Core Neutron Detector",
+      "category": "instrumentation",
+      "tags": ["SENSOR", "NUCLEAR"],
+      "description": "Detector located outside the reactor vessel used to measure neutron flux for reactor power monitoring."
+    },
+    {
+      "type": "In-Core Neutron Detector",
+      "category": "instrumentation",
+      "tags": ["SENSOR", "NUCLEAR"],
+      "description": "Detector inserted into the reactor core to map the local neutron flux distribution."
+    },
+    {
+      "type": "Reactor Coolant System Flow Transmitter",
+      "category": "instrumentation",
+      "tags": ["SENSOR", "FLOW", "NUCLEAR"],
+      "description": "Instrument used to measure the flow rate of coolant in the primary loop."
+    },
+    {
+      "type": "Pressurizer Level Transmitter",
+      "category": "instrumentation",
+      "tags": ["SENSOR", "LEVEL", "NUCLEAR"],
+      "description": "Instrument used to measure the water level inside the pressurizer vessel."
+    },
+    {
+      "type": "Containment Pressure Transmitter",
+      "category": "instrumentation",
+      "tags": ["SENSOR", "PRESSURE", "NUCLEAR"],
+      "description": "Instrument used to monitor the pressure inside the reactor containment building."
+    },
+    {
+      "type": "Containment Hydrogen Monitor",
+      "category": "instrumentation",
+      "tags": ["SENSOR", "ANALYZER", "NUCLEAR"],
+      "description": "Instrument used to measure hydrogen concentration in the containment atmosphere following an accident."
+    },
+    {
+      "type": "Radiation Monitoring System Detector",
+      "category": "instrumentation",
+      "tags": ["SENSOR", "RADIATION", "NUCLEAR"],
+      "description": "Detector used to monitor radiation levels in plant areas or process streams."
+    },
+    {
+      "type": "Boric Acid Filter",
+      "category": "mechanical",
+      "tags": ["FILTER", "NUCLEAR"],
+      "description": "Filter used to remove particulate matter from the boric acid solution."
+    },
+    {
+      "type": "Mixed Bed Demineralizer",
+      "category": "static",
+      "tags": ["VESSEL", "NUCLEAR", "PURIFICATION"],
+      "description": "Vessel containing ion exchange resins used to remove dissolved impurities from the reactor coolant."
+    },
+    {
+      "type": "Volume Control Tank",
+      "category": "static",
+      "tags": ["TANK", "NUCLEAR", "CVCS"],
+      "description": "Tank used in the CVCS to provide a surge volume and a point for adding hydrogen to the primary coolant."
+    },
+    {
+      "type": "Holdup Tank",
+      "category": "static",
+      "tags": ["TANK", "NUCLEAR"],
+      "description": "Large tank used to temporarily store radioactive liquid waste for decay before processing."
+    },
+    {
+      "type": "Liquid Waste Evaporator",
+      "category": "heat-transfer",
+      "tags": ["HEAT_EXCHANGER", "NUCLEAR", "WASTE"],
+      "description": "Component used to concentrate radioactive impurities in liquid waste through evaporation."
+    },
+    {
+      "type": "Gaseous Waste Decay Tank",
+      "category": "static",
+      "tags": ["TANK", "NUCLEAR", "WASTE"],
+      "description": "Tank used to store radioactive gases to allow for decay before controlled release."
+    },
+    {
+      "type": "Containment Air Cooler",
+      "category": "heat-transfer",
+      "tags": ["HVAC", "NUCLEAR", "COOLING"],
+      "description": "Large fan-coil unit used to cool and dehumidify the air inside the containment building."
+    },
+    {
+      "type": "Control Room HVAC Chiller",
+      "category": "mechanical",
+      "tags": ["HVAC", "COOLING"],
+      "description": "Refrigeration machine used to provide chilled water for the control room air conditioning system."
+    },
+    {
+      "type": "HEPA Filter Unit",
+      "category": "mechanical",
+      "tags": ["FILTER", "HVAC", "NUCLEAR"],
+      "description": "High-efficiency particulate air filter used in ventilation systems to prevent the release of radioactive dust."
+    },
+    {
+      "type": "Charcoal Adsorber Unit",
+      "category": "mechanical",
+      "tags": ["FILTER", "HVAC", "NUCLEAR"],
+      "description": "Bed of activated charcoal used in ventilation systems to remove radioactive iodine from the air."
+    }
+  ]
+}
