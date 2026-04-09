@@ -7,7 +7,7 @@
  * Request body:
  * {
  *   "messages": [{ "role": "user", "content": "..." }],
- *   "persona": "coordinator" | "processEngineer" | "standardsExpert" | "safetyAnalyst" | "qualityReviewer",
+ *   "persona": "coordinator" | "processEngineer" | "standardsExpert" | "safetyAnalyst" | "qualityReviewer" | "theEngineer",
  *   "mode": "chat" | "consult" | "research" | "review",
  *   "context": { "sector": "...", "subSector": "...", "facility": "...", "equipmentClass": "..." },
  *   "params": { /* mode-specific params * / }
