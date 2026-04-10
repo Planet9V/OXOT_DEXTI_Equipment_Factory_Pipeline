@@ -27,13 +27,20 @@ function round(num: number): number {
     return Math.round(num * 100) / 100;
 }
 
-function generateOperatingConditions(type: string) {
+function generateOperatingConditions(componentClass: string) {
     const pressure = 10 + Math.floor(Math.random() * 40); // 10-50 bar
     const temp = 50 + Math.floor(Math.random() * 150); // 50-200 C
     const flow = 100 + Math.floor(Math.random() * 400); // 100-500 m3/h
 
+    let source = "ASME VIII Div 1";
+    if (componentClass.includes("Pump")) {
+        source = "API 610";
+    } else if (componentClass.includes("Compressor")) {
+        source = "API 617";
+    }
+
     return {
-        pressureMax: { value: round(pressure * 1.5), unit: "bar", source: "API 610" },
+        pressureMax: { value: round(pressure * 1.5), unit: "bar", source: source },
         pressureMin: { value: 0, unit: "bar" },
         pressureDesign: { value: round(pressure * 1.2), unit: "bar" },
         pressureOperating: { value: pressure, unit: "bar" },
@@ -47,10 +54,14 @@ function generateOperatingConditions(type: string) {
 }
 
 function generateSpecifications(componentClass: string) {
-    const specs: any = {
-        power: { value: 50 + Math.floor(Math.random() * 200), unit: "kW", source: "IEC 60034" },
-        efficiency: { value: 75 + Math.floor(Math.random() * 20), unit: "%" }
-    };
+    const specs: any = {};
+
+    const hasMotor = componentClass.includes('Pump') || componentClass.includes('Compressor') || componentClass.includes('Motor') || componentClass.includes('Fan') || componentClass.includes('Blower');
+
+    if (hasMotor) {
+        specs.power = { value: 50 + Math.floor(Math.random() * 200), unit: "kW", source: "IEC 60034" };
+        specs.efficiency = { value: 75 + Math.floor(Math.random() * 20), unit: "%" };
+    }
 
     if (componentClass.includes('Pump')) {
         specs.head = { value: 50 + Math.floor(Math.random() * 100), unit: "m" };
@@ -90,15 +101,22 @@ function generateMaterials(componentClass: string) {
 
     if (componentClass.includes('Pump') || componentClass.includes('Valve')) {
         mats.casing = "ASTM A216 WCB";
-        mats.impeller = "ASTM A351 CF8M"; // For pumps
-        mats.trim = "SS316"; // For valves
-        mats.shaft = "ASTM A276 Type 410";
-        mats.seals = "Mechanical Seal API 682";
-    } else if (componentClass.includes('Vessel') || componentClass.includes('Tank') || componentClass.includes('Column') || componentClass.includes('Reactor') || componentClass.includes('HeatExchanger')) {
+        if (componentClass.includes('Pump')) {
+            mats.impeller = "ASTM A351 CF8M";
+            mats.shaft = "ASTM A276 Type 410";
+            mats.seals = "Mechanical Seal API 682";
+        }
+        if (componentClass.includes('Valve')) {
+            mats.trim = "SS316";
+        }
+    } else if (componentClass.includes('HeatExchanger') || componentClass.includes('Cooler') || componentClass.includes('Condenser')) {
         mats.shell = "ASTM A516 Gr. 70";
         mats.head = "ASTM A516 Gr. 70";
-        mats.tubes = "ASTM A213 TP316"; // For HX
-        mats.tubesheet = "ASTM A266 Cl. 2"; // For HX
+        mats.tubes = "ASTM A213 TP316";
+        mats.tubesheet = "ASTM A266 Cl. 2";
+    } else if (componentClass.includes('Vessel') || componentClass.includes('Tank') || componentClass.includes('Column') || componentClass.includes('Reactor') || componentClass.includes('Separator')) {
+        mats.shell = "ASTM A516 Gr. 70";
+        mats.head = "ASTM A516 Gr. 70";
         mats.internals = "SS316";
     } else {
         mats.body = "ASTM A216 WCB";
@@ -203,7 +221,7 @@ export function generateAllCards(): DexpiCard[] {
             dexpiType: dexpiType,
             rdlUri: eq.componentClassURI,
             description: `Reference configuration for ${eq.displayName} compliant with DEXPI 2.0 and relevant industry standards.`,
-            operatingConditions: generateOperatingConditions(dexpiType),
+            operatingConditions: generateOperatingConditions(eq.componentClass),
             specifications: generateSpecifications(eq.componentClass),
             design: generateDesign(),
             materials: generateMaterials(eq.componentClass),
