@@ -1,0 +1,318 @@
+{
+  "sector": "WATR",
+  "subSector": "WATR-ALL",
+  "equipment": [
+    {
+      "type": "Seawater Intake Pump",
+      "category": "rotating",
+      "tags": ["PUMP", "VERTICAL_TURBINE"],
+      "description": "Large vertical pump used to draw seawater into the desalination facility."
+    },
+    {
+      "type": "Coagulation Mixer",
+      "category": "rotating",
+      "tags": ["MIXER", "AGITATOR"],
+      "description": "Rapid mixer used to evenly distribute coagulants in the raw water."
+    },
+    {
+      "type": "Flocculation Mixer",
+      "category": "rotating",
+      "tags": ["MIXER", "AGITATOR"],
+      "description": "Slow mixer to promote the agglomeration of particles into larger flocs."
+    },
+    {
+      "type": "Dissolved Air Flotation (DAF) Unit",
+      "category": "static",
+      "tags": ["VESSEL", "SEPARATION"],
+      "description": "Tank using microbubbles to float and remove suspended solids and oils."
+    },
+    {
+      "type": "Gravity Sand Filter",
+      "category": "static",
+      "tags": ["FILTER", "MEDIA"],
+      "description": "Basin or tank containing sand media to remove suspended solids by gravity filtration."
+    },
+    {
+      "type": "Pressure Sand Filter",
+      "category": "static",
+      "tags": ["FILTER", "PRESSURE", "MEDIA"],
+      "description": "Closed vessel containing sand media, operating under pressure for higher filtration rates."
+    },
+    {
+      "type": "Cartridge Filter Vessel",
+      "category": "static",
+      "tags": ["FILTER", "CARTRIDGE", "FRP"],
+      "description": "Vessel housing multiple filter cartridges for fine particulate removal before RO membranes."
+    },
+    {
+      "type": "Ultrafiltration (UF) Skid",
+      "category": "static",
+      "tags": ["MEMBRANE", "FILTRATION"],
+      "description": "Pre-assembled unit containing UF membrane modules to remove fine particles and pathogens."
+    },
+    {
+      "type": "High-Pressure RO Feed Pump",
+      "category": "rotating",
+      "tags": ["PUMP", "HIGH_PRESSURE", "CENTRIFUGAL"],
+      "description": "Multi-stage centrifugal pump providing the high pressure required for reverse osmosis."
+    },
+    {
+      "type": "Energy Recovery Device (Isobaric)",
+      "category": "mechanical",
+      "tags": ["ENERGY_RECOVERY", "PRESSURE_EXCHANGER"],
+      "description": "Device transferring pressure from the high-pressure brine reject to the low-pressure feed water."
+    },
+    {
+      "type": "Energy Recovery Turbine (Pelton Wheel)",
+      "category": "rotating",
+      "tags": ["TURBINE", "ENERGY_RECOVERY"],
+      "description": "Turbine driven by the high-pressure brine reject to assist the high-pressure RO feed pump."
+    },
+    {
+      "type": "RO Membrane Pressure Vessel",
+      "category": "static",
+      "tags": ["VESSEL", "MEMBRANE", "FRP"],
+      "description": "Fiberglass reinforced plastic tubular vessel housing reverse osmosis membrane elements."
+    },
+    {
+      "type": "Brine Disposal Pump",
+      "category": "rotating",
+      "tags": ["PUMP", "TRANSFER"],
+      "description": "Pump transferring the concentrated brine reject to the outfall or disposal system."
+    },
+    {
+      "type": "Product Water Transfer Pump",
+      "category": "rotating",
+      "tags": ["PUMP", "TRANSFER"],
+      "description": "Pump moving permeate (product water) to post-treatment or storage."
+    },
+    {
+      "type": "Remineralization Limestone Contactor",
+      "category": "static",
+      "tags": ["VESSEL", "TREATMENT"],
+      "description": "Vessel containing limestone to add calcium and alkalinity to the RO permeate."
+    },
+    {
+      "type": "CO2 Injection System",
+      "category": "support",
+      "tags": ["DOSING", "GAS_INJECTION"],
+      "description": "System injecting carbon dioxide into permeate to dissolve limestone for remineralization."
+    },
+    {
+      "type": "Chlorine Dosing Pump",
+      "category": "rotating",
+      "tags": ["PUMP", "DOSING", "DIAPHRAGM"],
+      "description": "Small positive displacement pump dosing sodium hypochlorite for disinfection."
+    },
+    {
+      "type": "Antiscalant Dosing Pump",
+      "category": "rotating",
+      "tags": ["PUMP", "DOSING"],
+      "description": "Pump injecting chemicals to prevent scale formation on RO membranes."
+    },
+    {
+      "type": "SBS Dosing Pump",
+      "category": "rotating",
+      "tags": ["PUMP", "DOSING"],
+      "description": "Pump dosing sodium bisulfite to neutralize free chlorine before RO membranes."
+    },
+    {
+      "type": "Chemical Storage Tank",
+      "category": "static",
+      "tags": ["TANK", "STORAGE", "HDPE"],
+      "description": "Tank made of compatible material storing treatment chemicals."
+    },
+    {
+      "type": "Mechanical Bar Screen",
+      "category": "mechanical",
+      "tags": ["SCREEN", "COARSE"],
+      "description": "Automated screen removing large debris from incoming wastewater."
+    },
+    {
+      "type": "Fine Screen",
+      "category": "mechanical",
+      "tags": ["SCREEN", "FINE"],
+      "description": "Screen with small openings for removing finer debris and plastics."
+    },
+    {
+      "type": "Vortex Grit Chamber",
+      "category": "static",
+      "tags": ["VESSEL", "SEPARATION"],
+      "description": "Chamber using a vortex flow to settle out heavy inorganic grit."
+    },
+    {
+      "type": "Grit Classifier",
+      "category": "mechanical",
+      "tags": ["SEPARATION", "WASHING"],
+      "description": "Equipment used to wash and dewater separated grit."
+    },
+    {
+      "type": "Primary Clarifier",
+      "category": "static",
+      "tags": ["BASIN", "SETTLING"],
+      "description": "Large basin allowing suspended solids to settle as primary sludge."
+    },
+    {
+      "type": "Chain & Flight Sludge Collector",
+      "category": "mechanical",
+      "tags": ["SCRAPER", "SLUDGE"],
+      "description": "Mechanism scraping settled sludge to a hopper in rectangular clarifiers."
+    },
+    {
+      "type": "Circular Sludge Scraper",
+      "category": "mechanical",
+      "tags": ["SCRAPER", "SLUDGE"],
+      "description": "Rotating bridge with scraper blades pushing sludge to a central hopper in circular clarifiers."
+    },
+    {
+      "type": "Aeration Blower (Turbo)",
+      "category": "rotating",
+      "tags": ["BLOWER", "AERATION"],
+      "description": "High-speed centrifugal blower providing air for biological treatment."
+    },
+    {
+      "type": "Aeration Blower (Positive Displacement)",
+      "category": "rotating",
+      "tags": ["BLOWER", "AERATION", "ROOTS"],
+      "description": "Lobe-type blower supplying constant volume air for smaller aeration tanks."
+    },
+    {
+      "type": "Fine Bubble Diffuser",
+      "category": "piping",
+      "tags": ["AERATION", "DIFFUSER"],
+      "description": "Porous disk or tube releasing fine air bubbles into the mixed liquor."
+    },
+    {
+      "type": "Return Activated Sludge (RAS) Pump",
+      "category": "rotating",
+      "tags": ["PUMP", "SLUDGE", "CENTRIFUGAL"],
+      "description": "Pump returning settled biological sludge from secondary clarifiers to the aeration basin."
+    },
+    {
+      "type": "Waste Activated Sludge (WAS) Pump",
+      "category": "rotating",
+      "tags": ["PUMP", "SLUDGE"],
+      "description": "Pump removing excess biological sludge from the system."
+    },
+    {
+      "type": "UV Disinfection Bank",
+      "category": "support",
+      "tags": ["DISINFECTION", "UV"],
+      "description": "Channel containing ultraviolet lamps to deactivate pathogens in the effluent."
+    },
+    {
+      "type": "Ozone Generator",
+      "category": "support",
+      "tags": ["DISINFECTION", "OZONE"],
+      "description": "Equipment generating ozone gas for advanced oxidation or disinfection."
+    },
+    {
+      "type": "Ozone Contactor",
+      "category": "static",
+      "tags": ["BASIN", "CONTACT"],
+      "description": "Baffled basin providing contact time for ozone to react with water."
+    },
+    {
+      "type": "Gravity Thickener",
+      "category": "static",
+      "tags": ["TANK", "THICKENING"],
+      "description": "Tank designed to concentrate sludge by gravity settling."
+    },
+    {
+      "type": "Dissolved Air Flotation (DAF) Thickener",
+      "category": "static",
+      "tags": ["TANK", "THICKENING"],
+      "description": "Tank thickening light waste activated sludge using dissolved air."
+    },
+    {
+      "type": "Anaerobic Digester",
+      "category": "static",
+      "tags": ["TANK", "DIGESTION"],
+      "description": "Large heated and mixed tank for biological breakdown of sludge, producing biogas."
+    },
+    {
+      "type": "Digester Gas Mixing Draft Tube",
+      "category": "mechanical",
+      "tags": ["MIXER", "DIGESTER"],
+      "description": "System using compressed biogas injected into draft tubes to mix digester contents."
+    },
+    {
+      "type": "Biogas Compressor",
+      "category": "rotating",
+      "tags": ["COMPRESSOR", "BIOGAS"],
+      "description": "Compressor handling biogas for mixing or transfer to cogeneration units."
+    },
+    {
+      "type": "Sludge Dewatering Centrifuge",
+      "category": "rotating",
+      "tags": ["CENTRIFUGE", "DEWATERING"],
+      "description": "High-speed decanter centrifuge separating water from digested sludge."
+    },
+    {
+      "type": "Belt Filter Press",
+      "category": "mechanical",
+      "tags": ["PRESS", "DEWATERING"],
+      "description": "Machine squeezing water from sludge between two porous belts."
+    },
+    {
+      "type": "Polymer Dosing System",
+      "category": "support",
+      "tags": ["DOSING", "POLYMER"],
+      "description": "System preparing and injecting polymer solution to condition sludge for dewatering."
+    },
+    {
+      "type": "Progressive Cavity Pump",
+      "category": "rotating",
+      "tags": ["PUMP", "POSITIVE_DISPLACEMENT", "SLUDGE"],
+      "description": "Pump suitable for transferring viscous, high-solids sludge."
+    },
+    {
+      "type": "Clean-In-Place (CIP) Skid",
+      "category": "support",
+      "tags": ["SKID", "CLEANING"],
+      "description": "Automated system for circulating cleaning chemicals through membrane systems."
+    },
+    {
+      "type": "Turbidity Meter",
+      "category": "instrumentation",
+      "tags": ["SENSOR", "WATER_QUALITY"],
+      "description": "Online instrument measuring the cloudiness or haziness of water."
+    },
+    {
+      "type": "pH Analyzer",
+      "category": "instrumentation",
+      "tags": ["SENSOR", "WATER_QUALITY", "PH"],
+      "description": "Instrument continuously monitoring the acidity or alkalinity of the water."
+    },
+    {
+      "type": "Conductivity Meter",
+      "category": "instrumentation",
+      "tags": ["SENSOR", "WATER_QUALITY", "SALINITY"],
+      "description": "Instrument measuring water conductivity to estimate total dissolved solids (TDS)."
+    },
+    {
+      "type": "Chlorine Residual Analyzer",
+      "category": "instrumentation",
+      "tags": ["SENSOR", "WATER_QUALITY", "CHLORINE"],
+      "description": "Instrument measuring the amount of active chlorine remaining in the water."
+    },
+    {
+      "type": "Differential Pressure Transmitter",
+      "category": "instrumentation",
+      "tags": ["SENSOR", "PRESSURE_DROP"],
+      "description": "Instrument monitoring pressure drop across filters or membranes to indicate fouling."
+    },
+    {
+      "type": "Motor Control Center (MCC)",
+      "category": "electrical",
+      "tags": ["POWER_DIST", "CONTROL"],
+      "description": "Assembly controlling electrical power to multiple motors in the plant."
+    },
+    {
+      "type": "Variable Frequency Drive (VFD)",
+      "category": "electrical",
+      "tags": ["DRIVER", "CONTROL", "ENERGY_SAVING"],
+      "description": "Drive used to control the speed of large pumps to match varying flow demands."
+    }
+  ]
+}
