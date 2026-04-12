@@ -1,0 +1,485 @@
+{
+  "sector": "NUCL",
+  "subSector": "NUCL-ALL",
+  "equipment": [
+    {
+      "type": "Pressurized Water Reactor (PWR)",
+      "category": "static",
+      "tags": [
+        "REACTOR",
+        "PRIMARY"
+      ],
+      "description": "Nuclear reactor where primary coolant is kept under high pressure to prevent boiling."
+    },
+    {
+      "type": "Boiling Water Reactor (BWR)",
+      "category": "static",
+      "tags": [
+        "REACTOR",
+        "PRIMARY"
+      ],
+      "description": "Nuclear reactor where primary coolant is allowed to boil in the core."
+    },
+    {
+      "type": "U-Tube Steam Generator",
+      "category": "static",
+      "tags": [
+        "HEAT_EXCHANGER",
+        "PRIMARY"
+      ],
+      "description": "Large heat exchanger used to convert water into steam from heat produced in a nuclear reactor core."
+    },
+    {
+      "type": "Once-Through Steam Generator",
+      "category": "static",
+      "tags": [
+        "HEAT_EXCHANGER",
+        "PRIMARY"
+      ],
+      "description": "Steam generator where primary coolant flows straight through, transferring heat to secondary side."
+    },
+    {
+      "type": "Pressurizer",
+      "category": "static",
+      "tags": [
+        "VESSEL",
+        "PRIMARY"
+      ],
+      "description": "Component in a PWR that maintains primary system pressure and accommodates volume changes."
+    },
+    {
+      "type": "Reactor Coolant Pump (RCP)",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "PRIMARY"
+      ],
+      "description": "Large vertical pump circulating primary coolant through the reactor core."
+    },
+    {
+      "type": "Main Feedwater Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SECONDARY"
+      ],
+      "description": "High-capacity pump supplying feedwater to the steam generators."
+    },
+    {
+      "type": "Condensate Extraction Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SECONDARY"
+      ],
+      "description": "Pump that removes condensed water from the main condenser hotwell."
+    },
+    {
+      "type": "Component Cooling Water Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "COOLING"
+      ],
+      "description": "Pump providing cooling water to various reactor auxiliary components."
+    },
+    {
+      "type": "Essential Service Water Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SAFETY"
+      ],
+      "description": "Safety-related pump supplying cooling water from the ultimate heat sink."
+    },
+    {
+      "type": "Residual Heat Removal Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SAFETY"
+      ],
+      "description": "Pump used to remove decay heat from the reactor core during shutdown."
+    },
+    {
+      "type": "High-Pressure Safety Injection Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SAFETY",
+        "ECCS"
+      ],
+      "description": "Pump providing high-pressure coolant injection during emergency conditions."
+    },
+    {
+      "type": "Low-Pressure Safety Injection Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SAFETY",
+        "ECCS"
+      ],
+      "description": "Pump providing high-volume, low-pressure coolant injection during large break LOCAs."
+    },
+    {
+      "type": "Containment Spray Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SAFETY",
+        "CONTAINMENT"
+      ],
+      "description": "Pump used to spray water inside the containment to reduce pressure and wash out fission products."
+    },
+    {
+      "type": "Turbine Driven Auxiliary Feedwater Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SAFETY",
+        "STEAM_DRIVEN"
+      ],
+      "description": "Steam turbine-driven pump providing emergency feedwater to steam generators."
+    },
+    {
+      "type": "Motor Driven Auxiliary Feedwater Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SAFETY",
+        "MOTOR_DRIVEN"
+      ],
+      "description": "Electric motor-driven pump providing emergency feedwater to steam generators."
+    },
+    {
+      "type": "Main Steam Isolation Valve (MSIV)",
+      "category": "support",
+      "tags": [
+        "VALVE",
+        "ISOLATION"
+      ],
+      "description": "Large, fast-closing valve to isolate the steam generator from the secondary plant."
+    },
+    {
+      "type": "Pressurizer Safety Valve (PSV)",
+      "category": "support",
+      "tags": [
+        "VALVE",
+        "SAFETY",
+        "RELIEF"
+      ],
+      "description": "Spring-loaded safety valve to protect the reactor coolant system from overpressure."
+    },
+    {
+      "type": "Power Operated Relief Valve (PORV)",
+      "category": "support",
+      "tags": [
+        "VALVE",
+        "RELIEF"
+      ],
+      "description": "Pilot-operated valve used to relieve reactor coolant system pressure."
+    },
+    {
+      "type": "Feedwater Isolation Valve (FWIV)",
+      "category": "support",
+      "tags": [
+        "VALVE",
+        "ISOLATION"
+      ],
+      "description": "Fast-closing valve to isolate main feedwater flow to the steam generators."
+    },
+    {
+      "type": "Containment Isolation Valve",
+      "category": "support",
+      "tags": [
+        "VALVE",
+        "ISOLATION",
+        "CONTAINMENT"
+      ],
+      "description": "Valve designed to automatically close and seal the containment building during accidents."
+    },
+    {
+      "type": "Primary Containment Vessel",
+      "category": "static",
+      "tags": [
+        "CONTAINMENT",
+        "STRUCTURE"
+      ],
+      "description": "Airtight steel or concrete structure surrounding the reactor to confine radioactive materials."
+    },
+    {
+      "type": "Spent Fuel Pool Cooling Heat Exchanger",
+      "category": "static",
+      "tags": [
+        "HEAT_EXCHANGER",
+        "COOLING"
+      ],
+      "description": "Heat exchanger used to remove decay heat from stored spent nuclear fuel."
+    },
+    {
+      "type": "Residual Heat Removal Heat Exchanger",
+      "category": "static",
+      "tags": [
+        "HEAT_EXCHANGER",
+        "SAFETY"
+      ],
+      "description": "Heat exchanger that transfers decay heat from the reactor core to the component cooling water system."
+    },
+    {
+      "type": "Component Cooling Water Heat Exchanger",
+      "category": "static",
+      "tags": [
+        "HEAT_EXCHANGER",
+        "COOLING"
+      ],
+      "description": "Heat exchanger transferring heat from closed cooling loops to the ultimate heat sink."
+    },
+    {
+      "type": "Moisture Separator Reheater (MSR)",
+      "category": "static",
+      "tags": [
+        "HEAT_EXCHANGER",
+        "SECONDARY"
+      ],
+      "description": "Vessel used to remove moisture and reheat steam between high and low-pressure turbines."
+    },
+    {
+      "type": "Main Condenser",
+      "category": "static",
+      "tags": [
+        "HEAT_EXCHANGER",
+        "SECONDARY"
+      ],
+      "description": "Large shell and tube heat exchanger condensing turbine exhaust steam back to water."
+    },
+    {
+      "type": "High-Pressure Steam Turbine",
+      "category": "rotating",
+      "tags": [
+        "TURBINE",
+        "SECONDARY"
+      ],
+      "description": "Turbine section that receives high-pressure steam directly from the steam generators."
+    },
+    {
+      "type": "Low-Pressure Steam Turbine",
+      "category": "rotating",
+      "tags": [
+        "TURBINE",
+        "SECONDARY"
+      ],
+      "description": "Turbine section utilizing lower pressure steam after it passes through the MSR."
+    },
+    {
+      "type": "Main Generator",
+      "category": "electrical",
+      "tags": [
+        "GENERATOR",
+        "ELECTRICAL"
+      ],
+      "description": "Large synchronous generator driven by the steam turbines to produce electricity."
+    },
+    {
+      "type": "Emergency Diesel Generator (EDG)",
+      "category": "electrical",
+      "tags": [
+        "GENERATOR",
+        "SAFETY",
+        "POWER"
+      ],
+      "description": "Diesel-driven generator providing backup power to safety-related equipment."
+    },
+    {
+      "type": "Station Blackout (SBO) Generator",
+      "category": "electrical",
+      "tags": [
+        "GENERATOR",
+        "BACKUP"
+      ],
+      "description": "Alternate AC power source designed to handle complete loss of offsite and emergency power."
+    },
+    {
+      "type": "Control Rod Drive Mechanism (CRDM)",
+      "category": "package",
+      "tags": [
+        "CONTROL",
+        "PRIMARY"
+      ],
+      "description": "Electromechanical device used to position neutron-absorbing control rods in the reactor core."
+    },
+    {
+      "type": "Boron Injection Tank",
+      "category": "static",
+      "tags": [
+        "TANK",
+        "SAFETY"
+      ],
+      "description": "Vessel containing highly concentrated boric acid for emergency reactivity control."
+    },
+    {
+      "type": "Volume Control Tank (VCT)",
+      "category": "static",
+      "tags": [
+        "TANK",
+        "PRIMARY"
+      ],
+      "description": "Surge tank for the chemical and volume control system."
+    },
+    {
+      "type": "Refueling Water Storage Tank (RWST)",
+      "category": "static",
+      "tags": [
+        "TANK",
+        "SAFETY"
+      ],
+      "description": "Large borated water storage tank used for emergency core cooling and refueling operations."
+    },
+    {
+      "type": "Condensate Storage Tank (CST)",
+      "category": "static",
+      "tags": [
+        "TANK",
+        "SECONDARY"
+      ],
+      "description": "Storage tank providing makeup water to the secondary cycle and auxiliary feedwater system."
+    },
+    {
+      "type": "Safety Injection Accumulator",
+      "category": "static",
+      "tags": [
+        "TANK",
+        "SAFETY",
+        "ECCS"
+      ],
+      "description": "Pressurized tank containing borated water for rapid passive injection into the reactor core."
+    },
+    {
+      "type": "Reactor Protection System (RPS) Cabinet",
+      "category": "electrical",
+      "tags": [
+        "CONTROL",
+        "SAFETY"
+      ],
+      "description": "Control cabinet housing the logic for automatic reactor trips and safety actuations."
+    },
+    {
+      "type": "Ex-core Neutron Flux Detector",
+      "category": "instrumentation",
+      "tags": [
+        "SENSOR",
+        "NUCLEAR"
+      ],
+      "description": "Detector located outside the reactor vessel measuring neutron flux levels."
+    },
+    {
+      "type": "In-core Neutron Flux Detector",
+      "category": "instrumentation",
+      "tags": [
+        "SENSOR",
+        "NUCLEAR"
+      ],
+      "description": "Miniature detector positioned inside the reactor core for local power mapping."
+    },
+    {
+      "type": "Core Exit Thermocouple (CET)",
+      "category": "instrumentation",
+      "tags": [
+        "SENSOR",
+        "TEMPERATURE"
+      ],
+      "description": "Temperature sensor monitoring the temperature of coolant leaving the fuel assemblies."
+    },
+    {
+      "type": "Reactor Coolant Loop RTD",
+      "category": "instrumentation",
+      "tags": [
+        "SENSOR",
+        "TEMPERATURE"
+      ],
+      "description": "Resistance temperature detector measuring primary coolant temperature."
+    },
+    {
+      "type": "Containment Pressure Transmitter",
+      "category": "instrumentation",
+      "tags": [
+        "SENSOR",
+        "PRESSURE",
+        "SAFETY"
+      ],
+      "description": "Instrument monitoring the pressure inside the reactor containment building."
+    },
+    {
+      "type": "Hydrogen Recombiner",
+      "category": "package",
+      "tags": [
+        "SAFETY",
+        "CONTAINMENT"
+      ],
+      "description": "System used to control post-accident hydrogen gas concentrations in containment."
+    },
+    {
+      "type": "Liquid Radwaste Evaporator",
+      "category": "static",
+      "tags": [
+        "WASTE",
+        "PROCESSING"
+      ],
+      "description": "Evaporator used to concentrate liquid radioactive waste."
+    },
+    {
+      "type": "Gaseous Radwaste Compressor",
+      "category": "rotating",
+      "tags": [
+        "COMPRESSOR",
+        "WASTE"
+      ],
+      "description": "Compressor used to process and store radioactive gases for decay."
+    },
+    {
+      "type": "Uninterruptible Power Supply (UPS) Inverter",
+      "category": "electrical",
+      "tags": [
+        "POWER",
+        "SAFETY"
+      ],
+      "description": "Inverter converting DC battery power to AC for vital instruments and controls."
+    },
+    {
+      "type": "4.16 kV Safety Bus Switchgear",
+      "category": "electrical",
+      "tags": [
+        "POWER",
+        "SAFETY"
+      ],
+      "description": "Medium voltage electrical switchgear distributing power to major safety-related motors."
+    },
+    {
+      "type": "Class 1E Station Battery",
+      "category": "electrical",
+      "tags": [
+        "POWER",
+        "SAFETY",
+        "DC"
+      ],
+      "description": "Safety-grade lead-acid battery bank providing reliable DC power during emergencies."
+    },
+    {
+      "type": "Containment Cooling Fan",
+      "category": "rotating",
+      "tags": [
+        "HVAC",
+        "CONTAINMENT"
+      ],
+      "description": "Large fan unit used to circulate and cool air inside the containment building."
+    },
+    {
+      "type": "Control Room HVAC Unit",
+      "category": "package",
+      "tags": [
+        "HVAC",
+        "SAFETY"
+      ],
+      "description": "Air conditioning unit providing habitability control for operators during emergencies."
+    }
+  ]
+}
