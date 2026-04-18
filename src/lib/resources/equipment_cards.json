@@ -1,0 +1,428 @@
+[
+  {
+    "tag": "Generic-PUMP-001",
+    "name": "Centrifugal Pump",
+    "componentClass": "Pump",
+    "dexpiType": "CentrifugalPump",
+    "rdlUri": "http://posccaesar.org/rdl/RDS211111",
+    "description": "A standard end-suction centrifugal pump for fluid transfer operations.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 16,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 10,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 150,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 120,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 80,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 500,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 450,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 55,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "rotationalSpeed": {
+        "value": 2950,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 75,
+        "unit": "%"
+      },
+      "head": {
+        "value": 60,
+        "unit": "m"
+      },
+      "NPSHr": {
+        "value": 4.5,
+        "unit": "m"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 1500,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 600,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 800,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "casing": "ASTM A216 WCB",
+      "impeller": "ASTM A743 CA6NM",
+      "shaft": "ASTM A479 Type 410",
+      "seals": "Silicon Carbide/Carbon",
+      "gaskets": "PTFE",
+      "bolting": "ASTM A193 B7",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Suction",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Discharge",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199",
+      "IEC 60034"
+    ],
+    "image_prompt": "A highly detailed 3D render of an industrial end-suction centrifugal pump mounted on a steel baseplate with a coupled electric motor. Painted in standard industrial blue, with visible flanged nozzles."
+  },
+  {
+    "tag": "Generic-HEX-001",
+    "name": "Shell and Tube Heat Exchanger",
+    "componentClass": "HeatExchanger",
+    "dexpiType": "ShellAndTubeHeatExchanger",
+    "rdlUri": "http://posccaesar.org/rdl/RDS123456",
+    "description": "TEMA Type BEM shell and tube heat exchanger for process cooling.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 30,
+        "unit": "bar",
+        "source": "ASME BPVC VIII"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 25,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 300,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -29,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 180,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 1200,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 1000,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 0,
+        "unit": "kW",
+        "source": "N/A"
+      },
+      "rotationalSpeed": {
+        "value": 0,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 85,
+        "unit": "%"
+      },
+      "head": {
+        "value": 0,
+        "unit": "m"
+      },
+      "NPSHr": {
+        "value": 0,
+        "unit": "m"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 4500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 6000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1200,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "casing": "ASTM A516 Gr. 70",
+      "impeller": "N/A",
+      "shaft": "N/A",
+      "seals": "Graphite",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "bolting": "ASTM A193 B7",
+      "baseplate": "ASTM A36",
+      "tubes": "ASTM A213 TP316L",
+      "tubesheet": "ASTM A182 F316L"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Shell Inlet",
+        "service": "Cooling Water In",
+        "size": "DN200",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N2",
+        "name": "Shell Outlet",
+        "service": "Cooling Water Out",
+        "size": "DN200",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Bottom"
+      },
+      {
+        "id": "N3",
+        "name": "Tube Inlet",
+        "service": "Process Fluid In",
+        "size": "DN150",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Front"
+      },
+      {
+        "id": "N4",
+        "name": "Tube Outlet",
+        "service": "Process Fluid Out",
+        "size": "DN150",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Rear"
+      }
+    ],
+    "standards": [
+      "TEMA",
+      "ASME BPVC Section VIII",
+      "API 660"
+    ],
+    "image_prompt": "A technical 3D model of a shell and tube heat exchanger, TEMA type BEM, showing shell flanges, tube side bonnets, and supporting saddles."
+  },
+  {
+    "tag": "Generic-VALVE-001",
+    "name": "Globe Valve",
+    "componentClass": "Valve",
+    "dexpiType": "GlobeValve",
+    "rdlUri": "http://posccaesar.org/rdl/RDS333333",
+    "description": "Flanged globe valve for flow regulation and throttling service.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 100,
+        "unit": "bar",
+        "source": "ASME B16.34"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 50,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 30,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 400,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -29,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 350,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 200,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 0,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 0,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 0,
+        "unit": "kW",
+        "source": "N/A"
+      },
+      "rotationalSpeed": {
+        "value": 0,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 0,
+        "unit": "%"
+      },
+      "head": {
+        "value": 0,
+        "unit": "m"
+      },
+      "NPSHr": {
+        "value": 0,
+        "unit": "m"
+      },
+      "dutyPoint": {
+        "value": "Intermittent",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 85,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 356,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 250,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 450,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "trim": "ASTM A182 F6a / Stellite 6",
+      "stem": "ASTM A276 Type 410",
+      "packing": "Graphite",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "bolting": "ASTM A193 B7",
+      "handwheel": "Malleable Iron"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN100",
+        "rating": "Class 300",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "Class 300",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "API 623",
+      "ASME B16.34",
+      "ASME B16.5"
+    ],
+    "image_prompt": "Detailed 3D rendering of an industrial flanged globe valve with a rising stem and handwheel. Cast steel body with bolted bonnet."
+  }
+]
