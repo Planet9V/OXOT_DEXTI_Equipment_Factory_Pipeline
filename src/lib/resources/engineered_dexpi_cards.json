@@ -1,0 +1,452 @@
+[
+  {
+    "tag": "Generic-PUMP-001",
+    "name": "Centrifugal Process Pump",
+    "componentClass": "Pump",
+    "dexpiType": "CentrifugalPump",
+    "rdlUri": "http://data.posccaesar.org/rdl/RDS332717",
+    "description": "Heavy-duty horizontal centrifugal process pump for hydrocarbon service.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 40,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 45,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 25,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 280,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 300,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 250,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 150,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "rotationalSpeed": {
+        "value": 2950,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 78,
+        "unit": "%"
+      },
+      "head": {
+        "value": 120,
+        "unit": "m"
+      },
+      "NPSHr": {
+        "value": 4.5,
+        "unit": "m"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 1500,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 900,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "casing": "ASTM A216 Gr. WCB",
+      "impeller": "ASTM A351 Gr. CF8M",
+      "shaft": "ASTM A276 Type 410",
+      "seals": "Mechanical Seal API 682 Plan 53B",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "bolting": "ASTM A193 Gr. B7 / A194 Gr. 2H",
+      "baseplate": "ASTM A36 Carbon Steel"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Suction",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Discharge",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Bottom"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199",
+      "IEC 60034"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a horizontal centrifugal process pump with a metallic carbon steel finish, standard API 610 baseplate, visible flanged suction and discharge nozzles, and realistic industrial lighting."
+  },
+  {
+    "tag": "Generic-COMP-001",
+    "name": "Reciprocating Gas Compressor",
+    "componentClass": "Compressor",
+    "dexpiType": "ReciprocatingCompressor",
+    "rdlUri": "http://data.posccaesar.org/rdl/RDS332718",
+    "description": "Multi-stage reciprocating compressor for high-pressure gas gathering.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 150,
+        "unit": "bar",
+        "source": "API 618"
+      },
+      "pressureMin": {
+        "value": 5,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 165,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 120,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 180,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 130,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 5000,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 4500,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 1200,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "rotationalSpeed": {
+        "value": 750,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 85,
+        "unit": "%"
+      },
+      "head": {
+        "value": 0,
+        "unit": "m"
+      },
+      "NPSHr": {
+        "value": 0,
+        "unit": "m"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 18500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 4500,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 2500,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 2200,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "casing": "ASTM A536 Nodular Iron",
+      "impeller": "N/A",
+      "shaft": "AISI 4140 Forged Steel",
+      "seals": "PTFE packing with mechanical wiper",
+      "gaskets": "Metallic Ring Joint",
+      "bolting": "ASTM A193 Gr. B7",
+      "baseplate": "ASTM A36 Carbon Steel"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Suction",
+        "service": "Process Inlet",
+        "size": "DN200",
+        "rating": "PN160",
+        "facing": "RTJ",
+        "position": "Top"
+      },
+      {
+        "id": "N2",
+        "name": "Discharge",
+        "service": "Process Outlet",
+        "size": "DN150",
+        "rating": "PN160",
+        "facing": "RTJ",
+        "position": "Bottom"
+      },
+      {
+        "id": "N3",
+        "name": "Lube Oil Supply",
+        "service": "Utility",
+        "size": "DN50",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
+      },
+      {
+        "id": "N4",
+        "name": "Lube Oil Return",
+        "service": "Utility",
+        "size": "DN50",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
+      }
+    ],
+    "standards": [
+      "API 618",
+      "ASME VIII Div 1",
+      "ISO 13707",
+      "IEC 60034"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a heavy-duty reciprocating gas compressor block, with distinct cylinders, pulsation dampeners, and heavy foundations, realistic industrial finish."
+  },
+  {
+    "tag": "Generic-HX-001",
+    "name": "Shell and Tube Heat Exchanger",
+    "componentClass": "HeatExchanger",
+    "dexpiType": "ShellAndTubeHeatExchanger",
+    "rdlUri": "http://data.posccaesar.org/rdl/RDS332719",
+    "description": "TEMA Type AES Shell and Tube Heat Exchanger for process cooling.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 25,
+        "unit": "bar",
+        "source": "ASME VIII Div 1"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 30,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 300,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": 0,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 330,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 220,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 1500,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 1200,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 0,
+        "unit": "kW",
+        "source": "N/A"
+      },
+      "rotationalSpeed": {
+        "value": 0,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 0,
+        "unit": "%"
+      },
+      "head": {
+        "value": 0,
+        "unit": "m"
+      },
+      "NPSHr": {
+        "value": 0,
+        "unit": "m"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 8500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 6000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1200,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "casing": "ASTM A516 Gr. 70",
+      "impeller": "N/A",
+      "shaft": "N/A",
+      "seals": "N/A",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "bolting": "ASTM A193 Gr. B7",
+      "baseplate": "ASTM A36 Carbon Steel"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Shell Inlet",
+        "service": "Process Inlet",
+        "size": "DN250",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N2",
+        "name": "Shell Outlet",
+        "service": "Process Outlet",
+        "size": "DN250",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Bottom"
+      },
+      {
+        "id": "N3",
+        "name": "Tube Inlet",
+        "service": "Utility Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N4",
+        "name": "Tube Outlet",
+        "service": "Utility Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "TEMA R",
+      "ASME VIII Div 1",
+      "API 660",
+      "ISO 16812"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a TEMA Type AES shell and tube heat exchanger on saddle supports, showing flanged connections and realistic industrial painted finish."
+  }
+]
