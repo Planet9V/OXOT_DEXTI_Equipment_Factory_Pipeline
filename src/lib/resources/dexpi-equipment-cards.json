@@ -55,16 +55,16 @@
         "unit": "kW",
         "source": "IEC 60034"
       },
+      "rotationalSpeed": {
+        "value": 0,
+        "unit": "rpm"
+      },
       "efficiency": {
         "value": 80,
         "unit": "%"
       },
-      "volume": {
-        "value": 12,
-        "unit": "m3"
-      },
-      "orientation": {
-        "value": "Vertical",
+      "dutyPoint": {
+        "value": "Continuous",
         "unit": ""
       }
     },
@@ -87,54 +87,59 @@
       }
     },
     "materials": {
-      "bolting": "ASTM A193 Gr. B7",
+      "casing": "ASTM A516 Gr. 70",
+      "impeller": "N/A",
+      "shaft": "N/A",
+      "seals": "N/A",
       "gaskets": "Spiral Wound SS316/Graphite",
-      "shell": "ASTM A516 Gr. 70",
-      "head": "ASTM A516 Gr. 70",
-      "tubes": "ASTM A213 TP316",
-      "tubesheet": "ASTM A266 Cl. 2",
-      "internals": "SS316"
+      "bolting": "ASTM A193 Gr. B7",
+      "baseplate": "ASTM A36"
     },
     "nozzles": [
       {
         "id": "N1",
-        "name": "Inlet",
+        "name": "Feed",
         "service": "Process Inlet",
         "size": "DN200",
-        "rating": "PN16"
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
       },
       {
         "id": "N2",
-        "name": "Outlet",
+        "name": "Overhead",
         "service": "Process Outlet",
         "size": "DN200",
-        "rating": "PN16"
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Top"
       },
       {
         "id": "N3",
-        "name": "Vent",
-        "service": "Vent",
-        "size": "DN50"
+        "name": "Bottoms",
+        "service": "Process Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Bottom"
       },
       {
         "id": "N4",
-        "name": "Drain",
-        "service": "Drain",
-        "size": "DN50"
-      },
-      {
-        "id": "M1",
-        "name": "Manway",
-        "service": "Access",
-        "size": "DN600",
-        "rating": "PN16"
+        "name": "Utility",
+        "service": "Utility",
+        "size": "DN50",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
       }
     ],
     "standards": [
       "ASME VIII Div 1",
-      "API 650"
+      "API 650",
+      "ISO 5199",
+      "IEC 60034"
     ],
-    "image_prompt": "High-fidelity 3D engineering rendering of a Atmospheric Distillation Column (ProcessColumn) with industrial metallic finish, visible flanges, and realistic lighting."
+    "image_prompt": "High-fidelity 3D engineering rendering of a Atmospheric Distillation Column with industrial metallic finish, visible flanges, and realistic lighting."
   },
   {
     "tag": "Generic-VDC-002",
@@ -192,16 +197,16 @@
         "unit": "kW",
         "source": "IEC 60034"
       },
+      "rotationalSpeed": {
+        "value": 0,
+        "unit": "rpm"
+      },
       "efficiency": {
         "value": 79,
         "unit": "%"
       },
-      "volume": {
-        "value": 63,
-        "unit": "m3"
-      },
-      "orientation": {
-        "value": "Vertical",
+      "dutyPoint": {
+        "value": "Continuous",
         "unit": ""
       }
     },
@@ -224,54 +229,59 @@
       }
     },
     "materials": {
-      "bolting": "ASTM A193 Gr. B7",
+      "casing": "ASTM A516 Gr. 70",
+      "impeller": "N/A",
+      "shaft": "N/A",
+      "seals": "N/A",
       "gaskets": "Spiral Wound SS316/Graphite",
-      "shell": "ASTM A516 Gr. 70",
-      "head": "ASTM A516 Gr. 70",
-      "tubes": "ASTM A213 TP316",
-      "tubesheet": "ASTM A266 Cl. 2",
-      "internals": "SS316"
+      "bolting": "ASTM A193 Gr. B7",
+      "baseplate": "ASTM A36"
     },
     "nozzles": [
       {
         "id": "N1",
-        "name": "Inlet",
+        "name": "Feed",
         "service": "Process Inlet",
-        "size": "DN200",
-        "rating": "PN16"
+        "size": "DN250",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
       },
       {
         "id": "N2",
-        "name": "Outlet",
+        "name": "Overhead",
         "service": "Process Outlet",
-        "size": "DN200",
-        "rating": "PN16"
+        "size": "DN250",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Top"
       },
       {
         "id": "N3",
-        "name": "Vent",
-        "service": "Vent",
-        "size": "DN50"
+        "name": "Bottoms",
+        "service": "Process Outlet",
+        "size": "DN200",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Bottom"
       },
       {
         "id": "N4",
-        "name": "Drain",
-        "service": "Drain",
-        "size": "DN50"
-      },
-      {
-        "id": "M1",
-        "name": "Manway",
-        "service": "Access",
-        "size": "DN600",
-        "rating": "PN16"
+        "name": "Utility",
+        "service": "Utility",
+        "size": "DN50",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
       }
     ],
     "standards": [
       "ASME VIII Div 1",
-      "API 650"
+      "API 650",
+      "ISO 5199",
+      "IEC 60034"
     ],
-    "image_prompt": "High-fidelity 3D engineering rendering of a Vacuum Distillation Column (ProcessColumn) with industrial metallic finish, visible flanges, and realistic lighting."
+    "image_prompt": "High-fidelity 3D engineering rendering of a Vacuum Distillation Column with industrial metallic finish, visible flanges, and realistic lighting."
   },
   {
     "tag": "Generic-FR-003",
@@ -329,16 +339,16 @@
         "unit": "kW",
         "source": "IEC 60034"
       },
+      "rotationalSpeed": {
+        "value": 0,
+        "unit": "rpm"
+      },
       "efficiency": {
         "value": 87,
         "unit": "%"
       },
-      "volume": {
-        "value": 13,
-        "unit": "m3"
-      },
-      "orientation": {
-        "value": "Vertical",
+      "dutyPoint": {
+        "value": "Continuous",
         "unit": ""
       }
     },
@@ -361,54 +371,59 @@
       }
     },
     "materials": {
-      "bolting": "ASTM A193 Gr. B7",
+      "casing": "ASTM A516 Gr. 70",
+      "impeller": "N/A",
+      "shaft": "N/A",
+      "seals": "N/A",
       "gaskets": "Spiral Wound SS316/Graphite",
-      "shell": "ASTM A516 Gr. 70",
-      "head": "ASTM A516 Gr. 70",
-      "tubes": "ASTM A213 TP316",
-      "tubesheet": "ASTM A266 Cl. 2",
-      "internals": "SS316"
+      "bolting": "ASTM A193 Gr. B7",
+      "baseplate": "ASTM A36"
     },
     "nozzles": [
       {
         "id": "N1",
-        "name": "Inlet",
+        "name": "Feed",
         "service": "Process Inlet",
         "size": "DN200",
-        "rating": "PN16"
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Bottom"
       },
       {
         "id": "N2",
-        "name": "Outlet",
+        "name": "Vapor Outlet",
         "service": "Process Outlet",
-        "size": "DN200",
-        "rating": "PN16"
+        "size": "DN300",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Top"
       },
       {
         "id": "N3",
-        "name": "Vent",
-        "service": "Vent",
-        "size": "DN50"
+        "name": "Catalyst Return",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
       },
       {
         "id": "N4",
-        "name": "Drain",
-        "service": "Drain",
-        "size": "DN50"
-      },
-      {
-        "id": "M1",
-        "name": "Manway",
-        "service": "Access",
-        "size": "DN600",
-        "rating": "PN16"
+        "name": "Utility",
+        "service": "Utility",
+        "size": "DN50",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
       }
     ],
     "standards": [
       "ASME VIII Div 1",
-      "API 650"
+      "API 650",
+      "ISO 5199",
+      "IEC 60034"
     ],
-    "image_prompt": "High-fidelity 3D engineering rendering of a FCC Reactor/Regenerator (Reactor) with industrial metallic finish, visible flanges, and realistic lighting."
+    "image_prompt": "High-fidelity 3D engineering rendering of a FCC Reactor/Regenerator with industrial metallic finish, visible flanges, and realistic lighting."
   },
   {
     "tag": "Generic-HR-004",
@@ -466,16 +481,16 @@
         "unit": "kW",
         "source": "IEC 60034"
       },
+      "rotationalSpeed": {
+        "value": 0,
+        "unit": "rpm"
+      },
       "efficiency": {
         "value": 75,
         "unit": "%"
       },
-      "volume": {
-        "value": 81,
-        "unit": "m3"
-      },
-      "orientation": {
-        "value": "Vertical",
+      "dutyPoint": {
+        "value": "Continuous",
         "unit": ""
       }
     },
@@ -498,54 +513,59 @@
       }
     },
     "materials": {
-      "bolting": "ASTM A193 Gr. B7",
+      "casing": "ASTM A516 Gr. 70",
+      "impeller": "N/A",
+      "shaft": "N/A",
+      "seals": "N/A",
       "gaskets": "Spiral Wound SS316/Graphite",
-      "shell": "ASTM A516 Gr. 70",
-      "head": "ASTM A516 Gr. 70",
-      "tubes": "ASTM A213 TP316",
-      "tubesheet": "ASTM A266 Cl. 2",
-      "internals": "SS316"
+      "bolting": "ASTM A193 Gr. B7",
+      "baseplate": "ASTM A36"
     },
     "nozzles": [
       {
         "id": "N1",
-        "name": "Inlet",
+        "name": "Feed",
         "service": "Process Inlet",
         "size": "DN200",
-        "rating": "PN16"
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Top"
       },
       {
         "id": "N2",
-        "name": "Outlet",
+        "name": "Effluent",
         "service": "Process Outlet",
         "size": "DN200",
-        "rating": "PN16"
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Bottom"
       },
       {
         "id": "N3",
-        "name": "Vent",
-        "service": "Vent",
-        "size": "DN50"
+        "name": "Quench",
+        "service": "Utility",
+        "size": "DN50",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
       },
       {
         "id": "N4",
-        "name": "Drain",
-        "service": "Drain",
-        "size": "DN50"
-      },
-      {
-        "id": "M1",
-        "name": "Manway",
-        "service": "Access",
-        "size": "DN600",
-        "rating": "PN16"
+        "name": "Utility",
+        "service": "Utility",
+        "size": "DN50",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
       }
     ],
     "standards": [
       "ASME VIII Div 1",
-      "API 650"
+      "API 650",
+      "ISO 5199",
+      "IEC 60034"
     ],
-    "image_prompt": "High-fidelity 3D engineering rendering of a Hydrocracker Reactor (Reactor) with industrial metallic finish, visible flanges, and realistic lighting."
+    "image_prompt": "High-fidelity 3D engineering rendering of a Hydrocracker Reactor with industrial metallic finish, visible flanges, and realistic lighting."
   },
   {
     "tag": "Generic-CH-005",
@@ -603,17 +623,17 @@
         "unit": "kW",
         "source": "IEC 60034"
       },
+      "rotationalSpeed": {
+        "value": 0,
+        "unit": "rpm"
+      },
       "efficiency": {
         "value": 78,
         "unit": "%"
       },
-      "heatTransferArea": {
-        "value": 216,
-        "unit": "m2"
-      },
-      "duty": {
-        "value": 1602,
-        "unit": "kW"
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
       }
     },
     "design": {
@@ -635,46 +655,59 @@
       }
     },
     "materials": {
-      "bolting": "ASTM A193 Gr. B7",
+      "casing": "ASTM A216 WCB",
+      "impeller": "N/A",
+      "shaft": "N/A",
+      "seals": "N/A",
       "gaskets": "Spiral Wound SS316/Graphite",
-      "body": "ASTM A216 WCB",
-      "internals": "SS316"
+      "bolting": "ASTM A193 Gr. B7",
+      "baseplate": "ASTM A36"
     },
     "nozzles": [
       {
         "id": "N1",
-        "name": "Inlet",
+        "name": "Process In",
         "service": "Process Inlet",
         "size": "DN200",
-        "rating": "PN16"
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Bottom"
       },
       {
         "id": "N2",
-        "name": "Outlet",
+        "name": "Process Out",
         "service": "Process Outlet",
         "size": "DN200",
-        "rating": "PN16"
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Top"
       },
       {
         "id": "N3",
-        "name": "Utility Inlet",
-        "service": "Utility Inlet",
-        "size": "DN150",
-        "rating": "PN16"
+        "name": "Fuel Gas",
+        "service": "Utility",
+        "size": "DN50",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Bottom"
       },
       {
         "id": "N4",
-        "name": "Utility Outlet",
-        "service": "Utility Outlet",
-        "size": "DN150",
-        "rating": "PN16"
+        "name": "Utility",
+        "service": "Utility",
+        "size": "DN50",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
       }
     ],
     "standards": [
       "ISO 9001",
-      "ASME B31.3"
+      "ASME B31.3",
+      "API 610",
+      "ASME B73.1"
     ],
-    "image_prompt": "High-fidelity 3D engineering rendering of a Crude Heater (Furnace) with industrial metallic finish, visible flanges, and realistic lighting."
+    "image_prompt": "High-fidelity 3D engineering rendering of a Crude Heater with industrial metallic finish, visible flanges, and realistic lighting."
   },
   {
     "tag": "Generic-CPE-006",
@@ -732,17 +765,17 @@
         "unit": "kW",
         "source": "IEC 60034"
       },
+      "rotationalSpeed": {
+        "value": 0,
+        "unit": "rpm"
+      },
       "efficiency": {
         "value": 75,
         "unit": "%"
       },
-      "heatTransferArea": {
-        "value": 66,
-        "unit": "m2"
-      },
-      "duty": {
-        "value": 4765,
-        "unit": "kW"
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
       }
     },
     "design": {
@@ -764,50 +797,59 @@
       }
     },
     "materials": {
-      "bolting": "ASTM A193 Gr. B7",
+      "casing": "ASTM A516 Gr. 70",
+      "impeller": "N/A",
+      "shaft": "N/A",
+      "seals": "N/A",
       "gaskets": "Spiral Wound SS316/Graphite",
-      "shell": "ASTM A516 Gr. 70",
-      "head": "ASTM A516 Gr. 70",
-      "tubes": "ASTM A213 TP316",
-      "tubesheet": "ASTM A266 Cl. 2",
-      "internals": "SS316"
+      "bolting": "ASTM A193 Gr. B7",
+      "baseplate": "ASTM A36"
     },
     "nozzles": [
       {
         "id": "N1",
-        "name": "Inlet",
+        "name": "Tube In",
         "service": "Process Inlet",
         "size": "DN200",
-        "rating": "PN16"
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
       },
       {
         "id": "N2",
-        "name": "Outlet",
+        "name": "Tube Out",
         "service": "Process Outlet",
         "size": "DN200",
-        "rating": "PN16"
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
       },
       {
         "id": "N3",
-        "name": "Utility Inlet",
-        "service": "Utility Inlet",
+        "name": "Shell In",
+        "service": "Utility",
         "size": "DN150",
-        "rating": "PN16"
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Top"
       },
       {
         "id": "N4",
-        "name": "Utility Outlet",
-        "service": "Utility Outlet",
+        "name": "Shell Out",
+        "service": "Utility",
         "size": "DN150",
-        "rating": "PN16"
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Bottom"
       }
     ],
     "standards": [
       "TEMA R",
       "API 660",
-      "ASME VIII Div 1"
+      "ASME VIII Div 1",
+      "API 610"
     ],
-    "image_prompt": "High-fidelity 3D engineering rendering of a Crude Preheat Exchanger (HeatExchanger) with industrial metallic finish, visible flanges, and realistic lighting."
+    "image_prompt": "High-fidelity 3D engineering rendering of a Crude Preheat Exchanger with industrial metallic finish, visible flanges, and realistic lighting."
   },
   {
     "tag": "Generic-AFC-007",
@@ -865,17 +907,17 @@
         "unit": "kW",
         "source": "IEC 60034"
       },
+      "rotationalSpeed": {
+        "value": 0,
+        "unit": "rpm"
+      },
       "efficiency": {
         "value": 93,
         "unit": "%"
       },
-      "heatTransferArea": {
-        "value": 327,
-        "unit": "m2"
-      },
-      "duty": {
-        "value": 2052,
-        "unit": "kW"
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
       }
     },
     "design": {
@@ -897,50 +939,59 @@
       }
     },
     "materials": {
-      "bolting": "ASTM A193 Gr. B7",
+      "casing": "ASTM A516 Gr. 70",
+      "impeller": "N/A",
+      "shaft": "N/A",
+      "seals": "N/A",
       "gaskets": "Spiral Wound SS316/Graphite",
-      "shell": "ASTM A516 Gr. 70",
-      "head": "ASTM A516 Gr. 70",
-      "tubes": "ASTM A213 TP316",
-      "tubesheet": "ASTM A266 Cl. 2",
-      "internals": "SS316"
+      "bolting": "ASTM A193 Gr. B7",
+      "baseplate": "ASTM A36"
     },
     "nozzles": [
       {
         "id": "N1",
-        "name": "Inlet",
+        "name": "Process In",
         "service": "Process Inlet",
         "size": "DN200",
-        "rating": "PN16"
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Top"
       },
       {
         "id": "N2",
-        "name": "Outlet",
+        "name": "Process Out",
         "service": "Process Outlet",
         "size": "DN200",
-        "rating": "PN16"
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Bottom"
       },
       {
         "id": "N3",
-        "name": "Utility Inlet",
-        "service": "Utility Inlet",
+        "name": "Utility",
+        "service": "Utility",
         "size": "DN150",
-        "rating": "PN16"
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
       },
       {
         "id": "N4",
-        "name": "Utility Outlet",
-        "service": "Utility Outlet",
+        "name": "Utility",
+        "service": "Utility",
         "size": "DN150",
-        "rating": "PN16"
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
       }
     ],
     "standards": [
       "TEMA R",
       "API 660",
-      "ASME VIII Div 1"
+      "ASME VIII Div 1",
+      "API 610"
     ],
-    "image_prompt": "High-fidelity 3D engineering rendering of a Air Fin Cooler (HeatExchanger) with industrial metallic finish, visible flanges, and realistic lighting."
+    "image_prompt": "High-fidelity 3D engineering rendering of a Air Fin Cooler with industrial metallic finish, visible flanges, and realistic lighting."
   },
   {
     "tag": "Generic-PP-008",
@@ -998,6 +1049,10 @@
         "unit": "kW",
         "source": "IEC 60034"
       },
+      "rotationalSpeed": {
+        "value": 2950,
+        "unit": "rpm"
+      },
       "efficiency": {
         "value": 90,
         "unit": "%"
@@ -1009,10 +1064,6 @@
       "NPSHr": {
         "value": 3.71,
         "unit": "m"
-      },
-      "rotationalSpeed": {
-        "value": 2950,
-        "unit": "rpm"
       },
       "dutyPoint": {
         "value": "Continuous",
@@ -1038,13 +1089,13 @@
       }
     },
     "materials": {
-      "bolting": "ASTM A193 Gr. B7",
-      "gaskets": "Spiral Wound SS316/Graphite",
       "casing": "ASTM A216 WCB",
       "impeller": "ASTM A351 CF8M",
-      "trim": "SS316",
       "shaft": "ASTM A276 Type 410",
-      "seals": "Mechanical Seal API 682"
+      "seals": "Mechanical Seal API 682",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "bolting": "ASTM A193 Gr. B7",
+      "baseplate": "ASTM A36"
     },
     "nozzles": [
       {
@@ -1069,25 +1120,22 @@
         "id": "N3",
         "name": "Drain",
         "service": "Drain",
-        "size": "DN25",
-        "rating": "PN16",
-        "facing": "RF"
+        "size": "DN25"
       },
       {
         "id": "N4",
         "name": "Vent",
-        "service": "Vent",
-        "size": "DN25",
-        "rating": "PN16",
-        "facing": "RF"
+        "service": "Utility",
+        "size": "DN25"
       }
     ],
     "standards": [
       "API 610",
       "ISO 5199",
-      "ASME B73.1"
+      "ASME B73.1",
+      "IEC 60034"
     ],
-    "image_prompt": "High-fidelity 3D engineering rendering of a Process Pump (CentrifugalPump) with industrial metallic finish, visible flanges, and realistic lighting."
+    "image_prompt": "High-fidelity 3D engineering rendering of a Process Pump with industrial metallic finish, visible flanges, and realistic lighting."
   },
   {
     "tag": "Generic-WGC-009",
@@ -1145,13 +1193,25 @@
         "unit": "kW",
         "source": "IEC 60034"
       },
+      "rotationalSpeed": {
+        "value": 6200,
+        "unit": "rpm"
+      },
       "efficiency": {
         "value": 80,
         "unit": "%"
       },
-      "rotationalSpeed": {
-        "value": 6200,
-        "unit": "rpm"
+      "head": {
+        "value": 150,
+        "unit": "m"
+      },
+      "NPSHr": {
+        "value": 0,
+        "unit": "m"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
       }
     },
     "design": {
@@ -1173,10 +1233,13 @@
       }
     },
     "materials": {
-      "bolting": "ASTM A193 Gr. B7",
+      "casing": "ASTM A216 WCB",
+      "impeller": "ASTM A351 CF8M",
+      "shaft": "ASTM A276 Type 410",
+      "seals": "Dry Gas Seal",
       "gaskets": "Spiral Wound SS316/Graphite",
-      "body": "ASTM A216 WCB",
-      "internals": "SS316"
+      "bolting": "ASTM A193 Gr. B7",
+      "baseplate": "ASTM A36"
     },
     "nozzles": [
       {
@@ -1185,7 +1248,8 @@
         "service": "Process Inlet",
         "size": "DN300",
         "rating": "PN16",
-        "facing": "RF"
+        "facing": "RF",
+        "position": "End"
       },
       {
         "id": "N2",
@@ -1193,26 +1257,35 @@
         "service": "Process Outlet",
         "size": "DN250",
         "rating": "PN40",
-        "facing": "RF"
+        "facing": "RF",
+        "position": "Top"
       },
       {
         "id": "N3",
         "name": "Lube Oil In",
         "service": "Utility",
-        "size": "DN50"
+        "size": "DN50",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
       },
       {
         "id": "N4",
         "name": "Lube Oil Out",
         "service": "Utility",
-        "size": "DN50"
+        "size": "DN50",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
       }
     ],
     "standards": [
       "API 617",
-      "ISO 10439"
+      "ISO 10439",
+      "API 610",
+      "ASME B73.1"
     ],
-    "image_prompt": "High-fidelity 3D engineering rendering of a Wet Gas Compressor (CentrifugalCompressor) with industrial metallic finish, visible flanges, and realistic lighting."
+    "image_prompt": "High-fidelity 3D engineering rendering of a Wet Gas Compressor with industrial metallic finish, visible flanges, and realistic lighting."
   },
   {
     "tag": "Generic-FRT-010",
@@ -1270,16 +1343,16 @@
         "unit": "kW",
         "source": "IEC 60034"
       },
+      "rotationalSpeed": {
+        "value": 0,
+        "unit": "rpm"
+      },
       "efficiency": {
         "value": 84,
         "unit": "%"
       },
-      "volume": {
-        "value": 16,
-        "unit": "m3"
-      },
-      "orientation": {
-        "value": "Vertical",
+      "dutyPoint": {
+        "value": "Continuous",
         "unit": ""
       }
     },
@@ -1302,13 +1375,13 @@
       }
     },
     "materials": {
-      "bolting": "ASTM A193 Gr. B7",
+      "casing": "ASTM A516 Gr. 70",
+      "impeller": "N/A",
+      "shaft": "N/A",
+      "seals": "N/A",
       "gaskets": "Spiral Wound SS316/Graphite",
-      "shell": "ASTM A516 Gr. 70",
-      "head": "ASTM A516 Gr. 70",
-      "tubes": "ASTM A213 TP316",
-      "tubesheet": "ASTM A266 Cl. 2",
-      "internals": "SS316"
+      "bolting": "ASTM A193 Gr. B7",
+      "baseplate": "ASTM A36"
     },
     "nozzles": [
       {
@@ -1316,40 +1389,45 @@
         "name": "Inlet",
         "service": "Process Inlet",
         "size": "DN200",
-        "rating": "PN16"
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
       },
       {
         "id": "N2",
         "name": "Outlet",
         "service": "Process Outlet",
         "size": "DN200",
-        "rating": "PN16"
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
       },
       {
         "id": "N3",
         "name": "Vent",
         "service": "Vent",
-        "size": "DN50"
+        "size": "DN50",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Top"
       },
       {
         "id": "N4",
-        "name": "Drain",
-        "service": "Drain",
-        "size": "DN50"
-      },
-      {
-        "id": "M1",
-        "name": "Manway",
-        "service": "Access",
-        "size": "DN600",
-        "rating": "PN16"
+        "name": "Utility",
+        "service": "Utility",
+        "size": "DN50",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
       }
     ],
     "standards": [
       "ASME VIII Div 1",
-      "API 650"
+      "API 650",
+      "ISO 5199",
+      "IEC 60034"
     ],
-    "image_prompt": "High-fidelity 3D engineering rendering of a Floating Roof Tank (StorageTank) with industrial metallic finish, visible flanges, and realistic lighting."
+    "image_prompt": "High-fidelity 3D engineering rendering of a Floating Roof Tank with industrial metallic finish, visible flanges, and realistic lighting."
   },
   {
     "tag": "Generic-EF-011",
@@ -1407,9 +1485,17 @@
         "unit": "kW",
         "source": "IEC 60034"
       },
+      "rotationalSpeed": {
+        "value": 0,
+        "unit": "rpm"
+      },
       "efficiency": {
         "value": 91,
         "unit": "%"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
       }
     },
     "design": {
@@ -1431,32 +1517,59 @@
       }
     },
     "materials": {
-      "bolting": "ASTM A193 Gr. B7",
+      "casing": "ASTM A216 WCB",
+      "impeller": "N/A",
+      "shaft": "N/A",
+      "seals": "N/A",
       "gaskets": "Spiral Wound SS316/Graphite",
-      "body": "ASTM A216 WCB",
-      "internals": "SS316"
+      "bolting": "ASTM A193 Gr. B7",
+      "baseplate": "ASTM A36"
     },
     "nozzles": [
       {
         "id": "N1",
-        "name": "Connection 1",
-        "service": "Process",
-        "size": "DN50",
-        "rating": "PN16"
+        "name": "Main Gas",
+        "service": "Process Inlet",
+        "size": "DN200",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Bottom"
       },
       {
         "id": "N2",
-        "name": "Connection 2",
-        "service": "Process",
+        "name": "Pilot Gas",
+        "service": "Process Inlet",
         "size": "DN50",
-        "rating": "PN16"
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
+      },
+      {
+        "id": "N3",
+        "name": "Ignition",
+        "service": "Utility",
+        "size": "DN25",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
+      },
+      {
+        "id": "N4",
+        "name": "Utility",
+        "service": "Utility",
+        "size": "DN50",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
       }
     ],
     "standards": [
       "ISO 9001",
-      "ASME B31.3"
+      "ASME B31.3",
+      "API 610",
+      "ASME B73.1"
     ],
-    "image_prompt": "High-fidelity 3D engineering rendering of a Elevated Flare (FlareStack) with industrial metallic finish, visible flanges, and realistic lighting."
+    "image_prompt": "High-fidelity 3D engineering rendering of a Elevated Flare with industrial metallic finish, visible flanges, and realistic lighting."
   },
   {
     "tag": "Generic-RV-012",
@@ -1514,16 +1627,16 @@
         "unit": "kW",
         "source": "IEC 60034"
       },
+      "rotationalSpeed": {
+        "value": 0,
+        "unit": "rpm"
+      },
       "efficiency": {
         "value": 80,
         "unit": "%"
       },
-      "cv": {
-        "value": 427,
-        "unit": ""
-      },
-      "leakageClass": {
-        "value": "IV",
+      "dutyPoint": {
+        "value": "Continuous",
         "unit": ""
       }
     },
@@ -1546,38 +1659,59 @@
       }
     },
     "materials": {
-      "bolting": "ASTM A193 Gr. B7",
-      "gaskets": "Spiral Wound SS316/Graphite",
       "casing": "ASTM A216 WCB",
-      "impeller": "ASTM A351 CF8M",
-      "trim": "SS316",
+      "impeller": "N/A",
       "shaft": "ASTM A276 Type 410",
-      "seals": "Mechanical Seal API 682"
+      "seals": "Mechanical Seal API 682",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "bolting": "ASTM A193 Gr. B7",
+      "baseplate": "ASTM A36"
     },
     "nozzles": [
       {
         "id": "N1",
         "name": "Inlet",
-        "service": "Process",
+        "service": "Process Inlet",
         "size": "DN150",
         "rating": "PN40",
-        "facing": "RF"
+        "facing": "RF",
+        "position": "Bottom"
       },
       {
         "id": "N2",
         "name": "Outlet",
-        "service": "Process",
+        "service": "Process Outlet",
         "size": "DN150",
-        "rating": "PN40",
-        "facing": "RF"
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
+      },
+      {
+        "id": "N3",
+        "name": "Utility",
+        "service": "Utility",
+        "size": "DN25",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
+      },
+      {
+        "id": "N4",
+        "name": "Utility",
+        "service": "Utility",
+        "size": "DN25",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
       }
     ],
     "standards": [
       "API 600",
       "ASME B16.34",
-      "ISO 10434"
+      "ISO 10434",
+      "IEC 60034"
     ],
-    "image_prompt": "High-fidelity 3D engineering rendering of a Relief Valve (SafetyValve) with industrial metallic finish, visible flanges, and realistic lighting."
+    "image_prompt": "High-fidelity 3D engineering rendering of a Relief Valve with industrial metallic finish, visible flanges, and realistic lighting."
   },
   {
     "tag": "Generic-MLP-013",
@@ -1635,6 +1769,10 @@
         "unit": "kW",
         "source": "IEC 60034"
       },
+      "rotationalSpeed": {
+        "value": 2950,
+        "unit": "rpm"
+      },
       "efficiency": {
         "value": 79,
         "unit": "%"
@@ -1646,10 +1784,6 @@
       "NPSHr": {
         "value": 3.38,
         "unit": "m"
-      },
-      "rotationalSpeed": {
-        "value": 2950,
-        "unit": "rpm"
       },
       "dutyPoint": {
         "value": "Continuous",
@@ -1675,13 +1809,13 @@
       }
     },
     "materials": {
-      "bolting": "ASTM A193 Gr. B7",
-      "gaskets": "Spiral Wound SS316/Graphite",
       "casing": "ASTM A216 WCB",
       "impeller": "ASTM A351 CF8M",
-      "trim": "SS316",
       "shaft": "ASTM A276 Type 410",
-      "seals": "Mechanical Seal API 682"
+      "seals": "Mechanical Seal API 682",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "bolting": "ASTM A193 Gr. B7",
+      "baseplate": "ASTM A36"
     },
     "nozzles": [
       {
@@ -1708,23 +1842,26 @@
         "service": "Drain",
         "size": "DN25",
         "rating": "PN16",
-        "facing": "RF"
+        "facing": "RF",
+        "position": "Bottom"
       },
       {
         "id": "N4",
         "name": "Vent",
-        "service": "Vent",
+        "service": "Utility",
         "size": "DN25",
         "rating": "PN16",
-        "facing": "RF"
+        "facing": "RF",
+        "position": "Top"
       }
     ],
     "standards": [
       "API 610",
       "ISO 5199",
-      "ASME B73.1"
+      "ASME B73.1",
+      "IEC 60034"
     ],
-    "image_prompt": "High-fidelity 3D engineering rendering of a Main Line Pump (CentrifugalPump) with industrial metallic finish, visible flanges, and realistic lighting."
+    "image_prompt": "High-fidelity 3D engineering rendering of a Main Line Pump with industrial metallic finish, visible flanges, and realistic lighting."
   },
   {
     "tag": "Generic-PDM-014",
@@ -1782,9 +1919,17 @@
         "unit": "kW",
         "source": "IEC 60034"
       },
+      "rotationalSpeed": {
+        "value": 0,
+        "unit": "rpm"
+      },
       "efficiency": {
         "value": 83,
         "unit": "%"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
       }
     },
     "design": {
@@ -1806,32 +1951,59 @@
       }
     },
     "materials": {
-      "bolting": "ASTM A193 Gr. B7",
+      "casing": "ASTM A216 WCB",
+      "impeller": "N/A",
+      "shaft": "ASTM A276 Type 410",
+      "seals": "N/A",
       "gaskets": "Spiral Wound SS316/Graphite",
-      "body": "ASTM A216 WCB",
-      "internals": "SS316"
+      "bolting": "ASTM A193 Gr. B7",
+      "baseplate": "ASTM A36"
     },
     "nozzles": [
       {
         "id": "N1",
-        "name": "Connection 1",
-        "service": "Process",
+        "name": "Power In",
+        "service": "Process Inlet",
         "size": "DN50",
-        "rating": "PN16"
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
       },
       {
         "id": "N2",
-        "name": "Connection 2",
-        "service": "Process",
+        "name": "Power Out",
+        "service": "Process Outlet",
         "size": "DN50",
-        "rating": "PN16"
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
+      },
+      {
+        "id": "N3",
+        "name": "Utility",
+        "service": "Utility",
+        "size": "DN25",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
+      },
+      {
+        "id": "N4",
+        "name": "Utility",
+        "service": "Utility",
+        "size": "DN25",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
       }
     ],
     "standards": [
       "IEC 60034",
-      "NEMA MG1"
+      "NEMA MG1",
+      "API 610",
+      "ASME B73.1"
     ],
-    "image_prompt": "High-fidelity 3D engineering rendering of a Pump Drive Motor (Motor) with industrial metallic finish, visible flanges, and realistic lighting."
+    "image_prompt": "High-fidelity 3D engineering rendering of a Pump Drive Motor with industrial metallic finish, visible flanges, and realistic lighting."
   },
   {
     "tag": "Generic-VFD-015",
@@ -1889,9 +2061,17 @@
         "unit": "kW",
         "source": "IEC 60034"
       },
+      "rotationalSpeed": {
+        "value": 0,
+        "unit": "rpm"
+      },
       "efficiency": {
         "value": 83,
         "unit": "%"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
       }
     },
     "design": {
@@ -1913,32 +2093,59 @@
       }
     },
     "materials": {
-      "bolting": "ASTM A193 Gr. B7",
+      "casing": "ASTM A216 WCB",
+      "impeller": "N/A",
+      "shaft": "N/A",
+      "seals": "N/A",
       "gaskets": "Spiral Wound SS316/Graphite",
-      "body": "ASTM A216 WCB",
-      "internals": "SS316"
+      "bolting": "ASTM A193 Gr. B7",
+      "baseplate": "ASTM A36"
     },
     "nozzles": [
       {
         "id": "N1",
-        "name": "Connection 1",
-        "service": "Process",
+        "name": "Inlet",
+        "service": "Process Inlet",
         "size": "DN50",
-        "rating": "PN16"
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
       },
       {
         "id": "N2",
-        "name": "Connection 2",
-        "service": "Process",
+        "name": "Outlet",
+        "service": "Process Outlet",
         "size": "DN50",
-        "rating": "PN16"
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
+      },
+      {
+        "id": "N3",
+        "name": "Utility",
+        "service": "Utility",
+        "size": "DN25",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
+      },
+      {
+        "id": "N4",
+        "name": "Utility",
+        "service": "Utility",
+        "size": "DN25",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
       }
     ],
     "standards": [
       "ISO 9001",
-      "ASME B31.3"
+      "ASME B31.3",
+      "API 610",
+      "ASME B73.1"
     ],
-    "image_prompt": "High-fidelity 3D engineering rendering of a Variable Frequency Drive (VFD) with industrial metallic finish, visible flanges, and realistic lighting."
+    "image_prompt": "High-fidelity 3D engineering rendering of a Variable Frequency Drive with industrial metallic finish, visible flanges, and realistic lighting."
   },
   {
     "tag": "Generic-CST-016",
@@ -1996,16 +2203,16 @@
         "unit": "kW",
         "source": "IEC 60034"
       },
+      "rotationalSpeed": {
+        "value": 0,
+        "unit": "rpm"
+      },
       "efficiency": {
         "value": 87,
         "unit": "%"
       },
-      "volume": {
-        "value": 97,
-        "unit": "m3"
-      },
-      "orientation": {
-        "value": "Vertical",
+      "dutyPoint": {
+        "value": "Continuous",
         "unit": ""
       }
     },
@@ -2028,13 +2235,13 @@
       }
     },
     "materials": {
-      "bolting": "ASTM A193 Gr. B7",
+      "casing": "ASTM A516 Gr. 70",
+      "impeller": "N/A",
+      "shaft": "N/A",
+      "seals": "N/A",
       "gaskets": "Spiral Wound SS316/Graphite",
-      "shell": "ASTM A516 Gr. 70",
-      "head": "ASTM A516 Gr. 70",
-      "tubes": "ASTM A213 TP316",
-      "tubesheet": "ASTM A266 Cl. 2",
-      "internals": "SS316"
+      "bolting": "ASTM A193 Gr. B7",
+      "baseplate": "ASTM A36"
     },
     "nozzles": [
       {
@@ -2042,40 +2249,45 @@
         "name": "Inlet",
         "service": "Process Inlet",
         "size": "DN200",
-        "rating": "PN16"
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
       },
       {
         "id": "N2",
         "name": "Outlet",
         "service": "Process Outlet",
         "size": "DN200",
-        "rating": "PN16"
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
       },
       {
         "id": "N3",
         "name": "Vent",
         "service": "Vent",
-        "size": "DN50"
+        "size": "DN50",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Top"
       },
       {
         "id": "N4",
-        "name": "Drain",
-        "service": "Drain",
-        "size": "DN50"
-      },
-      {
-        "id": "M1",
-        "name": "Manway",
-        "service": "Access",
-        "size": "DN600",
-        "rating": "PN16"
+        "name": "Utility",
+        "service": "Utility",
+        "size": "DN50",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
       }
     ],
     "standards": [
       "ASME VIII Div 1",
-      "API 650"
+      "API 650",
+      "ISO 5199",
+      "IEC 60034"
     ],
-    "image_prompt": "High-fidelity 3D engineering rendering of a Crude Storage Tank (StorageTank) with industrial metallic finish, visible flanges, and realistic lighting."
+    "image_prompt": "High-fidelity 3D engineering rendering of a Crude Storage Tank with industrial metallic finish, visible flanges, and realistic lighting."
   },
   {
     "tag": "Generic-CTM-017",
@@ -2133,9 +2345,17 @@
         "unit": "kW",
         "source": "IEC 60034"
       },
+      "rotationalSpeed": {
+        "value": 0,
+        "unit": "rpm"
+      },
       "efficiency": {
         "value": 81,
         "unit": "%"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
       }
     },
     "design": {
@@ -2157,32 +2377,59 @@
       }
     },
     "materials": {
-      "bolting": "ASTM A193 Gr. B7",
+      "casing": "ASTM A216 WCB",
+      "impeller": "N/A",
+      "shaft": "N/A",
+      "seals": "N/A",
       "gaskets": "Spiral Wound SS316/Graphite",
-      "body": "ASTM A216 WCB",
-      "internals": "SS316"
+      "bolting": "ASTM A193 Gr. B7",
+      "baseplate": "ASTM A36"
     },
     "nozzles": [
       {
         "id": "N1",
-        "name": "Connection 1",
-        "service": "Process",
+        "name": "Inlet",
+        "service": "Process Inlet",
         "size": "DN50",
-        "rating": "PN16"
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
       },
       {
         "id": "N2",
-        "name": "Connection 2",
-        "service": "Process",
+        "name": "Outlet",
+        "service": "Process Outlet",
         "size": "DN50",
-        "rating": "PN16"
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N3",
+        "name": "Utility",
+        "service": "Utility",
+        "size": "DN25",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
+      },
+      {
+        "id": "N4",
+        "name": "Utility",
+        "service": "Utility",
+        "size": "DN25",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
       }
     ],
     "standards": [
       "ISO 9001",
-      "ASME B31.3"
+      "ASME B31.3",
+      "API 610",
+      "ASME B73.1"
     ],
-    "image_prompt": "High-fidelity 3D engineering rendering of a Custody Transfer Meter (FlowMeter) with industrial metallic finish, visible flanges, and realistic lighting."
+    "image_prompt": "High-fidelity 3D engineering rendering of a Custody Transfer Meter with industrial metallic finish, visible flanges, and realistic lighting."
   },
   {
     "tag": "Generic-PS-018",
@@ -2240,9 +2487,17 @@
         "unit": "kW",
         "source": "IEC 60034"
       },
+      "rotationalSpeed": {
+        "value": 0,
+        "unit": "rpm"
+      },
       "efficiency": {
         "value": 91,
         "unit": "%"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
       }
     },
     "design": {
@@ -2264,31 +2519,58 @@
       }
     },
     "materials": {
-      "bolting": "ASTM A193 Gr. B7",
+      "casing": "ASTM A216 WCB",
+      "impeller": "N/A",
+      "shaft": "N/A",
+      "seals": "N/A",
       "gaskets": "Spiral Wound SS316/Graphite",
-      "body": "ASTM A216 WCB",
-      "internals": "SS316"
+      "bolting": "ASTM A193 Gr. B7",
+      "baseplate": "ASTM A36"
     },
     "nozzles": [
       {
         "id": "N1",
-        "name": "Connection 1",
-        "service": "Process",
+        "name": "Inlet",
+        "service": "Process Inlet",
         "size": "DN50",
-        "rating": "PN16"
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
       },
       {
         "id": "N2",
-        "name": "Connection 2",
-        "service": "Process",
+        "name": "Outlet",
+        "service": "Process Outlet",
         "size": "DN50",
-        "rating": "PN16"
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N3",
+        "name": "Utility",
+        "service": "Utility",
+        "size": "DN25",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
+      },
+      {
+        "id": "N4",
+        "name": "Utility",
+        "service": "Utility",
+        "size": "DN25",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
       }
     ],
     "standards": [
       "ISO 9001",
-      "ASME B31.3"
+      "ASME B31.3",
+      "API 610",
+      "ASME B73.1"
     ],
-    "image_prompt": "High-fidelity 3D engineering rendering of a Pipeline Strainer (Strainer) with industrial metallic finish, visible flanges, and realistic lighting."
+    "image_prompt": "High-fidelity 3D engineering rendering of a Pipeline Strainer with industrial metallic finish, visible flanges, and realistic lighting."
   }
 ]
