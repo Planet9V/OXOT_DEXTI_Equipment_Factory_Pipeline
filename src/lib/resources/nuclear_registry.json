@@ -1,0 +1,566 @@
+{
+  "sector": "NUCL",
+  "subSector": "NUCL-ALL",
+  "equipment": [
+    {
+      "type": "Reactor Pressure Vessel",
+      "category": "static",
+      "tags": [
+        "VESSEL",
+        "REACTOR",
+        "PRIMARY"
+      ],
+      "description": "Thick-walled cylindrical steel vessel containing the nuclear reactor core."
+    },
+    {
+      "type": "Steam Generator",
+      "category": "static",
+      "tags": [
+        "HEAT_EXCHANGER",
+        "PRIMARY",
+        "STEAM"
+      ],
+      "description": "Large heat exchanger that converts water into steam from heat produced in a nuclear reactor core."
+    },
+    {
+      "type": "Pressurizer",
+      "category": "static",
+      "tags": [
+        "VESSEL",
+        "PRIMARY",
+        "PRESSURE_CONTROL"
+      ],
+      "description": "Vessel used in a pressurized water reactor to control pressure in the primary coolant loop."
+    },
+    {
+      "type": "Reactor Coolant Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "PRIMARY",
+        "CENTRIFUGAL"
+      ],
+      "description": "Large vertical pump used to circulate primary coolant through the reactor core and steam generators."
+    },
+    {
+      "type": "Control Rod Drive Mechanism",
+      "category": "mechanical",
+      "tags": [
+        "DRIVE",
+        "REACTOR",
+        "CONTROL"
+      ],
+      "description": "Mechanism used to insert or withdraw control rods from the reactor core to control reactivity."
+    },
+    {
+      "type": "Containment Spray Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SAFETY",
+        "CENTRIFUGAL"
+      ],
+      "description": "Pump used to spray water into the containment building to reduce pressure and wash out fission products."
+    },
+    {
+      "type": "Residual Heat Removal Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SAFETY",
+        "COOLING"
+      ],
+      "description": "Pump used to remove decay heat from the reactor core after shutdown."
+    },
+    {
+      "type": "Safety Injection Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SAFETY",
+        "HIGH_PRESSURE"
+      ],
+      "description": "High-pressure pump used to inject borated water into the reactor coolant system during an emergency."
+    },
+    {
+      "type": "High Pressure Coolant Injection Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SAFETY",
+        "BWR"
+      ],
+      "description": "Steam-driven high pressure pump for emergency core cooling in a BWR."
+    },
+    {
+      "type": "Low Pressure Coolant Injection Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SAFETY",
+        "BWR"
+      ],
+      "description": "Large capacity, low pressure pump for emergency core cooling in a BWR."
+    },
+    {
+      "type": "Core Spray Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SAFETY",
+        "SPRAY"
+      ],
+      "description": "Pump used to spray water directly onto the fuel assemblies in the reactor core during an emergency."
+    },
+    {
+      "type": "Main Steam Isolation Valve",
+      "category": "valve",
+      "tags": [
+        "VALVE",
+        "STEAM",
+        "ISOLATION"
+      ],
+      "description": "Large, fast-closing valve used to isolate the steam line from the containment building."
+    },
+    {
+      "type": "Turbine Driven Feedwater Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SECONDARY",
+        "FEEDWATER"
+      ],
+      "description": "Steam turbine driven pump used to supply feedwater to the steam generators."
+    },
+    {
+      "type": "Motor Driven Feedwater Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SECONDARY",
+        "FEEDWATER"
+      ],
+      "description": "Electric motor driven pump used to supply feedwater to the steam generators."
+    },
+    {
+      "type": "Moisture Separator Reheater",
+      "category": "static",
+      "tags": [
+        "VESSEL",
+        "SECONDARY",
+        "STEAM"
+      ],
+      "description": "Vessel used to remove moisture and reheat steam between the high and low pressure turbines."
+    },
+    {
+      "type": "Main Condenser",
+      "category": "static",
+      "tags": [
+        "HEAT_EXCHANGER",
+        "SECONDARY",
+        "COOLING"
+      ],
+      "description": "Large heat exchanger used to condense steam exiting the low pressure turbine."
+    },
+    {
+      "type": "Condensate Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SECONDARY",
+        "CENTRIFUGAL"
+      ],
+      "description": "Pump used to move condensed water from the main condenser to the feedwater heaters."
+    },
+    {
+      "type": "Circulating Water Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "COOLING",
+        "CENTRIFUGAL"
+      ],
+      "description": "Large capacity pump used to supply cooling water to the main condenser."
+    },
+    {
+      "type": "Component Cooling Water Heat Exchanger",
+      "category": "static",
+      "tags": [
+        "HEAT_EXCHANGER",
+        "COOLING",
+        "SUPPORT"
+      ],
+      "description": "Heat exchanger used to cool intermediate cooling water system."
+    },
+    {
+      "type": "Component Cooling Water Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "COOLING",
+        "SUPPORT"
+      ],
+      "description": "Pump used to circulate cooling water to various plant components."
+    },
+    {
+      "type": "Essential Service Water Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "COOLING",
+        "SAFETY"
+      ],
+      "description": "Safety-related pump used to supply cooling water from the ultimate heat sink to the plant."
+    },
+    {
+      "type": "Boric Acid Storage Tank",
+      "category": "static",
+      "tags": [
+        "TANK",
+        "CVCS",
+        "STORAGE"
+      ],
+      "description": "Tank used to store concentrated boric acid solution."
+    },
+    {
+      "type": "Boric Acid Transfer Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "CVCS",
+        "CENTRIFUGAL"
+      ],
+      "description": "Pump used to transfer concentrated boric acid to the blending system."
+    },
+    {
+      "type": "Letdown Heat Exchanger",
+      "category": "static",
+      "tags": [
+        "HEAT_EXCHANGER",
+        "CVCS",
+        "COOLING"
+      ],
+      "description": "Heat exchanger used to cool primary coolant letdown before it enters the purification system."
+    },
+    {
+      "type": "Regenerative Heat Exchanger",
+      "category": "static",
+      "tags": [
+        "HEAT_EXCHANGER",
+        "CVCS",
+        "RECOVERY"
+      ],
+      "description": "Heat exchanger used to recover heat from letdown water to preheat charging water."
+    },
+    {
+      "type": "Volume Control Tank",
+      "category": "static",
+      "tags": [
+        "TANK",
+        "CVCS",
+        "SURGE"
+      ],
+      "description": "Tank used to accommodate fluctuations in primary coolant volume and add hydrogen."
+    },
+    {
+      "type": "Charging Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "CVCS",
+        "HIGH_PRESSURE"
+      ],
+      "description": "High-pressure pump used to return purified coolant to the primary system and provide seal injection to reactor coolant pumps."
+    },
+    {
+      "type": "Mixed Bed Demineralizer",
+      "category": "static",
+      "tags": [
+        "FILTER",
+        "CVCS",
+        "PURIFICATION"
+      ],
+      "description": "Vessel containing ion exchange resins to remove dissolved impurities from the primary coolant."
+    },
+    {
+      "type": "Spent Fuel Pool Cooling Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "COOLING",
+        "SPENT_FUEL"
+      ],
+      "description": "Pump used to circulate water through the spent fuel pool and its heat exchangers."
+    },
+    {
+      "type": "Spent Fuel Pool Heat Exchanger",
+      "category": "static",
+      "tags": [
+        "HEAT_EXCHANGER",
+        "COOLING",
+        "SPENT_FUEL"
+      ],
+      "description": "Heat exchanger used to remove decay heat from the spent fuel pool water."
+    },
+    {
+      "type": "Refueling Water Storage Tank",
+      "category": "static",
+      "tags": [
+        "TANK",
+        "SAFETY",
+        "STORAGE"
+      ],
+      "description": "Large tank containing borated water used for emergency core cooling and refueling operations."
+    },
+    {
+      "type": "Standby Liquid Control Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SAFETY",
+        "POSITIVE_DISPLACEMENT"
+      ],
+      "description": "Positive displacement pump used to inject neutron absorber (sodium pentaborate) into a BWR."
+    },
+    {
+      "type": "Standby Liquid Control Tank",
+      "category": "static",
+      "tags": [
+        "TANK",
+        "SAFETY",
+        "STORAGE"
+      ],
+      "description": "Tank used to store sodium pentaborate solution for emergency shutdown."
+    },
+    {
+      "type": "Diesel Generator Starting Air Compressor",
+      "category": "rotating",
+      "tags": [
+        "COMPRESSOR",
+        "SUPPORT",
+        "AIR"
+      ],
+      "description": "Compressor used to maintain pressurized air in receivers for starting emergency diesel generators."
+    },
+    {
+      "type": "Emergency Diesel Generator Fuel Oil Storage Tank",
+      "category": "static",
+      "tags": [
+        "TANK",
+        "SUPPORT",
+        "FUEL"
+      ],
+      "description": "Underground or protected tank storing fuel oil for emergency diesel generators."
+    },
+    {
+      "type": "Emergency Diesel Generator Fuel Oil Transfer Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SUPPORT",
+        "FUEL"
+      ],
+      "description": "Pump used to transfer fuel oil from main storage to the day tanks."
+    },
+    {
+      "type": "Instrument Air Compressor",
+      "category": "rotating",
+      "tags": [
+        "COMPRESSOR",
+        "SUPPORT",
+        "AIR"
+      ],
+      "description": "Compressor used to supply clean, dry air for pneumatic instruments and valves."
+    },
+    {
+      "type": "Service Air Compressor",
+      "category": "rotating",
+      "tags": [
+        "COMPRESSOR",
+        "SUPPORT",
+        "AIR"
+      ],
+      "description": "Compressor used to supply compressed air for general plant services and tools."
+    },
+    {
+      "type": "Containment Air Cooler",
+      "category": "static",
+      "tags": [
+        "HEAT_EXCHANGER",
+        "HVAC",
+        "CONTAINMENT"
+      ],
+      "description": "Cooling unit located inside containment to maintain ambient temperature during normal operation and post-accident."
+    },
+    {
+      "type": "Control Room Chiller",
+      "category": "rotating",
+      "tags": [
+        "HVAC",
+        "SUPPORT",
+        "COOLING"
+      ],
+      "description": "Refrigeration machine used to provide chilled water for control room air conditioning."
+    },
+    {
+      "type": "Primary Water Storage Tank",
+      "category": "static",
+      "tags": [
+        "TANK",
+        "SUPPORT",
+        "STORAGE"
+      ],
+      "description": "Tank used to store demineralized, unborated water for plant make-up."
+    },
+    {
+      "type": "Source Range Neutron Flux Monitor",
+      "category": "instrument",
+      "tags": [
+        "INSTRUMENT",
+        "NUCLEAR",
+        "DETECTOR"
+      ],
+      "description": "Highly sensitive detector used to monitor reactor neutron flux during shutdown and start-up."
+    },
+    {
+      "type": "Intermediate Range Neutron Flux Monitor",
+      "category": "instrument",
+      "tags": [
+        "INSTRUMENT",
+        "NUCLEAR",
+        "DETECTOR"
+      ],
+      "description": "Detector used to monitor reactor neutron flux during reactor heat-up and approach to criticality."
+    },
+    {
+      "type": "Power Range Neutron Flux Monitor",
+      "category": "instrument",
+      "tags": [
+        "INSTRUMENT",
+        "NUCLEAR",
+        "DETECTOR"
+      ],
+      "description": "Detector used to monitor reactor power levels during normal power operation."
+    },
+    {
+      "type": "Reactor Vessel Level Indicating System",
+      "category": "instrument",
+      "tags": [
+        "INSTRUMENT",
+        "LEVEL",
+        "SAFETY"
+      ],
+      "description": "System used to measure the water level inside the reactor pressure vessel, especially during post-accident conditions."
+    },
+    {
+      "type": "Containment Pressure Transmitter",
+      "category": "instrument",
+      "tags": [
+        "INSTRUMENT",
+        "PRESSURE",
+        "SAFETY"
+      ],
+      "description": "Transmitter used to monitor the pressure inside the containment building to detect leaks or pipe breaks."
+    },
+    {
+      "type": "Steam Generator Level Transmitter",
+      "category": "instrument",
+      "tags": [
+        "INSTRUMENT",
+        "LEVEL",
+        "CONTROL"
+      ],
+      "description": "Transmitter used to monitor and control the water level on the secondary side of the steam generator."
+    },
+    {
+      "type": "Main Station Transformer",
+      "category": "electrical",
+      "tags": [
+        "ELECTRICAL",
+        "TRANSFORMER",
+        "POWER"
+      ],
+      "description": "Large step-up transformer connecting the main generator to the high-voltage transmission grid."
+    },
+    {
+      "type": "Unit Auxiliary Transformer",
+      "category": "electrical",
+      "tags": [
+        "ELECTRICAL",
+        "TRANSFORMER",
+        "POWER"
+      ],
+      "description": "Transformer used to step down generator voltage to supply power to plant auxiliary equipment."
+    },
+    {
+      "type": "Medium Voltage Switchgear",
+      "category": "electrical",
+      "tags": [
+        "ELECTRICAL",
+        "SWITCHGEAR",
+        "POWER"
+      ],
+      "description": "Electrical distribution equipment typically operating at 4.16kV to 13.8kV for powering large motors."
+    },
+    {
+      "type": "Low Voltage Switchgear",
+      "category": "electrical",
+      "tags": [
+        "ELECTRICAL",
+        "SWITCHGEAR",
+        "POWER"
+      ],
+      "description": "Electrical distribution equipment typically operating at 480V for powering smaller motors and systems."
+    },
+    {
+      "type": "Motor Control Center",
+      "category": "electrical",
+      "tags": [
+        "ELECTRICAL",
+        "MCC",
+        "CONTROL"
+      ],
+      "description": "Assembly of motor starters and breakers for centralizing the control of 480V electric motors."
+    },
+    {
+      "type": "125V DC Station Battery",
+      "category": "electrical",
+      "tags": [
+        "ELECTRICAL",
+        "BATTERY",
+        "DC"
+      ],
+      "description": "Large battery bank providing uninterruptible DC power for critical plant controls and instruments."
+    },
+    {
+      "type": "125V DC Battery Charger",
+      "category": "electrical",
+      "tags": [
+        "ELECTRICAL",
+        "CHARGER",
+        "DC"
+      ],
+      "description": "Equipment used to charge the station batteries and supply continuous DC loads."
+    },
+    {
+      "type": "Uninterruptible Power Supply Inverter",
+      "category": "electrical",
+      "tags": [
+        "ELECTRICAL",
+        "UPS",
+        "AC"
+      ],
+      "description": "Inverter used to convert 125V DC battery power to reliable 120V AC power for critical instruments."
+    },
+    {
+      "type": "Emergency Diesel Generator",
+      "category": "electrical",
+      "tags": [
+        "ELECTRICAL",
+        "GENERATOR",
+        "SAFETY"
+      ],
+      "description": "Large diesel-driven generator used to provide backup power to safety-critical systems upon loss of offsite power."
+    }
+  ]
+}
