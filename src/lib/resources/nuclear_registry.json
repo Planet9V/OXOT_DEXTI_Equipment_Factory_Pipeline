@@ -1,0 +1,591 @@
+{
+  "sector": "NUCL",
+  "subSector": "NUCL-ALL",
+  "equipment": [
+    {
+      "type": "Nuclear Reactor Vessel",
+      "category": "core_process",
+      "tags": [
+        "REACTOR",
+        "VESSEL"
+      ],
+      "description": "Contains the nuclear reactor core and cooling water."
+    },
+    {
+      "type": "Steam Generator",
+      "category": "core_process",
+      "tags": [
+        "HEAT EXCHANGER",
+        "STEAM"
+      ],
+      "description": "Transfers heat from primary coolant to secondary loop to create steam."
+    },
+    {
+      "type": "Pressurizer",
+      "category": "core_process",
+      "tags": [
+        "PRESSURE",
+        "VESSEL"
+      ],
+      "description": "Maintains system pressure in pressurized water reactors."
+    },
+    {
+      "type": "Reactor Coolant Pump",
+      "category": "core_process",
+      "tags": [
+        "PUMP",
+        "COOLANT"
+      ],
+      "description": "Circulates water through the reactor core."
+    },
+    {
+      "type": "Control Rod Drive Mechanism",
+      "category": "core_process",
+      "tags": [
+        "CONTROL",
+        "MECHANISM"
+      ],
+      "description": "Moves control rods in and out of the reactor core."
+    },
+    {
+      "type": "Main Steam Turbine",
+      "category": "core_process",
+      "tags": [
+        "TURBINE",
+        "STEAM"
+      ],
+      "description": "Converts steam energy into mechanical energy."
+    },
+    {
+      "type": "Moisture Separator Reheater",
+      "category": "core_process",
+      "tags": [
+        "HEAT EXCHANGER",
+        "STEAM"
+      ],
+      "description": "Removes moisture and reheats steam between turbine stages."
+    },
+    {
+      "type": "Main Condenser",
+      "category": "core_process",
+      "tags": [
+        "HEAT EXCHANGER",
+        "CONDENSER"
+      ],
+      "description": "Condenses exhaust steam from the main turbine."
+    },
+    {
+      "type": "Condensate Pump",
+      "category": "core_process",
+      "tags": [
+        "PUMP",
+        "CONDENSATE"
+      ],
+      "description": "Pumps condensed water back towards steam generators."
+    },
+    {
+      "type": "Feedwater Heater",
+      "category": "core_process",
+      "tags": [
+        "HEAT EXCHANGER",
+        "HEATER"
+      ],
+      "description": "Preheats feedwater to improve thermodynamic efficiency."
+    },
+    {
+      "type": "Main Feedwater Pump",
+      "category": "core_process",
+      "tags": [
+        "PUMP",
+        "FEEDWATER"
+      ],
+      "description": "Pumps preheated water into the steam generator."
+    },
+    {
+      "type": "Diesel Generator",
+      "category": "core_process",
+      "tags": [
+        "GENERATOR",
+        "EMERGENCY"
+      ],
+      "description": "Provides emergency backup power."
+    },
+    {
+      "type": "Spent Fuel Pool Cooling Pump",
+      "category": "core_process",
+      "tags": [
+        "PUMP",
+        "COOLING"
+      ],
+      "description": "Circulates water to cool spent nuclear fuel."
+    },
+    {
+      "type": "Containment Spray Pump",
+      "category": "core_process",
+      "tags": [
+        "PUMP",
+        "SAFETY"
+      ],
+      "description": "Pumps water into containment to reduce pressure during accidents."
+    },
+    {
+      "type": "Residual Heat Removal Pump",
+      "category": "core_process",
+      "tags": [
+        "PUMP",
+        "SAFETY"
+      ],
+      "description": "Removes decay heat during reactor shutdown."
+    },
+    {
+      "type": "Core Makeup Tank",
+      "category": "core_process",
+      "tags": [
+        "TANK",
+        "SAFETY"
+      ],
+      "description": "Provides borated water for emergency core cooling."
+    },
+    {
+      "type": "Accumulator Tank",
+      "category": "core_process",
+      "tags": [
+        "TANK",
+        "SAFETY"
+      ],
+      "description": "Pressurized tank for rapid injection of borated water."
+    },
+    {
+      "type": "High Pressure Injection Pump",
+      "category": "core_process",
+      "tags": [
+        "PUMP",
+        "SAFETY"
+      ],
+      "description": "Injects coolant into reactor at high pressure during accidents."
+    },
+    {
+      "type": "Main Steam Isolation Valve",
+      "category": "support",
+      "tags": [
+        "VALVE",
+        "ISOLATION"
+      ],
+      "description": "Rapidly isolates the steam generator from the turbine."
+    },
+    {
+      "type": "Safety Relief Valve",
+      "category": "support",
+      "tags": [
+        "VALVE",
+        "SAFETY"
+      ],
+      "description": "Protects systems from overpressure."
+    },
+    {
+      "type": "Motor Operated Valve",
+      "category": "support",
+      "tags": [
+        "VALVE",
+        "ACTUATOR"
+      ],
+      "description": "Valve driven by an electric motor for remote operation."
+    },
+    {
+      "type": "Air Operated Valve",
+      "category": "support",
+      "tags": [
+        "VALVE",
+        "PNEUMATIC"
+      ],
+      "description": "Valve actuated by compressed air."
+    },
+    {
+      "type": "Check Valve",
+      "category": "support",
+      "tags": [
+        "VALVE",
+        "NON-RETURN"
+      ],
+      "description": "Prevents reverse flow in safety and process systems."
+    },
+    {
+      "type": "Boric Acid Storage Tank",
+      "category": "support",
+      "tags": [
+        "TANK",
+        "STORAGE"
+      ],
+      "description": "Stores boron solution for reactivity control."
+    },
+    {
+      "type": "Refueling Water Storage Tank",
+      "category": "support",
+      "tags": [
+        "TANK",
+        "STORAGE"
+      ],
+      "description": "Stores borated water for refueling and emergency core cooling."
+    },
+    {
+      "type": "Volume Control Tank",
+      "category": "support",
+      "tags": [
+        "TANK",
+        "SURGE"
+      ],
+      "description": "Maintains required coolant volume and accommodates thermal expansion."
+    },
+    {
+      "type": "HEPA Filter",
+      "category": "support",
+      "tags": [
+        "FILTRATION",
+        "AIR"
+      ],
+      "description": "High-efficiency particulate air filter for HVAC and exhaust systems."
+    },
+    {
+      "type": "Charcoal Adsorber",
+      "category": "support",
+      "tags": [
+        "FILTRATION",
+        "GAS"
+      ],
+      "description": "Removes radioactive iodine from air exhaust."
+    },
+    {
+      "type": "Demineralizer",
+      "category": "support",
+      "tags": [
+        "TREATMENT",
+        "ION EXCHANGE"
+      ],
+      "description": "Removes dissolved impurities from water systems."
+    },
+    {
+      "type": "Air Compressor",
+      "category": "support",
+      "tags": [
+        "COMPRESSOR",
+        "AIR"
+      ],
+      "description": "Provides instrument air for pneumatic valves."
+    },
+    {
+      "type": "Chiller Unit",
+      "category": "support",
+      "tags": [
+        "HVAC",
+        "COOLING"
+      ],
+      "description": "Provides chilled water for essential equipment cooling."
+    },
+    {
+      "type": "Hydrogen Recombiner",
+      "category": "support",
+      "tags": [
+        "SAFETY",
+        "GAS"
+      ],
+      "description": "Removes combustible hydrogen gas from containment post-accident."
+    },
+    {
+      "type": "Spent Fuel Storage Rack",
+      "category": "support",
+      "tags": [
+        "STORAGE",
+        "FUEL"
+      ],
+      "description": "Racks to safely store spent nuclear fuel assemblies."
+    },
+    {
+      "type": "Polar Crane",
+      "category": "support",
+      "tags": [
+        "CRANE",
+        "LIFTING"
+      ],
+      "description": "Large crane inside containment for moving heavy components."
+    },
+    {
+      "type": "Fuel Handling Machine",
+      "category": "support",
+      "tags": [
+        "HANDLING",
+        "FUEL"
+      ],
+      "description": "Machine for moving fuel assemblies into and out of the core."
+    },
+    {
+      "type": "Excore Neutron Detector",
+      "category": "instrumentation",
+      "tags": [
+        "RADIATION",
+        "NEUTRON"
+      ],
+      "description": "Measures reactor power from outside the vessel."
+    },
+    {
+      "type": "Incore Thermocouple",
+      "category": "instrumentation",
+      "tags": [
+        "TEMPERATURE",
+        "CORE"
+      ],
+      "description": "Measures temperature inside the reactor core."
+    },
+    {
+      "type": "Reactor Coolant Flow Transmitter",
+      "category": "instrumentation",
+      "tags": [
+        "FLOW",
+        "COOLANT"
+      ],
+      "description": "Measures primary coolant flow rate."
+    },
+    {
+      "type": "Pressurizer Level Transmitter",
+      "category": "instrumentation",
+      "tags": [
+        "LEVEL",
+        "PRESSURIZER"
+      ],
+      "description": "Monitors water level in the pressurizer."
+    },
+    {
+      "type": "Containment Pressure Transmitter",
+      "category": "instrumentation",
+      "tags": [
+        "PRESSURE",
+        "CONTAINMENT"
+      ],
+      "description": "Monitors pressure inside the containment building."
+    },
+    {
+      "type": "Radiation Monitor",
+      "category": "instrumentation",
+      "tags": [
+        "RADIATION",
+        "MONITOR"
+      ],
+      "description": "Detects radiation levels in various plant areas and effluents."
+    },
+    {
+      "type": "Steam Generator Level Transmitter",
+      "category": "instrumentation",
+      "tags": [
+        "LEVEL",
+        "STEAM GENERATOR"
+      ],
+      "description": "Measures water level in the steam generators."
+    },
+    {
+      "type": "Main Steam Flow Transmitter",
+      "category": "instrumentation",
+      "tags": [
+        "FLOW",
+        "STEAM"
+      ],
+      "description": "Measures steam flow to the turbine."
+    },
+    {
+      "type": "Seismic Monitor",
+      "category": "instrumentation",
+      "tags": [
+        "SEISMIC",
+        "SENSOR"
+      ],
+      "description": "Detects earthquake activity to trigger plant shutdown."
+    },
+    {
+      "type": "Hydrogen Concentration Analyzer",
+      "category": "instrumentation",
+      "tags": [
+        "ANALYZER",
+        "GAS"
+      ],
+      "description": "Monitors hydrogen levels in containment."
+    },
+    {
+      "type": "Vibration Monitor",
+      "category": "instrumentation",
+      "tags": [
+        "VIBRATION",
+        "SENSOR"
+      ],
+      "description": "Monitors rotating equipment for excessive vibration."
+    },
+    {
+      "type": "Boric Acid Concentration Analyzer",
+      "category": "instrumentation",
+      "tags": [
+        "ANALYZER",
+        "CHEMICAL"
+      ],
+      "description": "Measures boron levels in the reactor coolant."
+    },
+    {
+      "type": "Acoustic Leak Detector",
+      "category": "instrumentation",
+      "tags": [
+        "LEAK",
+        "ACOUSTIC"
+      ],
+      "description": "Detects leaks in high-pressure piping systems."
+    },
+    {
+      "type": "Loose Parts Monitor",
+      "category": "instrumentation",
+      "tags": [
+        "MONITOR",
+        "ACOUSTIC"
+      ],
+      "description": "Detects metallic impacts inside the reactor coolant system."
+    },
+    {
+      "type": "Post-Accident Monitoring System Panel",
+      "category": "instrumentation",
+      "tags": [
+        "PAMS",
+        "DISPLAY"
+      ],
+      "description": "Displays critical safety parameters during accidents."
+    },
+    {
+      "type": "Main Generator",
+      "category": "electrical",
+      "tags": [
+        "GENERATOR",
+        "POWER"
+      ],
+      "description": "Driven by the turbine to produce electricity."
+    },
+    {
+      "type": "Main Step-Up Transformer",
+      "category": "electrical",
+      "tags": [
+        "TRANSFORMER",
+        "POWER"
+      ],
+      "description": "Increases voltage for transmission to the grid."
+    },
+    {
+      "type": "Unit Auxiliary Transformer",
+      "category": "electrical",
+      "tags": [
+        "TRANSFORMER",
+        "POWER"
+      ],
+      "description": "Supplies power to plant equipment during normal operation."
+    },
+    {
+      "type": "Startup Transformer",
+      "category": "electrical",
+      "tags": [
+        "TRANSFORMER",
+        "POWER"
+      ],
+      "description": "Supplies power to plant equipment during startup from the grid."
+    },
+    {
+      "type": "Medium Voltage Switchgear",
+      "category": "electrical",
+      "tags": [
+        "SWITCHGEAR",
+        "DISTRIBUTION"
+      ],
+      "description": "Distributes power to large motors like reactor coolant pumps."
+    },
+    {
+      "type": "Low Voltage Motor Control Center",
+      "category": "electrical",
+      "tags": [
+        "MCC",
+        "DISTRIBUTION"
+      ],
+      "description": "Controls smaller motors and valves."
+    },
+    {
+      "type": "Station Battery",
+      "category": "electrical",
+      "tags": [
+        "BATTERY",
+        "DC POWER"
+      ],
+      "description": "Provides emergency DC power for controls and vital instrumentation."
+    },
+    {
+      "type": "Battery Charger",
+      "category": "electrical",
+      "tags": [
+        "CHARGER",
+        "DC POWER"
+      ],
+      "description": "Maintains charge on station batteries."
+    },
+    {
+      "type": "Inverter",
+      "category": "electrical",
+      "tags": [
+        "INVERTER",
+        "AC POWER"
+      ],
+      "description": "Converts DC battery power to vital AC power."
+    },
+    {
+      "type": "Reactor Protection System Cabinet",
+      "category": "electrical",
+      "tags": [
+        "RPS",
+        "CONTROL"
+      ],
+      "description": "Houses logic modules that automatically shut down the reactor."
+    },
+    {
+      "type": "Engineered Safety Features Actuation Cabinet",
+      "category": "electrical",
+      "tags": [
+        "ESFAS",
+        "CONTROL"
+      ],
+      "description": "Houses logic to start safety systems during accidents."
+    },
+    {
+      "type": "Large AC Motor",
+      "category": "electrical",
+      "tags": [
+        "MOTOR",
+        "AC"
+      ],
+      "description": "Drives large pumps such as circulating water or reactor coolant pumps."
+    },
+    {
+      "type": "Exciter",
+      "category": "electrical",
+      "tags": [
+        "EXCITER",
+        "GENERATOR"
+      ],
+      "description": "Provides DC current to the main generator rotor field."
+    },
+    {
+      "type": "Isolated Phase Bus Duct",
+      "category": "electrical",
+      "tags": [
+        "BUS",
+        "POWER"
+      ],
+      "description": "Carries high current from generator to step-up transformer."
+    },
+    {
+      "type": "Main Control Board",
+      "category": "electrical",
+      "tags": [
+        "CONTROL",
+        "PANEL"
+      ],
+      "description": "Primary operator interface for controlling the plant."
+    }
+  ]
+}
