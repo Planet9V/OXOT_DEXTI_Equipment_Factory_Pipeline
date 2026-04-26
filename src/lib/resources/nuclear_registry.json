@@ -1,0 +1,490 @@
+{
+  "sector": "NUCL",
+  "subSector": "NUCL-ALL",
+  "equipment": [
+    {
+      "type": "Pressurized Water Reactor",
+      "category": "reactor",
+      "tags": [
+        "CORE",
+        "PRIMARY"
+      ],
+      "description": "Main vessel for nuclear fission"
+    },
+    {
+      "type": "Boiling Water Reactor",
+      "category": "reactor",
+      "tags": [
+        "CORE",
+        "PRIMARY"
+      ],
+      "description": "Reactor where water boils in core"
+    },
+    {
+      "type": "Control Rod Drive Mechanism",
+      "category": "mechanical",
+      "tags": [
+        "CONTROL",
+        "SAFETY"
+      ],
+      "description": "Mechanisms to insert/withdraw control rods"
+    },
+    {
+      "type": "Reactor Coolant Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "PRIMARY"
+      ],
+      "description": "Circulates coolant in primary loop"
+    },
+    {
+      "type": "Steam Generator",
+      "category": "heat_exchanger",
+      "tags": [
+        "STEAM",
+        "PRIMARY",
+        "SECONDARY"
+      ],
+      "description": "Transfers heat from primary to secondary loop"
+    },
+    {
+      "type": "Pressurizer",
+      "category": "vessel",
+      "tags": [
+        "PRESSURE",
+        "PRIMARY"
+      ],
+      "description": "Maintains primary loop pressure"
+    },
+    {
+      "type": "Containment Spray Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SAFETY"
+      ],
+      "description": "Provides spray to reduce containment pressure"
+    },
+    {
+      "type": "Safety Injection Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SAFETY"
+      ],
+      "description": "High pressure injection for emergency cooling"
+    },
+    {
+      "type": "Residual Heat Removal Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SAFETY"
+      ],
+      "description": "Removes decay heat after shutdown"
+    },
+    {
+      "type": "Main Steam Isolation Valve",
+      "category": "valve",
+      "tags": [
+        "VALVE",
+        "SAFETY",
+        "STEAM"
+      ],
+      "description": "Isolates main steam lines"
+    },
+    {
+      "type": "Pressurizer Safety Valve",
+      "category": "valve",
+      "tags": [
+        "VALVE",
+        "SAFETY",
+        "PRESSURE"
+      ],
+      "description": "Overpressure protection for primary loop"
+    },
+    {
+      "type": "Pressurizer Relief Valve",
+      "category": "valve",
+      "tags": [
+        "VALVE",
+        "PRESSURE"
+      ],
+      "description": "Power-operated relief valve for pressurizer"
+    },
+    {
+      "type": "Feedwater Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SECONDARY"
+      ],
+      "description": "Supplies feedwater to steam generators"
+    },
+    {
+      "type": "Condensate Extraction Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SECONDARY"
+      ],
+      "description": "Extracts condensate from condenser"
+    },
+    {
+      "type": "Main Turbine",
+      "category": "rotating",
+      "tags": [
+        "TURBINE",
+        "SECONDARY"
+      ],
+      "description": "Converts steam energy to mechanical energy"
+    },
+    {
+      "type": "High Pressure Turbine",
+      "category": "rotating",
+      "tags": [
+        "TURBINE",
+        "SECONDARY"
+      ],
+      "description": "High pressure stage of main turbine"
+    },
+    {
+      "type": "Low Pressure Turbine",
+      "category": "rotating",
+      "tags": [
+        "TURBINE",
+        "SECONDARY"
+      ],
+      "description": "Low pressure stage of main turbine"
+    },
+    {
+      "type": "Main Generator",
+      "category": "electrical",
+      "tags": [
+        "GENERATOR",
+        "ELECTRICAL"
+      ],
+      "description": "Converts mechanical energy to electrical power"
+    },
+    {
+      "type": "Moisture Separator Reheater",
+      "category": "heat_exchanger",
+      "tags": [
+        "STEAM",
+        "SECONDARY"
+      ],
+      "description": "Removes moisture and reheats steam between turbine stages"
+    },
+    {
+      "type": "Main Condenser",
+      "category": "heat_exchanger",
+      "tags": [
+        "CONDENSER",
+        "SECONDARY"
+      ],
+      "description": "Condenses exhaust steam from low pressure turbines"
+    },
+    {
+      "type": "Circulating Water Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "COOLING"
+      ],
+      "description": "Provides cooling water to main condenser"
+    },
+    {
+      "type": "Cooling Tower",
+      "category": "heat_exchanger",
+      "tags": [
+        "COOLING",
+        "ENVIRONMENT"
+      ],
+      "description": "Rejects heat to the atmosphere"
+    },
+    {
+      "type": "Essential Service Water Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "COOLING",
+        "SAFETY"
+      ],
+      "description": "Provides cooling to safety-related equipment"
+    },
+    {
+      "type": "Component Cooling Water Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "COOLING"
+      ],
+      "description": "Cooling loop for internal plant components"
+    },
+    {
+      "type": "Component Cooling Water Heat Exchanger",
+      "category": "heat_exchanger",
+      "tags": [
+        "COOLING"
+      ],
+      "description": "Transfers heat from component cooling to service water"
+    },
+    {
+      "type": "Spent Fuel Pool Cooling Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "COOLING",
+        "FUEL"
+      ],
+      "description": "Circulates water in spent fuel pool"
+    },
+    {
+      "type": "Spent Fuel Pool Heat Exchanger",
+      "category": "heat_exchanger",
+      "tags": [
+        "COOLING",
+        "FUEL"
+      ],
+      "description": "Removes decay heat from spent fuel pool"
+    },
+    {
+      "type": "Emergency Diesel Generator",
+      "category": "electrical",
+      "tags": [
+        "GENERATOR",
+        "SAFETY",
+        "POWER"
+      ],
+      "description": "Backup power supply for safety systems"
+    },
+    {
+      "type": "Station Blackout Generator",
+      "category": "electrical",
+      "tags": [
+        "GENERATOR",
+        "SAFETY",
+        "POWER"
+      ],
+      "description": "Alternate AC power source"
+    },
+    {
+      "type": "Battery Bank",
+      "category": "electrical",
+      "tags": [
+        "BATTERY",
+        "SAFETY",
+        "DC"
+      ],
+      "description": "DC power supply for vital instrumentation"
+    },
+    {
+      "type": "Inverter",
+      "category": "electrical",
+      "tags": [
+        "INVERTER",
+        "AC",
+        "DC"
+      ],
+      "description": "Converts DC to vital AC power"
+    },
+    {
+      "type": "Motor Control Center",
+      "category": "electrical",
+      "tags": [
+        "SWITCHGEAR",
+        "ELECTRICAL"
+      ],
+      "description": "Distributes power to low voltage motors"
+    },
+    {
+      "type": "Medium Voltage Switchgear",
+      "category": "electrical",
+      "tags": [
+        "SWITCHGEAR",
+        "ELECTRICAL"
+      ],
+      "description": "Distributes power to large motors"
+    },
+    {
+      "type": "Main Step-up Transformer",
+      "category": "electrical",
+      "tags": [
+        "TRANSFORMER",
+        "POWER"
+      ],
+      "description": "Steps up voltage for grid transmission"
+    },
+    {
+      "type": "Unit Auxiliary Transformer",
+      "category": "electrical",
+      "tags": [
+        "TRANSFORMER",
+        "POWER"
+      ],
+      "description": "Steps down voltage for plant use"
+    },
+    {
+      "type": "Station Service Transformer",
+      "category": "electrical",
+      "tags": [
+        "TRANSFORMER",
+        "POWER"
+      ],
+      "description": "Off-site power supply to plant"
+    },
+    {
+      "type": "Boric Acid Transfer Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "CHEMICAL"
+      ],
+      "description": "Transfers boric acid for reactivity control"
+    },
+    {
+      "type": "Chemical and Volume Control Tank",
+      "category": "vessel",
+      "tags": [
+        "TANK",
+        "PRIMARY"
+      ],
+      "description": "Surge volume for primary loop letdown/makeup"
+    },
+    {
+      "type": "Letdown Heat Exchanger",
+      "category": "heat_exchanger",
+      "tags": [
+        "COOLING",
+        "PRIMARY"
+      ],
+      "description": "Cools primary coolant before purification"
+    },
+    {
+      "type": "Regenerative Heat Exchanger",
+      "category": "heat_exchanger",
+      "tags": [
+        "HEATING",
+        "PRIMARY"
+      ],
+      "description": "Heats makeup water using letdown water"
+    },
+    {
+      "type": "Mixed Bed Demineralizer",
+      "category": "vessel",
+      "tags": [
+        "FILTER",
+        "PURIFICATION"
+      ],
+      "description": "Removes ionic impurities from coolant"
+    },
+    {
+      "type": "Reactor Coolant Filter",
+      "category": "vessel",
+      "tags": [
+        "FILTER",
+        "PURIFICATION"
+      ],
+      "description": "Removes particulate impurities from coolant"
+    },
+    {
+      "type": "Hydrogen Recombiner",
+      "category": "static",
+      "tags": [
+        "SAFETY",
+        "GAS"
+      ],
+      "description": "Removes combustible hydrogen from containment"
+    },
+    {
+      "type": "Containment Cooling Fan",
+      "category": "rotating",
+      "tags": [
+        "FAN",
+        "HVAC",
+        "SAFETY"
+      ],
+      "description": "Circulates and cools containment air"
+    },
+    {
+      "type": "Control Room HVAC Unit",
+      "category": "rotating",
+      "tags": [
+        "HVAC",
+        "SAFETY"
+      ],
+      "description": "Maintains habitable environment in control room"
+    },
+    {
+      "type": "Core Flood Tank",
+      "category": "vessel",
+      "tags": [
+        "TANK",
+        "SAFETY",
+        "ACCUMULATOR"
+      ],
+      "description": "Passive injection of borated water"
+    },
+    {
+      "type": "Refueling Water Storage Tank",
+      "category": "vessel",
+      "tags": [
+        "TANK",
+        "SAFETY",
+        "FUEL"
+      ],
+      "description": "Water supply for emergency injection and refueling"
+    },
+    {
+      "type": "Neutron Flux Monitor",
+      "category": "instrumentation",
+      "tags": [
+        "SENSOR",
+        "NUCLEAR",
+        "SAFETY"
+      ],
+      "description": "Measures reactor power level"
+    },
+    {
+      "type": "Reactor Coolant Temperature Sensor",
+      "category": "instrumentation",
+      "tags": [
+        "SENSOR",
+        "TEMPERATURE",
+        "SAFETY"
+      ],
+      "description": "Measures primary loop temperature"
+    },
+    {
+      "type": "Pressurizer Level Transmitter",
+      "category": "instrumentation",
+      "tags": [
+        "SENSOR",
+        "LEVEL",
+        "SAFETY"
+      ],
+      "description": "Measures water level in pressurizer"
+    },
+    {
+      "type": "Containment Pressure Transmitter",
+      "category": "instrumentation",
+      "tags": [
+        "SENSOR",
+        "PRESSURE",
+        "SAFETY"
+      ],
+      "description": "Measures pressure inside containment"
+    },
+    {
+      "type": "Radiation Monitor",
+      "category": "instrumentation",
+      "tags": [
+        "SENSOR",
+        "RADIATION",
+        "SAFETY"
+      ],
+      "description": "Detects radioactive contamination or leaks"
+    }
+  ]
+}
