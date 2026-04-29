@@ -1,0 +1,481 @@
+{
+  "sector": "WATER_TREATMENT",
+  "subSector": "WT-ALL",
+  "equipment": [
+    {
+      "type": "Raw Water Intake Pump",
+      "category": "rotating",
+      "tags": [
+        "KINETIC",
+        "PUMP"
+      ],
+      "description": "Draws water from the source."
+    },
+    {
+      "type": "Bar Screen",
+      "category": "static",
+      "tags": [
+        "STATIC",
+        "SCREEN"
+      ],
+      "description": "Removes large debris from raw water."
+    },
+    {
+      "type": "Fine Screen",
+      "category": "static",
+      "tags": [
+        "STATIC",
+        "SCREEN"
+      ],
+      "description": "Removes smaller debris."
+    },
+    {
+      "type": "Grit Removal Chamber",
+      "category": "static",
+      "tags": [
+        "STATIC",
+        "VESSEL"
+      ],
+      "description": "Allows grit and sand to settle."
+    },
+    {
+      "type": "Grit Pump",
+      "category": "rotating",
+      "tags": [
+        "KINETIC",
+        "PUMP"
+      ],
+      "description": "Pumps settled grit."
+    },
+    {
+      "type": "Rapid Mix Basin",
+      "category": "static",
+      "tags": [
+        "STATIC",
+        "BASIN"
+      ],
+      "description": "Quickly mixes coagulants into water."
+    },
+    {
+      "type": "Flocculation Basin",
+      "category": "static",
+      "tags": [
+        "STATIC",
+        "BASIN"
+      ],
+      "description": "Gently stirs water to form floc."
+    },
+    {
+      "type": "Flocculator Mixer",
+      "category": "rotating",
+      "tags": [
+        "KINETIC",
+        "MIXER"
+      ],
+      "description": "Provides gentle agitation for flocculation."
+    },
+    {
+      "type": "Clarifier",
+      "category": "static",
+      "tags": [
+        "STATIC",
+        "BASIN"
+      ],
+      "description": "Allows floc to settle out of water."
+    },
+    {
+      "type": "Sludge Scraper",
+      "category": "rotating",
+      "tags": [
+        "KINETIC",
+        "SCRAPER"
+      ],
+      "description": "Moves settled sludge to collection point."
+    },
+    {
+      "type": "Primary Sludge Pump",
+      "category": "rotating",
+      "tags": [
+        "KINETIC",
+        "PUMP"
+      ],
+      "description": "Pumps sludge from clarifier."
+    },
+    {
+      "type": "Gravity Sand Filter",
+      "category": "static",
+      "tags": [
+        "STATIC",
+        "FILTER"
+      ],
+      "description": "Filters remaining particles through sand."
+    },
+    {
+      "type": "Filter Backwash Pump",
+      "category": "rotating",
+      "tags": [
+        "KINETIC",
+        "PUMP"
+      ],
+      "description": "Pumps clean water backwards to clean filter."
+    },
+    {
+      "type": "Air Scour Blower",
+      "category": "rotating",
+      "tags": [
+        "KINETIC",
+        "BLOWER"
+      ],
+      "description": "Provides air to agitate filter media during cleaning."
+    },
+    {
+      "type": "Ozone Generator",
+      "category": "electrical",
+      "tags": [
+        "ELECTRICAL",
+        "GENERATOR"
+      ],
+      "description": "Produces ozone for disinfection/oxidation."
+    },
+    {
+      "type": "Ozone Contactor",
+      "category": "static",
+      "tags": [
+        "STATIC",
+        "VESSEL"
+      ],
+      "description": "Provides contact time for ozone and water."
+    },
+    {
+      "type": "Ozone Destruct Unit",
+      "category": "static",
+      "tags": [
+        "STATIC"
+      ],
+      "description": "Removes excess ozone from off-gas."
+    },
+    {
+      "type": "UV Disinfection System",
+      "category": "electrical",
+      "tags": [
+        "ELECTRICAL"
+      ],
+      "description": "Inactivates pathogens using UV light."
+    },
+    {
+      "type": "Chlorine Gas Feeder",
+      "category": "instrumentation",
+      "tags": [
+        "INSTRUMENTATION",
+        "FEEDER"
+      ],
+      "description": "Doses chlorine gas into water."
+    },
+    {
+      "type": "Sodium Hypochlorite Dosing Pump",
+      "category": "rotating",
+      "tags": [
+        "KINETIC",
+        "PUMP"
+      ],
+      "description": "Meters liquid bleach into water."
+    },
+    {
+      "type": "Ammonia Dosing Pump",
+      "category": "rotating",
+      "tags": [
+        "KINETIC",
+        "PUMP"
+      ],
+      "description": "Adds ammonia to form chloramines."
+    },
+    {
+      "type": "Coagulant Dosing Pump",
+      "category": "rotating",
+      "tags": [
+        "KINETIC",
+        "PUMP"
+      ],
+      "description": "Meters alum or ferric into raw water."
+    },
+    {
+      "type": "Polymer Feed System",
+      "category": "rotating",
+      "tags": [
+        "KINETIC",
+        "FEEDER"
+      ],
+      "description": "Prepares and doses polymer for settling."
+    },
+    {
+      "type": "Powdered Activated Carbon Feeder",
+      "category": "rotating",
+      "tags": [
+        "KINETIC",
+        "FEEDER"
+      ],
+      "description": "Adds PAC for taste and odor control."
+    },
+    {
+      "type": "Fluoride Dosing Pump",
+      "category": "rotating",
+      "tags": [
+        "KINETIC",
+        "PUMP"
+      ],
+      "description": "Adds fluoride to treated water."
+    },
+    {
+      "type": "Clearwell",
+      "category": "static",
+      "tags": [
+        "STATIC",
+        "TANK"
+      ],
+      "description": "Stores treated water before distribution."
+    },
+    {
+      "type": "High Service Pump",
+      "category": "rotating",
+      "tags": [
+        "KINETIC",
+        "PUMP"
+      ],
+      "description": "Pumps treated water into the distribution system."
+    },
+    {
+      "type": "Surge Anticipator Valve",
+      "category": "piping",
+      "tags": [
+        "PIPING",
+        "VALVE"
+      ],
+      "description": "Protects pipes from water hammer."
+    },
+    {
+      "type": "Pressure Reducing Valve",
+      "category": "piping",
+      "tags": [
+        "PIPING",
+        "VALVE"
+      ],
+      "description": "Maintains lower pressure in specific zones."
+    },
+    {
+      "type": "Altitude Valve",
+      "category": "piping",
+      "tags": [
+        "PIPING",
+        "VALVE"
+      ],
+      "description": "Controls level in elevated storage tanks."
+    },
+    {
+      "type": "Elevated Storage Tank",
+      "category": "static",
+      "tags": [
+        "STATIC",
+        "TANK"
+      ],
+      "description": "Provides pressure and storage in distribution system."
+    },
+    {
+      "type": "Ground Storage Reservoir",
+      "category": "static",
+      "tags": [
+        "STATIC",
+        "TANK"
+      ],
+      "description": "Provides large volume storage."
+    },
+    {
+      "type": "Booster Pump",
+      "category": "rotating",
+      "tags": [
+        "KINETIC",
+        "PUMP"
+      ],
+      "description": "Increases pressure in distribution zones."
+    },
+    {
+      "type": "Sludge Thickener",
+      "category": "static",
+      "tags": [
+        "STATIC",
+        "VESSEL"
+      ],
+      "description": "Concentrates waste sludge."
+    },
+    {
+      "type": "Thickened Sludge Pump",
+      "category": "rotating",
+      "tags": [
+        "KINETIC",
+        "PUMP"
+      ],
+      "description": "Transfers thickened sludge."
+    },
+    {
+      "type": "Belt Filter Press",
+      "category": "rotating",
+      "tags": [
+        "KINETIC",
+        "PRESS"
+      ],
+      "description": "Dewatering sludge using belts."
+    },
+    {
+      "type": "Centrifuge",
+      "category": "rotating",
+      "tags": [
+        "KINETIC",
+        "CENTRIFUGE"
+      ],
+      "description": "Dewatering sludge using centrifugal force."
+    },
+    {
+      "type": "Sludge Cake Conveyor",
+      "category": "rotating",
+      "tags": [
+        "KINETIC",
+        "CONVEYOR"
+      ],
+      "description": "Moves dewatered sludge."
+    },
+    {
+      "type": "Washwater Recovery Tank",
+      "category": "static",
+      "tags": [
+        "STATIC",
+        "TANK"
+      ],
+      "description": "Collects filter backwash water for settling."
+    },
+    {
+      "type": "Washwater Return Pump",
+      "category": "rotating",
+      "tags": [
+        "KINETIC",
+        "PUMP"
+      ],
+      "description": "Pumps settled washwater back to head of plant."
+    },
+    {
+      "type": "pH Meter",
+      "category": "instrumentation",
+      "tags": [
+        "INSTRUMENTATION",
+        "ANALYZER"
+      ],
+      "description": "Measures acidity/alkalinity."
+    },
+    {
+      "type": "Turbidimeter",
+      "category": "instrumentation",
+      "tags": [
+        "INSTRUMENTATION",
+        "ANALYZER"
+      ],
+      "description": "Measures water clarity."
+    },
+    {
+      "type": "Chlorine Residual Analyzer",
+      "category": "instrumentation",
+      "tags": [
+        "INSTRUMENTATION",
+        "ANALYZER"
+      ],
+      "description": "Measures remaining disinfectant."
+    },
+    {
+      "type": "Dissolved Oxygen Sensor",
+      "category": "instrumentation",
+      "tags": [
+        "INSTRUMENTATION",
+        "SENSOR"
+      ],
+      "description": "Measures oxygen levels."
+    },
+    {
+      "type": "Magnetic Flow Meter",
+      "category": "instrumentation",
+      "tags": [
+        "INSTRUMENTATION",
+        "METER"
+      ],
+      "description": "Measures flow rate of water or sludge."
+    },
+    {
+      "type": "Ultrasonic Level Sensor",
+      "category": "instrumentation",
+      "tags": [
+        "INSTRUMENTATION",
+        "SENSOR"
+      ],
+      "description": "Measures tank levels."
+    },
+    {
+      "type": "Main Control Panel",
+      "category": "electrical",
+      "tags": [
+        "ELECTRICAL",
+        "PANEL"
+      ],
+      "description": "Houses PLC and controls."
+    },
+    {
+      "type": "Motor Control Center",
+      "category": "electrical",
+      "tags": [
+        "ELECTRICAL",
+        "MCC"
+      ],
+      "description": "Houses motor starters and VFDs."
+    },
+    {
+      "type": "Standby Generator",
+      "category": "electrical",
+      "tags": [
+        "ELECTRICAL",
+        "GENERATOR"
+      ],
+      "description": "Provides emergency power."
+    },
+    {
+      "type": "Uninterruptible Power Supply",
+      "category": "electrical",
+      "tags": [
+        "ELECTRICAL",
+        "UPS"
+      ],
+      "description": "Provides short-term battery power."
+    },
+    {
+      "type": "Air Compressor",
+      "category": "rotating",
+      "tags": [
+        "KINETIC",
+        "COMPRESSOR"
+      ],
+      "description": "Provides compressed air for pneumatic valves."
+    },
+    {
+      "type": "Sluice Gate",
+      "category": "piping",
+      "tags": [
+        "PIPING",
+        "VALVE"
+      ],
+      "description": "Controls open channel flow."
+    },
+    {
+      "type": "Check Valve",
+      "category": "piping",
+      "tags": [
+        "PIPING",
+        "VALVE"
+      ],
+      "description": "Prevents backflow."
+    }
+  ]
+}
