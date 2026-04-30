@@ -1,0 +1,566 @@
+{
+  "sector": "NUCL",
+  "subSector": "NUCL-ALL",
+  "equipment": [
+    {
+      "type": "Reactor Coolant Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "PRIMARY_COOLANT"
+      ],
+      "description": "Large centrifugal pump circulating primary coolant through the reactor core."
+    },
+    {
+      "type": "Feedwater Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SECONDARY_LOOP"
+      ],
+      "description": "High-pressure pump supplying water to steam generators."
+    },
+    {
+      "type": "Condensate Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SECONDARY_LOOP"
+      ],
+      "description": "Pump transferring condensed water from the condenser to the feedwater system."
+    },
+    {
+      "type": "Safety Injection Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SAFETY_SYSTEM"
+      ],
+      "description": "High-pressure pump for emergency core cooling."
+    },
+    {
+      "type": "Residual Heat Removal Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SAFETY_SYSTEM"
+      ],
+      "description": "Pump for removing decay heat during shutdown."
+    },
+    {
+      "type": "Containment Spray Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SAFETY_SYSTEM"
+      ],
+      "description": "Pump for reducing containment pressure and temperature post-accident."
+    },
+    {
+      "type": "Component Cooling Water Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "COOLING"
+      ],
+      "description": "Pump providing cooling water to auxiliary components."
+    },
+    {
+      "type": "Essential Service Water Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "COOLING"
+      ],
+      "description": "Ultimate heat sink pump supplying raw cooling water."
+    },
+    {
+      "type": "Boric Acid Transfer Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "CHEMICAL_CONTROL"
+      ],
+      "description": "Pump for transferring concentrated boric acid for reactivity control."
+    },
+    {
+      "type": "Charging Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "CVCS"
+      ],
+      "description": "High-pressure pump for primary coolant inventory and seal water."
+    },
+    {
+      "type": "Positive Displacement Charging Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "PD",
+        "CVCS"
+      ],
+      "description": "PD pump for precise primary coolant inventory control."
+    },
+    {
+      "type": "Diesel Generator Starting Air Compressor",
+      "category": "rotating",
+      "tags": [
+        "COMPRESSOR",
+        "EDG"
+      ],
+      "description": "Compressor providing starting air for emergency diesel generators."
+    },
+    {
+      "type": "Instrument Air Compressor",
+      "category": "rotating",
+      "tags": [
+        "COMPRESSOR",
+        "PNEUMATIC"
+      ],
+      "description": "Compressor supplying dry air for pneumatic instrumentation."
+    },
+    {
+      "type": "Main Steam Turbine",
+      "category": "rotating",
+      "tags": [
+        "TURBINE",
+        "POWER_GENERATION"
+      ],
+      "description": "Large steam turbine driving the main generator."
+    },
+    {
+      "type": "Auxiliary Feedwater Pump Turbine",
+      "category": "rotating",
+      "tags": [
+        "TURBINE",
+        "SAFETY_SYSTEM"
+      ],
+      "description": "Steam-driven turbine for auxiliary feedwater pump."
+    },
+    {
+      "type": "Emergency Diesel Generator",
+      "category": "rotating",
+      "tags": [
+        "GENERATOR",
+        "SAFETY_SYSTEM"
+      ],
+      "description": "Diesel engine and generator for emergency AC power."
+    },
+    {
+      "type": "Main Generator",
+      "category": "rotating",
+      "tags": [
+        "GENERATOR",
+        "POWER_GENERATION"
+      ],
+      "description": "Large synchronous generator producing electrical power."
+    },
+    {
+      "type": "Reactor Pressure Vessel",
+      "category": "static",
+      "tags": [
+        "VESSEL",
+        "PRIMARY_COOLANT"
+      ],
+      "description": "Heavy steel vessel containing the nuclear reactor core."
+    },
+    {
+      "type": "Steam Generator",
+      "category": "static",
+      "tags": [
+        "HEAT_EXCHANGER",
+        "PRIMARY_TO_SECONDARY"
+      ],
+      "description": "Large heat exchanger producing steam from primary coolant heat."
+    },
+    {
+      "type": "Pressurizer",
+      "category": "static",
+      "tags": [
+        "VESSEL",
+        "PRESSURE_CONTROL"
+      ],
+      "description": "Vessel maintaining primary system pressure."
+    },
+    {
+      "type": "Main Condenser",
+      "category": "static",
+      "tags": [
+        "HEAT_EXCHANGER",
+        "SECONDARY_LOOP"
+      ],
+      "description": "Large heat exchanger condensing steam from the turbine."
+    },
+    {
+      "type": "Moisture Separator Reheater",
+      "category": "static",
+      "tags": [
+        "HEAT_EXCHANGER",
+        "SECONDARY_LOOP"
+      ],
+      "description": "Vessel for removing moisture and reheating steam between turbine stages."
+    },
+    {
+      "type": "Residual Heat Exchanger",
+      "category": "static",
+      "tags": [
+        "HEAT_EXCHANGER",
+        "SAFETY_SYSTEM"
+      ],
+      "description": "Heat exchanger for removing decay heat from primary coolant."
+    },
+    {
+      "type": "Component Cooling Water Heat Exchanger",
+      "category": "static",
+      "tags": [
+        "HEAT_EXCHANGER",
+        "COOLING"
+      ],
+      "description": "Heat exchanger rejecting heat to the ultimate heat sink."
+    },
+    {
+      "type": "Regenerative Heat Exchanger",
+      "category": "static",
+      "tags": [
+        "HEAT_EXCHANGER",
+        "CVCS"
+      ],
+      "description": "Heat exchanger recovering heat in the chemical and volume control system."
+    },
+    {
+      "type": "Letdown Heat Exchanger",
+      "category": "static",
+      "tags": [
+        "HEAT_EXCHANGER",
+        "CVCS"
+      ],
+      "description": "Heat exchanger cooling primary coolant letdown flow."
+    },
+    {
+      "type": "Accumulator Tank",
+      "category": "static",
+      "tags": [
+        "TANK",
+        "SAFETY_SYSTEM"
+      ],
+      "description": "Pressurized tank for rapid emergency core cooling injection."
+    },
+    {
+      "type": "Refueling Water Storage Tank",
+      "category": "static",
+      "tags": [
+        "TANK",
+        "STORAGE",
+        "SAFETY_SYSTEM"
+      ],
+      "description": "Large tank storing borated water for refueling and safety injection."
+    },
+    {
+      "type": "Boric Acid Storage Tank",
+      "category": "static",
+      "tags": [
+        "TANK",
+        "STORAGE"
+      ],
+      "description": "Tank storing concentrated boric acid."
+    },
+    {
+      "type": "Volume Control Tank",
+      "category": "static",
+      "tags": [
+        "TANK",
+        "CVCS"
+      ],
+      "description": "Tank providing surge capacity for primary coolant inventory."
+    },
+    {
+      "type": "Spent Fuel Pool",
+      "category": "static",
+      "tags": [
+        "POOL",
+        "STORAGE"
+      ],
+      "description": "Deep pool for storing and cooling spent nuclear fuel."
+    },
+    {
+      "type": "Demineralizer",
+      "category": "static",
+      "tags": [
+        "FILTER",
+        "WATER_TREATMENT"
+      ],
+      "description": "Vessel containing ion exchange resin for water purification."
+    },
+    {
+      "type": "Motor Operated Gate Valve",
+      "category": "piping",
+      "tags": [
+        "VALVE",
+        "ISOLATION",
+        "MOV"
+      ],
+      "description": "Large isolation valve operated by an electric motor."
+    },
+    {
+      "type": "Air Operated Globe Valve",
+      "category": "piping",
+      "tags": [
+        "VALVE",
+        "THROTTLING",
+        "AOV"
+      ],
+      "description": "Control valve operated by a pneumatic actuator."
+    },
+    {
+      "type": "Main Steam Isolation Valve",
+      "category": "piping",
+      "tags": [
+        "VALVE",
+        "ISOLATION",
+        "SAFETY_SYSTEM"
+      ],
+      "description": "Large, fast-closing valve to isolate the steam generator."
+    },
+    {
+      "type": "Pressurizer Safety Valve",
+      "category": "piping",
+      "tags": [
+        "VALVE",
+        "SAFETY"
+      ],
+      "description": "Spring-loaded safety valve for primary system overpressure protection."
+    },
+    {
+      "type": "Power Operated Relief Valve",
+      "category": "piping",
+      "tags": [
+        "VALVE",
+        "RELIEF"
+      ],
+      "description": "Relief valve operated by pilot control for primary system pressure."
+    },
+    {
+      "type": "Check Valve",
+      "category": "piping",
+      "tags": [
+        "VALVE",
+        "NON_RETURN"
+      ],
+      "description": "Valve preventing reverse flow in safety and process systems."
+    },
+    {
+      "type": "Containment Isolation Valve",
+      "category": "piping",
+      "tags": [
+        "VALVE",
+        "ISOLATION",
+        "SAFETY_SYSTEM"
+      ],
+      "description": "Valve for isolating penetrations through the containment boundary."
+    },
+    {
+      "type": "Solenoid Valve",
+      "category": "piping",
+      "tags": [
+        "VALVE",
+        "CONTROL",
+        "SOV"
+      ],
+      "description": "Electrically operated pilot or small isolation valve."
+    },
+    {
+      "type": "Neutron Flux Detector",
+      "category": "instrumentation",
+      "tags": [
+        "INSTRUMENT",
+        "NUCLEAR"
+      ],
+      "description": "Sensor for measuring reactor power level."
+    },
+    {
+      "type": "Core Exit Thermocouple",
+      "category": "instrumentation",
+      "tags": [
+        "INSTRUMENT",
+        "TEMPERATURE",
+        "NUCLEAR"
+      ],
+      "description": "Sensor measuring temperature of coolant exiting the core."
+    },
+    {
+      "type": "Differential Pressure Transmitter",
+      "category": "instrumentation",
+      "tags": [
+        "INSTRUMENT",
+        "PRESSURE",
+        "LEVEL"
+      ],
+      "description": "Transmitter used for level or flow measurement."
+    },
+    {
+      "type": "Reactor Coolant Pressure Transmitter",
+      "category": "instrumentation",
+      "tags": [
+        "INSTRUMENT",
+        "PRESSURE"
+      ],
+      "description": "High-accuracy transmitter for primary system pressure."
+    },
+    {
+      "type": "Pressurizer Level Transmitter",
+      "category": "instrumentation",
+      "tags": [
+        "INSTRUMENT",
+        "LEVEL"
+      ],
+      "description": "Transmitter for primary system inventory control."
+    },
+    {
+      "type": "Main Steam Flow Transmitter",
+      "category": "instrumentation",
+      "tags": [
+        "INSTRUMENT",
+        "FLOW"
+      ],
+      "description": "Transmitter measuring steam flow rate."
+    },
+    {
+      "type": "Feedwater Flow Transmitter",
+      "category": "instrumentation",
+      "tags": [
+        "INSTRUMENT",
+        "FLOW"
+      ],
+      "description": "Transmitter measuring feedwater flow rate."
+    },
+    {
+      "type": "Radiation Monitor",
+      "category": "instrumentation",
+      "tags": [
+        "INSTRUMENT",
+        "RADIATION"
+      ],
+      "description": "Sensor detecting radiation levels in process fluids or areas."
+    },
+    {
+      "type": "Seismic Sensor",
+      "category": "instrumentation",
+      "tags": [
+        "INSTRUMENT",
+        "SEISMIC"
+      ],
+      "description": "Sensor detecting ground motion."
+    },
+    {
+      "type": "Hydrogen Recombiner",
+      "category": "static",
+      "tags": [
+        "SAFETY_SYSTEM",
+        "CONTAINMENT"
+      ],
+      "description": "Device for reducing combustible hydrogen concentration in containment."
+    },
+    {
+      "type": "Containment Cooling Fan",
+      "category": "rotating",
+      "tags": [
+        "FAN",
+        "SAFETY_SYSTEM"
+      ],
+      "description": "Large fan for cooling containment atmosphere."
+    },
+    {
+      "type": "Control Rod Drive Mechanism",
+      "category": "electrical",
+      "tags": [
+        "ELECTRICAL",
+        "NUCLEAR_CONTROL"
+      ],
+      "description": "Electromechanical device for moving control rods."
+    },
+    {
+      "type": "Medium Voltage Switchgear",
+      "category": "electrical",
+      "tags": [
+        "ELECTRICAL",
+        "DISTRIBUTION"
+      ],
+      "description": "Switchgear for major plant loads like reactor coolant pumps."
+    },
+    {
+      "type": "Low Voltage Motor Control Center",
+      "category": "electrical",
+      "tags": [
+        "ELECTRICAL",
+        "DISTRIBUTION"
+      ],
+      "description": "MCC for smaller motors and motor-operated valves."
+    },
+    {
+      "type": "Station Battery",
+      "category": "electrical",
+      "tags": [
+        "ELECTRICAL",
+        "DC_POWER",
+        "SAFETY_SYSTEM"
+      ],
+      "description": "Large battery bank providing safety-related DC power."
+    },
+    {
+      "type": "Battery Charger",
+      "category": "electrical",
+      "tags": [
+        "ELECTRICAL",
+        "DC_POWER"
+      ],
+      "description": "Device maintaining station batteries and supplying DC loads."
+    },
+    {
+      "type": "Inverter",
+      "category": "electrical",
+      "tags": [
+        "ELECTRICAL",
+        "AC_POWER",
+        "SAFETY_SYSTEM"
+      ],
+      "description": "Device converting DC power to vital AC power for instrumentation."
+    },
+    {
+      "type": "Protective Relay",
+      "category": "electrical",
+      "tags": [
+        "ELECTRICAL",
+        "PROTECTION"
+      ],
+      "description": "Device detecting electrical faults and initiating breaker trips."
+    },
+    {
+      "type": "Main Step-Up Transformer",
+      "category": "electrical",
+      "tags": [
+        "ELECTRICAL",
+        "TRANSFORMER"
+      ],
+      "description": "Large transformer connecting the generator to the transmission grid."
+    },
+    {
+      "type": "Unit Auxiliary Transformer",
+      "category": "electrical",
+      "tags": [
+        "ELECTRICAL",
+        "TRANSFORMER"
+      ],
+      "description": "Transformer supplying station power from the main generator."
+    },
+    {
+      "type": "Reserve Auxiliary Transformer",
+      "category": "electrical",
+      "tags": [
+        "ELECTRICAL",
+        "TRANSFORMER"
+      ],
+      "description": "Transformer supplying station power from the transmission grid."
+    }
+  ]
+}
