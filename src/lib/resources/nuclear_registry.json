@@ -1,0 +1,582 @@
+{
+  "sector": "NUCL",
+  "subSector": "NUCL-ALL",
+  "equipment": [
+    {
+      "type": "Reactor Pressure Vessel",
+      "category": "vessel",
+      "tags": [
+        "REACTOR",
+        "CORE",
+        "NUCLEAR"
+      ],
+      "description": "Contains the nuclear reactor core and primary coolant."
+    },
+    {
+      "type": "Steam Generator",
+      "category": "heat_exchanger",
+      "tags": [
+        "HEAT_EXCHANGER",
+        "STEAM",
+        "NUCLEAR"
+      ],
+      "description": "Transfers heat from primary reactor coolant to secondary loop to make steam."
+    },
+    {
+      "type": "Pressurizer",
+      "category": "vessel",
+      "tags": [
+        "PRESSURE",
+        "VESSEL",
+        "NUCLEAR"
+      ],
+      "description": "Maintains primary system pressure in a PWR."
+    },
+    {
+      "type": "Reactor Coolant Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "COOLANT",
+        "CENTRIFUGAL"
+      ],
+      "description": "Circulates primary coolant through the reactor core."
+    },
+    {
+      "type": "Control Rod Drive Mechanism",
+      "category": "mechanical",
+      "tags": [
+        "CONTROL",
+        "DRIVE",
+        "SAFETY"
+      ],
+      "description": "Positions control rods within the reactor core."
+    },
+    {
+      "type": "Main Steam Turbine",
+      "category": "rotating",
+      "tags": [
+        "TURBINE",
+        "STEAM"
+      ],
+      "description": "Converts thermal energy from steam into mechanical energy."
+    },
+    {
+      "type": "Moisture Separator Reheater",
+      "category": "vessel",
+      "tags": [
+        "SEPARATOR",
+        "REHEATER",
+        "STEAM"
+      ],
+      "description": "Removes moisture and reheats steam between turbine stages."
+    },
+    {
+      "type": "Main Condenser",
+      "category": "heat_exchanger",
+      "tags": [
+        "CONDENSER",
+        "HEAT_EXCHANGER",
+        "COOLING"
+      ],
+      "description": "Condenses exhaust steam from the main turbine."
+    },
+    {
+      "type": "Condensate Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "CONDENSATE",
+        "CENTRIFUGAL"
+      ],
+      "description": "Pumps condensed water from the hotwell to feedwater heaters."
+    },
+    {
+      "type": "Main Feedwater Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "FEEDWATER",
+        "HIGH_PRESSURE"
+      ],
+      "description": "Supplies high-pressure water to the steam generators."
+    },
+    {
+      "type": "Auxiliary Feedwater Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SAFETY",
+        "FEEDWATER"
+      ],
+      "description": "Provides emergency feedwater to steam generators."
+    },
+    {
+      "type": "Residual Heat Removal Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SAFETY",
+        "COOLING"
+      ],
+      "description": "Removes decay heat from the core during shutdown."
+    },
+    {
+      "type": "Safety Injection Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SAFETY",
+        "HIGH_PRESSURE"
+      ],
+      "description": "Injects borated water into the core during loss of coolant accidents."
+    },
+    {
+      "type": "Containment Spray Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SAFETY",
+        "SPRAY"
+      ],
+      "description": "Reduces containment pressure and temperature during an accident."
+    },
+    {
+      "type": "Component Cooling Water Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "COOLING",
+        "WATER"
+      ],
+      "description": "Supplies cooling water to essential nuclear components."
+    },
+    {
+      "type": "Essential Service Water Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "COOLING",
+        "SERVICE_WATER"
+      ],
+      "description": "Ultimate heat sink cooling water pump."
+    },
+    {
+      "type": "Diesel Generator",
+      "category": "rotating",
+      "tags": [
+        "GENERATOR",
+        "DIESEL",
+        "EMERGENCY"
+      ],
+      "description": "Provides emergency AC power."
+    },
+    {
+      "type": "Boric Acid Transfer Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "CHEMICAL",
+        "BORON"
+      ],
+      "description": "Transfers boric acid for reactivity control."
+    },
+    {
+      "type": "Main Steam Isolation Valve",
+      "category": "valve",
+      "tags": [
+        "VALVE",
+        "ISOLATION",
+        "STEAM"
+      ],
+      "description": "Rapidly isolates the main steam lines."
+    },
+    {
+      "type": "Pressurizer Relief Valve",
+      "category": "valve",
+      "tags": [
+        "VALVE",
+        "RELIEF",
+        "PRESSURE"
+      ],
+      "description": "Provides overpressure protection for the primary system."
+    },
+    {
+      "type": "Feedwater Isolation Valve",
+      "category": "valve",
+      "tags": [
+        "VALVE",
+        "ISOLATION",
+        "FEEDWATER"
+      ],
+      "description": "Isolates the main feedwater lines."
+    },
+    {
+      "type": "Containment Isolation Valve",
+      "category": "valve",
+      "tags": [
+        "VALVE",
+        "ISOLATION",
+        "CONTAINMENT"
+      ],
+      "description": "Seals the containment building penetrations."
+    },
+    {
+      "type": "Motor Operated Valve",
+      "category": "valve",
+      "tags": [
+        "VALVE",
+        "MOTOR",
+        "ACTUATOR"
+      ],
+      "description": "Standard MOV for flow control and isolation."
+    },
+    {
+      "type": "Air Operated Valve",
+      "category": "valve",
+      "tags": [
+        "VALVE",
+        "PNEUMATIC",
+        "ACTUATOR"
+      ],
+      "description": "Pneumatically operated control valve."
+    },
+    {
+      "type": "Check Valve",
+      "category": "valve",
+      "tags": [
+        "VALVE",
+        "CHECK",
+        "BACKFLOW"
+      ],
+      "description": "Prevents reverse flow in safety and process systems."
+    },
+    {
+      "type": "Refueling Water Storage Tank",
+      "category": "vessel",
+      "tags": [
+        "TANK",
+        "WATER",
+        "STORAGE"
+      ],
+      "description": "Stores borated water for refueling and safety injection."
+    },
+    {
+      "type": "Volume Control Tank",
+      "category": "vessel",
+      "tags": [
+        "TANK",
+        "VOLUME",
+        "CONTROL"
+      ],
+      "description": "Provides surge capacity for the chemical and volume control system."
+    },
+    {
+      "type": "Boric Acid Storage Tank",
+      "category": "vessel",
+      "tags": [
+        "TANK",
+        "CHEMICAL",
+        "STORAGE"
+      ],
+      "description": "Stores concentrated boric acid."
+    },
+    {
+      "type": "Condensate Storage Tank",
+      "category": "vessel",
+      "tags": [
+        "TANK",
+        "WATER",
+        "STORAGE"
+      ],
+      "description": "Provides a reserve of high-purity water."
+    },
+    {
+      "type": "Spent Fuel Pool Cooling Heat Exchanger",
+      "category": "heat_exchanger",
+      "tags": [
+        "HEAT_EXCHANGER",
+        "COOLING",
+        "POOL"
+      ],
+      "description": "Removes decay heat from stored spent fuel."
+    },
+    {
+      "type": "Spent Fuel Pool Cooling Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "COOLING",
+        "POOL"
+      ],
+      "description": "Circulates water through the spent fuel pool."
+    },
+    {
+      "type": "Letdown Heat Exchanger",
+      "category": "heat_exchanger",
+      "tags": [
+        "HEAT_EXCHANGER",
+        "COOLING"
+      ],
+      "description": "Cools primary coolant removed for purification."
+    },
+    {
+      "type": "Regenerative Heat Exchanger",
+      "category": "heat_exchanger",
+      "tags": [
+        "HEAT_EXCHANGER",
+        "REGENERATIVE"
+      ],
+      "description": "Recovers heat from letdown flow to preheat charging flow."
+    },
+    {
+      "type": "Mixed Bed Demineralizer",
+      "category": "vessel",
+      "tags": [
+        "FILTER",
+        "DEMINERALIZER",
+        "PURIFICATION"
+      ],
+      "description": "Removes ionic impurities from primary coolant."
+    },
+    {
+      "type": "Reactor Coolant Filter",
+      "category": "vessel",
+      "tags": [
+        "FILTER",
+        "COOLANT",
+        "PARTICULATE"
+      ],
+      "description": "Removes suspended solids from primary coolant."
+    },
+    {
+      "type": "HEPA Filter Unit",
+      "category": "filter",
+      "tags": [
+        "FILTER",
+        "HVAC",
+        "AIR"
+      ],
+      "description": "High-efficiency particulate air filter for containment exhaust."
+    },
+    {
+      "type": "Charcoal Adsorber",
+      "category": "filter",
+      "tags": [
+        "FILTER",
+        "HVAC",
+        "IODINE"
+      ],
+      "description": "Removes radioactive iodine from air exhaust."
+    },
+    {
+      "type": "Core Exit Thermocouple",
+      "category": "instrument",
+      "tags": [
+        "SENSOR",
+        "TEMPERATURE",
+        "CORE"
+      ],
+      "description": "Measures coolant temperature exiting the reactor core."
+    },
+    {
+      "type": "Excore Neutron Flux Monitor",
+      "category": "instrument",
+      "tags": [
+        "SENSOR",
+        "NEUTRON",
+        "POWER"
+      ],
+      "description": "Measures reactor power from outside the vessel."
+    },
+    {
+      "type": "Incore Neutron Detector",
+      "category": "instrument",
+      "tags": [
+        "SENSOR",
+        "NEUTRON",
+        "FLUX"
+      ],
+      "description": "Measures localized neutron flux within the core."
+    },
+    {
+      "type": "Pressurizer Level Transmitter",
+      "category": "instrument",
+      "tags": [
+        "SENSOR",
+        "LEVEL",
+        "PRESSURE"
+      ],
+      "description": "Monitors water level in the pressurizer."
+    },
+    {
+      "type": "Reactor Coolant System Pressure Transmitter",
+      "category": "instrument",
+      "tags": [
+        "SENSOR",
+        "PRESSURE",
+        "COOLANT"
+      ],
+      "description": "Measures primary system pressure."
+    },
+    {
+      "type": "Steam Generator Water Level Transmitter",
+      "category": "instrument",
+      "tags": [
+        "SENSOR",
+        "LEVEL",
+        "STEAM"
+      ],
+      "description": "Monitors water level in the steam generators."
+    },
+    {
+      "type": "Main Steam Flow Transmitter",
+      "category": "instrument",
+      "tags": [
+        "SENSOR",
+        "FLOW",
+        "STEAM"
+      ],
+      "description": "Measures the flow rate of main steam."
+    },
+    {
+      "type": "Containment Pressure Transmitter",
+      "category": "instrument",
+      "tags": [
+        "SENSOR",
+        "PRESSURE",
+        "CONTAINMENT"
+      ],
+      "description": "Monitors pressure inside the containment building."
+    },
+    {
+      "type": "Containment Radiation Monitor",
+      "category": "instrument",
+      "tags": [
+        "SENSOR",
+        "RADIATION",
+        "CONTAINMENT"
+      ],
+      "description": "Detects elevated radiation levels in containment."
+    },
+    {
+      "type": "Effluent Radiation Monitor",
+      "category": "instrument",
+      "tags": [
+        "SENSOR",
+        "RADIATION",
+        "EFFLUENT"
+      ],
+      "description": "Monitors plant exhaust for radioactive releases."
+    },
+    {
+      "type": "Main Generator",
+      "category": "electrical",
+      "tags": [
+        "GENERATOR",
+        "POWER"
+      ],
+      "description": "Converts mechanical energy from turbine into electrical energy."
+    },
+    {
+      "type": "Main Step-Up Transformer",
+      "category": "electrical",
+      "tags": [
+        "TRANSFORMER",
+        "POWER",
+        "HIGH_VOLTAGE"
+      ],
+      "description": "Steps up generator voltage for transmission grid."
+    },
+    {
+      "type": "Station Auxiliary Transformer",
+      "category": "electrical",
+      "tags": [
+        "TRANSFORMER",
+        "POWER",
+        "AUXILIARY"
+      ],
+      "description": "Provides power to plant equipment from the grid."
+    },
+    {
+      "type": "Unit Auxiliary Transformer",
+      "category": "electrical",
+      "tags": [
+        "TRANSFORMER",
+        "POWER",
+        "AUXILIARY"
+      ],
+      "description": "Provides power to plant equipment from the main generator."
+    },
+    {
+      "type": "4.16kV Switchgear",
+      "category": "electrical",
+      "tags": [
+        "SWITCHGEAR",
+        "MEDIUM_VOLTAGE",
+        "DISTRIBUTION"
+      ],
+      "description": "Distributes medium voltage power to large motors."
+    },
+    {
+      "type": "480V Motor Control Center",
+      "category": "electrical",
+      "tags": [
+        "MCC",
+        "LOW_VOLTAGE",
+        "CONTROL"
+      ],
+      "description": "Controls and distributes power to smaller motors and valves."
+    },
+    {
+      "type": "125V DC Battery Bank",
+      "category": "electrical",
+      "tags": [
+        "BATTERY",
+        "DC",
+        "SAFETY"
+      ],
+      "description": "Provides vital DC power for control systems and emergency lighting."
+    },
+    {
+      "type": "Inverter",
+      "category": "electrical",
+      "tags": [
+        "INVERTER",
+        "POWER",
+        "VITAL"
+      ],
+      "description": "Converts DC power to vital AC power for instruments."
+    },
+    {
+      "type": "Medium Voltage Induction Motor",
+      "category": "electrical",
+      "tags": [
+        "MOTOR",
+        "MEDIUM_VOLTAGE",
+        "ROTATING"
+      ],
+      "description": "Drives large pumps such as RCPs or Feedwater pumps."
+    },
+    {
+      "type": "Low Voltage Induction Motor",
+      "category": "electrical",
+      "tags": [
+        "MOTOR",
+        "LOW_VOLTAGE",
+        "ROTATING"
+      ],
+      "description": "Drives smaller pumps and fans."
+    },
+    {
+      "type": "Variable Frequency Drive",
+      "category": "electrical",
+      "tags": [
+        "VFD",
+        "CONTROL",
+        "MOTOR"
+      ],
+      "description": "Controls the speed of AC motors for process control."
+    }
+  ]
+}
