@@ -1,0 +1,483 @@
+{
+  "sector": "WATER_TREATMENT",
+  "subSector": "WT-ALL",
+  "equipment": [
+    {
+      "type": "Raw Water Intake Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "INTAKE"
+      ],
+      "description": "Draws raw water from source."
+    },
+    {
+      "type": "Coarse Bar Screen",
+      "category": "mechanical",
+      "tags": [
+        "SCREEN",
+        "PRETREATMENT"
+      ],
+      "description": "Removes large debris from raw water."
+    },
+    {
+      "type": "Fine Screen",
+      "category": "mechanical",
+      "tags": [
+        "SCREEN",
+        "PRETREATMENT"
+      ],
+      "description": "Removes smaller debris."
+    },
+    {
+      "type": "Grit Removal System",
+      "category": "mechanical",
+      "tags": [
+        "GRIT",
+        "PRETREATMENT"
+      ],
+      "description": "Removes sand and heavy inorganic material."
+    },
+    {
+      "type": "Grit Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SLUDGE"
+      ],
+      "description": "Pumps grit slurry."
+    },
+    {
+      "type": "Primary Clarifier",
+      "category": "stationary",
+      "tags": [
+        "CLARIFIER",
+        "SETTLING"
+      ],
+      "description": "Allows suspended solids to settle."
+    },
+    {
+      "type": "Primary Sludge Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SLUDGE"
+      ],
+      "description": "Pumps settled sludge from primary clarifier."
+    },
+    {
+      "type": "Aeration Basin",
+      "category": "stationary",
+      "tags": [
+        "BASIN",
+        "BIOLOGICAL"
+      ],
+      "description": "Tank where biological treatment occurs."
+    },
+    {
+      "type": "Aeration Blower",
+      "category": "rotating",
+      "tags": [
+        "BLOWER",
+        "AERATION"
+      ],
+      "description": "Supplies air to the aeration basin."
+    },
+    {
+      "type": "Fine Bubble Diffuser",
+      "category": "mechanical",
+      "tags": [
+        "DIFFUSER",
+        "AERATION"
+      ],
+      "description": "Distributes air as fine bubbles in the aeration basin."
+    },
+    {
+      "type": "Secondary Clarifier",
+      "category": "stationary",
+      "tags": [
+        "CLARIFIER",
+        "SETTLING"
+      ],
+      "description": "Separates biological floc from treated water."
+    },
+    {
+      "type": "Return Activated Sludge Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SLUDGE"
+      ],
+      "description": "Returns sludge to the aeration basin."
+    },
+    {
+      "type": "Waste Activated Sludge Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SLUDGE"
+      ],
+      "description": "Removes excess sludge from the system."
+    },
+    {
+      "type": "Chlorine Contact Chamber",
+      "category": "stationary",
+      "tags": [
+        "BASIN",
+        "DISINFECTION"
+      ],
+      "description": "Provides contact time for chlorine disinfection."
+    },
+    {
+      "type": "Chlorine Dosing Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "DOSING"
+      ],
+      "description": "Meters sodium hypochlorite solution."
+    },
+    {
+      "type": "Sulfur Dioxide Dosing Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "DOSING"
+      ],
+      "description": "Meters dechlorination chemical."
+    },
+    {
+      "type": "UV Disinfection Reactor",
+      "category": "stationary",
+      "tags": [
+        "UV",
+        "DISINFECTION"
+      ],
+      "description": "Uses ultraviolet light to inactivate pathogens."
+    },
+    {
+      "type": "Ozone Generator",
+      "category": "mechanical",
+      "tags": [
+        "OZONE",
+        "DISINFECTION"
+      ],
+      "description": "Generates ozone gas for disinfection and oxidation."
+    },
+    {
+      "type": "Ozone Contactor",
+      "category": "stationary",
+      "tags": [
+        "BASIN",
+        "DISINFECTION"
+      ],
+      "description": "Tank where ozone gas transfers into water."
+    },
+    {
+      "type": "Rapid Sand Filter",
+      "category": "stationary",
+      "tags": [
+        "FILTER",
+        "FILTRATION"
+      ],
+      "description": "Filters suspended solids through sand media."
+    },
+    {
+      "type": "Filter Backwash Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "BACKWASH"
+      ],
+      "description": "Pumps water backwards through filter to clean it."
+    },
+    {
+      "type": "Air Scour Blower",
+      "category": "rotating",
+      "tags": [
+        "BLOWER",
+        "BACKWASH"
+      ],
+      "description": "Provides air to agitate filter media during cleaning."
+    },
+    {
+      "type": "Membrane Bioreactor",
+      "category": "stationary",
+      "tags": [
+        "MEMBRANE",
+        "BIOLOGICAL"
+      ],
+      "description": "Combines biological treatment with membrane filtration."
+    },
+    {
+      "type": "Reverse Osmosis Skid",
+      "category": "stationary",
+      "tags": [
+        "RO",
+        "FILTRATION"
+      ],
+      "description": "Removes dissolved solids using semipermeable membranes."
+    },
+    {
+      "type": "RO High Pressure Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "RO"
+      ],
+      "description": "Provides high pressure needed for reverse osmosis."
+    },
+    {
+      "type": "Cartridge Filter",
+      "category": "stationary",
+      "tags": [
+        "FILTER",
+        "FILTRATION"
+      ],
+      "description": "Provides fine filtration before RO."
+    },
+    {
+      "type": "Flocculation Basin",
+      "category": "stationary",
+      "tags": [
+        "BASIN",
+        "COAGULATION"
+      ],
+      "description": "Provides gentle mixing to form larger flocs."
+    },
+    {
+      "type": "Flocculator Mixer",
+      "category": "rotating",
+      "tags": [
+        "MIXER",
+        "COAGULATION"
+      ],
+      "description": "Gently mixes water in flocculation basin."
+    },
+    {
+      "type": "Rapid Mix Basin",
+      "category": "stationary",
+      "tags": [
+        "BASIN",
+        "COAGULATION"
+      ],
+      "description": "Rapidly disperses coagulant chemicals."
+    },
+    {
+      "type": "Flash Mixer",
+      "category": "rotating",
+      "tags": [
+        "MIXER",
+        "COAGULATION"
+      ],
+      "description": "Provides high-energy mixing for coagulant dispersion."
+    },
+    {
+      "type": "Coagulant Dosing Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "DOSING"
+      ],
+      "description": "Meters coagulant (e.g., alum, ferric chloride)."
+    },
+    {
+      "type": "Polymer Dosing Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "DOSING"
+      ],
+      "description": "Meters polymer to aid in flocculation or sludge thickening."
+    },
+    {
+      "type": "Sludge Thickener",
+      "category": "stationary",
+      "tags": [
+        "THICKENER",
+        "SLUDGE"
+      ],
+      "description": "Increases solids concentration of sludge."
+    },
+    {
+      "type": "Anaerobic Digester",
+      "category": "stationary",
+      "tags": [
+        "DIGESTER",
+        "SLUDGE"
+      ],
+      "description": "Biologically stabilizes sludge and produces biogas."
+    },
+    {
+      "type": "Digester Gas Blower",
+      "category": "rotating",
+      "tags": [
+        "BLOWER",
+        "BIOGAS"
+      ],
+      "description": "Compresses biogas for use or flaring."
+    },
+    {
+      "type": "Waste Gas Flare",
+      "category": "mechanical",
+      "tags": [
+        "FLARE",
+        "BIOGAS"
+      ],
+      "description": "Burns excess biogas safely."
+    },
+    {
+      "type": "Centrifuge",
+      "category": "rotating",
+      "tags": [
+        "CENTRIFUGE",
+        "DEWATERING"
+      ],
+      "description": "Dewateres sludge using centrifugal force."
+    },
+    {
+      "type": "Belt Filter Press",
+      "category": "mechanical",
+      "tags": [
+        "PRESS",
+        "DEWATERING"
+      ],
+      "description": "Dewateres sludge using mechanical pressure."
+    },
+    {
+      "type": "Filter Press",
+      "category": "mechanical",
+      "tags": [
+        "PRESS",
+        "DEWATERING"
+      ],
+      "description": "Dewateres sludge using high pressure plates."
+    },
+    {
+      "type": "Sludge Cake Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SLUDGE"
+      ],
+      "description": "Pumps dewatered sludge cake."
+    },
+    {
+      "type": "Plant Water Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "UTILITY"
+      ],
+      "description": "Provides pressurized utility water for plant use."
+    },
+    {
+      "type": "Potable Water Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "UTILITY"
+      ],
+      "description": "Pumps treated water to distribution system."
+    },
+    {
+      "type": "Magnetic Flow Meter",
+      "category": "instrumentation",
+      "tags": [
+        "FLOW",
+        "SENSOR"
+      ],
+      "description": "Measures volumetric flow of conductive liquids."
+    },
+    {
+      "type": "Ultrasonic Level Transmitter",
+      "category": "instrumentation",
+      "tags": [
+        "LEVEL",
+        "SENSOR"
+      ],
+      "description": "Measures liquid level without contact."
+    },
+    {
+      "type": "pH Sensor",
+      "category": "instrumentation",
+      "tags": [
+        "ANALYZER",
+        "SENSOR"
+      ],
+      "description": "Measures acidity or alkalinity of water."
+    },
+    {
+      "type": "Turbidity Meter",
+      "category": "instrumentation",
+      "tags": [
+        "ANALYZER",
+        "SENSOR"
+      ],
+      "description": "Measures cloudiness of water."
+    },
+    {
+      "type": "Dissolved Oxygen Sensor",
+      "category": "instrumentation",
+      "tags": [
+        "ANALYZER",
+        "SENSOR"
+      ],
+      "description": "Measures concentration of oxygen dissolved in water."
+    },
+    {
+      "type": "Residual Chlorine Analyzer",
+      "category": "instrumentation",
+      "tags": [
+        "ANALYZER",
+        "SENSOR"
+      ],
+      "description": "Measures free or total chlorine residual."
+    },
+    {
+      "type": "Variable Frequency Drive",
+      "category": "electrical",
+      "tags": [
+        "VFD",
+        "CONTROL"
+      ],
+      "description": "Controls speed of AC motors."
+    },
+    {
+      "type": "Motor Starter Panel",
+      "category": "electrical",
+      "tags": [
+        "PANEL",
+        "CONTROL"
+      ],
+      "description": "Provides start/stop control and protection for motors."
+    },
+    {
+      "type": "SCADA PLC Rack",
+      "category": "instrumentation",
+      "tags": [
+        "PLC",
+        "CONTROL"
+      ],
+      "description": "Programmable logic controller for plant automation."
+    },
+    {
+      "type": "Pneumatic Control Valve",
+      "category": "mechanical",
+      "tags": [
+        "VALVE",
+        "CONTROL"
+      ],
+      "description": "Modulates flow based on pneumatic signal."
+    },
+    {
+      "type": "Check Valve",
+      "category": "mechanical",
+      "tags": [
+        "VALVE",
+        "NON-RETURN"
+      ],
+      "description": "Prevents reverse flow in piping."
+    }
+  ]
+}
