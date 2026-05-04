@@ -1,0 +1,510 @@
+{
+  "sector": "NUCL",
+  "subSector": "NUCL-ALL",
+  "equipment": [
+    {
+      "type": "Reactor Pressure Vessel",
+      "category": "static",
+      "tags": [
+        "REACTOR",
+        "PRIMARY"
+      ],
+      "description": "Houses the nuclear reactor core."
+    },
+    {
+      "type": "Control Rod Drive Mechanism",
+      "category": "mechanical",
+      "tags": [
+        "REACTOR",
+        "CONTROL"
+      ],
+      "description": "Moves control rods in and out of the core."
+    },
+    {
+      "type": "Steam Generator",
+      "category": "static",
+      "tags": [
+        "HEAT_EXCHANGER",
+        "PRIMARY"
+      ],
+      "description": "Transfers heat from primary to secondary coolant."
+    },
+    {
+      "type": "Reactor Coolant Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "PRIMARY"
+      ],
+      "description": "Circulates primary coolant."
+    },
+    {
+      "type": "Pressurizer",
+      "category": "static",
+      "tags": [
+        "VESSEL",
+        "PRESSURE_CONTROL"
+      ],
+      "description": "Maintains pressure in the primary loop."
+    },
+    {
+      "type": "Core Makeup Tank",
+      "category": "static",
+      "tags": [
+        "VESSEL",
+        "SAFETY"
+      ],
+      "description": "Passive safety injection tank."
+    },
+    {
+      "type": "Accumulator",
+      "category": "static",
+      "tags": [
+        "VESSEL",
+        "SAFETY"
+      ],
+      "description": "Pressurized tank for emergency core cooling."
+    },
+    {
+      "type": "Containment Vessel",
+      "category": "static",
+      "tags": [
+        "STRUCTURE",
+        "SAFETY"
+      ],
+      "description": "Steel/concrete structure to contain radioactivity."
+    },
+    {
+      "type": "Reactor Internals",
+      "category": "static",
+      "tags": [
+        "REACTOR",
+        "SUPPORT"
+      ],
+      "description": "Supports fuel assemblies and guides coolant."
+    },
+    {
+      "type": "In-Core Flux Thimble",
+      "category": "instrumentation",
+      "tags": [
+        "SENSOR",
+        "NEUTRON"
+      ],
+      "description": "Houses neutron detectors."
+    },
+    {
+      "type": "High Pressure Turbine",
+      "category": "rotating",
+      "tags": [
+        "TURBINE",
+        "SECONDARY"
+      ],
+      "description": "Extracts energy from high-pressure steam."
+    },
+    {
+      "type": "Low Pressure Turbine",
+      "category": "rotating",
+      "tags": [
+        "TURBINE",
+        "SECONDARY"
+      ],
+      "description": "Extracts energy from low-pressure steam."
+    },
+    {
+      "type": "Moisture Separator Reheater",
+      "category": "static",
+      "tags": [
+        "HEAT_EXCHANGER",
+        "SECONDARY"
+      ],
+      "description": "Removes moisture and reheats steam."
+    },
+    {
+      "type": "Main Condenser",
+      "category": "static",
+      "tags": [
+        "HEAT_EXCHANGER",
+        "COOLING"
+      ],
+      "description": "Condenses exhaust steam from turbines."
+    },
+    {
+      "type": "Condensate Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SECONDARY"
+      ],
+      "description": "Pumps condensed water from condenser."
+    },
+    {
+      "type": "Feedwater Heater",
+      "category": "static",
+      "tags": [
+        "HEAT_EXCHANGER",
+        "SECONDARY"
+      ],
+      "description": "Preheats feedwater before steam generator."
+    },
+    {
+      "type": "Main Feedwater Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SECONDARY"
+      ],
+      "description": "Supplies high-pressure feedwater."
+    },
+    {
+      "type": "Deaerator",
+      "category": "static",
+      "tags": [
+        "VESSEL",
+        "WATER_QUALITY"
+      ],
+      "description": "Removes dissolved gases from feedwater."
+    },
+    {
+      "type": "Circulating Water Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "COOLING"
+      ],
+      "description": "Pumps cooling water through main condenser."
+    },
+    {
+      "type": "Cooling Tower",
+      "category": "static",
+      "tags": [
+        "HEAT_EXCHANGER",
+        "COOLING"
+      ],
+      "description": "Rejects waste heat to the atmosphere."
+    },
+    {
+      "type": "Residual Heat Removal Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SAFETY"
+      ],
+      "description": "Removes decay heat during shutdown."
+    },
+    {
+      "type": "Residual Heat Removal Heat Exchanger",
+      "category": "static",
+      "tags": [
+        "HEAT_EXCHANGER",
+        "SAFETY"
+      ],
+      "description": "Cools RHR fluid."
+    },
+    {
+      "type": "Safety Injection Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SAFETY"
+      ],
+      "description": "High-pressure emergency coolant injection."
+    },
+    {
+      "type": "Containment Spray Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SAFETY"
+      ],
+      "description": "Sprays water to reduce containment pressure."
+    },
+    {
+      "type": "Emergency Diesel Generator",
+      "category": "electrical",
+      "tags": [
+        "GENERATOR",
+        "SAFETY",
+        "POWER"
+      ],
+      "description": "Provides backup AC power."
+    },
+    {
+      "type": "Spent Fuel Pool Cooling Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "AUXILIARY"
+      ],
+      "description": "Circulates water in spent fuel pool."
+    },
+    {
+      "type": "Spent Fuel Pool Heat Exchanger",
+      "category": "static",
+      "tags": [
+        "HEAT_EXCHANGER",
+        "AUXILIARY"
+      ],
+      "description": "Cools spent fuel pool water."
+    },
+    {
+      "type": "Chemical and Volume Control Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "AUXILIARY"
+      ],
+      "description": "Controls primary system chemistry and inventory."
+    },
+    {
+      "type": "Boric Acid Storage Tank",
+      "category": "static",
+      "tags": [
+        "TANK",
+        "AUXILIARY"
+      ],
+      "description": "Stores borated water for reactivity control."
+    },
+    {
+      "type": "Volume Control Tank",
+      "category": "static",
+      "tags": [
+        "VESSEL",
+        "AUXILIARY"
+      ],
+      "description": "Surge volume for CVCS."
+    },
+    {
+      "type": "Main Steam Isolation Valve",
+      "category": "static",
+      "tags": [
+        "VALVE",
+        "ISOLATION",
+        "SAFETY"
+      ],
+      "description": "Quickly isolates main steam lines."
+    },
+    {
+      "type": "Pressurizer Safety Valve",
+      "category": "static",
+      "tags": [
+        "VALVE",
+        "RELIEF",
+        "SAFETY"
+      ],
+      "description": "Overpressure protection for primary system."
+    },
+    {
+      "type": "Pressurizer Power Operated Relief Valve",
+      "category": "static",
+      "tags": [
+        "VALVE",
+        "RELIEF"
+      ],
+      "description": "Controlled pressure relief."
+    },
+    {
+      "type": "Feedwater Isolation Valve",
+      "category": "static",
+      "tags": [
+        "VALVE",
+        "ISOLATION",
+        "SAFETY"
+      ],
+      "description": "Isolates feedwater flow."
+    },
+    {
+      "type": "Motor Operated Gate Valve",
+      "category": "static",
+      "tags": [
+        "VALVE",
+        "ISOLATION",
+        "ACTUATED"
+      ],
+      "description": "General isolation valve."
+    },
+    {
+      "type": "Air Operated Globe Valve",
+      "category": "static",
+      "tags": [
+        "VALVE",
+        "CONTROL",
+        "ACTUATED"
+      ],
+      "description": "General control valve."
+    },
+    {
+      "type": "Check Valve",
+      "category": "static",
+      "tags": [
+        "VALVE",
+        "NON-RETURN"
+      ],
+      "description": "Prevents reverse flow."
+    },
+    {
+      "type": "Butterfly Valve",
+      "category": "static",
+      "tags": [
+        "VALVE",
+        "ISOLATION"
+      ],
+      "description": "Large diameter isolation, e.g., circulating water."
+    },
+    {
+      "type": "Safety Relief Valve",
+      "category": "static",
+      "tags": [
+        "VALVE",
+        "RELIEF"
+      ],
+      "description": "General overpressure protection."
+    },
+    {
+      "type": "Solenoid Valve",
+      "category": "static",
+      "tags": [
+        "VALVE",
+        "ACTUATED"
+      ],
+      "description": "Electrically operated pilot or isolation valve."
+    },
+    {
+      "type": "Ex-Core Neutron Detector",
+      "category": "instrumentation",
+      "tags": [
+        "SENSOR",
+        "NEUTRON"
+      ],
+      "description": "Measures reactor power from outside the vessel."
+    },
+    {
+      "type": "Reactor Coolant RTD",
+      "category": "instrumentation",
+      "tags": [
+        "SENSOR",
+        "TEMPERATURE"
+      ],
+      "description": "Precision temperature measurement."
+    },
+    {
+      "type": "Reactor Coolant Flow Transmitter",
+      "category": "instrumentation",
+      "tags": [
+        "SENSOR",
+        "FLOW"
+      ],
+      "description": "Measures primary loop flow."
+    },
+    {
+      "type": "Pressurizer Level Transmitter",
+      "category": "instrumentation",
+      "tags": [
+        "SENSOR",
+        "LEVEL"
+      ],
+      "description": "Measures pressurizer water level."
+    },
+    {
+      "type": "Radiation Monitor",
+      "category": "instrumentation",
+      "tags": [
+        "SENSOR",
+        "RADIATION",
+        "SAFETY"
+      ],
+      "description": "Detects radiation levels in plant areas/effluents."
+    },
+    {
+      "type": "Main Generator",
+      "category": "electrical",
+      "tags": [
+        "GENERATOR",
+        "POWER"
+      ],
+      "description": "Converts mechanical energy to electrical power."
+    },
+    {
+      "type": "Main Step-Up Transformer",
+      "category": "electrical",
+      "tags": [
+        "TRANSFORMER",
+        "POWER"
+      ],
+      "description": "Steps up voltage for grid transmission."
+    },
+    {
+      "type": "Station Service Transformer",
+      "category": "electrical",
+      "tags": [
+        "TRANSFORMER",
+        "POWER"
+      ],
+      "description": "Provides power for plant loads."
+    },
+    {
+      "type": "Battery Bank",
+      "category": "electrical",
+      "tags": [
+        "POWER",
+        "DC",
+        "SAFETY"
+      ],
+      "description": "Provides uninterruptible DC power."
+    },
+    {
+      "type": "Inverter",
+      "category": "electrical",
+      "tags": [
+        "POWER",
+        "AC",
+        "SAFETY"
+      ],
+      "description": "Converts DC battery power to vital AC power."
+    },
+    {
+      "type": "Hydrogen Recombiner",
+      "category": "static",
+      "tags": [
+        "SAFETY",
+        "GAS_CONTROL"
+      ],
+      "description": "Controls hydrogen concentration in containment."
+    },
+    {
+      "type": "Demineralizer",
+      "category": "static",
+      "tags": [
+        "VESSEL",
+        "WATER_QUALITY"
+      ],
+      "description": "Ion exchange vessel for water purification."
+    },
+    {
+      "type": "Filter",
+      "category": "static",
+      "tags": [
+        "FILTRATION",
+        "WATER_QUALITY"
+      ],
+      "description": "Particulate filter."
+    },
+    {
+      "type": "Polar Crane",
+      "category": "mechanical",
+      "tags": [
+        "LIFTING",
+        "MAINTENANCE"
+      ],
+      "description": "Heavy lifting inside containment."
+    },
+    {
+      "type": "Refueling Machine",
+      "category": "mechanical",
+      "tags": [
+        "HANDLING",
+        "FUEL"
+      ],
+      "description": "Moves fuel assemblies."
+    }
+  ]
+}
