@@ -1,0 +1,432 @@
+[
+  {
+    "tag": "Generic-CP-001",
+    "name": "Centrifugal Pump",
+    "componentClass": "Pump",
+    "dexpiType": "CentrifugalPump",
+    "rdlUri": "http://posccaesar.org/rdl/RDS238902",
+    "description": "API 610 Centrifugal Pump for continuous process duties in refinery applications.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 24,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 16,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 150,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 175,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 120,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 550,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 500,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 150,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "rotationalSpeed": {
+        "value": 2950,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 78,
+        "unit": "%"
+      },
+      "head": {
+        "value": 85,
+        "unit": "m"
+      },
+      "NPSHr": {
+        "value": 4.5,
+        "unit": "m"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1250,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 1600,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 850,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 900,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "casing": "ASTM A216 WCB",
+      "impeller": "ASTM A351 CF8M",
+      "shaft": "ASTM A276 Type 410",
+      "seals": "Mechanical Seal API 682",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "bolting": "ASTM A193 Gr. B7",
+      "baseplate": "ASTM A36 Carbon Steel"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Suction",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Discharge",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25",
+        "rating": "PN16",
+        "facing": "RF"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25",
+        "rating": "PN16",
+        "facing": "RF"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199",
+      "IEC 60034"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of an API 610 Centrifugal Pump with industrial metallic finish, visible flanges, and realistic lighting."
+  },
+  {
+    "tag": "Generic-CV-001",
+    "name": "Globe Control Valve",
+    "componentClass": "Valve",
+    "dexpiType": "ControlValve",
+    "rdlUri": "http://posccaesar.org/rdl/RDS323492",
+    "description": "Pneumatic actuated globe control valve for precise flow regulation.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 40,
+        "unit": "bar",
+        "source": "ASME B16.34"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 50,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 30,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -29,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 450,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 400,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 0,
+        "unit": "kW",
+        "source": "N/A"
+      },
+      "rotationalSpeed": {
+        "value": 0,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 100,
+        "unit": "%"
+      },
+      "cv": {
+        "value": 120,
+        "unit": ""
+      },
+      "leakageClass": {
+        "value": "IV",
+        "unit": ""
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 150,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 450,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 300,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 850,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "trim": "SS316 with Stellite overlay",
+      "stem": "ASTM A276 Type 410",
+      "packing": "PTFE/Graphite",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "bolting": "ASTM A193 Gr. B7",
+      "actuator": "Ductile Iron"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Side"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Side"
+      },
+      {
+        "id": "N3",
+        "name": "Air Supply",
+        "service": "Instrument Air",
+        "size": "1/4 inch NPT",
+        "rating": "10 bar",
+        "facing": "Threaded",
+        "position": "Top"
+      }
+    ],
+    "standards": [
+      "ISA 75.01",
+      "ASME B16.34",
+      "IEC 60534",
+      "FCI 70-2"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Globe Control Valve with pneumatic actuator, industrial metallic finish, visible flanges, and realistic lighting."
+  },
+  {
+    "tag": "Generic-EM-001",
+    "name": "Electric Motor",
+    "componentClass": "Motor",
+    "dexpiType": "InductionMotor",
+    "rdlUri": "http://posccaesar.org/rdl/RDS443321",
+    "description": "Three-phase squirrel cage induction motor for driving rotating equipment.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 1,
+        "unit": "atm",
+        "source": "Ambient"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "atm"
+      },
+      "pressureDesign": {
+        "value": 1,
+        "unit": "atm"
+      },
+      "pressureOperating": {
+        "value": 1,
+        "unit": "atm"
+      },
+      "temperatureMax": {
+        "value": 40,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 45,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 35,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 0,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 0,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 160,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "rotationalSpeed": {
+        "value": 2975,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 95.5,
+        "unit": "%"
+      },
+      "voltage": {
+        "value": 400,
+        "unit": "V"
+      },
+      "frequency": {
+        "value": 50,
+        "unit": "Hz"
+      },
+      "dutyPoint": {
+        "value": "S1 (Continuous)",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 850,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 1200,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 600,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 650,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "frame": "Cast Iron",
+      "rotor": "Aluminum/Copper Die Cast",
+      "shaft": "ASTM A1040 Carbon Steel",
+      "coolingFan": "Polypropylene",
+      "terminalBox": "Cast Iron",
+      "bearings": "High Carbon Chromium Steel",
+      "insulation": "Class F Mica/Epoxy"
+    },
+    "nozzles": [
+      {
+        "id": "TB1",
+        "name": "Main Terminal",
+        "service": "Power",
+        "size": "M12",
+        "rating": "1000V",
+        "facing": "Lug",
+        "position": "Top"
+      },
+      {
+        "id": "N1",
+        "name": "Grease Nipple",
+        "service": "Lubrication",
+        "size": "M10",
+        "rating": "Atm",
+        "facing": "Threaded",
+        "position": "DE"
+      },
+      {
+        "id": "N2",
+        "name": "Grease Nipple",
+        "service": "Lubrication",
+        "size": "M10",
+        "rating": "Atm",
+        "facing": "Threaded",
+        "position": "NDE"
+      }
+    ],
+    "standards": [
+      "IEC 60034",
+      "NEMA MG1",
+      "IEEE 841",
+      "ISO 9001"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of an Industrial Electric Motor, finned frame, terminal box visible, realistic lighting."
+  }
+]
