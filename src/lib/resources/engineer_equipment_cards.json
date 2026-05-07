@@ -1,0 +1,432 @@
+[
+  {
+    "tag": "Generic-PMP-001",
+    "name": "Heavy Duty Process Centrifugal Pump",
+    "componentClass": "CentrifugalPump",
+    "dexpiType": "CentrifugalPump",
+    "rdlUri": "http://posccaesar.org/rdl/RDS222453",
+    "description": "API 610 standard OH2 type heavy duty process centrifugal pump designed for severe refining services.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 50,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0.5,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 45,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 30,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 400,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 350,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 280,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 250,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 200,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 75,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "rotationalSpeed": {
+        "value": 2950,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 78,
+        "unit": "%"
+      },
+      "head": {
+        "value": 150,
+        "unit": "m"
+      },
+      "NPSHr": {
+        "value": 4.5,
+        "unit": "m"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 1500,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 600,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 850,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "casing": "ASTM A216 Gr. WCB",
+      "impeller": "ASTM A351 Gr. CF8M",
+      "shaft": "ASTM A276 Type 410",
+      "seals": "Tungsten Carbide / Carbon",
+      "gaskets": "Spiral Wound Graphite",
+      "bolting": "ASTM A193 Gr. B7",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Suction",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Discharge",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Casing Drain",
+        "size": "DN25",
+        "rating": "PN40",
+        "facing": "SW",
+        "position": "Bottom"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Casing Vent",
+        "size": "DN25",
+        "rating": "PN40",
+        "facing": "SW",
+        "position": "Top"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ISO 13709",
+      "ASME B16.5",
+      "IEC 60034"
+    ],
+    "image_prompt": "High-fidelity 3D render of an API 610 OH2 overhung centrifugal pump, carbon steel casing, showing suction and discharge flanges, mounted on a steel baseplate with an electric motor."
+  },
+  {
+    "tag": "Generic-HEX-001",
+    "name": "Shell and Tube Heat Exchanger",
+    "componentClass": "HeatExchanger",
+    "dexpiType": "ShellAndTubeHeatExchanger",
+    "rdlUri": "http://posccaesar.org/rdl/RDS222222",
+    "description": "TEMA Type BEM shell and tube heat exchanger for process liquid cooling duties.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 30,
+        "unit": "bar",
+        "source": "ASME BPVC"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 25,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 800,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 650,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 0,
+        "unit": "kW",
+        "source": "N/A"
+      },
+      "rotationalSpeed": {
+        "value": 0,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 85,
+        "unit": "%"
+      },
+      "head": {
+        "value": 0,
+        "unit": "m"
+      },
+      "NPSHr": {
+        "value": 0,
+        "unit": "m"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 5500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 6000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1200,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1400,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "shell": "ASTM A516 Gr. 70",
+      "tubes": "ASTM A213 TP316L",
+      "tubesheet": "ASTM A182 F316L",
+      "baffles": "ASTM A240 316L",
+      "gaskets": "Kammprofile",
+      "bolting": "ASTM A193 Gr. B7M",
+      "supports": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Shell Inlet",
+        "service": "Cooling Water In",
+        "size": "DN250",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N2",
+        "name": "Shell Outlet",
+        "service": "Cooling Water Out",
+        "size": "DN250",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Bottom"
+      },
+      {
+        "id": "N3",
+        "name": "Tube Inlet",
+        "service": "Process Hot Fluid In",
+        "size": "DN150",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Front"
+      },
+      {
+        "id": "N4",
+        "name": "Tube Outlet",
+        "service": "Process Cold Fluid Out",
+        "size": "DN150",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Back"
+      }
+    ],
+    "standards": [
+      "TEMA",
+      "ASME BPVC Section VIII Div 1",
+      "API 660"
+    ],
+    "image_prompt": "Industrial 3D visualization of a TEMA type BEM shell and tube heat exchanger, steel shell, flanged nozzles, saddle supports."
+  },
+  {
+    "tag": "Generic-VAL-001",
+    "name": "Pneumatic Control Valve",
+    "componentClass": "Valve",
+    "dexpiType": "GlobeValve",
+    "rdlUri": "http://posccaesar.org/rdl/RDS333333",
+    "description": "Flanged globe-style pneumatic control valve with digital positioner for fine flow regulation.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 100,
+        "unit": "bar",
+        "source": "ASME B16.34"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 90,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 50,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 500,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -46,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 450,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 300,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 60,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 0,
+        "unit": "kW",
+        "source": "N/A"
+      },
+      "rotationalSpeed": {
+        "value": 0,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 0,
+        "unit": "%"
+      },
+      "head": {
+        "value": 0,
+        "unit": "m"
+      },
+      "NPSHr": {
+        "value": 0,
+        "unit": "m"
+      },
+      "dutyPoint": {
+        "value": "Modulating",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 180,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 350,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 250,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 750,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A217 Gr. WC6",
+      "trim": "Stellite Faced 316SS",
+      "stem": "ASTM A276 Type 316",
+      "packing": "Graphite",
+      "gaskets": "Spiral Wound Graphite",
+      "bolting": "ASTM A193 Gr. B16",
+      "actuator": "Ductile Iron"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Fluid In",
+        "size": "DN100",
+        "rating": "Class 600",
+        "facing": "RTJ",
+        "position": "Side"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Fluid Out",
+        "size": "DN100",
+        "rating": "Class 600",
+        "facing": "RTJ",
+        "position": "Side"
+      }
+    ],
+    "standards": [
+      "ASME B16.34",
+      "ISA-75.01",
+      "IEC 60534"
+    ],
+    "image_prompt": "Detailed engineering model of a pneumatic globe control valve with a smart digital positioner, flanged ends, metallic finish."
+  }
+]
