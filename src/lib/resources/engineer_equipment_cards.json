@@ -1,0 +1,282 @@
+[
+  {
+    "tag": "Generic-PUMP-001",
+    "name": "Centrifugal Process Pump",
+    "componentClass": "Pump",
+    "dexpiType": "CentrifugalPump",
+    "rdlUri": "http://posccaesar.org/rdl/RDS2382101",
+    "description": "API 610 End-Suction Centrifugal Process Pump for hydrocarbon service.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 40,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 50,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 25,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 120,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 100,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 45,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "rotationalSpeed": {
+        "value": 2950,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 75,
+        "unit": "%"
+      },
+      "head": {
+        "value": 85,
+        "unit": "m"
+      },
+      "NPSHr": {
+        "value": 3.5,
+        "unit": "m"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 450,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 1200,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 600,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 800,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "casing": "ASTM A216 WCB",
+      "impeller": "ASTM A743 CA6NM",
+      "shaft": "ASTM A479 Type 410",
+      "seals": "Viton / Silicon Carbide",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "bolting": "ASTM A193 B7",
+      "baseplate": "ASTM A36 Carbon Steel"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Suction",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Discharge",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Bottom"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Top"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199",
+      "IEC 60034"
+    ],
+    "image_prompt": "Highly detailed 3D model of an API 610 end-suction centrifugal process pump on a carbon steel baseplate."
+  },
+  {
+    "tag": "Generic-VALVE-001",
+    "name": "Gate Valve",
+    "componentClass": "Valve",
+    "dexpiType": "GateValve",
+    "rdlUri": "http://posccaesar.org/rdl/RDS321456",
+    "description": "API 600 Cast Steel Gate Valve, OS&Y, Bolted Bonnet.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 50,
+        "unit": "bar",
+        "source": "API 598"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 60,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 30,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 400,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -29,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 425,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 200,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 0,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 0,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 0,
+        "unit": "kW"
+      },
+      "rotationalSpeed": {
+        "value": 0,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 0,
+        "unit": "%"
+      },
+      "head": {
+        "value": 0,
+        "unit": "m"
+      },
+      "NPSHr": {
+        "value": 0,
+        "unit": "m"
+      },
+      "dutyPoint": {
+        "value": "Intermittent",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 85,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 350,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 200,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 600,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "trim": "API Trim 8 (13Cr)",
+      "stem": "ASTM A182 F6a",
+      "seals": "Graphite",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "bolting": "ASTM A193 B7",
+      "casing": "ASTM A216 WCB"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN100",
+        "rating": "Class 300",
+        "facing": "RF",
+        "position": "Side"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "Class 300",
+        "facing": "RF",
+        "position": "Side"
+      }
+    ],
+    "standards": [
+      "API 600",
+      "ASME B16.34",
+      "API 598"
+    ],
+    "image_prompt": "Highly detailed 3D model of an API 600 Cast Steel Gate Valve, OS&Y design."
+  }
+]
