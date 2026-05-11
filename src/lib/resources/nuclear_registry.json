@@ -1,0 +1,484 @@
+{
+  "sector": "NUCL",
+  "subSector": "NUCL-PR",
+  "equipment": [
+    {
+      "type": "Reactor Pressure Vessel (RPV)",
+      "category": "static",
+      "tags": [
+        "VESSEL",
+        "PRIMARY"
+      ],
+      "description": "Thick-walled steel vessel containing the nuclear reactor core and primary coolant."
+    },
+    {
+      "type": "Pressurizer",
+      "category": "static",
+      "tags": [
+        "VESSEL",
+        "PRESSURE_CONTROL"
+      ],
+      "description": "Vessel used to maintain high pressure in a PWR primary circuit."
+    },
+    {
+      "type": "Steam Generator (U-Tube)",
+      "category": "heat-transfer",
+      "tags": [
+        "HEAT-EXCHANGER",
+        "STEAM"
+      ],
+      "description": "Vertical U-tube heat exchanger generating secondary steam in a PWR."
+    },
+    {
+      "type": "Reactor Coolant Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "PRIMARY"
+      ],
+      "description": "Massive centrifugal pump circulating primary coolant through the core."
+    },
+    {
+      "type": "Control Rod Drive Mechanism (CRDM)",
+      "category": "electrical",
+      "tags": [
+        "ACTUATOR",
+        "SAFETY"
+      ],
+      "description": "Electromagnetic mechanism to insert/withdraw control rods."
+    },
+    {
+      "type": "Core Makeup Tank",
+      "category": "static",
+      "tags": [
+        "TANK",
+        "SAFETY"
+      ],
+      "description": "Passive safety injection tank for emergency core cooling."
+    },
+    {
+      "type": "Accumulator",
+      "category": "static",
+      "tags": [
+        "VESSEL",
+        "SAFETY"
+      ],
+      "description": "Pressurized tank containing borated water for rapid safety injection."
+    },
+    {
+      "type": "High-Pressure Safety Injection (HPSI) Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SAFETY"
+      ],
+      "description": "High-head centrifugal pump for emergency core cooling."
+    },
+    {
+      "type": "Low-Pressure Safety Injection (LPSI) Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SAFETY"
+      ],
+      "description": "High-volume, low-head pump for emergency core cooling and decay heat removal."
+    },
+    {
+      "type": "Containment Spray Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SAFETY"
+      ],
+      "description": "Pump to spray water into containment for pressure and temperature reduction."
+    },
+    {
+      "type": "Residual Heat Removal (RHR) Heat Exchanger",
+      "category": "heat-transfer",
+      "tags": [
+        "HEAT-EXCHANGER",
+        "COOLING"
+      ],
+      "description": "Heat exchanger for decay heat removal during shutdown."
+    },
+    {
+      "type": "Component Cooling Water (CCW) Heat Exchanger",
+      "category": "heat-transfer",
+      "tags": [
+        "HEAT-EXCHANGER",
+        "COOLING"
+      ],
+      "description": "Heat exchanger transferring heat from auxiliary systems to service water."
+    },
+    {
+      "type": "Essential Service Water (ESW) Pump",
+      "category": "rotating",
+      "cooling": "PUMP",
+      "tags": [
+        "PUMP",
+        "COOLING"
+      ],
+      "description": "Pump circulating raw water to the ultimate heat sink."
+    },
+    {
+      "type": "Main Steam Isolation Valve (MSIV)",
+      "category": "valve",
+      "tags": [
+        "VALVE",
+        "ISOLATION"
+      ],
+      "description": "Large, fast-acting valve to isolate steam generators from the turbine."
+    },
+    {
+      "type": "Pressurizer Power Operated Relief Valve (PORV)",
+      "category": "valve",
+      "tags": [
+        "VALVE",
+        "RELIEF"
+      ],
+      "description": "Pilot-operated relief valve for primary pressure control."
+    },
+    {
+      "type": "Pressurizer Safety Valve",
+      "category": "valve",
+      "tags": [
+        "VALVE",
+        "SAFETY"
+      ],
+      "description": "Spring-loaded safety valve for primary system overpressure protection."
+    },
+    {
+      "type": "Main Steam Safety Valve (MSSV)",
+      "category": "valve",
+      "tags": [
+        "VALVE",
+        "SAFETY"
+      ],
+      "description": "Safety valve for secondary system overpressure protection."
+    },
+    {
+      "type": "Feedwater Isolation Valve",
+      "category": "valve",
+      "tags": [
+        "VALVE",
+        "ISOLATION"
+      ],
+      "description": "Valve to isolate main feedwater flow to steam generators."
+    },
+    {
+      "type": "High-Pressure Turbine",
+      "category": "rotating",
+      "tags": [
+        "TURBINE",
+        "STEAM"
+      ],
+      "description": "High-pressure stage of the main steam turbine."
+    },
+    {
+      "type": "Low-Pressure Turbine",
+      "category": "rotating",
+      "tags": [
+        "TURBINE",
+        "STEAM"
+      ],
+      "description": "Low-pressure stages of the main steam turbine."
+    },
+    {
+      "type": "Main Generator",
+      "category": "electrical",
+      "tags": [
+        "GENERATOR",
+        "AC"
+      ],
+      "description": "Synchronous AC generator driven by the steam turbine."
+    },
+    {
+      "type": "Main Condenser",
+      "category": "heat-transfer",
+      "tags": [
+        "CONDENSER",
+        "VACUUM"
+      ],
+      "description": "Large surface condenser to convert exhaust steam back to water."
+    },
+    {
+      "type": "Condensate Extraction Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "CONDENSATE"
+      ],
+      "description": "Pump extracting condensate from the hotwell."
+    },
+    {
+      "type": "Main Feedwater Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "FEEDWATER"
+      ],
+      "description": "High-pressure pump supplying water to the steam generators."
+    },
+    {
+      "type": "Feedwater Heater (High Pressure)",
+      "category": "heat-transfer",
+      "tags": [
+        "HEAT-EXCHANGER",
+        "FEEDWATER"
+      ],
+      "description": "Heat exchanger preheating feedwater using extraction steam."
+    },
+    {
+      "type": "Feedwater Heater (Low Pressure)",
+      "category": "heat-transfer",
+      "tags": [
+        "HEAT-EXCHANGER",
+        "FEEDWATER"
+      ],
+      "description": "Heat exchanger preheating condensate using extraction steam."
+    },
+    {
+      "type": "Deaerator",
+      "category": "static",
+      "tags": [
+        "VESSEL",
+        "DEAERATION"
+      ],
+      "description": "Direct-contact feedwater heater for removing dissolved gases."
+    },
+    {
+      "type": "Moisture Separator Reheater (MSR)",
+      "category": "heat-transfer",
+      "tags": [
+        "HEAT-EXCHANGER",
+        "STEAM"
+      ],
+      "description": "Device to dry and reheat steam between HP and LP turbines."
+    },
+    {
+      "type": "Emergency Diesel Generator (EDG)",
+      "category": "electrical",
+      "tags": [
+        "GENERATOR",
+        "SAFETY"
+      ],
+      "description": "Standby diesel generator for emergency AC power."
+    },
+    {
+      "type": "Station Blackout (SBO) Generator",
+      "category": "electrical",
+      "tags": [
+        "GENERATOR",
+        "BACKUP"
+      ],
+      "description": "Alternate AC power source for coping with station blackout."
+    },
+    {
+      "type": "Class 1E Battery Bank",
+      "category": "electrical",
+      "tags": [
+        "BATTERY",
+        "SAFETY"
+      ],
+      "description": "DC battery bank for safety-related instrumentation and control."
+    },
+    {
+      "type": "Class 1E Inverter",
+      "category": "electrical",
+      "tags": [
+        "INVERTER",
+        "SAFETY"
+      ],
+      "description": "Inverter supplying vital AC power from the battery bank."
+    },
+    {
+      "type": "Class 1E Switchgear",
+      "category": "electrical",
+      "tags": [
+        "SWITCHGEAR",
+        "SAFETY"
+      ],
+      "description": "Medium or low voltage switchgear for safety-related loads."
+    },
+    {
+      "type": "Main Power Transformer",
+      "category": "electrical",
+      "tags": [
+        "TRANSFORMER",
+        "POWER"
+      ],
+      "description": "Step-up transformer connecting the generator to the grid."
+    },
+    {
+      "type": "Unit Auxiliary Transformer",
+      "category": "electrical",
+      "tags": [
+        "TRANSFORMER",
+        "AUXILIARY"
+      ],
+      "description": "Transformer supplying power to plant auxiliaries during operation."
+    },
+    {
+      "type": "Reserve Auxiliary Transformer",
+      "category": "electrical",
+      "tags": [
+        "TRANSFORMER",
+        "AUXILIARY"
+      ],
+      "description": "Transformer supplying power to plant auxiliaries from the grid."
+    },
+    {
+      "type": "Excore Neutron Detector",
+      "category": "instrumentation",
+      "tags": [
+        "DETECTOR",
+        "NUCLEAR"
+      ],
+      "description": "Ionization chamber outside the vessel for reactor power monitoring."
+    },
+    {
+      "type": "Incore Neutron Detector",
+      "category": "instrumentation",
+      "tags": [
+        "DETECTOR",
+        "NUCLEAR"
+      ],
+      "description": "Miniature fission chamber inside the core for flux mapping."
+    },
+    {
+      "type": "Core Exit Thermocouple",
+      "category": "instrumentation",
+      "tags": [
+        "TEMPERATURE",
+        "CORE"
+      ],
+      "description": "Thermocouple measuring coolant temperature exiting the core."
+    },
+    {
+      "type": "Reactor Coolant Flow Transmitter",
+      "category": "instrumentation",
+      "tags": [
+        "FLOW",
+        "PRIMARY"
+      ],
+      "description": "Differential pressure transmitter for primary flow measurement."
+    },
+    {
+      "type": "Pressurizer Level Transmitter",
+      "category": "instrumentation",
+      "tags": [
+        "LEVEL",
+        "PRIMARY"
+      ],
+      "description": "Differential pressure transmitter for pressurizer level."
+    },
+    {
+      "type": "Steam Generator Level Transmitter",
+      "category": "instrumentation",
+      "tags": [
+        "LEVEL",
+        "SECONDARY"
+      ],
+      "description": "Differential pressure transmitter for steam generator narrow/wide range level."
+    },
+    {
+      "type": "Radiation Monitor (Area)",
+      "category": "instrumentation",
+      "tags": [
+        "RADIATION",
+        "MONITOR"
+      ],
+      "description": "Gamma radiation monitor for general plant areas."
+    },
+    {
+      "type": "Radiation Monitor (Process)",
+      "category": "instrumentation",
+      "tags": [
+        "RADIATION",
+        "MONITOR"
+      ],
+      "description": "Monitor for detecting radioactivity in fluid streams."
+    },
+    {
+      "type": "Containment Pressure Transmitter",
+      "category": "instrumentation",
+      "tags": [
+        "PRESSURE",
+        "CONTAINMENT"
+      ],
+      "description": "Transmitter monitoring post-accident containment pressure."
+    },
+    {
+      "type": "Hydrogen Recombiner",
+      "category": "static",
+      "tags": [
+        "RECOMBINER",
+        "SAFETY"
+      ],
+      "description": "Catalytic or thermal device to control hydrogen concentration in containment."
+    },
+    {
+      "type": "Spent Fuel Pool Cooling Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "COOLING"
+      ],
+      "description": "Pump circulating water to cool spent fuel."
+    },
+    {
+      "type": "Spent Fuel Pool Heat Exchanger",
+      "category": "heat-transfer",
+      "tags": [
+        "HEAT-EXCHANGER",
+        "COOLING"
+      ],
+      "description": "Heat exchanger for removing decay heat from the spent fuel pool."
+    },
+    {
+      "type": "Boron Injection Surge Tank",
+      "category": "static",
+      "tags": [
+        "TANK",
+        "BORON"
+      ],
+      "description": "Tank storing highly concentrated boric acid."
+    },
+    {
+      "type": "Chemical and Volume Control System (CVCS) Charging Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "CVCS"
+      ],
+      "description": "High-pressure pump for reactor coolant inventory control and seal injection."
+    },
+    {
+      "type": "Letdown Heat Exchanger",
+      "category": "heat-transfer",
+      "tags": [
+        "HEAT-EXCHANGER",
+        "CVCS"
+      ],
+      "description": "Heat exchanger cooling reactor coolant letdown flow."
+    },
+    {
+      "type": "Volume Control Tank (VCT)",
+      "category": "static",
+      "tags": [
+        "TANK",
+        "CVCS"
+      ],
+      "description": "Surge tank for the CVCS system."
+    },
+    {
+      "type": "Mixed Bed Demineralizer",
+      "category": "static",
+      "tags": [
+        "VESSEL",
+        "PURIFICATION"
+      ],
+      "description": "Ion exchange vessel for reactor coolant purification."
+    }
+  ]
+}
