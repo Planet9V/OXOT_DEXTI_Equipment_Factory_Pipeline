@@ -3,445 +3,529 @@
   "subSector": "ENER-OG",
   "equipment": [
     {
-      "type": "Atmospheric Distillation Column",
-      "category": "static",
-      "tags": [
-        "STATIC",
-        "COLUMN"
-      ],
-      "description": "Standard Atmospheric Distillation Column used in Petroleum Refinery."
-    },
-    {
-      "type": "Vacuum Distillation Column",
-      "category": "static",
-      "tags": [
-        "STATIC",
-        "COLUMN"
-      ],
-      "description": "Standard Vacuum Distillation Column used in Petroleum Refinery."
-    },
-    {
-      "type": "FCC Reactor/Regenerator",
-      "category": "static",
-      "tags": [
-        "STATIC",
-        "REACTOR"
-      ],
-      "description": "Standard FCC Reactor/Regenerator used in Petroleum Refinery."
-    },
-    {
-      "type": "Hydrocracker Reactor",
-      "category": "static",
-      "tags": [
-        "STATIC",
-        "REACTOR"
-      ],
-      "description": "Standard Hydrocracker Reactor used in Petroleum Refinery."
-    },
-    {
-      "type": "Crude Heater",
-      "category": "heat-transfer",
-      "tags": [
-        "HEAT_TRANSFER"
-      ],
-      "description": "Standard Crude Heater used in Petroleum Refinery."
-    },
-    {
-      "type": "Crude Preheat Exchanger",
-      "category": "heat-transfer",
-      "tags": [
-        "HEAT_TRANSFER",
-        "EXCHANGER"
-      ],
-      "description": "Standard Crude Preheat Exchanger used in Petroleum Refinery."
-    },
-    {
-      "type": "Air Fin Cooler",
-      "category": "heat-transfer",
-      "tags": [
-        "HEAT_TRANSFER",
-        "EXCHANGER"
-      ],
-      "description": "Standard Air Fin Cooler used in Petroleum Refinery."
-    },
-    {
-      "type": "Process Pump",
+      "type": "Centrifugal Pump",
       "category": "rotating",
       "tags": [
-        "KINETIC",
-        "PUMP"
+        "PUMP",
+        "KINETIC"
       ],
-      "description": "Standard Process Pump used in Petroleum Refinery."
+      "description": "Standard API 610 overhung pump for process fluids."
     },
     {
-      "type": "Wet Gas Compressor",
+      "type": "Positive Displacement Pump",
       "category": "rotating",
       "tags": [
-        "KINETIC",
-        "COMPRESSOR"
+        "PUMP",
+        "PD"
       ],
-      "description": "Standard Wet Gas Compressor used in Petroleum Refinery."
+      "description": "Gear or diaphragm pump for high viscosity fluids."
     },
     {
-      "type": "Floating Roof Tank",
-      "category": "static",
+      "type": "Centrifugal Compressor",
+      "category": "rotating",
       "tags": [
-        "STATIC",
-        "TANK"
+        "COMPRESSOR",
+        "KINETIC"
       ],
-      "description": "Standard Floating Roof Tank used in Petroleum Refinery."
-    },
-    {
-      "type": "Elevated Flare",
-      "category": "piping",
-      "tags": [
-        "PIPING"
-      ],
-      "description": "Standard Elevated Flare used in Petroleum Refinery."
-    },
-    {
-      "type": "Relief Valve",
-      "category": "piping",
-      "tags": [
-        "PIPING",
-        "VALVE"
-      ],
-      "description": "Standard Relief Valve used in Petroleum Refinery."
-    },
-    {
-      "type": "Stripper Column",
-      "category": "static",
-      "tags": [
-        "STATIC",
-        "COLUMN"
-      ],
-      "description": "Standard Stripper Column used in Petroleum Refinery."
-    },
-    {
-      "type": "Splitter Column",
-      "category": "static",
-      "tags": [
-        "STATIC",
-        "COLUMN"
-      ],
-      "description": "Standard Splitter Column used in Petroleum Refinery."
-    },
-    {
-      "type": "Reformer Reactor",
-      "category": "static",
-      "tags": [
-        "STATIC",
-        "REACTOR"
-      ],
-      "description": "Standard Reformer Reactor used in Petroleum Refinery."
-    },
-    {
-      "type": "Alkylation Reactor",
-      "category": "static",
-      "tags": [
-        "STATIC",
-        "REACTOR"
-      ],
-      "description": "Standard Alkylation Reactor used in Petroleum Refinery."
-    },
-    {
-      "type": "Coker Drum",
-      "category": "static",
-      "tags": [
-        "STATIC"
-      ],
-      "description": "Standard Coker Drum used in Petroleum Refinery."
-    },
-    {
-      "type": "Desalter Vessel",
-      "category": "static",
-      "tags": [
-        "STATIC",
-        "VESSEL"
-      ],
-      "description": "Standard Desalter Vessel used in Petroleum Refinery."
-    },
-    {
-      "type": "Waste Heat Boiler",
-      "category": "heat-transfer",
-      "tags": [
-        "HEAT_TRANSFER"
-      ],
-      "description": "Standard Waste Heat Boiler used in Petroleum Refinery."
-    },
-    {
-      "type": "Plate Heat Exchanger",
-      "category": "heat-transfer",
-      "tags": [
-        "HEAT_TRANSFER",
-        "EXCHANGER"
-      ],
-      "description": "Standard Plate Heat Exchanger used in Petroleum Refinery."
-    },
-    {
-      "type": "Kettle Reboiler",
-      "category": "heat-transfer",
-      "tags": [
-        "HEAT_TRANSFER",
-        "EXCHANGER"
-      ],
-      "description": "Standard Kettle Reboiler used in Petroleum Refinery."
+      "description": "Multi-stage compressor for gas gathering."
     },
     {
       "type": "Reciprocating Compressor",
       "category": "rotating",
       "tags": [
-        "KINETIC",
-        "COMPRESSOR"
+        "COMPRESSOR",
+        "PD"
       ],
-      "description": "Standard Reciprocating Compressor used in Petroleum Refinery."
+      "description": "API 618 compressor for high-pressure gas injection."
     },
     {
-      "type": "Steam Turbine Driver",
+      "type": "Gas Turbine",
       "category": "rotating",
       "tags": [
-        "KINETIC",
+        "DRIVER",
         "TURBINE"
       ],
-      "description": "Standard Steam Turbine Driver used in Petroleum Refinery."
+      "description": "Aero-derivative or heavy duty turbine for power generation or mechanical drive."
     },
     {
-      "type": "HV Electric Motor",
-      "category": "electrical",
+      "type": "Steam Turbine",
+      "category": "rotating",
       "tags": [
-        "ELECTRICAL"
+        "DRIVER",
+        "TURBINE"
       ],
-      "description": "Standard HV Electric Motor used in Petroleum Refinery."
+      "description": "Back-pressure or condensing steam turbine."
     },
     {
-      "type": "Backup Diesel Generator",
-      "category": "electrical",
+      "type": "Axial Compressor",
+      "category": "rotating",
       "tags": [
-        "ELECTRICAL"
+        "COMPRESSOR",
+        "KINETIC"
       ],
-      "description": "Standard Backup Diesel Generator used in Petroleum Refinery."
+      "description": "High flow rate compressor used in LNG processes."
     },
     {
-      "type": "MV Switchgear",
-      "category": "electrical",
+      "type": "Diaphragm Pump",
+      "category": "rotating",
       "tags": [
-        "ELECTRICAL"
+        "PUMP",
+        "PD"
       ],
-      "description": "Standard MV Switchgear used in Petroleum Refinery."
+      "description": "Pneumatic or electric diaphragm pump for hazardous fluids."
     },
     {
-      "type": "UPS System",
-      "category": "electrical",
+      "type": "Screw Pump",
+      "category": "rotating",
       "tags": [
-        "ELECTRICAL"
+        "PUMP",
+        "PD"
       ],
-      "description": "Standard UPS System used in Petroleum Refinery."
+      "description": "Twin or triple screw pump for crude oil transport."
     },
     {
-      "type": "Globe Control Valve",
-      "category": "piping",
+      "type": "Rotary Lobe Pump",
+      "category": "rotating",
       "tags": [
-        "PIPING",
-        "VALVE"
+        "PUMP",
+        "PD"
       ],
-      "description": "Standard Globe Control Valve used in Petroleum Refinery."
+      "description": "Lobe pump for sludge and multiphase fluids."
     },
     {
-      "type": "Butterfly Control Valve",
-      "category": "piping",
+      "type": "Shell and Tube Heat Exchanger",
+      "category": "static",
       "tags": [
-        "PIPING",
-        "VALVE"
+        "EXCHANGER",
+        "THERMAL"
       ],
-      "description": "Standard Butterfly Control Valve used in Petroleum Refinery."
+      "description": "TEMA standard shell and tube exchanger."
     },
     {
-      "type": "Swing Check Valve",
-      "category": "piping",
+      "type": "Air Cooled Heat Exchanger",
+      "category": "static",
       "tags": [
-        "PIPING",
-        "VALVE"
+        "EXCHANGER",
+        "THERMAL",
+        "FIN-FAN"
       ],
-      "description": "Standard Swing Check Valve used in Petroleum Refinery."
+      "description": "Fin-fan cooler for process cooling."
+    },
+    {
+      "type": "Plate and Frame Heat Exchanger",
+      "category": "static",
+      "tags": [
+        "EXCHANGER",
+        "THERMAL"
+      ],
+      "description": "Compact heat exchanger for clean fluids."
+    },
+    {
+      "type": "Double Pipe Heat Exchanger",
+      "category": "static",
+      "tags": [
+        "EXCHANGER",
+        "THERMAL"
+      ],
+      "description": "Hairpin exchanger for high pressure applications."
+    },
+    {
+      "type": "Fired Heater",
+      "category": "static",
+      "tags": [
+        "HEATER",
+        "THERMAL"
+      ],
+      "description": "Direct fired heater or furnace for crude heating."
+    },
+    {
+      "type": "Waste Heat Recovery Unit",
+      "category": "static",
+      "tags": [
+        "HEATER",
+        "RECOVERY"
+      ],
+      "description": "Unit to recover heat from turbine exhaust."
+    },
+    {
+      "type": "Flare Stack",
+      "category": "static",
+      "tags": [
+        "SAFETY",
+        "COMBUSTION"
+      ],
+      "description": "Elevated flare system for emergency gas release."
+    },
+    {
+      "type": "Distillation Column",
+      "category": "static",
+      "tags": [
+        "VESSEL",
+        "SEPARATION"
+      ],
+      "description": "Fractionation column for separating crude oil components."
+    },
+    {
+      "type": "Absorption Column",
+      "category": "static",
+      "tags": [
+        "VESSEL",
+        "SEPARATION"
+      ],
+      "description": "Gas sweetening column (e.g., Amine contactor)."
+    },
+    {
+      "type": "Stripping Column",
+      "category": "static",
+      "tags": [
+        "VESSEL",
+        "SEPARATION"
+      ],
+      "description": "Column for removing dissolved gases from liquids."
+    },
+    {
+      "type": "Three-Phase Separator",
+      "category": "static",
+      "tags": [
+        "VESSEL",
+        "SEPARATION"
+      ],
+      "description": "Horizontal or vertical separator for oil, gas, and water."
+    },
+    {
+      "type": "Two-Phase Separator",
+      "category": "static",
+      "tags": [
+        "VESSEL",
+        "SEPARATION"
+      ],
+      "description": "Knockout drum or flash vessel."
+    },
+    {
+      "type": "Desalter",
+      "category": "static",
+      "tags": [
+        "VESSEL",
+        "TREATMENT"
+      ],
+      "description": "Electrostatic desalter for crude oil washing."
+    },
+    {
+      "type": "Coalescer",
+      "category": "static",
+      "tags": [
+        "VESSEL",
+        "TREATMENT"
+      ],
+      "description": "Liquid-liquid or gas-liquid coalescer filter."
+    },
+    {
+      "type": "Catalytic Reactor",
+      "category": "static",
+      "tags": [
+        "VESSEL",
+        "REACTION"
+      ],
+      "description": "Fixed bed reactor for hydrotreating or reforming."
+    },
+    {
+      "type": "Thermal Reactor",
+      "category": "static",
+      "tags": [
+        "VESSEL",
+        "REACTION"
+      ],
+      "description": "Reactor for thermal cracking processes."
+    },
+    {
+      "type": "Storage Tank (Cone Roof)",
+      "category": "static",
+      "tags": [
+        "TANK",
+        "STORAGE"
+      ],
+      "description": "Fixed roof tank for low volatility liquids."
+    },
+    {
+      "type": "Storage Tank (Floating Roof)",
+      "category": "static",
+      "tags": [
+        "TANK",
+        "STORAGE"
+      ],
+      "description": "Internal or external floating roof tank for crude oil."
+    },
+    {
+      "type": "Spherical Storage Tank",
+      "category": "static",
+      "tags": [
+        "TANK",
+        "STORAGE",
+        "PRESSURIZED"
+      ],
+      "description": "Horton sphere for LPG or NGL storage."
+    },
+    {
+      "type": "Bullet Tank",
+      "category": "static",
+      "tags": [
+        "TANK",
+        "STORAGE",
+        "PRESSURIZED"
+      ],
+      "description": "Horizontal cylindrical tank for high pressure storage."
     },
     {
       "type": "Gate Valve",
       "category": "piping",
       "tags": [
-        "PIPING",
-        "VALVE"
+        "VALVE",
+        "ISOLATION"
       ],
-      "description": "Standard Gate Valve used in Petroleum Refinery."
+      "description": "Wedge gate valve for ON/OFF isolation."
+    },
+    {
+      "type": "Globe Valve",
+      "category": "piping",
+      "tags": [
+        "VALVE",
+        "THROTTLING"
+      ],
+      "description": "Globe valve for flow regulation."
     },
     {
       "type": "Ball Valve",
       "category": "piping",
       "tags": [
-        "PIPING",
-        "VALVE"
+        "VALVE",
+        "ISOLATION",
+        "QUARTER-TURN"
       ],
-      "description": "Standard Ball Valve used in Petroleum Refinery."
+      "description": "Trunnion mounted or floating ball valve."
     },
     {
-      "type": "Rupture Disc",
+      "type": "Butterfly Valve",
       "category": "piping",
       "tags": [
-        "PIPING",
-        "VALVE"
+        "VALVE",
+        "ISOLATION",
+        "QUARTER-TURN"
       ],
-      "description": "Standard Rupture Disc used in Petroleum Refinery."
+      "description": "High performance or triple offset butterfly valve."
+    },
+    {
+      "type": "Check Valve",
+      "category": "piping",
+      "tags": [
+        "VALVE",
+        "NON-RETURN"
+      ],
+      "description": "Swing, lift, or dual-plate check valve to prevent backflow."
+    },
+    {
+      "type": "Plug Valve",
+      "category": "piping",
+      "tags": [
+        "VALVE",
+        "ISOLATION"
+      ],
+      "description": "Lubricated or sleeved plug valve for dirty services."
+    },
+    {
+      "type": "Pressure Relief Valve",
+      "category": "piping",
+      "tags": [
+        "VALVE",
+        "SAFETY"
+      ],
+      "description": "Spring-loaded or pilot-operated relief valve (PSV)."
+    },
+    {
+      "type": "Control Valve",
+      "category": "piping",
+      "tags": [
+        "VALVE",
+        "CONTROL"
+      ],
+      "description": "Pneumatic or electric actuated control valve."
+    },
+    {
+      "type": "Emergency Shutdown Valve",
+      "category": "piping",
+      "tags": [
+        "VALVE",
+        "SAFETY",
+        "ESD"
+      ],
+      "description": "Fail-safe actuated valve for emergency isolation."
+    },
+    {
+      "type": "Choke Valve",
+      "category": "piping",
+      "tags": [
+        "VALVE",
+        "THROTTLING",
+        "WELLHEAD"
+      ],
+      "description": "Severe service valve for wellhead flow control."
     },
     {
       "type": "Coriolis Flow Meter",
       "category": "instrumentation",
       "tags": [
-        "INSTRUMENTATION",
-        "METER"
+        "INSTRUMENT",
+        "FLOW",
+        "MASS"
       ],
-      "description": "Standard Coriolis Flow Meter used in Petroleum Refinery."
-    },
-    {
-      "type": "Vortex Flow Meter",
-      "category": "instrumentation",
-      "tags": [
-        "INSTRUMENTATION",
-        "METER"
-      ],
-      "description": "Standard Vortex Flow Meter used in Petroleum Refinery."
+      "description": "High accuracy mass flow meter."
     },
     {
       "type": "Ultrasonic Flow Meter",
       "category": "instrumentation",
       "tags": [
-        "INSTRUMENTATION",
-        "METER"
+        "INSTRUMENT",
+        "FLOW"
       ],
-      "description": "Standard Ultrasonic Flow Meter used in Petroleum Refinery."
+      "description": "Clamp-on or inline ultrasonic meter for gas or liquid."
+    },
+    {
+      "type": "Magnetic Flow Meter",
+      "category": "instrumentation",
+      "tags": [
+        "INSTRUMENT",
+        "FLOW"
+      ],
+      "description": "Electromagnetic flow meter for conductive fluids."
+    },
+    {
+      "type": "Orifice Plate",
+      "category": "instrumentation",
+      "tags": [
+        "INSTRUMENT",
+        "FLOW",
+        "DP"
+      ],
+      "description": "Differential pressure flow element."
     },
     {
       "type": "Radar Level Transmitter",
       "category": "instrumentation",
       "tags": [
-        "INSTRUMENTATION",
-        "TRANSMITTER"
+        "INSTRUMENT",
+        "LEVEL"
       ],
-      "description": "Standard Radar Level Transmitter used in Petroleum Refinery."
+      "description": "Non-contact or guided wave radar for tank level."
     },
     {
-      "type": "Displacer Level Transmitter",
+      "type": "Differential Pressure Transmitter",
       "category": "instrumentation",
       "tags": [
-        "INSTRUMENTATION",
-        "TRANSMITTER"
+        "INSTRUMENT",
+        "PRESSURE",
+        "DP"
       ],
-      "description": "Standard Displacer Level Transmitter used in Petroleum Refinery."
+      "description": "Versatile DP transmitter for flow, level, or pressure."
     },
     {
       "type": "Pressure Transmitter",
       "category": "instrumentation",
       "tags": [
-        "INSTRUMENTATION",
-        "TRANSMITTER"
+        "INSTRUMENT",
+        "PRESSURE"
       ],
-      "description": "Standard Pressure Transmitter used in Petroleum Refinery."
+      "description": "Gauge or absolute pressure transmitter."
     },
     {
       "type": "Temperature Transmitter",
       "category": "instrumentation",
       "tags": [
-        "INSTRUMENTATION",
-        "SENSOR",
-        "TRANSMITTER"
+        "INSTRUMENT",
+        "TEMPERATURE"
       ],
-      "description": "Standard Temperature Transmitter used in Petroleum Refinery."
+      "description": "RTD or Thermocouple based temperature transmitter."
     },
     {
-      "type": "Gas Chromatograph",
+      "type": "Gas Detector",
       "category": "instrumentation",
       "tags": [
-        "INSTRUMENTATION",
-        "ANALYZER"
+        "INSTRUMENT",
+        "SAFETY",
+        "F&G"
       ],
-      "description": "Standard Gas Chromatograph used in Petroleum Refinery."
+      "description": "Infrared or catalytic bead combustible gas detector."
     },
     {
-      "type": "pH Analyzer",
+      "type": "Flame Detector",
       "category": "instrumentation",
       "tags": [
-        "INSTRUMENTATION",
-        "ANALYZER"
+        "INSTRUMENT",
+        "SAFETY",
+        "F&G"
       ],
-      "description": "Standard pH Analyzer used in Petroleum Refinery."
+      "description": "UV/IR or Multi-IR flame detector for fire and gas systems."
     },
     {
-      "type": "Fire Water Pump",
-      "category": "rotating",
-      "tags": [
-        "KINETIC",
-        "PUMP"
-      ],
-      "description": "Standard Fire Water Pump used in Petroleum Refinery."
-    },
-    {
-      "type": "Instrument Air Compressor",
-      "category": "rotating",
-      "tags": [
-        "KINETIC",
-        "COMPRESSOR"
-      ],
-      "description": "Standard Instrument Air Compressor used in Petroleum Refinery."
-    },
-    {
-      "type": "Main Line Pump",
-      "category": "rotating",
-      "tags": [
-        "KINETIC",
-        "PUMP"
-      ],
-      "description": "Standard Main Line Pump used in Oil Pipeline Terminal."
-    },
-    {
-      "type": "Pump Drive Motor",
+      "type": "Induction Motor",
       "category": "electrical",
       "tags": [
         "ELECTRICAL",
-        "PUMP"
+        "MOTOR"
       ],
-      "description": "Standard Pump Drive Motor used in Oil Pipeline Terminal."
+      "description": "TEFC squirrel cage induction motor."
+    },
+    {
+      "type": "Synchronous Motor",
+      "category": "electrical",
+      "tags": [
+        "ELECTRICAL",
+        "MOTOR"
+      ],
+      "description": "Large synchronous motor for high power compressor drives."
     },
     {
       "type": "Variable Frequency Drive",
       "category": "electrical",
       "tags": [
-        "ELECTRICAL"
+        "ELECTRICAL",
+        "VFD"
       ],
-      "description": "Standard Variable Frequency Drive used in Oil Pipeline Terminal."
+      "description": "Low or medium voltage VFD for motor speed control."
     },
     {
-      "type": "Crude Storage Tank",
-      "category": "static",
+      "type": "Switchgear",
+      "category": "electrical",
       "tags": [
-        "STATIC",
-        "TANK"
+        "ELECTRICAL",
+        "DISTRIBUTION"
       ],
-      "description": "Standard Crude Storage Tank used in Oil Pipeline Terminal."
+      "description": "Medium or low voltage switchgear assembly."
     },
     {
-      "type": "Custody Transfer Meter",
-      "category": "instrumentation",
+      "type": "Power Transformer",
+      "category": "electrical",
       "tags": [
-        "INSTRUMENTATION",
-        "METER"
+        "ELECTRICAL",
+        "TRANSFORMER"
       ],
-      "description": "Standard Custody Transfer Meter used in Oil Pipeline Terminal."
+      "description": "Step-up or step-down oil-filled power transformer."
     },
     {
-      "type": "Pipeline Strainer",
-      "category": "piping",
+      "type": "Motor Control Center",
+      "category": "electrical",
       "tags": [
-        "PIPING"
+        "ELECTRICAL",
+        "MCC"
       ],
-      "description": "Standard Pipeline Strainer used in Oil Pipeline Terminal."
+      "description": "Centralized grouping of motor starters."
+    },
+    {
+      "type": "Uninterruptible Power Supply",
+      "category": "electrical",
+      "tags": [
+        "ELECTRICAL",
+        "UPS"
+      ],
+      "description": "Industrial UPS for critical control systems."
     }
   ]
 }
