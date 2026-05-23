@@ -1,0 +1,449 @@
+[
+  {
+    "tag": "Generic-COL-001",
+    "name": "Atmospheric Distillation Column",
+    "componentClass": "StaticEquipment",
+    "dexpiType": "DistillationColumn",
+    "rdlUri": "http://data.posccaesar.org/rdl/RDS334211",
+    "description": "Multi-tray atmospheric distillation column for crude oil fractionation, featuring 40 sieve trays and structured packing sections.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 5,
+        "unit": "bar",
+        "source": "ASME BPVC VIII"
+      },
+      "pressureMin": {
+        "value": 0.5,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 4.5,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 2.2,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 400,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 380,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 350,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 1000,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 850,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 0,
+        "unit": "kW",
+        "source": "N/A"
+      },
+      "rotationalSpeed": {
+        "value": 0,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 95,
+        "unit": "%"
+      },
+      "head": {
+        "value": 0,
+        "unit": "m"
+      },
+      "NPSHr": {
+        "value": 0,
+        "unit": "m"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 150000,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 45000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 4500,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 45000,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "casing": "ASTM A516 Gr. 70 Clad with SS316L",
+      "impeller": "N/A",
+      "shaft": "N/A",
+      "seals": "N/A",
+      "gaskets": "Spiral Wound SS316L",
+      "bolting": "ASTM A193 Gr. B7M",
+      "baseplate": "ASTM A36 Structural Skirt"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Feed Inlet",
+        "service": "Mixed Phase Feed",
+        "size": "DN600",
+        "rating": "Class 150",
+        "facing": "RF",
+        "position": "Middle"
+      },
+      {
+        "id": "N2",
+        "name": "Overhead Vapor",
+        "service": "Light Distillate",
+        "size": "DN800",
+        "rating": "Class 150",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Bottoms Outlet",
+        "service": "Heavy Residue",
+        "size": "DN400",
+        "rating": "Class 150",
+        "facing": "RF",
+        "position": "Bottom"
+      },
+      {
+        "id": "N4",
+        "name": "Reflux Return",
+        "service": "Reflux",
+        "size": "DN250",
+        "rating": "Class 150",
+        "facing": "RF",
+        "position": "Upper Section"
+      }
+    ],
+    "standards": [
+      "ASME BPVC Section VIII Div 1",
+      "API 650",
+      "ASCE 7"
+    ],
+    "image_prompt": "Tall industrial atmospheric distillation column towering over a refinery landscape, showcasing multiple side-draw nozzle connections, access platforms, and external insulation cladding."
+  },
+  {
+    "tag": "Generic-COL-002",
+    "name": "Vacuum Distillation Column",
+    "componentClass": "StaticEquipment",
+    "dexpiType": "DistillationColumn",
+    "rdlUri": "http://data.posccaesar.org/rdl/RDS334212",
+    "description": "Deep vacuum distillation column for bottom residue processing, featuring high-efficiency structured packing and severe service wash beds.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 2,
+        "unit": "bar",
+        "source": "ASME BPVC VIII"
+      },
+      "pressureMin": {
+        "value": 0.01,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 1.5,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 0.05,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 450,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 420,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 390,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 600,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 500,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 0,
+        "unit": "kW",
+        "source": "N/A"
+      },
+      "rotationalSpeed": {
+        "value": 0,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 92,
+        "unit": "%"
+      },
+      "head": {
+        "value": 0,
+        "unit": "m"
+      },
+      "NPSHr": {
+        "value": 0,
+        "unit": "m"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 180000,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 35000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 8000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 35000,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "casing": "ASTM A516 Gr. 70 Clad with SS317L",
+      "impeller": "N/A",
+      "shaft": "N/A",
+      "seals": "N/A",
+      "gaskets": "Kammprofile SS317L",
+      "bolting": "ASTM A193 Gr. B16",
+      "baseplate": "ASTM A36 Structural Skirt"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Flash Zone Feed",
+        "service": "Heated Residue Feed",
+        "size": "DN1000",
+        "rating": "Class 300",
+        "facing": "RTJ",
+        "position": "Lower Middle"
+      },
+      {
+        "id": "N2",
+        "name": "Overhead Ejector",
+        "service": "Vacuum System Vapor",
+        "size": "DN1200",
+        "rating": "Class 150",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "LVGO Draw",
+        "service": "Light Vacuum Gas Oil",
+        "size": "DN300",
+        "rating": "Class 150",
+        "facing": "RF",
+        "position": "Upper Section"
+      },
+      {
+        "id": "N4",
+        "name": "Vacuum Residue Bottoms",
+        "service": "Heavy Pitch",
+        "size": "DN500",
+        "rating": "Class 300",
+        "facing": "RTJ",
+        "position": "Bottom"
+      }
+    ],
+    "standards": [
+      "ASME BPVC Section VIII Div 1",
+      "API 650",
+      "NACE MR0175"
+    ],
+    "image_prompt": "Massive wide-diameter industrial vacuum distillation column at a refinery, characterized by external stiffening rings to prevent buckling under vacuum, large overhead vapor lines, and heavy insulation."
+  },
+  {
+    "tag": "Generic-RX-001",
+    "name": "FCC Reactor/Regenerator",
+    "componentClass": "StaticEquipment",
+    "dexpiType": "ChemicalReactor",
+    "rdlUri": "http://data.posccaesar.org/rdl/RDS334111",
+    "description": "Fluid Catalytic Cracking unit combined reactor and regenerator section for conversion of heavy gas oils into lighter products.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 10,
+        "unit": "bar",
+        "source": "ASME BPVC VIII"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 8,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 3.5,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 800,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": 0,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 750,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 700,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 4500,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 4000,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 0,
+        "unit": "kW",
+        "source": "N/A"
+      },
+      "rotationalSpeed": {
+        "value": 0,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 88,
+        "unit": "%"
+      },
+      "head": {
+        "value": 0,
+        "unit": "m"
+      },
+      "NPSHr": {
+        "value": 0,
+        "unit": "m"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 450000,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 50000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 15000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 50000,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "casing": "ASTM A387 Gr. 11 Clad with Refractory",
+      "impeller": "N/A",
+      "shaft": "N/A",
+      "seals": "N/A",
+      "gaskets": "Metallic Ring Joint",
+      "bolting": "ASTM A193 Gr. B16",
+      "baseplate": "Massive Concrete and Steel Substructure"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Riser Feed",
+        "service": "Vaporized Feed and Catalyst",
+        "size": "DN1500",
+        "rating": "Class 300",
+        "facing": "RTJ",
+        "position": "Bottom Riser"
+      },
+      {
+        "id": "N2",
+        "name": "Reactor Overhead",
+        "service": "Cracked Product Vapors",
+        "size": "DN1800",
+        "rating": "Class 150",
+        "facing": "RF",
+        "position": "Top Reactor"
+      },
+      {
+        "id": "N3",
+        "name": "Regenerator Flue Gas",
+        "service": "Hot Flue Gas",
+        "size": "DN2000",
+        "rating": "Class 150",
+        "facing": "RF",
+        "position": "Top Regenerator"
+      },
+      {
+        "id": "N4",
+        "name": "Combustion Air Inlet",
+        "service": "Air Feed",
+        "size": "DN1200",
+        "rating": "Class 150",
+        "facing": "RF",
+        "position": "Bottom Regenerator"
+      }
+    ],
+    "standards": [
+      "API 560",
+      "ASME BPVC Section VIII Div 2",
+      "API RP 934"
+    ],
+    "image_prompt": "Complex industrial FCC unit featuring a massive interconnected reactor and regenerator vessel system, high-temperature refractory lined transfer lines, large cyclone separators, and a surrounding multi-level structural steel framework."
+  }
+]
