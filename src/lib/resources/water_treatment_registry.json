@@ -3,148 +3,408 @@
   "subSector": "WATR-SYS",
   "equipment": [
     {
-      "type": "Centrifugal Pump",
+      "type": "Raw Water Intake Pump",
       "category": "rotating",
       "tags": [
         "PUMP",
-        "KINETIC"
+        "INTAKE"
       ],
-      "description": "Standard API 610 overhung pump for process fluids."
+      "description": "Submersible or vertical turbine pump for drawing water from natural sources."
     },
     {
-      "type": "Positive Displacement Pump",
+      "type": "Flocculator Mixer",
       "category": "rotating",
       "tags": [
-        "PUMP",
-        "PD"
+        "MIXER",
+        "AGITATOR"
       ],
-      "description": "Rotary gear pump for high-viscosity fluids."
+      "description": "Slow-speed mixer used to gently agitate water to promote particle agglomeration."
     },
     {
-      "type": "Diaphragm Pump",
+      "type": "Rapid Mix Agitator",
+      "category": "rotating",
+      "tags": [
+        "MIXER",
+        "AGITATOR",
+        "FLASH_MIX"
+      ],
+      "description": "High-speed mixer for rapid dispersion of coagulants into raw water."
+    },
+    {
+      "type": "Clarifier Mechanism",
+      "category": "rotating",
+      "tags": [
+        "CLARIFIER",
+        "SCRAPER"
+      ],
+      "description": "Rotating rake and drive assembly used to collect sludge in circular or rectangular clarifiers."
+    },
+    {
+      "type": "Sludge Recirculation Pump",
       "category": "rotating",
       "tags": [
         "PUMP",
-        "PD"
+        "SLUDGE"
       ],
-      "description": "Air-operated diaphragm pump for slurry transfer."
+      "description": "Centrifugal or positive displacement pump for returning activated sludge to the aeration basin."
+    },
+    {
+      "type": "Waste Sludge Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "SLUDGE"
+      ],
+      "description": "Heavy-duty pump for transferring thickened sludge to digesters or dewatering equipment."
+    },
+    {
+      "type": "Aeration Blower",
+      "category": "rotating",
+      "tags": [
+        "BLOWER",
+        "AERATION"
+      ],
+      "description": "Centrifugal or rotary lobe blower providing air for biological treatment processes."
+    },
+    {
+      "type": "Surface Aerator",
+      "category": "rotating",
+      "tags": [
+        "AERATOR",
+        "MIXER"
+      ],
+      "description": "Mechanical device that agitates the water surface to dissolve oxygen."
     },
     {
       "type": "Dosing Pump",
       "category": "rotating",
       "tags": [
         "PUMP",
-        "METERING"
+        "METERING",
+        "CHEMICAL"
       ],
-      "description": "Chemical metering pump for precise dosing."
+      "description": "Precision metering pump for injecting exact volumes of chemicals like chlorine or coagulants."
     },
     {
-      "type": "Submersible Pump",
+      "type": "Progressive Cavity Pump (Sludge)",
       "category": "rotating",
       "tags": [
         "PUMP",
+        "SLUDGE",
+        "POSITIVE_DISPLACEMENT"
+      ],
+      "description": "Pump ideal for handling high-viscosity or abrasive sludges."
+    },
+    {
+      "type": "Centrifuge (Decanter)",
+      "category": "rotating",
+      "tags": [
+        "CENTRIFUGE",
+        "DEWATERING"
+      ],
+      "description": "High-speed rotating equipment used for sludge thickening and dewatering."
+    },
+    {
+      "type": "Filter Press Feed Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "HIGH_PRESSURE"
+      ],
+      "description": "High-pressure pump designed to feed sludge into a filter press."
+    },
+    {
+      "type": "Grit Pump",
+      "category": "rotating",
+      "tags": [
+        "PUMP",
+        "ABRASIVE"
+      ],
+      "description": "Hardened pump specifically designed to handle highly abrasive grit mixtures."
+    },
+    {
+      "type": "Ozone Generator",
+      "category": "electrical",
+      "tags": [
+        "DISINFECTION",
+        "OZONE"
+      ],
+      "description": "Electrical device that produces ozone gas for advanced water disinfection."
+    },
+    {
+      "type": "UV Disinfection System",
+      "category": "electrical",
+      "tags": [
+        "DISINFECTION",
+        "UV"
+      ],
+      "description": "System utilizing ultraviolet lamps to inactivate pathogens in treated water."
+    },
+    {
+      "type": "Electrolytic Chlorinator",
+      "category": "electrical",
+      "tags": [
+        "DISINFECTION",
+        "CHLORINE"
+      ],
+      "description": "On-site generator producing sodium hypochlorite from salt and electricity."
+    },
+    {
+      "type": "Submersible Mixer",
+      "category": "rotating",
+      "tags": [
+        "MIXER",
         "SUBMERSIBLE"
       ],
-      "description": "Pump designed for fully submerged operation."
+      "description": "Mixer installed underwater in anoxic or anaerobic zones to maintain suspension."
     },
     {
-      "type": "Centrifugal Air Blower",
+      "type": "Rotary Drum Screen",
+      "category": "rotating",
+      "tags": [
+        "SCREEN",
+        "HEADWORKS"
+      ],
+      "description": "Rotating screen for continuous removal of fine solids from influent wastewater."
+    },
+    {
+      "type": "Bar Screen (Mechanical)",
+      "category": "rotating",
+      "tags": [
+        "SCREEN",
+        "HEADWORKS"
+      ],
+      "description": "Automated screen with rakes for removing large debris from the influent channel."
+    },
+    {
+      "type": "Screw Conveyor",
+      "category": "rotating",
+      "tags": [
+        "CONVEYOR",
+        "SOLIDS"
+      ],
+      "description": "Helical screw used to transport screenings, grit, or dewatered sludge."
+    },
+    {
+      "type": "Belt Filter Press",
+      "category": "rotating",
+      "tags": [
+        "PRESS",
+        "DEWATERING"
+      ],
+      "description": "Continuous dewatering machine squeezing sludge between moving porous belts."
+    },
+    {
+      "type": "Rotary Lobe Blower",
       "category": "rotating",
       "tags": [
         "BLOWER",
-        "AERATION"
+        "POSITIVE_DISPLACEMENT"
       ],
-      "description": "Centrifugal blower for aeration tanks."
-    },
-    {
-      "type": "Roots Blower",
-      "category": "rotating",
-      "tags": [
-        "BLOWER",
-        "PD"
-      ],
-      "description": "Positive displacement blower for air mixing."
+      "description": "Positive displacement blower commonly used for filter backwashing or aeration."
     },
     {
       "type": "Air Compressor",
       "category": "rotating",
       "tags": [
         "COMPRESSOR",
-        "AIR"
+        "PNEUMATIC"
       ],
-      "description": "Rotary screw air compressor for instrument air."
+      "description": "Compressor providing instrument or utility air for pneumatic valves and controls."
     },
     {
-      "type": "Anaerobic Digester",
-      "category": "process",
+      "type": "Electric Motor (Induction)",
+      "category": "electrical",
       "tags": [
-        "DIGESTER",
-        "BIOLOGICAL"
+        "DRIVER",
+        "INDUCTION"
       ],
-      "description": "Tank for anaerobic biological treatment."
+      "description": "Standard AC induction motor used as the primary driver for pumps and blowers."
     },
     {
-      "type": "Aeration Basin",
-      "category": "process",
+      "type": "Variable Frequency Drive (VFD)",
+      "category": "electrical",
       "tags": [
-        "BASIN",
-        "AERATION"
+        "DRIVER",
+        "CONTROL"
       ],
-      "description": "Biological treatment basin with air diffusion."
+      "description": "Controller adjusting motor speed for energy-efficient pump and blower operation."
     },
     {
-      "type": "Clarifier",
-      "category": "process",
+      "type": "Motor Control Center (MCC)",
+      "category": "electrical",
+      "tags": [
+        "POWER_DIST",
+        "CONTROL"
+      ],
+      "description": "Centralized assembly of motor starters, fuses, and breakers."
+    },
+    {
+      "type": "Standby Diesel Generator",
+      "category": "rotating",
+      "tags": [
+        "DRIVER",
+        "POWER_GEN",
+        "EMERGENCY"
+      ],
+      "description": "Backup power generator to ensure continuous operation during grid outages."
+    },
+    {
+      "type": "Lamella Clarifier",
+      "category": "static",
       "tags": [
         "CLARIFIER",
         "SETTLING"
       ],
-      "description": "Circular settling tank for solids removal."
+      "description": "Compact settling tank using inclined plates to increase settling area."
     },
     {
-      "type": "Flocculator",
-      "category": "process",
+      "type": "Dissolved Air Flotation (DAF)",
+      "category": "static",
+      "tags": [
+        "FLOTATION",
+        "SEPARATION"
+      ],
+      "description": "Tank where microscopic air bubbles attach to suspended solids, floating them to the surface."
+    },
+    {
+      "type": "Gravity Sand Filter",
+      "category": "static",
+      "tags": [
+        "FILTER",
+        "MEDIA"
+      ],
+      "description": "Open basin using layers of sand and anthracite to filter out fine particles."
+    },
+    {
+      "type": "Pressure Sand Filter",
+      "category": "static",
+      "tags": [
+        "FILTER",
+        "MEDIA",
+        "PRESSURE"
+      ],
+      "description": "Enclosed vessel containing filter media, operating under pressure."
+    },
+    {
+      "type": "Reverse Osmosis (RO) Skid",
+      "category": "static",
+      "tags": [
+        "MEMBRANE",
+        "DESALINATION"
+      ],
+      "description": "System of semi-permeable membranes using high pressure to remove dissolved salts."
+    },
+    {
+      "type": "Ultrafiltration (UF) Skid",
+      "category": "static",
+      "tags": [
+        "MEMBRANE",
+        "FILTRATION"
+      ],
+      "description": "Membrane system separating macromolecules and suspended solids from water."
+    },
+    {
+      "type": "Membrane Bioreactor (MBR)",
+      "category": "static",
+      "tags": [
+        "MEMBRANE",
+        "BIOLOGICAL"
+      ],
+      "description": "Combination of a biological treatment process and membrane filtration."
+    },
+    {
+      "type": "Anaerobic Digester",
+      "category": "static",
+      "tags": [
+        "DIGESTER",
+        "BIOLOGICAL"
+      ],
+      "description": "Large sealed tank where microorganisms break down sludge in the absence of oxygen."
+    },
+    {
+      "type": "Aerobic Digester",
+      "category": "static",
+      "tags": [
+        "DIGESTER",
+        "BIOLOGICAL"
+      ],
+      "description": "Open or closed tank where microorganisms break down sludge in the presence of oxygen."
+    },
+    {
+      "type": "Chemical Storage Tank",
+      "category": "static",
+      "tags": [
+        "TANK",
+        "STORAGE",
+        "CHEMICAL"
+      ],
+      "description": "Corrosion-resistant tank (e.g., FRP or HDPE) for storing treatment chemicals."
+    },
+    {
+      "type": "Surge Tank",
+      "category": "static",
+      "tags": [
+        "TANK",
+        "SURGE"
+      ],
+      "description": "Vessel used to absorb pressure transients (water hammer) in large pumping systems."
+    },
+    {
+      "type": "Clearwell",
+      "category": "static",
+      "tags": [
+        "TANK",
+        "STORAGE",
+        "TREATED_WATER"
+      ],
+      "description": "Large reservoir for storing treated water before distribution and ensuring chlorine contact time."
+    },
+    {
+      "type": "Grit Chamber",
+      "category": "static",
+      "tags": [
+        "CHAMBER",
+        "HEADWORKS"
+      ],
+      "description": "Basin designed to slow flow velocity, allowing heavy grit to settle out."
+    },
+    {
+      "type": "Parshall Flume",
+      "category": "static",
+      "tags": [
+        "FLOW_MEASUREMENT",
+        "OPEN_CHANNEL"
+      ],
+      "description": "Fixed hydraulic structure used to measure flow rates in open channels."
+    },
+    {
+      "type": "Fine Bubble Diffuser",
+      "category": "static",
+      "tags": [
+        "AERATION",
+        "DIFFUSER"
+      ],
+      "description": "Submerged device that releases fine air bubbles into an aeration basin."
+    },
+    {
+      "type": "Static Mixer",
+      "category": "piping",
       "tags": [
         "MIXER",
-        "FLOCCULATION"
+        "INLINE"
       ],
-      "description": "Slow-speed mixer for chemical flocculation."
+      "description": "In-line pipe section with internal baffles to mix chemicals without moving parts."
     },
     {
-      "type": "Flash Mixer",
-      "category": "process",
+      "type": "Butterfly Valve",
+      "category": "piping",
       "tags": [
-        "MIXER",
-        "RAPID"
+        "VALVE",
+        "ISOLATION",
+        "THROTTLING"
       ],
-      "description": "High-speed mixer for chemical dispersion."
-    },
-    {
-      "type": "Heat Exchanger",
-      "category": "process",
-      "tags": [
-        "HEAT",
-        "EXCHANGER"
-      ],
-      "description": "Plate and frame heat exchanger for sludge heating."
-    },
-    {
-      "type": "Ozone Generator",
-      "category": "process",
-      "tags": [
-        "GENERATOR",
-        "OZONE"
-      ],
-      "description": "Ozone generation skid for advanced oxidation."
-    },
-    {
-      "type": "UV Disinfection System",
-      "category": "process",
-      "tags": [
-        "DISINFECTION",
-        "UV"
-      ],
-      "description": "Ultraviolet light reactor for water disinfection."
+      "description": "Common valve in water works for isolation and coarse flow control."
     },
     {
       "type": "Gate Valve",
@@ -153,367 +413,89 @@
         "VALVE",
         "ISOLATION"
       ],
-      "description": "Manual gate valve for basic isolation."
+      "description": "Robust isolation valve used in distribution networks and main headers."
     },
     {
-      "type": "Globe Valve",
+      "type": "Check Valve (Swing)",
       "category": "piping",
       "tags": [
         "VALVE",
-        "CONTROL"
+        "NON_RETURN"
       ],
-      "description": "Globe valve for flow regulation."
+      "description": "Valve preventing backflow, commonly installed on pump discharges."
     },
     {
-      "type": "Check Valve",
+      "type": "Air Release Valve",
       "category": "piping",
       "tags": [
         "VALVE",
-        "NON-RETURN"
+        "AIR_VENT"
       ],
-      "description": "Swing check valve to prevent backflow."
+      "description": "Valve designed to automatically release accumulated air pockets from pipelines."
     },
     {
-      "type": "Butterfly Valve",
+      "type": "Pressure Reducing Valve (PRV)",
       "category": "piping",
       "tags": [
         "VALVE",
-        "ISOLATION"
+        "CONTROL",
+        "PRESSURE"
       ],
-      "description": "Large diameter butterfly valve for water mains."
+      "description": "Valve that automatically reduces higher inlet pressure to a steady lower downstream pressure."
     },
     {
-      "type": "Ball Valve",
-      "category": "piping",
-      "tags": [
-        "VALVE",
-        "ISOLATION"
-      ],
-      "description": "Quarter-turn ball valve for utility lines."
-    },
-    {
-      "type": "Control Valve",
-      "category": "piping",
-      "tags": [
-        "VALVE",
-        "CONTROL"
-      ],
-      "description": "Pneumatic control valve for precise flow control."
-    },
-    {
-      "type": "Pressure Relief Valve",
-      "category": "piping",
-      "tags": [
-        "VALVE",
-        "SAFETY"
-      ],
-      "description": "Spring-loaded relief valve for overpressure protection."
-    },
-    {
-      "type": "Chemical Storage Tank",
-      "category": "static",
-      "tags": [
-        "TANK",
-        "CHEMICAL"
-      ],
-      "description": "FRP storage tank for corrosive chemicals."
-    },
-    {
-      "type": "Water Storage Tank",
-      "category": "static",
-      "tags": [
-        "TANK",
-        "WATER"
-      ],
-      "description": "Steel water storage tank."
-    },
-    {
-      "type": "Surge Vessel",
-      "category": "static",
-      "tags": [
-        "VESSEL",
-        "SURGE"
-      ],
-      "description": "Surge tank for water hammer protection."
-    },
-    {
-      "type": "Sand Filter",
-      "category": "filtration",
-      "tags": [
-        "FILTER",
-        "MEDIA"
-      ],
-      "description": "Gravity sand filter for particulate removal."
-    },
-    {
-      "type": "Multimedia Filter",
-      "category": "filtration",
-      "tags": [
-        "FILTER",
-        "MEDIA"
-      ],
-      "description": "Pressure filter with multiple media layers."
-    },
-    {
-      "type": "Cartridge Filter",
-      "category": "filtration",
-      "tags": [
-        "FILTER",
-        "CARTRIDGE"
-      ],
-      "description": "Micron cartridge filter for fine filtration."
-    },
-    {
-      "type": "Reverse Osmosis Skid",
-      "category": "filtration",
-      "tags": [
-        "MEMBRANE",
-        "RO"
-      ],
-      "description": "Reverse osmosis membrane skid for desalination."
-    },
-    {
-      "type": "Ultrafiltration Unit",
-      "category": "filtration",
-      "tags": [
-        "MEMBRANE",
-        "UF"
-      ],
-      "description": "Ultrafiltration system for suspended solids removal."
-    },
-    {
-      "type": "Bar Screen",
-      "category": "mechanical",
-      "tags": [
-        "SCREEN",
-        "COARSE"
-      ],
-      "description": "Mechanical bar screen for debris removal."
-    },
-    {
-      "type": "Fine Screen",
-      "category": "mechanical",
-      "tags": [
-        "SCREEN",
-        "FINE"
-      ],
-      "description": "Rotary drum screen for fine particle removal."
-    },
-    {
-      "type": "Grit Chamber",
-      "category": "mechanical",
-      "tags": [
-        "CHAMBER",
-        "GRIT"
-      ],
-      "description": "Vortex grit chamber for sand and grit removal."
-    },
-    {
-      "type": "Sludge Thickener",
-      "category": "process",
-      "tags": [
-        "THICKENER",
-        "SLUDGE"
-      ],
-      "description": "Gravity sludge thickener."
-    },
-    {
-      "type": "Filter Press",
-      "category": "mechanical",
-      "tags": [
-        "PRESS",
-        "DEWATERING"
-      ],
-      "description": "Plate and frame filter press for sludge dewatering."
-    },
-    {
-      "type": "Centrifuge Decanter",
-      "category": "mechanical",
-      "tags": [
-        "CENTRIFUGE",
-        "DEWATERING"
-      ],
-      "description": "Solid bowl centrifuge for sludge dewatering."
-    },
-    {
-      "type": "Magnetic Flow Meter",
+      "type": "Electromagnetic Flow Meter",
       "category": "instrumentation",
       "tags": [
         "METER",
         "FLOW"
       ],
-      "description": "Electromagnetic flow meter for conductive fluids."
+      "description": "Flow meter using a magnetic field to measure the velocity of conductive fluids."
     },
     {
-      "type": "Ultrasonic Flow Meter",
-      "category": "instrumentation",
-      "tags": [
-        "METER",
-        "FLOW"
-      ],
-      "description": "Clamp-on ultrasonic flow meter."
-    },
-    {
-      "type": "Coriolis Mass Flow Meter",
-      "category": "instrumentation",
-      "tags": [
-        "METER",
-        "FLOW"
-      ],
-      "description": "High-accuracy mass flow meter for chemicals."
-    },
-    {
-      "type": "Radar Level Transmitter",
-      "category": "instrumentation",
-      "tags": [
-        "TRANSMITTER",
-        "LEVEL"
-      ],
-      "description": "Non-contact radar level sensor."
-    },
-    {
-      "type": "Ultrasonic Level Sensor",
+      "type": "Ultrasonic Level Transmitter",
       "category": "instrumentation",
       "tags": [
         "SENSOR",
         "LEVEL"
       ],
-      "description": "Ultrasonic level transmitter for tanks."
-    },
-    {
-      "type": "Pressure Transmitter",
-      "category": "instrumentation",
-      "tags": [
-        "TRANSMITTER",
-        "PRESSURE"
-      ],
-      "description": "Electronic pressure transmitter."
-    },
-    {
-      "type": "Differential Pressure Transmitter",
-      "category": "instrumentation",
-      "tags": [
-        "TRANSMITTER",
-        "DP"
-      ],
-      "description": "DP transmitter for filter monitoring."
-    },
-    {
-      "type": "Temperature Transmitter",
-      "category": "instrumentation",
-      "tags": [
-        "TRANSMITTER",
-        "TEMPERATURE"
-      ],
-      "description": "RTD temperature transmitter."
+      "description": "Non-contact sensor using sound waves to measure liquid level in tanks or wet wells."
     },
     {
       "type": "pH Analyzer",
       "category": "instrumentation",
       "tags": [
         "ANALYZER",
-        "PH"
+        "WATER_QUALITY"
       ],
-      "description": "Online pH measurement system."
+      "description": "Online instrument continuously monitoring the acidity or alkalinity of the water."
     },
     {
       "type": "Turbidity Meter",
       "category": "instrumentation",
       "tags": [
         "ANALYZER",
-        "TURBIDITY"
+        "WATER_QUALITY"
       ],
-      "description": "Online turbidity analyzer for water quality."
+      "description": "Instrument measuring water clarity by passing a light beam through the sample."
     },
     {
-      "type": "Dissolved Oxygen Sensor",
-      "category": "instrumentation",
-      "tags": [
-        "SENSOR",
-        "DO"
-      ],
-      "description": "Optical dissolved oxygen sensor for aeration basins."
-    },
-    {
-      "type": "Chlorine Analyzer",
+      "type": "Residual Chlorine Analyzer",
       "category": "instrumentation",
       "tags": [
         "ANALYZER",
-        "CHLORINE"
+        "WATER_QUALITY"
       ],
-      "description": "Residual chlorine analyzer for disinfection monitoring."
+      "description": "Monitor ensuring adequate disinfection levels by measuring free or total chlorine."
     },
     {
-      "type": "AC Induction Motor",
-      "category": "electrical",
+      "type": "Pressure Transmitter",
+      "category": "instrumentation",
       "tags": [
-        "MOTOR",
-        "AC"
+        "SENSOR",
+        "PRESSURE"
       ],
-      "description": "Three-phase TEFC induction motor."
-    },
-    {
-      "type": "Variable Frequency Drive",
-      "category": "electrical",
-      "tags": [
-        "VFD",
-        "CONTROL"
-      ],
-      "description": "VFD for pump speed control."
-    },
-    {
-      "type": "Motor Control Center",
-      "category": "electrical",
-      "tags": [
-        "MCC",
-        "POWER"
-      ],
-      "description": "Low voltage motor control center."
-    },
-    {
-      "type": "Medium Voltage Switchgear",
-      "category": "electrical",
-      "tags": [
-        "SWITCHGEAR",
-        "MV"
-      ],
-      "description": "MV switchgear for large blower motors."
-    },
-    {
-      "type": "Power Transformer",
-      "category": "electrical",
-      "tags": [
-        "TRANSFORMER",
-        "POWER"
-      ],
-      "description": "Step-down power transformer."
-    },
-    {
-      "type": "Uninterruptible Power Supply",
-      "category": "electrical",
-      "tags": [
-        "UPS",
-        "POWER"
-      ],
-      "description": "UPS for critical control systems."
-    },
-    {
-      "type": "Programmable Logic Controller",
-      "category": "control",
-      "tags": [
-        "PLC",
-        "CONTROL"
-      ],
-      "description": "Main plant PLC panel."
-    },
-    {
-      "type": "Human Machine Interface",
-      "category": "control",
-      "tags": [
-        "HMI",
-        "INTERFACE"
-      ],
-      "description": "Local operator touch panel."
+      "description": "Device measuring fluid pressure in pipes or vessels and transmitting an electronic signal."
     }
   ]
 }
