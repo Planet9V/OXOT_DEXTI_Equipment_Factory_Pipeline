@@ -1,0 +1,5645 @@
+[
+  {
+    "tag": "Generic-ATMO-001",
+    "name": "Atmospheric Distillation Column",
+    "componentClass": "Vessel",
+    "dexpiType": "Vessel",
+    "rdlUri": "http://data.posccaesar.org/rdl/Vessel",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for Atmospheric Distillation Column.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API Standard"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 120,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 100,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {},
+    "design": {
+      "weight": {
+        "value": 50000,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 3000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 3000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 30000,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "body": "ASTM A216 Gr. WCB",
+      "internals": "SS316",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "ASME VIII Div 1",
+      "API 650"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a Atmospheric Distillation Column with realistic industrial metallic finish and standard flange connections."
+  },
+  {
+    "tag": "Generic-VACU-002",
+    "name": "Vacuum Distillation Column",
+    "componentClass": "Vessel",
+    "dexpiType": "Vessel",
+    "rdlUri": "http://data.posccaesar.org/rdl/Vessel",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for Vacuum Distillation Column.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API Standard"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 120,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 100,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {},
+    "design": {
+      "weight": {
+        "value": 50000,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 3000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 3000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 30000,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "body": "ASTM A216 Gr. WCB",
+      "internals": "SS316",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "ASME VIII Div 1",
+      "API 650"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a Vacuum Distillation Column with realistic industrial metallic finish and standard flange connections."
+  },
+  {
+    "tag": "Generic-FCCR-003",
+    "name": "FCC Reactor/Regenerator",
+    "componentClass": "Reactor",
+    "dexpiType": "Reactor",
+    "rdlUri": "http://data.posccaesar.org/rdl/Reactor",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for FCC Reactor/Regenerator.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API Standard"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 120,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 100,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 1000,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "rotationalSpeed": {
+        "value": 2950,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 85,
+        "unit": "%"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "body": "ASTM A216 Gr. WCB",
+      "internals": "SS316",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "ASME VIII Div 1",
+      "API 650"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a FCC Reactor/Regenerator with realistic industrial metallic finish and standard flange connections."
+  },
+  {
+    "tag": "Generic-HYDR-004",
+    "name": "Hydrocracker Reactor",
+    "componentClass": "Reactor",
+    "dexpiType": "Reactor",
+    "rdlUri": "http://data.posccaesar.org/rdl/Reactor",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for Hydrocracker Reactor.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API Standard"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 120,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 100,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {},
+    "design": {
+      "weight": {
+        "value": 1500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "body": "ASTM A216 Gr. WCB",
+      "internals": "SS316",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "ASME VIII Div 1",
+      "API 650"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a Hydrocracker Reactor with realistic industrial metallic finish and standard flange connections."
+  },
+  {
+    "tag": "Generic-CRUD-005",
+    "name": "Crude Heater",
+    "componentClass": "HeatExchanger",
+    "dexpiType": "HeatExchanger",
+    "rdlUri": "http://data.posccaesar.org/rdl/HeatExchanger",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for Crude Heater.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API Standard"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 120,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 100,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "duty": {
+        "value": 5000,
+        "unit": "kW"
+      },
+      "heatTransferArea": {
+        "value": 200,
+        "unit": "m2"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "shell": "ASTM A516 Gr. 70",
+      "tubes": "ASTM A213 TP316",
+      "tubesheet": "ASTM A266 Cl. 2",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Shell Inlet",
+        "service": "Process Inlet",
+        "size": "DN200",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N2",
+        "name": "Shell Outlet",
+        "service": "Process Outlet",
+        "size": "DN200",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Bottom"
+      },
+      {
+        "id": "N3",
+        "name": "Tube Inlet",
+        "service": "Utility Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N4",
+        "name": "Tube Outlet",
+        "service": "Utility Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "TEMA R",
+      "API 660",
+      "ASME VIII Div 1"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a Crude Heater with realistic industrial metallic finish and standard flange connections."
+  },
+  {
+    "tag": "Generic-CRUD-006",
+    "name": "Crude Preheat Exchanger",
+    "componentClass": "HeatExchanger",
+    "dexpiType": "HeatExchanger",
+    "rdlUri": "http://data.posccaesar.org/rdl/HeatExchanger",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for Crude Preheat Exchanger.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API Standard"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 120,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 100,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "duty": {
+        "value": 5000,
+        "unit": "kW"
+      },
+      "heatTransferArea": {
+        "value": 200,
+        "unit": "m2"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "shell": "ASTM A516 Gr. 70",
+      "tubes": "ASTM A213 TP316",
+      "tubesheet": "ASTM A266 Cl. 2",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Shell Inlet",
+        "service": "Process Inlet",
+        "size": "DN200",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N2",
+        "name": "Shell Outlet",
+        "service": "Process Outlet",
+        "size": "DN200",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Bottom"
+      },
+      {
+        "id": "N3",
+        "name": "Tube Inlet",
+        "service": "Utility Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N4",
+        "name": "Tube Outlet",
+        "service": "Utility Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "TEMA R",
+      "API 660",
+      "ASME VIII Div 1"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a Crude Preheat Exchanger with realistic industrial metallic finish and standard flange connections."
+  },
+  {
+    "tag": "Generic-AIRF-007",
+    "name": "Air Fin Cooler",
+    "componentClass": "HeatExchanger",
+    "dexpiType": "HeatExchanger",
+    "rdlUri": "http://data.posccaesar.org/rdl/HeatExchanger",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for Air Fin Cooler.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API Standard"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 120,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 100,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "duty": {
+        "value": 5000,
+        "unit": "kW"
+      },
+      "heatTransferArea": {
+        "value": 200,
+        "unit": "m2"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "shell": "ASTM A516 Gr. 70",
+      "tubes": "ASTM A213 TP316",
+      "tubesheet": "ASTM A266 Cl. 2",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Shell Inlet",
+        "service": "Process Inlet",
+        "size": "DN200",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N2",
+        "name": "Shell Outlet",
+        "service": "Process Outlet",
+        "size": "DN200",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Bottom"
+      },
+      {
+        "id": "N3",
+        "name": "Tube Inlet",
+        "service": "Utility Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N4",
+        "name": "Tube Outlet",
+        "service": "Utility Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "TEMA R",
+      "API 660",
+      "ASME VIII Div 1"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a Air Fin Cooler with realistic industrial metallic finish and standard flange connections."
+  },
+  {
+    "tag": "Generic-PROC-008",
+    "name": "Process Pump",
+    "componentClass": "CentrifugalPump",
+    "dexpiType": "CentrifugalPump",
+    "rdlUri": "http://data.posccaesar.org/rdl/CentrifugalPump",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for Process Pump.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API Standard"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 120,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 100,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 75,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "rotationalSpeed": {
+        "value": 2950,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 85,
+        "unit": "%"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      },
+      "head": {
+        "value": 150,
+        "unit": "m"
+      },
+      "NPSHr": {
+        "value": 3.5,
+        "unit": "m"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "casing": "ASTM A216 Gr. WCB",
+      "impeller": "ASTM A351 CF8M",
+      "shaft": "ASTM A276 Type 410",
+      "seals": "Mechanical Seal API 682",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Suction",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Discharge",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199",
+      "IEC 60034"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a Process Pump with realistic industrial metallic finish and standard flange connections."
+  },
+  {
+    "tag": "Generic-WETG-009",
+    "name": "Wet Gas Compressor",
+    "componentClass": "CentrifugalCompressor",
+    "dexpiType": "CentrifugalCompressor",
+    "rdlUri": "http://data.posccaesar.org/rdl/CentrifugalCompressor",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for Wet Gas Compressor.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API Standard"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 120,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 100,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 500,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "rotationalSpeed": {
+        "value": 10000,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 85,
+        "unit": "%"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "body": "ASTM A216 Gr. WCB",
+      "internals": "SS316",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "API 617",
+      "ISO 10439"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a Wet Gas Compressor with realistic industrial metallic finish and standard flange connections."
+  },
+  {
+    "tag": "Generic-FLOA-010",
+    "name": "Floating Roof Tank",
+    "componentClass": "Tank",
+    "dexpiType": "Tank",
+    "rdlUri": "http://data.posccaesar.org/rdl/Tank",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for Floating Roof Tank.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 1.1,
+        "unit": "bar",
+        "source": "API 650"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 1.05,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 1.013,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 50,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 25,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 500,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 300,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {},
+    "design": {
+      "weight": {
+        "value": 100000,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 20000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 20000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 15000,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "body": "ASTM A216 Gr. WCB",
+      "internals": "SS316",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "ASME VIII Div 1",
+      "API 650"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a Floating Roof Tank with realistic industrial metallic finish and standard flange connections."
+  },
+  {
+    "tag": "Generic-ELEV-011",
+    "name": "Elevated Flare",
+    "componentClass": "Flare",
+    "dexpiType": "Flare",
+    "rdlUri": "http://data.posccaesar.org/rdl/Flare",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for Elevated Flare.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 1.1,
+        "unit": "bar",
+        "source": "API 650"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 1.05,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 1.013,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 50,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 25,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 500,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 300,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {},
+    "design": {
+      "weight": {
+        "value": 20000,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 50000,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "body": "ASTM A216 Gr. WCB",
+      "internals": "SS316",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "ISO 9001",
+      "ASME B31.3"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a Elevated Flare with realistic industrial metallic finish and standard flange connections."
+  },
+  {
+    "tag": "Generic-RELI-012",
+    "name": "Relief Valve",
+    "componentClass": "ControlValve",
+    "dexpiType": "ControlValve",
+    "rdlUri": "http://data.posccaesar.org/rdl/ControlValve",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for Relief Valve.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API Standard"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 120,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 100,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {},
+    "design": {
+      "weight": {
+        "value": 1500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "casing": "ASTM A216 Gr. WCB",
+      "impeller": "ASTM A351 CF8M",
+      "shaft": "ASTM A276 Type 410",
+      "seals": "Mechanical Seal API 682",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "API 600",
+      "ASME B16.34",
+      "ISO 10434"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a Relief Valve with realistic industrial metallic finish and standard flange connections."
+  },
+  {
+    "tag": "Generic-STRI-013",
+    "name": "Stripper Column",
+    "componentClass": "Vessel",
+    "dexpiType": "Vessel",
+    "rdlUri": "http://data.posccaesar.org/rdl/Vessel",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for Stripper Column.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API Standard"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 120,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 100,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {},
+    "design": {
+      "weight": {
+        "value": 50000,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 3000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 3000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 30000,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "body": "ASTM A216 Gr. WCB",
+      "internals": "SS316",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "ASME VIII Div 1",
+      "API 650"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a Stripper Column with realistic industrial metallic finish and standard flange connections."
+  },
+  {
+    "tag": "Generic-SPLI-014",
+    "name": "Splitter Column",
+    "componentClass": "Vessel",
+    "dexpiType": "Vessel",
+    "rdlUri": "http://data.posccaesar.org/rdl/Vessel",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for Splitter Column.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API Standard"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 120,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 100,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {},
+    "design": {
+      "weight": {
+        "value": 50000,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 3000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 3000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 30000,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "body": "ASTM A216 Gr. WCB",
+      "internals": "SS316",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "ASME VIII Div 1",
+      "API 650"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a Splitter Column with realistic industrial metallic finish and standard flange connections."
+  },
+  {
+    "tag": "Generic-REFO-015",
+    "name": "Reformer Reactor",
+    "componentClass": "Reactor",
+    "dexpiType": "Reactor",
+    "rdlUri": "http://data.posccaesar.org/rdl/Reactor",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for Reformer Reactor.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API Standard"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 120,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 100,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {},
+    "design": {
+      "weight": {
+        "value": 1500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "body": "ASTM A216 Gr. WCB",
+      "internals": "SS316",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "ASME VIII Div 1",
+      "API 650"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a Reformer Reactor with realistic industrial metallic finish and standard flange connections."
+  },
+  {
+    "tag": "Generic-ALKY-016",
+    "name": "Alkylation Reactor",
+    "componentClass": "Reactor",
+    "dexpiType": "Reactor",
+    "rdlUri": "http://data.posccaesar.org/rdl/Reactor",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for Alkylation Reactor.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API Standard"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 120,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 100,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {},
+    "design": {
+      "weight": {
+        "value": 1500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "body": "ASTM A216 Gr. WCB",
+      "internals": "SS316",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "ASME VIII Div 1",
+      "API 650"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a Alkylation Reactor with realistic industrial metallic finish and standard flange connections."
+  },
+  {
+    "tag": "Generic-COKE-017",
+    "name": "Coker Drum",
+    "componentClass": "Vessel",
+    "dexpiType": "Vessel",
+    "rdlUri": "http://data.posccaesar.org/rdl/Vessel",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for Coker Drum.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API Standard"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 120,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 100,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {},
+    "design": {
+      "weight": {
+        "value": 1500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "body": "ASTM A216 Gr. WCB",
+      "internals": "SS316",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "ASME VIII Div 1",
+      "API 650"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a Coker Drum with realistic industrial metallic finish and standard flange connections."
+  },
+  {
+    "tag": "Generic-DESA-018",
+    "name": "Desalter Vessel",
+    "componentClass": "Vessel",
+    "dexpiType": "Vessel",
+    "rdlUri": "http://data.posccaesar.org/rdl/Vessel",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for Desalter Vessel.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API Standard"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 120,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 100,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {},
+    "design": {
+      "weight": {
+        "value": 1500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "body": "ASTM A216 Gr. WCB",
+      "internals": "SS316",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "ASME VIII Div 1",
+      "API 650"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a Desalter Vessel with realistic industrial metallic finish and standard flange connections."
+  },
+  {
+    "tag": "Generic-WAST-019",
+    "name": "Waste Heat Boiler",
+    "componentClass": "HeatExchanger",
+    "dexpiType": "HeatExchanger",
+    "rdlUri": "http://data.posccaesar.org/rdl/HeatExchanger",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for Waste Heat Boiler.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API Standard"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 120,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 100,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "duty": {
+        "value": 5000,
+        "unit": "kW"
+      },
+      "heatTransferArea": {
+        "value": 200,
+        "unit": "m2"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "shell": "ASTM A516 Gr. 70",
+      "tubes": "ASTM A213 TP316",
+      "tubesheet": "ASTM A266 Cl. 2",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Shell Inlet",
+        "service": "Process Inlet",
+        "size": "DN200",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N2",
+        "name": "Shell Outlet",
+        "service": "Process Outlet",
+        "size": "DN200",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Bottom"
+      },
+      {
+        "id": "N3",
+        "name": "Tube Inlet",
+        "service": "Utility Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N4",
+        "name": "Tube Outlet",
+        "service": "Utility Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "TEMA R",
+      "API 660",
+      "ASME VIII Div 1"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a Waste Heat Boiler with realistic industrial metallic finish and standard flange connections."
+  },
+  {
+    "tag": "Generic-PLAT-020",
+    "name": "Plate Heat Exchanger",
+    "componentClass": "HeatExchanger",
+    "dexpiType": "HeatExchanger",
+    "rdlUri": "http://data.posccaesar.org/rdl/HeatExchanger",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for Plate Heat Exchanger.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API Standard"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 120,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 100,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "duty": {
+        "value": 5000,
+        "unit": "kW"
+      },
+      "heatTransferArea": {
+        "value": 200,
+        "unit": "m2"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "shell": "ASTM A516 Gr. 70",
+      "tubes": "ASTM A213 TP316",
+      "tubesheet": "ASTM A266 Cl. 2",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Shell Inlet",
+        "service": "Process Inlet",
+        "size": "DN200",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N2",
+        "name": "Shell Outlet",
+        "service": "Process Outlet",
+        "size": "DN200",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Bottom"
+      },
+      {
+        "id": "N3",
+        "name": "Tube Inlet",
+        "service": "Utility Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N4",
+        "name": "Tube Outlet",
+        "service": "Utility Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "TEMA R",
+      "API 660",
+      "ASME VIII Div 1"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a Plate Heat Exchanger with realistic industrial metallic finish and standard flange connections."
+  },
+  {
+    "tag": "Generic-KETT-021",
+    "name": "Kettle Reboiler",
+    "componentClass": "HeatExchanger",
+    "dexpiType": "HeatExchanger",
+    "rdlUri": "http://data.posccaesar.org/rdl/HeatExchanger",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for Kettle Reboiler.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API Standard"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 120,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 100,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "duty": {
+        "value": 5000,
+        "unit": "kW"
+      },
+      "heatTransferArea": {
+        "value": 200,
+        "unit": "m2"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "shell": "ASTM A516 Gr. 70",
+      "tubes": "ASTM A213 TP316",
+      "tubesheet": "ASTM A266 Cl. 2",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Shell Inlet",
+        "service": "Process Inlet",
+        "size": "DN200",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N2",
+        "name": "Shell Outlet",
+        "service": "Process Outlet",
+        "size": "DN200",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Bottom"
+      },
+      {
+        "id": "N3",
+        "name": "Tube Inlet",
+        "service": "Utility Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N4",
+        "name": "Tube Outlet",
+        "service": "Utility Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "TEMA R",
+      "API 660",
+      "ASME VIII Div 1"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a Kettle Reboiler with realistic industrial metallic finish and standard flange connections."
+  },
+  {
+    "tag": "Generic-RECI-022",
+    "name": "Reciprocating Compressor",
+    "componentClass": "CentrifugalCompressor",
+    "dexpiType": "CentrifugalCompressor",
+    "rdlUri": "http://data.posccaesar.org/rdl/CentrifugalCompressor",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for Reciprocating Compressor.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API Standard"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 120,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 100,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 500,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "rotationalSpeed": {
+        "value": 10000,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 85,
+        "unit": "%"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "body": "ASTM A216 Gr. WCB",
+      "internals": "SS316",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "API 617",
+      "ISO 10439"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a Reciprocating Compressor with realistic industrial metallic finish and standard flange connections."
+  },
+  {
+    "tag": "Generic-STEA-023",
+    "name": "Steam Turbine Driver",
+    "componentClass": "SteamTurbine",
+    "dexpiType": "SteamTurbine",
+    "rdlUri": "http://data.posccaesar.org/rdl/SteamTurbine",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for Steam Turbine Driver.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API Standard"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 120,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 100,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 1000,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "rotationalSpeed": {
+        "value": 2950,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 85,
+        "unit": "%"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "body": "ASTM A216 Gr. WCB",
+      "internals": "SS316",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "ISO 9001",
+      "ASME B31.3"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a Steam Turbine Driver with realistic industrial metallic finish and standard flange connections."
+  },
+  {
+    "tag": "Generic-HVEL-024",
+    "name": "HV Electric Motor",
+    "componentClass": "ElectricalEquipment",
+    "dexpiType": "ElectricalEquipment",
+    "rdlUri": "http://data.posccaesar.org/rdl/ElectricalEquipment",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for HV Electric Motor.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API Standard"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 120,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 100,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 1000,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "rotationalSpeed": {
+        "value": 2950,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 85,
+        "unit": "%"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "body": "ASTM A216 Gr. WCB",
+      "internals": "SS316",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "ISO 9001",
+      "ASME B31.3"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a HV Electric Motor with realistic industrial metallic finish and standard flange connections."
+  },
+  {
+    "tag": "Generic-BACK-025",
+    "name": "Backup Diesel Generator",
+    "componentClass": "ElectricalEquipment",
+    "dexpiType": "ElectricalEquipment",
+    "rdlUri": "http://data.posccaesar.org/rdl/ElectricalEquipment",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for Backup Diesel Generator.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API Standard"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 120,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 100,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 1000,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "rotationalSpeed": {
+        "value": 2950,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 85,
+        "unit": "%"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "body": "ASTM A216 Gr. WCB",
+      "internals": "SS316",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "ISO 9001",
+      "ASME B31.3"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a Backup Diesel Generator with realistic industrial metallic finish and standard flange connections."
+  },
+  {
+    "tag": "Generic-MVSW-026",
+    "name": "MV Switchgear",
+    "componentClass": "ElectricalEquipment",
+    "dexpiType": "ElectricalEquipment",
+    "rdlUri": "http://data.posccaesar.org/rdl/ElectricalEquipment",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for MV Switchgear.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API Standard"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 120,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 100,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 1000,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "rotationalSpeed": {
+        "value": 2950,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 85,
+        "unit": "%"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "body": "ASTM A216 Gr. WCB",
+      "internals": "SS316",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "ISO 9001",
+      "ASME B31.3"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a MV Switchgear with realistic industrial metallic finish and standard flange connections."
+  },
+  {
+    "tag": "Generic-UPSS-027",
+    "name": "UPS System",
+    "componentClass": "ElectricalEquipment",
+    "dexpiType": "ElectricalEquipment",
+    "rdlUri": "http://data.posccaesar.org/rdl/ElectricalEquipment",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for UPS System.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API Standard"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 120,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 100,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 1000,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "rotationalSpeed": {
+        "value": 2950,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 85,
+        "unit": "%"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "body": "ASTM A216 Gr. WCB",
+      "internals": "SS316",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "ISO 9001",
+      "ASME B31.3"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a UPS System with realistic industrial metallic finish and standard flange connections."
+  },
+  {
+    "tag": "Generic-GLOB-028",
+    "name": "Globe Control Valve",
+    "componentClass": "ControlValve",
+    "dexpiType": "ControlValve",
+    "rdlUri": "http://data.posccaesar.org/rdl/ControlValve",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for Globe Control Valve.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API Standard"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 120,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 100,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {},
+    "design": {
+      "weight": {
+        "value": 1500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "casing": "ASTM A216 Gr. WCB",
+      "impeller": "ASTM A351 CF8M",
+      "shaft": "ASTM A276 Type 410",
+      "seals": "Mechanical Seal API 682",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "API 600",
+      "ASME B16.34",
+      "ISO 10434"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a Globe Control Valve with realistic industrial metallic finish and standard flange connections."
+  },
+  {
+    "tag": "Generic-BUTT-029",
+    "name": "Butterfly Control Valve",
+    "componentClass": "ControlValve",
+    "dexpiType": "ControlValve",
+    "rdlUri": "http://data.posccaesar.org/rdl/ControlValve",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for Butterfly Control Valve.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API Standard"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 120,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 100,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {},
+    "design": {
+      "weight": {
+        "value": 1500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "casing": "ASTM A216 Gr. WCB",
+      "impeller": "ASTM A351 CF8M",
+      "shaft": "ASTM A276 Type 410",
+      "seals": "Mechanical Seal API 682",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "API 600",
+      "ASME B16.34",
+      "ISO 10434"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a Butterfly Control Valve with realistic industrial metallic finish and standard flange connections."
+  },
+  {
+    "tag": "Generic-SWIN-030",
+    "name": "Swing Check Valve",
+    "componentClass": "ControlValve",
+    "dexpiType": "ControlValve",
+    "rdlUri": "http://data.posccaesar.org/rdl/ControlValve",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for Swing Check Valve.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API Standard"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 120,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 100,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {},
+    "design": {
+      "weight": {
+        "value": 1500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "casing": "ASTM A216 Gr. WCB",
+      "impeller": "ASTM A351 CF8M",
+      "shaft": "ASTM A276 Type 410",
+      "seals": "Mechanical Seal API 682",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "API 600",
+      "ASME B16.34",
+      "ISO 10434"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a Swing Check Valve with realistic industrial metallic finish and standard flange connections."
+  },
+  {
+    "tag": "Generic-GATE-031",
+    "name": "Gate Valve",
+    "componentClass": "ControlValve",
+    "dexpiType": "ControlValve",
+    "rdlUri": "http://data.posccaesar.org/rdl/ControlValve",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for Gate Valve.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API Standard"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 120,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 100,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {},
+    "design": {
+      "weight": {
+        "value": 1500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "casing": "ASTM A216 Gr. WCB",
+      "impeller": "ASTM A351 CF8M",
+      "shaft": "ASTM A276 Type 410",
+      "seals": "Mechanical Seal API 682",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "API 600",
+      "ASME B16.34",
+      "ISO 10434"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a Gate Valve with realistic industrial metallic finish and standard flange connections."
+  },
+  {
+    "tag": "Generic-BALL-032",
+    "name": "Ball Valve",
+    "componentClass": "ControlValve",
+    "dexpiType": "ControlValve",
+    "rdlUri": "http://data.posccaesar.org/rdl/ControlValve",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for Ball Valve.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API Standard"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 120,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 100,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {},
+    "design": {
+      "weight": {
+        "value": 1500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "casing": "ASTM A216 Gr. WCB",
+      "impeller": "ASTM A351 CF8M",
+      "shaft": "ASTM A276 Type 410",
+      "seals": "Mechanical Seal API 682",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "API 600",
+      "ASME B16.34",
+      "ISO 10434"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a Ball Valve with realistic industrial metallic finish and standard flange connections."
+  },
+  {
+    "tag": "Generic-RUPT-033",
+    "name": "Rupture Disc",
+    "componentClass": "ControlValve",
+    "dexpiType": "ControlValve",
+    "rdlUri": "http://data.posccaesar.org/rdl/ControlValve",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for Rupture Disc.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API Standard"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 120,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 100,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {},
+    "design": {
+      "weight": {
+        "value": 1500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "casing": "ASTM A216 Gr. WCB",
+      "impeller": "ASTM A351 CF8M",
+      "shaft": "ASTM A276 Type 410",
+      "seals": "Mechanical Seal API 682",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "API 600",
+      "ASME B16.34",
+      "ISO 10434"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a Rupture Disc with realistic industrial metallic finish and standard flange connections."
+  },
+  {
+    "tag": "Generic-CORI-034",
+    "name": "Coriolis Flow Meter",
+    "componentClass": "Instrument",
+    "dexpiType": "Instrument",
+    "rdlUri": "http://data.posccaesar.org/rdl/Instrument",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for Coriolis Flow Meter.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API Standard"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 120,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 100,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {},
+    "design": {
+      "weight": {
+        "value": 1500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "body": "ASTM A216 Gr. WCB",
+      "internals": "SS316",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "ISO 9001",
+      "ASME B31.3"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a Coriolis Flow Meter with realistic industrial metallic finish and standard flange connections."
+  },
+  {
+    "tag": "Generic-VORT-035",
+    "name": "Vortex Flow Meter",
+    "componentClass": "Instrument",
+    "dexpiType": "Instrument",
+    "rdlUri": "http://data.posccaesar.org/rdl/Instrument",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for Vortex Flow Meter.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API Standard"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 120,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 100,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {},
+    "design": {
+      "weight": {
+        "value": 1500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "body": "ASTM A216 Gr. WCB",
+      "internals": "SS316",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "ISO 9001",
+      "ASME B31.3"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a Vortex Flow Meter with realistic industrial metallic finish and standard flange connections."
+  },
+  {
+    "tag": "Generic-ULTR-036",
+    "name": "Ultrasonic Flow Meter",
+    "componentClass": "Instrument",
+    "dexpiType": "Instrument",
+    "rdlUri": "http://data.posccaesar.org/rdl/Instrument",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for Ultrasonic Flow Meter.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API Standard"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 120,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 100,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {},
+    "design": {
+      "weight": {
+        "value": 1500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "body": "ASTM A216 Gr. WCB",
+      "internals": "SS316",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "ISO 9001",
+      "ASME B31.3"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a Ultrasonic Flow Meter with realistic industrial metallic finish and standard flange connections."
+  },
+  {
+    "tag": "Generic-RADA-037",
+    "name": "Radar Level Transmitter",
+    "componentClass": "Instrument",
+    "dexpiType": "Instrument",
+    "rdlUri": "http://data.posccaesar.org/rdl/Instrument",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for Radar Level Transmitter.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API Standard"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 120,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 100,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {},
+    "design": {
+      "weight": {
+        "value": 1500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "body": "ASTM A216 Gr. WCB",
+      "internals": "SS316",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "ISO 9001",
+      "ASME B31.3"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a Radar Level Transmitter with realistic industrial metallic finish and standard flange connections."
+  },
+  {
+    "tag": "Generic-DISP-038",
+    "name": "Displacer Level Transmitter",
+    "componentClass": "Instrument",
+    "dexpiType": "Instrument",
+    "rdlUri": "http://data.posccaesar.org/rdl/Instrument",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for Displacer Level Transmitter.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API Standard"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 120,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 100,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {},
+    "design": {
+      "weight": {
+        "value": 1500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "body": "ASTM A216 Gr. WCB",
+      "internals": "SS316",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "ISO 9001",
+      "ASME B31.3"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a Displacer Level Transmitter with realistic industrial metallic finish and standard flange connections."
+  },
+  {
+    "tag": "Generic-PRES-039",
+    "name": "Pressure Transmitter",
+    "componentClass": "Instrument",
+    "dexpiType": "Instrument",
+    "rdlUri": "http://data.posccaesar.org/rdl/Instrument",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for Pressure Transmitter.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API Standard"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 120,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 100,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {},
+    "design": {
+      "weight": {
+        "value": 1500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "body": "ASTM A216 Gr. WCB",
+      "internals": "SS316",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "ISO 9001",
+      "ASME B31.3"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a Pressure Transmitter with realistic industrial metallic finish and standard flange connections."
+  },
+  {
+    "tag": "Generic-TEMP-040",
+    "name": "Temperature Transmitter",
+    "componentClass": "Instrument",
+    "dexpiType": "Instrument",
+    "rdlUri": "http://data.posccaesar.org/rdl/Instrument",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for Temperature Transmitter.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API Standard"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 120,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 100,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {},
+    "design": {
+      "weight": {
+        "value": 1500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "body": "ASTM A216 Gr. WCB",
+      "internals": "SS316",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "ISO 9001",
+      "ASME B31.3"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a Temperature Transmitter with realistic industrial metallic finish and standard flange connections."
+  },
+  {
+    "tag": "Generic-GASC-041",
+    "name": "Gas Chromatograph",
+    "componentClass": "Instrument",
+    "dexpiType": "Instrument",
+    "rdlUri": "http://data.posccaesar.org/rdl/Instrument",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for Gas Chromatograph.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API Standard"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 120,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 100,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {},
+    "design": {
+      "weight": {
+        "value": 1500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "body": "ASTM A216 Gr. WCB",
+      "internals": "SS316",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "ISO 9001",
+      "ASME B31.3"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a Gas Chromatograph with realistic industrial metallic finish and standard flange connections."
+  },
+  {
+    "tag": "Generic-PHAN-042",
+    "name": "pH Analyzer",
+    "componentClass": "Instrument",
+    "dexpiType": "Instrument",
+    "rdlUri": "http://data.posccaesar.org/rdl/Instrument",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for pH Analyzer.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API Standard"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 120,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 100,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {},
+    "design": {
+      "weight": {
+        "value": 1500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "body": "ASTM A216 Gr. WCB",
+      "internals": "SS316",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "ISO 9001",
+      "ASME B31.3"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a pH Analyzer with realistic industrial metallic finish and standard flange connections."
+  },
+  {
+    "tag": "Generic-FIRE-043",
+    "name": "Fire Water Pump",
+    "componentClass": "CentrifugalPump",
+    "dexpiType": "CentrifugalPump",
+    "rdlUri": "http://data.posccaesar.org/rdl/CentrifugalPump",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for Fire Water Pump.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API Standard"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 120,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 100,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 75,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "rotationalSpeed": {
+        "value": 2950,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 85,
+        "unit": "%"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      },
+      "head": {
+        "value": 150,
+        "unit": "m"
+      },
+      "NPSHr": {
+        "value": 3.5,
+        "unit": "m"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "casing": "ASTM A216 Gr. WCB",
+      "impeller": "ASTM A351 CF8M",
+      "shaft": "ASTM A276 Type 410",
+      "seals": "Mechanical Seal API 682",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Suction",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Discharge",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199",
+      "IEC 60034"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a Fire Water Pump with realistic industrial metallic finish and standard flange connections."
+  },
+  {
+    "tag": "Generic-INST-044",
+    "name": "Instrument Air Compressor",
+    "componentClass": "CentrifugalCompressor",
+    "dexpiType": "CentrifugalCompressor",
+    "rdlUri": "http://data.posccaesar.org/rdl/CentrifugalCompressor",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for Instrument Air Compressor.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API Standard"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 120,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 100,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 500,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "rotationalSpeed": {
+        "value": 10000,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 85,
+        "unit": "%"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "body": "ASTM A216 Gr. WCB",
+      "internals": "SS316",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "API 617",
+      "ISO 10439"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a Instrument Air Compressor with realistic industrial metallic finish and standard flange connections."
+  },
+  {
+    "tag": "Generic-MAIN-045",
+    "name": "Main Line Pump",
+    "componentClass": "CentrifugalPump",
+    "dexpiType": "CentrifugalPump",
+    "rdlUri": "http://data.posccaesar.org/rdl/CentrifugalPump",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for Main Line Pump.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API Standard"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 120,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 100,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 75,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "rotationalSpeed": {
+        "value": 2950,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 85,
+        "unit": "%"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      },
+      "head": {
+        "value": 150,
+        "unit": "m"
+      },
+      "NPSHr": {
+        "value": 3.5,
+        "unit": "m"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "casing": "ASTM A216 Gr. WCB",
+      "impeller": "ASTM A351 CF8M",
+      "shaft": "ASTM A276 Type 410",
+      "seals": "Mechanical Seal API 682",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Suction",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Discharge",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199",
+      "IEC 60034"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a Main Line Pump with realistic industrial metallic finish and standard flange connections."
+  },
+  {
+    "tag": "Generic-PUMP-046",
+    "name": "Pump Drive Motor",
+    "componentClass": "CentrifugalPump",
+    "dexpiType": "CentrifugalPump",
+    "rdlUri": "http://data.posccaesar.org/rdl/CentrifugalPump",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for Pump Drive Motor.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API Standard"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 120,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 100,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 75,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "rotationalSpeed": {
+        "value": 2950,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 85,
+        "unit": "%"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      },
+      "head": {
+        "value": 150,
+        "unit": "m"
+      },
+      "NPSHr": {
+        "value": 3.5,
+        "unit": "m"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "casing": "ASTM A216 Gr. WCB",
+      "impeller": "ASTM A351 CF8M",
+      "shaft": "ASTM A276 Type 410",
+      "seals": "Mechanical Seal API 682",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Suction",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Discharge",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199",
+      "IEC 60034"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a Pump Drive Motor with realistic industrial metallic finish and standard flange connections."
+  },
+  {
+    "tag": "Generic-VARI-047",
+    "name": "Variable Frequency Drive",
+    "componentClass": "ElectricalEquipment",
+    "dexpiType": "ElectricalEquipment",
+    "rdlUri": "http://data.posccaesar.org/rdl/ElectricalEquipment",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for Variable Frequency Drive.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API Standard"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 120,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 100,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 1000,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "rotationalSpeed": {
+        "value": 2950,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 85,
+        "unit": "%"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "body": "ASTM A216 Gr. WCB",
+      "internals": "SS316",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "ISO 9001",
+      "ASME B31.3"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a Variable Frequency Drive with realistic industrial metallic finish and standard flange connections."
+  },
+  {
+    "tag": "Generic-CRUD-048",
+    "name": "Crude Storage Tank",
+    "componentClass": "Tank",
+    "dexpiType": "Tank",
+    "rdlUri": "http://data.posccaesar.org/rdl/Tank",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for Crude Storage Tank.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 1.1,
+        "unit": "bar",
+        "source": "API 650"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 1.05,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 1.013,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 50,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 25,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 500,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 300,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {},
+    "design": {
+      "weight": {
+        "value": 100000,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 20000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 20000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 15000,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "body": "ASTM A216 Gr. WCB",
+      "internals": "SS316",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "ASME VIII Div 1",
+      "API 650"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a Crude Storage Tank with realistic industrial metallic finish and standard flange connections."
+  },
+  {
+    "tag": "Generic-CUST-049",
+    "name": "Custody Transfer Meter",
+    "componentClass": "Instrument",
+    "dexpiType": "Instrument",
+    "rdlUri": "http://data.posccaesar.org/rdl/Instrument",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for Custody Transfer Meter.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API Standard"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 120,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 100,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {},
+    "design": {
+      "weight": {
+        "value": 1500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "body": "ASTM A216 Gr. WCB",
+      "internals": "SS316",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "ISO 9001",
+      "ASME B31.3"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a Custody Transfer Meter with realistic industrial metallic finish and standard flange connections."
+  },
+  {
+    "tag": "Generic-PIPE-050",
+    "name": "Pipeline Strainer",
+    "componentClass": "GeneralEquipment",
+    "dexpiType": "GeneralEquipment",
+    "rdlUri": "http://data.posccaesar.org/rdl/GeneralEquipment",
+    "description": "Reference full-fidelity DEXPI 2.0 configuration for Pipeline Strainer.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API Standard"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 120,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 100,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {},
+    "design": {
+      "weight": {
+        "value": 1500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "bolting": "ASTM A193 Gr. B7",
+      "body": "ASTM A216 Gr. WCB",
+      "internals": "SS316",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "ISO 9001",
+      "ASME B31.3"
+    ],
+    "image_prompt": "Detailed 3D engineering model of a Pipeline Strainer with realistic industrial metallic finish and standard flange connections."
+  }
+]
