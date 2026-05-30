@@ -10,7 +10,7 @@
  */
 import neo4j from 'neo4j-driver';
 
-import crypto from 'crypto';
+import * as crypto from 'crypto';
 import { runQuery, runWrite, runBatchWrite } from './memgraph';
 import { getAllSectors } from './sectors';
 import type { DexpiSector, DexpiEquipmentType } from './sectors/types';
