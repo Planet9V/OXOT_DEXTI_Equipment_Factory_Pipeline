@@ -9,7 +9,9 @@
 
 import { BaseSpecialist, type SpecialistConfig } from './base-specialist';
 import { TOOL_DEFINITIONS, TOOL_HANDLERS } from '../tools';
+import { chatWithTools } from '../openrouter-client';
 import type { EquipmentCard } from '../../types';
+import type { ChatMessage } from '../types';
 
 /* ─── Types ─────────────────────────────────────────────────────────────── */
 
@@ -42,17 +44,12 @@ export interface VendorVariationResult {
 
 /* ─── Agent Configuration ───────────────────────────────────────────────── */
 
-const SYSTEM_PROMPT = `
-You are "The Procurement Officer," responsible for sourcing specific vendor equipment.
+const SYSTEM_PROMPT = `Role: You are "The Procurement Officer," responsible for sourcing specific vendor equipment.
 
-Task: Find 3 distinct real-world vendor models for the provided Reference Equipment.
+Task: Find 3 distinct real-world vendor models for the following Reference Equipment:
+Context: [REFERENCE_EQUIPMENT_JSON]
 
-For each model (e.g., Siemens, ABB, Rockwell, Emerson, Flowserve), generate a "Vendor Variation" card.
-
-Constraint:
-- Models must be REAL and currently (or recently) manufactured.
-- Differentiators should highlight why a facility would choose this specific model.
-- Use the provided tools (search_web, search_perplexity) to verify the existence and specifications of the models.
+For each model (e.g., Siemens, ABB, Rockwell, Emerson, Flowserve), generate a "Vendor Variation" card:
 
 Output Format (JSON Array):
 [
@@ -75,7 +72,10 @@ Output Format (JSON Array):
     ]
   }
 ]
-`;
+
+Constraint:
+- Models must be REAL and currently (or recently) manufactured.
+- Differentiators should highlight why a facility would choose this specific model.`;
 
 /* ─── Implementation ────────────────────────────────────────────────────── */
 
@@ -104,38 +104,55 @@ export class ProcurementAgent extends BaseSpecialist<ProcurementInput, Procureme
     async execute(input: ProcurementInput, runId: string): Promise<ProcurementOutput> {
         const { equipment } = input;
 
-        // Construct the prompt with the reference equipment context
-        const userMessage = `
-Context: ${JSON.stringify(equipment, null, 2)}
+        // Construct the system prompt by replacing placeholders
+        const dynamicSystemPrompt = this.config.systemPrompt
+            .replace('[REFERENCE_EQUIPMENT_JSON]', JSON.stringify(equipment, null, 2))
+            .replace(/\[REFERENCE_TAG\]/g, equipment.tag || 'Unknown');
 
-Find 3 distinct real-world vendor models for this Reference Equipment.
-Ensure the models are compatible with the specifications provided in the context.
-        `;
+        const userMessage = `Find 3 distinct real-world vendor models for this Reference Equipment. Ensure the models are compatible with the specifications provided in the context. Return ONLY a valid JSON array.`;
+
+        const messages: ChatMessage[] = [
+            { role: 'system', content: dynamicSystemPrompt },
+            { role: 'user', content: userMessage }
+        ];
 
         // Call the LLM with tools
-        const response = await this.callLLM(userMessage);
+        const { response } = await chatWithTools(
+            messages,
+            this.config.tools,
+            this.config.toolHandlers,
+            {
+                temperature: this.config.completionOptions?.temperature || 0.4,
+                max_tokens: this.config.completionOptions?.max_tokens || 4096,
+            },
+            this.config.maxIterations || 10
+        );
 
-        // Parse and validate the response
-        // The BaseSpecialist.parseJSON returns Record<string, unknown>, but we expect an array.
-        // If the LLM returns an object wrapping the array (e.g. { "variations": [...] }), we handle that.
+        const content = response.choices?.[0]?.message?.content || '';
 
-        let variations: VendorVariationResult[] = [];
-
-        if (Array.isArray(response)) {
-            variations = response as unknown as VendorVariationResult[];
-        } else if (Array.isArray((response as any).variations)) {
-             variations = (response as any).variations as unknown as VendorVariationResult[];
-        } else if (Array.isArray((response as any).models)) {
-             variations = (response as any).models as unknown as VendorVariationResult[];
-        } else {
-            // Fallback: try to find any array in the values
-            const possibleArray = Object.values(response).find(val => Array.isArray(val));
-            if (possibleArray) {
-                variations = possibleArray as unknown as VendorVariationResult[];
-            } else {
+        // First try parsing it entirely
+        let parsedContent;
+        try {
+            parsedContent = JSON.parse(content);
+        } catch {
+            // If it's not valid JSON out of the box, try regex extraction
+            const arrayMatch = content.match(/\[[\s\S]*\]/);
+            if (!arrayMatch) {
                  throw new Error('Output format invalid: Expected a JSON array of vendor variations.');
             }
+            try {
+                parsedContent = JSON.parse(arrayMatch[0]);
+            } catch {
+                throw new Error('Output format invalid: Failed to parse JSON array of vendor variations.');
+            }
         }
+
+        // Must be an array
+        if (!Array.isArray(parsedContent)) {
+             throw new Error('Output format invalid: Expected a JSON array of vendor variations.');
+        }
+
+        let variations: VendorVariationResult[] = parsedContent;
 
         // Validate basic structure of items
         const validated = variations.map(v => ({
