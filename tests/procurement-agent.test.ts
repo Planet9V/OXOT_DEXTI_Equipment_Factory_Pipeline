@@ -70,9 +70,17 @@ describe('ProcurementAgent', () => {
         expect(result[0].vendor).toBe('Siemens');
         expect(result[0].referenceId).toBe('P-101');
         expect(openRouter.chatWithTools).toHaveBeenCalledTimes(1);
+
+        const callArgs = (openRouter.chatWithTools as jest.Mock).mock.calls[0][0];
+        const systemMessage = callArgs.find((m: any) => m.role === 'system');
+        const userMessage = callArgs.find((m: any) => m.role === 'user');
+
+        expect(systemMessage.content).toContain('P-101');
+        expect(systemMessage.content).toContain('Centrifugal Pump');
+        expect(userMessage.content).toBe('Find 3 distinct real-world vendor models for the Reference Equipment provided in your context.');
     });
 
-    it('should handle wrapped JSON responses (object with variations key)', async () => {
+    it('should throw an error for wrapped JSON responses (object with variations key)', async () => {
         const mockEquipment = { tag: 'TAG-001' } as unknown as EquipmentCard;
         const mockVariations = [{ vendor: 'ABB', model: 'M3BP', referenceId: 'TAG-001' }];
         const wrappedResponse = { variations: mockVariations };
@@ -91,12 +99,10 @@ describe('ProcurementAgent', () => {
             toolTraces: []
         });
 
-        const result = await agent.execute({ equipment: mockEquipment }, 'test-run-id');
-        expect(result).toHaveLength(1);
-        expect(result[0].vendor).toBe('ABB');
+        await expect(agent.execute({ equipment: mockEquipment }, 'test-run-id')).rejects.toThrow('Output format invalid: Expected a JSON array of vendor variations.');
     });
 
-    it('should handle wrapped JSON responses (object with models key)', async () => {
+    it('should throw an error for wrapped JSON responses (object with models key)', async () => {
         const mockEquipment = { tag: 'TAG-001' } as unknown as EquipmentCard;
         const mockVariations = [{ vendor: 'Rockwell', model: 'Bulletin 100', referenceId: 'TAG-001' }];
         const wrappedResponse = { models: mockVariations };
@@ -115,8 +121,6 @@ describe('ProcurementAgent', () => {
             toolTraces: []
         });
 
-        const result = await agent.execute({ equipment: mockEquipment }, 'test-run-id');
-        expect(result).toHaveLength(1);
-        expect(result[0].vendor).toBe('Rockwell');
+        await expect(agent.execute({ equipment: mockEquipment }, 'test-run-id')).rejects.toThrow('Output format invalid: Expected a JSON array of vendor variations.');
     });
 });
