@@ -1,0 +1,98 @@
+import * as fs from 'fs';
+import * as path from 'path';
+
+const SECTOR_CODE = 'PHAR';
+const SUB_SECTOR_CODE = 'PHAR-ALL';
+
+interface RegistryItem {
+    type: string;
+    category: string;
+    tags: string[];
+    description: string;
+}
+
+const equipmentList: RegistryItem[] = [
+    // Core Process - Reaction & Bioprocessing
+    { type: "Single-Use Bioreactor (SUB)", category: "static", tags: ["REACTOR", "BIOPROCESS", "SINGLE_USE"], description: "Disposable bioreactor bag system for cell culture." },
+    { type: "Stainless Steel Bioreactor", category: "static", tags: ["REACTOR", "BIOPROCESS", "VESSEL"], description: "Reusable stainless steel vessel for large-scale cell culture with CIP/SIP capabilities." },
+    { type: "Fermenter", category: "static", tags: ["REACTOR", "FERMENTATION", "VESSEL"], description: "Vessel designed for microbial fermentation." },
+    { type: "Wave Bioreactor", category: "static", tags: ["REACTOR", "BIOPROCESS", "SINGLE_USE"], description: "Bioreactor utilizing wave-induced agitation for cell culture." },
+    { type: "Media Preparation Vessel", category: "static", tags: ["VESSEL", "PREPARATION", "MIXING"], description: "Tank used for mixing and preparing cell culture media." },
+    { type: "Buffer Preparation Vessel", category: "static", tags: ["VESSEL", "PREPARATION", "MIXING"], description: "Tank used for preparing buffer solutions." },
+    { type: "Glass-Lined Reactor", category: "static", tags: ["REACTOR", "API", "CORROSION_RESISTANT"], description: "Reactor with glass lining for aggressive chemical API synthesis." },
+    { type: "Sanitary Agitator", category: "rotating", tags: ["MIXER", "AGITATION", "SANITARY"], description: "Top or bottom-mounted mixer designed for sanitary applications." },
+    { type: "Homogenizer", category: "rotating", tags: ["MIXER", "HIGH_SHEAR", "PARTICLE_REDUCTION"], description: "High-pressure device for particle size reduction and cell disruption." },
+
+    // Core Process - Separation & Purification
+    { type: "Chromatography Column (Protein A)", category: "static", tags: ["COLUMN", "PURIFICATION", "CHROMATOGRAPHY"], description: "Column for affinity chromatography, typically used for mAb purification." },
+    { type: "Chromatography Column (Ion Exchange)", category: "static", tags: ["COLUMN", "PURIFICATION", "CHROMATOGRAPHY"], description: "Column for separating molecules based on charge." },
+    { type: "Tangential Flow Filtration (TFF) Skid", category: "static", tags: ["FILTRATION", "PURIFICATION", "CONCENTRATION"], description: "System for ultrafiltration and diafiltration using tangential flow." },
+    { type: "Depth Filtration System", category: "static", tags: ["FILTRATION", "CLARIFICATION"], description: "Filter system for removing cells and cellular debris." },
+    { type: "Viral Filtration Unit", category: "static", tags: ["FILTRATION", "VIRAL_CLEARANCE", "SAFETY"], description: "Specialized filter unit for removing viruses from biologics." },
+    { type: "Sterile Filtration Unit", category: "static", tags: ["FILTRATION", "STERILIZATION", "0.22um"], description: "Final filtration step to ensure product sterility." },
+    { type: "Disk Stack Centrifuge", category: "rotating", tags: ["CENTRIFUGE", "SEPARATION", "CLARIFICATION"], description: "High-speed centrifuge for continuous cell harvesting and clarification." },
+    { type: "Lyophilizer (Freeze Dryer)", category: "static", tags: ["DRYER", "PRESERVATION", "THERMAL"], description: "Equipment for freezing and vacuum-drying sensitive biological products." },
+    { type: "Autoclave (SIP/CIP)", category: "static", tags: ["STERILIZATION", "VESSEL", "THERMAL"], description: "Steam sterilizer for equipment, components, and media." },
+
+    // Core Process - Fill & Finish
+    { type: "Vial Filling Machine", category: "rotating", tags: ["FILLING", "PACKAGING", "ASEPTIC"], description: "Automated machine for filling sterile liquids into vials." },
+    { type: "Syringe Filling Machine", category: "rotating", tags: ["FILLING", "PACKAGING", "ASEPTIC"], description: "Automated machine for filling pre-filled syringes." },
+    { type: "Ampoule Filling Machine", category: "rotating", tags: ["FILLING", "PACKAGING", "ASEPTIC"], description: "Automated machine for filling and sealing glass ampoules." },
+    { type: "Capping/Crimping Machine", category: "rotating", tags: ["PACKAGING", "SEALING"], description: "Equipment for applying aluminum seals to filled vials." },
+    { type: "Isolator (RABS)", category: "static", tags: ["CONTAINMENT", "ASEPTIC", "BARRIER"], description: "Restricted Access Barrier System providing a sterile environment for fill/finish operations." },
+    { type: "Depyrogenation Tunnel", category: "static", tags: ["STERILIZATION", "THERMAL", "PACKAGING"], description: "Continuous oven for sterilizing and depyrogenating glass containers." },
+
+    // Support Systems - Heat Transfer
+    { type: "WFI Heat Exchanger", category: "heat-transfer", tags: ["HEAT_EXCHANGER", "WFI", "SANITARY"], description: "Sanitary shell-and-tube or double-tube heat exchanger for Water for Injection." },
+    { type: "Clean Steam Generator", category: "heat-transfer", tags: ["GENERATOR", "STEAM", "SANITARY"], description: "Equipment for producing pyrogen-free clean steam for SIP processes." },
+    { type: "Sanitary Plate and Frame Heat Exchanger", category: "heat-transfer", tags: ["HEAT_EXCHANGER", "SANITARY", "COMPACT"], description: "Compact heat exchanger with sanitary gaskets and plates." },
+
+    // Support Systems - Fluid Handling (Pumps)
+    { type: "Peristaltic Pump", category: "rotating", tags: ["PUMP", "SANITARY", "LOW_SHEAR"], description: "Low-shear pump utilizing flexible tubing, ideal for sensitive biologics." },
+    { type: "Sanitary Centrifugal Pump", category: "rotating", tags: ["PUMP", "SANITARY", "TRANSFER"], description: "CIP-capable centrifugal pump for low-viscosity fluid transfer." },
+    { type: "Rotary Lobe Pump", category: "rotating", tags: ["PUMP", "SANITARY", "POSITIVE_DISPLACEMENT"], description: "Sanitary positive displacement pump for high-viscosity products." },
+    { type: "Sanitary Diaphragm Pump", category: "rotating", tags: ["PUMP", "SANITARY", "PNEUMATIC"], description: "Air-operated double diaphragm pump designed for hygienic applications." },
+    { type: "Syringe Pump", category: "rotating", tags: ["PUMP", "DOSING", "PRECISION"], description: "High-precision pump for accurate dosing of active ingredients." },
+
+    // Support Systems - Piping & Valves
+    { type: "Sanitary Diaphragm Valve", category: "piping", tags: ["VALVE", "SANITARY", "ASEPTIC"], description: "Weir-style or straight-through valve ensuring zero dead legs." },
+    { type: "Sanitary Butterfly Valve", category: "piping", tags: ["VALVE", "SANITARY", "ISOLATION"], description: "Hygienic quarter-turn valve for fluid isolation." },
+    { type: "Block and Bleed Valve Manifold", category: "piping", tags: ["VALVE", "MANIFOLD", "SANITARY"], description: "Valve block used to prevent cross-contamination between fluid paths." },
+    { type: "Pinch Valve", category: "piping", tags: ["VALVE", "SANITARY", "SINGLE_USE"], description: "Valve that controls flow by pinching flexible tubing." },
+    { type: "Sanitary Check Valve", category: "piping", tags: ["VALVE", "NON_RETURN", "SANITARY"], description: "Hygienic valve preventing backflow." },
+    { type: "Clean Steam Trap", category: "piping", tags: ["TRAP", "STEAM", "SANITARY"], description: "Thermostatic trap for removing condensate from clean steam lines." },
+
+    // Instrumentation
+    { type: "Sanitary Coriolis Mass Flow Meter", category: "instrumentation", tags: ["METER", "FLOW", "MASS", "SANITARY"], description: "Highly accurate mass flow meter with sanitary connections." },
+    { type: "Sanitary Magnetic Flow Meter", category: "instrumentation", tags: ["METER", "FLOW", "SANITARY"], description: "Flow meter for conductive fluids with obstructionless bore." },
+    { type: "Radar Level Transmitter", category: "instrumentation", tags: ["LEVEL", "RADAR", "NON_CONTACT"], description: "Non-contact level measurement suitable for sterile tanks." },
+    { type: "Sanitary Pressure Transmitter", category: "instrumentation", tags: ["PRESSURE", "SENSOR", "SANITARY"], description: "Pressure sensor with flush diaphragm to avoid product holdup." },
+    { type: "Sanitary RTD Temperature Sensor", category: "instrumentation", tags: ["TEMPERATURE", "SENSOR", "SANITARY"], description: "High-precision temperature probe with hygienic process connection." },
+    { type: "Inline pH Analyzer", category: "instrumentation", tags: ["ANALYZER", "PH", "PROCESS"], description: "Sterilizable probe for continuous pH monitoring." },
+    { type: "Dissolved Oxygen (DO) Sensor", category: "instrumentation", tags: ["ANALYZER", "DO", "BIOPROCESS"], description: "Sensor for monitoring oxygen levels in bioreactors." },
+    { type: "Conductivity Sensor", category: "instrumentation", tags: ["ANALYZER", "CONDUCTIVITY", "CIP"], description: "Sensor used for monitoring water purity and CIP chemical concentrations." },
+    { type: "Total Organic Carbon (TOC) Analyzer", category: "instrumentation", tags: ["ANALYZER", "TOC", "WATER_QUALITY"], description: "Online analyzer for measuring organic contamination in WFI." },
+
+    // Electrical
+    { type: "Sanitary Washdown Motor", category: "electrical", tags: ["MOTOR", "DRIVE", "WASHDOWN"], description: "Stainless steel electric motor designed to withstand high-pressure cleaning." },
+    { type: "Variable Frequency Drive (VFD)", category: "electrical", tags: ["DRIVE", "CONTROL", "SPEED"], description: "Electronic controller for precise regulation of pump and agitator speeds." },
+    { type: "Uninterruptible Power Supply (UPS)", category: "electrical", tags: ["POWER", "BACKUP", "CRITICAL"], description: "Battery backup system protecting critical control systems and processes." },
+    { type: "Low Voltage Switchgear", category: "electrical", tags: ["POWER", "DISTRIBUTION", "SAFETY"], description: "Electrical distribution equipment for process area power supply." }
+];
+
+const registry = {
+    sector: SECTOR_CODE,
+    subSector: SUB_SECTOR_CODE,
+    equipment: equipmentList
+};
+
+const outputPath = path.join(__dirname, '../src/lib/resources/pharmaceutical_registry.json');
+
+const dir = path.dirname(outputPath);
+if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true });
+}
+
+fs.writeFileSync(outputPath, JSON.stringify(registry, null, 2));
+
+console.log(`Successfully generated pharmaceutical registry with ${equipmentList.length} items at: ${outputPath}`);
