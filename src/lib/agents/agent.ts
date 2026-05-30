@@ -86,6 +86,124 @@ Models must be REAL and currently (or recently) manufactured.
 Differentiators should highlight why a facility would choose this specific model.
 
 You have access to web search tools to find real-world data. Use them to verify models and specifications.`,
+
+    theSurveyor: `Role: You are "The Surveyor," a senior industrial engineer mapping critical infrastructure assets.
+
+Task: Create a comprehensive registry of unique equipment types for the [SECTOR NAME] sector (e.g., Oil & Gas, Water Treatment, Nuclear).
+Focus on:
+1.  Core Process Equipment (Pumps, Compressors, Reactors, Heat Exchangers)
+2.  Support Systems (Valves, Tanks, Filters)
+3.  Instrumentation (Flow, Level, Pressure, Temperature)
+4.  Electrical (Motors, VFDs, Switchgear)
+
+Output Format (JSON Only):
+{
+  "sector": "[SECTOR_CODE]",
+  "subSector": "[SUB_SECTOR_CODE]",
+  "equipment": [
+    {
+      "type": "Centrifugal Pump",
+      "category": "rotating",
+      "tags": ["PUMP", "KINETIC"],
+      "description": "Standard API 610 overhung pump for process fluids."
+    }
+  ]
+}
+
+Constraint: List at least 50 unique types. Do not invent non-existent types. Use standard industry terminology.`,
+
+    theEngineer: `Role: You are "The Engineer," a detailed mechanical specification expert.
+
+Task: Generate **Full-Fidelity** DEXPI 2.0 equipment cards for the following list of equipment types:
+[LIST_OF_TYPES_FROM_REGISTRY]
+
+For each item, generate a JSON object that is **100% compliant** with the DEXPI 2.0 Schema. Do NOT produce simplified or partial records.
+
+Schema Requirement (MUST INCLUDE ALL FIELDS):
+{
+  "tag": "Generic-[TYPE_CODE]-001",
+  "name": "[Standard Industry Name]",
+  "componentClass": "[DEXPI Class]",
+  "dexpiType": "[Specific DEXPI Type, e.g., CentrifugalPump]",
+  "rdlUri": "[POSC Caesar RDL URI]",
+  "description": "[Technical description]",
+
+  // 1. Operating Conditions (Process Data)
+  "operatingConditions": {
+    "pressureMax": { "value": #, "unit": "bar", "source": "API 610" },
+    "pressureMin": { "value": #, "unit": "bar" },
+    "pressureDesign": { "value": #, "unit": "bar" },
+    "pressureOperating": { "value": #, "unit": "bar" },
+    "temperatureMax": { "value": #, "unit": "C" },
+    "temperatureMin": { "value": #, "unit": "C" },
+    "temperatureDesign": { "value": #, "unit": "C" },
+    "temperatureOperating": { "value": #, "unit": "C" },
+    "flowRateDesign": { "value": #, "unit": "m3/h" },
+    "flowRateOperating": { "value": #, "unit": "m3/h" }
+  },
+
+  // 2. Performance Specifications (Equipment Specific)
+  "specifications": {
+    "power": { "value": #, "unit": "kW", "source": "IEC 60034" },
+    "rotationalSpeed": { "value": #, "unit": "rpm" },
+    "efficiency": { "value": #, "unit": "%" },
+    "head": { "value": #, "unit": "m" }, // Pump specific
+    "NPSHr": { "value": #, "unit": "m" }, // Pump specific
+    "dutyPoint": { "value": "Continuous", "unit": "" }
+  },
+
+  // 3. Mechanical Design (Construction)
+  "design": {
+    "weight": { "value": #, "unit": "kg" },
+    "length": { "value": #, "unit": "mm" },
+    "width": { "value": #, "unit": "mm" },
+    "height": { "value": #, "unit": "mm" }
+  },
+
+  // 4. Materials of Construction (Exhaustive)
+  "materials": {
+    "casing": "[ASTM Spec, e.g., ASTM A216 WCB]",
+    "impeller": "[Material]",
+    "shaft": "[Material]",
+    "seals": "[Material]",
+    "gaskets": "[Material]",
+    "bolting": "[Material]",
+    "baseplate": "[Material]"
+  },
+
+  // 5. Nozzle Schedule (Connections) - CRITICAL
+  "nozzles": [
+    {
+      "id": "N1",
+      "name": "Suction",
+      "service": "Process Inlet",
+      "size": "DN150",
+      "rating": "PN16",
+      "facing": "RF",
+      "position": "End"
+    },
+    {
+      "id": "N2",
+      "name": "Discharge",
+      "service": "Process Outlet",
+      "size": "DN100",
+      "rating": "PN40",
+      "facing": "RF",
+      "position": "Top"
+    },
+    { "id": "N3", "name": "Drain", "service": "Drain", "size": "DN25" },
+    { "id": "N4", "name": "Vent", "service": "Vent", "size": "DN25" }
+  ],
+
+  "standards": ["API 610", "ASME B73.1", "ISO 5199", "IEC 60034"],
+  "image_prompt": "[Detailed prompt for 3D model generation]"
+}
+
+Constraint:
+- Values must be realistic engineering data for a "Reference" unit.
+- **NOZZLES ARE MANDATORY**. Every equipment must have valid nozzles (Suction, Discharge, Utility).
+- **MATERIALS ARE MANDATORY**. Do not use "Steel" - use "ASTM A216 Gr. WCB".
+- Return a JSON array of objects.`,
 };
 
 /** Persona names. */
@@ -274,6 +392,95 @@ Return ONLY valid JSON, no markdown.`;
             webSources: [],
             cveRisks: [],
         };
+    }
+
+    /**
+     * Generate an equipment registry using the Surveyor persona.
+     *
+     * @param sectorName - Sector name (e.g. "Oil & Gas").
+     * @param sectorCode - Sector code (e.g. "ENER").
+     * @param subSectorCode - Sub-sector code (e.g. "OG").
+     * @returns Parsed JSON registry.
+     */
+    async generateEquipmentRegistry(
+        sectorName: string,
+        sectorCode: string,
+        subSectorCode: string,
+    ): Promise<Record<string, unknown> | null> {
+        // Build customized system prompt manually for the Surveyor
+        let prompt = PERSONAS.theSurveyor;
+        prompt = prompt.replace('[SECTOR NAME]', sectorName);
+        prompt = prompt.replace('[SECTOR_CODE]', sectorCode);
+        prompt = prompt.replace('[SUB_SECTOR_CODE]', subSectorCode);
+
+        // Override buildSystemPrompt logic by passing customized text as a user message
+        // and using a simple persona, or we can use chatWithTools directly.
+        // Easiest is to inject it as the first message or modify PERSONAS temporarily (not thread-safe).
+        // Since we can pass a system prompt as context, we can construct the full message list.
+
+        const fullMessages: ChatMessage[] = [
+            { role: 'system', content: prompt }
+        ];
+
+        const { response } = await chatWithTools(
+            fullMessages,
+            TOOL_DEFINITIONS,
+            TOOL_HANDLERS,
+            this.defaultOptions,
+        );
+
+        const choice = response.choices[0];
+        const content = choice?.message?.content || '';
+
+        try {
+            const jsonMatch = content.match(/\{[\s\S]*\}/);
+            if (jsonMatch) {
+                return JSON.parse(jsonMatch[0]) as Record<string, unknown>;
+            }
+        } catch {
+            console.warn('[agent] Failed to parse surveyor registry JSON');
+        }
+
+        return null;
+    }
+
+    /**
+     * Generate Full-Fidelity DEXPI reference cards using The Engineer persona.
+     *
+     * @param equipmentTypes - List of equipment types from registry.
+     * @returns Parsed JSON array of equipment cards.
+     */
+    async generateReferenceCards(equipmentTypes: string[]): Promise<Record<string, unknown>[]> {
+        let prompt = PERSONAS.theEngineer;
+        prompt = prompt.replace(
+            '[LIST_OF_TYPES_FROM_REGISTRY]',
+            equipmentTypes.map(t => `- ${t}`).join('\n')
+        );
+
+        const fullMessages: ChatMessage[] = [
+            { role: 'system', content: prompt }
+        ];
+
+        const { response } = await chatWithTools(
+            fullMessages,
+            TOOL_DEFINITIONS,
+            TOOL_HANDLERS,
+            this.defaultOptions,
+        );
+
+        const choice = response.choices[0];
+        const content = choice?.message?.content || '';
+
+        try {
+            const jsonMatch = content.match(/\[[\s\S]*\]/);
+            if (jsonMatch) {
+                return JSON.parse(jsonMatch[0]) as Record<string, unknown>[];
+            }
+        } catch {
+            console.warn('[agent] Failed to parse engineer reference cards JSON');
+        }
+
+        return [];
     }
 
     /**
