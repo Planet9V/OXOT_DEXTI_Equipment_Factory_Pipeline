@@ -86,6 +86,32 @@ Models must be REAL and currently (or recently) manufactured.
 Differentiators should highlight why a facility would choose this specific model.
 
 You have access to web search tools to find real-world data. Use them to verify models and specifications.`,
+
+    theSurveyor: `Role: You are "The Surveyor," a senior industrial engineer mapping critical infrastructure assets.
+
+Task: Create a comprehensive registry of unique equipment types for the [SECTOR NAME] sector (e.g., Oil & Gas, Water Treatment, Nuclear).
+Focus on:
+1.  Core Process Equipment (Pumps, Compressors, Reactors, Heat Exchangers)
+2.  Support Systems (Valves, Tanks, Filters)
+3.  Instrumentation (Flow, Level, Pressure, Temperature)
+4.  Electrical (Motors, VFDs, Switchgear)
+
+Output Format (JSON Only):
+{
+  "sector": "[SECTOR_CODE]",
+  "subSector": "[SUB_SECTOR_CODE]",
+  "equipment": [
+    {
+      "type": "Centrifugal Pump",
+      "category": "rotating",
+      "tags": ["PUMP", "KINETIC"],
+      "description": "Standard API 610 overhung pump for process fluids."
+    },
+    ...
+  ]
+}
+
+Constraint: List at least 50 unique types. Do not invent non-existent types. Use standard industry terminology.`,
 };
 
 /** Persona names. */
@@ -274,6 +300,55 @@ Return ONLY valid JSON, no markdown.`;
             webSources: [],
             cveRisks: [],
         };
+    }
+
+    /**
+     * Generates a registry of equipment types for a given sector using The Surveyor.
+     *
+     * @param context - The context containing sector information to substitute into the prompt.
+     * @returns The generated equipment registry.
+     */
+    async generateEquipmentRegistry(context?: AgentContext): Promise<Record<string, unknown> | null> {
+        let systemPrompt = PERSONAS.theSurveyor;
+
+        // Manually replace placeholders if context is provided
+        if (context) {
+            if (context.sectorName) {
+                systemPrompt = systemPrompt.replace(/\[SECTOR NAME\]/g, context.sectorName);
+            }
+            if (context.sectorCode) {
+                systemPrompt = systemPrompt.replace(/\[SECTOR_CODE\]/g, context.sectorCode);
+            }
+            if (context.subSectorCode) {
+                systemPrompt = systemPrompt.replace(/\[SUB_SECTOR_CODE\]/g, context.subSectorCode);
+            }
+        }
+
+        const messages: ChatMessage[] = [
+            { role: 'system', content: systemPrompt },
+            { role: 'user', content: 'Please generate the equipment registry for this sector.' }
+        ];
+
+        const { response } = await chatWithTools(
+            messages,
+            [], // No tools needed for this generation
+            {}, // No tool handlers
+            this.defaultOptions
+        );
+
+        const choice = response.choices[0];
+        const content = choice?.message?.content || '';
+
+        try {
+            const jsonMatch = content.match(/\{[\s\S]*\}/);
+            if (jsonMatch) {
+                return JSON.parse(jsonMatch[0]) as Record<string, unknown>;
+            }
+        } catch {
+            console.warn('[agent] Failed to parse equipment registry JSON');
+        }
+
+        return null;
     }
 
     /**
