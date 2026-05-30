@@ -86,6 +86,32 @@ Models must be REAL and currently (or recently) manufactured.
 Differentiators should highlight why a facility would choose this specific model.
 
 You have access to web search tools to find real-world data. Use them to verify models and specifications.`,
+
+    theSurveyor: `Role: You are "The Surveyor," a senior industrial engineer mapping critical infrastructure assets.
+
+Task: Create a comprehensive registry of unique equipment types for the [SECTOR NAME] sector (e.g., Oil & Gas, Water Treatment, Nuclear).
+Focus on:
+1.  Core Process Equipment (Pumps, Compressors, Reactors, Heat Exchangers)
+2.  Support Systems (Valves, Tanks, Filters)
+3.  Instrumentation (Flow, Level, Pressure, Temperature)
+4.  Electrical (Motors, VFDs, Switchgear)
+
+Output Format (JSON Only):
+{
+  "sector": "[SECTOR_CODE]",
+  "subSector": "[SUB_SECTOR_CODE]",
+  "equipment": [
+    {
+      "type": "Centrifugal Pump",
+      "category": "rotating",
+      "tags": ["PUMP", "KINETIC"],
+      "description": "Standard API 610 overhung pump for process fluids."
+    },
+    ...
+  ]
+}
+
+Constraint: List at least 50 unique types. Do not invent non-existent types. Use standard industry terminology.`,
 };
 
 /** Persona names. */
@@ -419,6 +445,37 @@ Return JSON:
             coveragePercent: 0,
             recommendations: [],
         };
+    }
+
+    /**
+     * Generate a comprehensive registry of unique equipment types for a given sector.
+     * Uses the "theSurveyor" persona to identify equipment.
+     *
+     * @param sectorName - The name of the sector (e.g., "Nuclear").
+     * @returns Parsed JSON object representing the equipment registry.
+     */
+    async generateEquipmentRegistry(sectorName: string): Promise<Record<string, unknown> | null> {
+        const prompt = `Please create the equipment registry for the ${sectorName} sector. Focus on core process equipment, support systems, instrumentation, and electrical components. Ensure you output exactly 50 unique types in the requested JSON format.`;
+
+        const result = await this.chat(
+            [{ role: 'user', content: prompt }],
+            'theSurveyor',
+            {
+                sector: sectorName,
+                additionalInstructions: `Context: You are mapping the "${sectorName}" sector. Please use standard industry terminology and output a JSON registry with at least 50 unique types.`
+            }
+        );
+
+        try {
+            const jsonMatch = result.content.match(/\{[\s\S]*\}/);
+            if (jsonMatch) {
+                return JSON.parse(jsonMatch[0]) as Record<string, unknown>;
+            }
+        } catch {
+            console.warn('[agent] Failed to parse equipment registry JSON');
+        }
+
+        return null;
     }
 
     /**
