@@ -80,12 +80,38 @@ Use the lookup_cve tool to check for known vulnerabilities. Flag any equipment t
 
 A production-quality card must have: valid tag, componentClassURI, specifications with units, operating conditions, at least 2 manufacturers, applicable standards, and material selections.`,
 
-    procurementOfficer: `You are "The Procurement Officer," responsible for sourcing specific vendor equipment.
-Your task is to find 3 distinct real-world vendor models for Reference Equipment.
-Models must be REAL and currently (or recently) manufactured.
-Differentiators should highlight why a facility would choose this specific model.
+    procurementOfficer: `Role: You are "The Procurement Officer," responsible for sourcing specific vendor equipment.
 
-You have access to web search tools to find real-world data. Use them to verify models and specifications.`,
+Task: Find 3 distinct real-world vendor models for the following Reference Equipment:
+Context: [REFERENCE_EQUIPMENT_JSON]
+
+For each model (e.g., Siemens, ABB, Rockwell, Emerson, Flowserve), generate a "Vendor Variation" card:
+
+Output Format (JSON Array):
+[
+  {
+    "vendor": "[Manufacturer Name]",
+    "model": "[Model Number/Series]",
+    "referenceId": "[REFERENCE_TAG]",
+    "description": "[Vendor marketing description]",
+    "differentiators": [
+      "High Efficiency IE4 Motor",
+      "Integrated Condition Monitoring",
+      "Corrosion Resistant Coating"
+    ],
+    "specifications": {
+      // Specific simplified specs that differ from reference or define this model
+    },
+    "documents": [
+      { "title": "Datasheet", "url": "[Real URL if found]" },
+      { "title": "Manual", "url": "..." }
+    ]
+  }
+]
+
+Constraint:
+- Models must be REAL and currently (or recently) manufactured.
+- Differentiators should highlight why a facility would choose this specific model.`,
 };
 
 /** Persona names. */
@@ -286,38 +312,19 @@ Return ONLY valid JSON, no markdown.`;
         const prompt = `Task: Find 3 distinct real-world vendor models for the following Reference Equipment:
 Context: ${JSON.stringify(referenceEquipment, null, 2)}
 
-For each model (e.g., Siemens, ABB, Rockwell, Emerson, Flowserve), generate a "Vendor Variation" card:
+For each model (e.g., Siemens, ABB, Rockwell, Emerson, Flowserve), generate a "Vendor Variation" card.
+Ensure the models are compatible with the specifications provided in the context.
+Please provide the 3 vendor variations as a JSON array.`;
 
-Output Format (JSON Array):
-[
-  {
-    "vendor": "[Manufacturer Name]",
-    "model": "[Model Number/Series]",
-    "referenceId": "${referenceEquipment.tag || 'REF'}",
-    "description": "[Vendor marketing description]",
-    "differentiators": [
-      "High Efficiency IE4 Motor",
-      "Integrated Condition Monitoring",
-      "Corrosion Resistant Coating"
-    ],
-    "specifications": {
-      // Specific simplified specs that differ from reference or define this model
-    },
-    "documents": [
-      { "title": "Datasheet", "url": "[Real URL if found]" },
-      { "title": "Manual", "url": "..." }
-    ]
-  }
-]
-
-Constraint:
-- Models must be REAL and currently (or recently) manufactured.
-- Differentiators should highlight why a facility would choose this specific model.
-- Return ONLY valid JSON array, no markdown.`;
+        const context: AgentContext = {
+            referenceEquipment: referenceEquipment,
+            referenceTag: referenceEquipment.tag as string,
+        } as AgentContext & { referenceEquipment: Record<string, unknown>, referenceTag: string };
 
         const result = await this.chat(
             [{ role: 'user', content: prompt }],
-            'procurementOfficer'
+            'procurementOfficer',
+            context
         );
 
         try {
@@ -445,10 +452,18 @@ Return JSON:
     /**
      * Builds the full system prompt for a persona with optional context.
      */
-    private buildSystemPrompt(persona: PersonaName, context?: AgentContext): string {
+    private buildSystemPrompt(persona: PersonaName, context?: AgentContext & { referenceEquipment?: Record<string, unknown>, referenceTag?: string }): string {
         let prompt = PERSONAS[persona];
 
         if (context) {
+            // Replace placeholders for procurement officer dynamically based on context
+            if (context.referenceEquipment) {
+                prompt = prompt.replace('[REFERENCE_EQUIPMENT_JSON]', JSON.stringify(context.referenceEquipment, null, 2));
+            }
+            if (context.referenceTag) {
+                prompt = prompt.replace('[REFERENCE_TAG]', context.referenceTag);
+            }
+
             const parts: string[] = [];
             if (context.sector) parts.push(`Sector: ${context.sector}`);
             if (context.subSector) parts.push(`Sub-sector: ${context.subSector}`);

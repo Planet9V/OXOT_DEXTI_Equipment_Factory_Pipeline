@@ -72,7 +72,7 @@ describe('ProcurementAgent', () => {
         expect(openRouter.chatWithTools).toHaveBeenCalledTimes(1);
     });
 
-    it('should handle wrapped JSON responses (object with variations key)', async () => {
+    it('should throw an error for wrapped JSON responses (object with variations key)', async () => {
         const mockEquipment = { tag: 'TAG-001' } as unknown as EquipmentCard;
         const mockVariations = [{ vendor: 'ABB', model: 'M3BP', referenceId: 'TAG-001' }];
         const wrappedResponse = { variations: mockVariations };
@@ -91,12 +91,10 @@ describe('ProcurementAgent', () => {
             toolTraces: []
         });
 
-        const result = await agent.execute({ equipment: mockEquipment }, 'test-run-id');
-        expect(result).toHaveLength(1);
-        expect(result[0].vendor).toBe('ABB');
+        await expect(agent.execute({ equipment: mockEquipment }, 'test-run-id')).rejects.toThrow('Output format invalid: Expected a JSON array of vendor variations.');
     });
 
-    it('should handle wrapped JSON responses (object with models key)', async () => {
+    it('should throw an error for wrapped JSON responses (object with models key)', async () => {
         const mockEquipment = { tag: 'TAG-001' } as unknown as EquipmentCard;
         const mockVariations = [{ vendor: 'Rockwell', model: 'Bulletin 100', referenceId: 'TAG-001' }];
         const wrappedResponse = { models: mockVariations };
@@ -115,8 +113,52 @@ describe('ProcurementAgent', () => {
             toolTraces: []
         });
 
-        const result = await agent.execute({ equipment: mockEquipment }, 'test-run-id');
-        expect(result).toHaveLength(1);
-        expect(result[0].vendor).toBe('Rockwell');
+        await expect(agent.execute({ equipment: mockEquipment }, 'test-run-id')).rejects.toThrow('Output format invalid: Expected a JSON array of vendor variations.');
+    });
+
+    it('should substitute [REFERENCE_EQUIPMENT_JSON] and [REFERENCE_TAG] in system prompt', async () => {
+        const mockEquipment = {
+            id: '123',
+            tag: 'P-101',
+            componentClass: 'Centrifugal Pump',
+            specifications: {},
+        } as unknown as EquipmentCard;
+
+        const mockVariations = [
+            {
+                vendor: 'Siemens',
+                model: 'Simotics SD',
+                referenceId: 'P-101',
+                description: 'Severe duty motor',
+                differentiators: ['High efficiency'],
+                specifications: { power: '15kW' },
+                documents: [{ title: 'Datasheet', url: 'http://siemens.com' }]
+            }
+        ];
+
+        (openRouter.chatWithTools as jest.Mock).mockResolvedValue({
+            response: {
+                choices: [
+                    {
+                        message: {
+                            content: JSON.stringify(mockVariations),
+                            tool_calls: []
+                        }
+                    }
+                ]
+            },
+            toolTraces: []
+        });
+
+        await agent.execute({ equipment: mockEquipment }, 'test-run-id');
+
+        const calls = (openRouter.chatWithTools as jest.Mock).mock.calls;
+        const messages = calls[0][0];
+        const systemMessage = messages.find((m: any) => m.role === 'system');
+
+        expect(systemMessage.content).toContain('P-101');
+        expect(systemMessage.content).toContain('Centrifugal Pump');
+        expect(systemMessage.content).not.toContain('[REFERENCE_EQUIPMENT_JSON]');
+        expect(systemMessage.content).not.toContain('[REFERENCE_TAG]');
     });
 });
