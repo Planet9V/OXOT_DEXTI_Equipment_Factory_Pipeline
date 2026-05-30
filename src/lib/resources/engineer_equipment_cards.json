@@ -1,0 +1,283 @@
+[
+  {
+    "tag": "Generic-PUMP-001",
+    "name": "Centrifugal Pump",
+    "componentClass": "CentrifugalPump",
+    "dexpiType": "CentrifugalPump",
+    "rdlUri": "http://data.posccaesar.org/rdl/RDS288594",
+    "description": "Standard API 610 single-stage overhung centrifugal pump for generic process fluid transfer.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 10,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 150,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 130,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 80,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 250,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 200,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 75,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "rotationalSpeed": {
+        "value": 2950,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 75,
+        "unit": "%"
+      },
+      "head": {
+        "value": 65,
+        "unit": "m"
+      },
+      "NPSHr": {
+        "value": 4.5,
+        "unit": "m"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 1500,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 600,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 850,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "casing": "ASTM A216 WCB",
+      "impeller": "ASTM A743 CA6NM",
+      "shaft": "AISI 4140",
+      "seals": "Silicon Carbide / Carbon",
+      "gaskets": "PTFE",
+      "bolting": "ASTM A193 B7",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Suction",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Discharge",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Bottom"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Top"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199",
+      "IEC 60034"
+    ],
+    "image_prompt": "A 3D photorealistic render of an industrial API 610 single-stage overhung centrifugal pump on a steel baseplate."
+  },
+  {
+    "tag": "Generic-VALVE-001",
+    "name": "Control Valve",
+    "componentClass": "ControlValve",
+    "dexpiType": "GlobeControlValve",
+    "rdlUri": "http://data.posccaesar.org/rdl/RDS334234",
+    "description": "Pneumatically actuated globe control valve for flow regulation.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 40,
+        "unit": "bar",
+        "source": "ISA 75.01.01"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 35,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 20,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 180,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 120,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 500,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 400,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 0,
+        "unit": "kW",
+        "source": "N/A"
+      },
+      "rotationalSpeed": {
+        "value": 0,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 0,
+        "unit": "%"
+      },
+      "head": {
+        "value": 0,
+        "unit": "m"
+      },
+      "NPSHr": {
+        "value": 0,
+        "unit": "m"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 450,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 300,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 300,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 900,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "casing": "ASTM A216 WCB",
+      "impeller": "N/A",
+      "shaft": "ASTM A276 Type 316",
+      "seals": "Graphite",
+      "gaskets": "Spiral Wound SS316",
+      "bolting": "ASTM A193 B7",
+      "baseplate": "N/A"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Side"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Side"
+      }
+    ],
+    "standards": [
+      "ISA 75.01.01",
+      "IEC 60534",
+      "ASME B16.34"
+    ],
+    "image_prompt": "A 3D photorealistic render of an industrial globe control valve with a pneumatic diaphragm actuator."
+  }
+]
