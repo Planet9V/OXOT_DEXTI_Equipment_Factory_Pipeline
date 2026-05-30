@@ -224,7 +224,7 @@ describe('Facility Assignment', () => {
         expect(removed).toBe(true);
         expect(mockRunWrite).toHaveBeenCalledWith(
             expect.stringContaining('DELETE r'),
-            expect.objectContaining({ equipmentId: 'eq-1', facilityCode: 'FAC-1' }),
+            expect.objectContaining({ equipmentId: 'eq-1', facilityCode: 'FAC-1' })
         );
     });
 
