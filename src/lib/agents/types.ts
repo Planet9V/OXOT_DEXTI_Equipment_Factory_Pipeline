@@ -84,6 +84,7 @@ export interface AgentContext {
     subSector?: string;
     facility?: string;
     equipmentClass?: string;
+    referenceEquipment?: Record<string, unknown>;
     /** Extra instructions appended to system prompt. */
     additionalInstructions?: string;
 }

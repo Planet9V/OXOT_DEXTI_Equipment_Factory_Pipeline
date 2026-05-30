@@ -69,17 +69,19 @@ describe('Procurement Officer Persona', () => {
         expect(result[0].vendor).toBe('Siemens');
         expect(result[1].model).toBe('Mark 3');
 
-        // Verify the prompt contained the reference equipment
+        // Verify the system prompt contained the reference equipment and instructions
         const calls = (chatWithTools as jest.Mock).mock.calls;
         const messages = calls[0][0];
-        const userMessage = messages.find((m: any) => m.role === 'user');
-        expect(userMessage.content).toContain('P-101');
-        expect(userMessage.content).toContain('Centrifugal Pump');
-        expect(userMessage.content).toContain('For each model (e.g., Siemens, ABB, Rockwell, Emerson, Flowserve)');
-
-        // Verify system prompt is for procurement officer
         const systemMessage = messages.find((m: any) => m.role === 'system');
+
         expect(systemMessage.content).toContain('The Procurement Officer');
+        expect(systemMessage.content).toContain('P-101');
+        expect(systemMessage.content).toContain('Centrifugal Pump');
+        expect(systemMessage.content).toContain('For each model (e.g., Siemens, ABB, Rockwell, Emerson, Flowserve)');
+
+        // Ensure user message is generic
+        const userMessage = messages.find((m: any) => m.role === 'user');
+        expect(userMessage.content).toBe('Generate vendor variations.');
     });
 
     test('should return empty array when response parsing fails', async () => {

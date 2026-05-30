@@ -42,17 +42,12 @@ export interface VendorVariationResult {
 
 /* ─── Agent Configuration ───────────────────────────────────────────────── */
 
-const SYSTEM_PROMPT = `
-You are "The Procurement Officer," responsible for sourcing specific vendor equipment.
+const SYSTEM_PROMPT = `Role: You are "The Procurement Officer," responsible for sourcing specific vendor equipment.
 
-Task: Find 3 distinct real-world vendor models for the provided Reference Equipment.
+Task: Find 3 distinct real-world vendor models for the following Reference Equipment:
+Context: [REFERENCE_EQUIPMENT_JSON]
 
-For each model (e.g., Siemens, ABB, Rockwell, Emerson, Flowserve), generate a "Vendor Variation" card.
-
-Constraint:
-- Models must be REAL and currently (or recently) manufactured.
-- Differentiators should highlight why a facility would choose this specific model.
-- Use the provided tools (search_web, search_perplexity) to verify the existence and specifications of the models.
+For each model (e.g., Siemens, ABB, Rockwell, Emerson, Flowserve), generate a "Vendor Variation" card:
 
 Output Format (JSON Array):
 [
@@ -75,7 +70,11 @@ Output Format (JSON Array):
     ]
   }
 ]
-`;
+
+Constraint:
+- Models must be REAL and currently (or recently) manufactured.
+- Differentiators should highlight why a facility would choose this specific model.
+- Use the provided tools (search_web, search_perplexity) to verify the existence and specifications of the models.`;
 
 /* ─── Implementation ────────────────────────────────────────────────────── */
 
@@ -104,38 +103,22 @@ export class ProcurementAgent extends BaseSpecialist<ProcurementInput, Procureme
     async execute(input: ProcurementInput, runId: string): Promise<ProcurementOutput> {
         const { equipment } = input;
 
-        // Construct the prompt with the reference equipment context
-        const userMessage = `
-Context: ${JSON.stringify(equipment, null, 2)}
+        // Use string replacement for placeholders directly before execution
+        this.config.systemPrompt = SYSTEM_PROMPT
+            .replace('[REFERENCE_EQUIPMENT_JSON]', JSON.stringify(equipment, null, 2))
+            .replace(/\[REFERENCE_TAG\]/g, String(equipment.tag || 'REF'));
 
-Find 3 distinct real-world vendor models for this Reference Equipment.
-Ensure the models are compatible with the specifications provided in the context.
-        `;
-
-        // Call the LLM with tools
-        const response = await this.callLLM(userMessage);
+        // Call the LLM with an empty user message, since context is in system prompt
+        const response = await this.callLLM('Generate vendor variations.');
 
         // Parse and validate the response
         // The BaseSpecialist.parseJSON returns Record<string, unknown>, but we expect an array.
-        // If the LLM returns an object wrapping the array (e.g. { "variations": [...] }), we handle that.
-
-        let variations: VendorVariationResult[] = [];
-
-        if (Array.isArray(response)) {
-            variations = response as unknown as VendorVariationResult[];
-        } else if (Array.isArray((response as any).variations)) {
-             variations = (response as any).variations as unknown as VendorVariationResult[];
-        } else if (Array.isArray((response as any).models)) {
-             variations = (response as any).models as unknown as VendorVariationResult[];
-        } else {
-            // Fallback: try to find any array in the values
-            const possibleArray = Object.values(response).find(val => Array.isArray(val));
-            if (possibleArray) {
-                variations = possibleArray as unknown as VendorVariationResult[];
-            } else {
-                 throw new Error('Output format invalid: Expected a JSON array of vendor variations.');
-            }
+        // It strictly enforces JSON array outputs.
+        if (!Array.isArray(response)) {
+             throw new Error('Output format invalid: Expected a JSON array of vendor variations.');
         }
+
+        const variations = response as unknown as VendorVariationResult[];
 
         // Validate basic structure of items
         const validated = variations.map(v => ({
