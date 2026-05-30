@@ -1,0 +1,277 @@
+[
+  {
+    "tag": "Generic-CP-001",
+    "name": "Centrifugal Pump",
+    "componentClass": "Pump",
+    "dexpiType": "CentrifugalPump",
+    "rdlUri": "http://posccaesar.org/rdl/RDS234938",
+    "description": "Standard heavy duty horizontal centrifugal pump for general process applications.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 16,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 10,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 150,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 120,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 80,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 85,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 45,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "rotationalSpeed": {
+        "value": 2950,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 75,
+        "unit": "%"
+      },
+      "head": {
+        "value": 60,
+        "unit": "m"
+      },
+      "NPSHr": {
+        "value": 2.5,
+        "unit": "m"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 450,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 1200,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 600,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 800,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "casing": "ASTM A216 WCB",
+      "impeller": "ASTM A743 CA6NM",
+      "shaft": "AISI 4140",
+      "seals": "Tungsten Carbide / Carbon",
+      "gaskets": "PTFE",
+      "bolting": "ASTM A193 B7",
+      "baseplate": "Carbon Steel ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Suction",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Discharge",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199",
+      "IEC 60034"
+    ],
+    "image_prompt": "A highly detailed 3D rendering of a horizontal centrifugal pump mounted on a steel baseplate, featuring prominently visible flanged suction and discharge nozzles, industrial gray paint."
+  },
+  {
+    "tag": "Generic-GV-001",
+    "name": "Gate Valve",
+    "componentClass": "Valve",
+    "dexpiType": "GateValve",
+    "rdlUri": "http://posccaesar.org/rdl/RDS334233",
+    "description": "Rising stem wedge gate valve for isolation in high-pressure piping systems.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 100,
+        "unit": "bar",
+        "source": "API 600"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 85,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 50,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 400,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -29,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 350,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 200,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 500,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 450,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 0,
+        "unit": "kW",
+        "source": "N/A"
+      },
+      "rotationalSpeed": {
+        "value": 0,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 100,
+        "unit": "%"
+      },
+      "head": {
+        "value": 0,
+        "unit": "m"
+      },
+      "NPSHr": {
+        "value": 0,
+        "unit": "m"
+      },
+      "dutyPoint": {
+        "value": "Intermittent",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 120,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 356,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 250,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 850,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "casing": "ASTM A216 WCB",
+      "impeller": "N/A",
+      "shaft": "ASTM A182 F6a",
+      "seals": "Graphite",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "bolting": "ASTM A193 B7",
+      "baseplate": "N/A"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "Class 300",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN150",
+        "rating": "Class 300",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "API 600",
+      "ASME B16.34",
+      "ISO 10434"
+    ],
+    "image_prompt": "A detailed 3D model of an industrial flanged gate valve with a rising stem and handwheel, painted blue, showing realistic bolt details on the bonnet."
+  }
+]
