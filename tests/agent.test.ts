@@ -228,9 +228,9 @@ describe('DexpiAgent', () => {
         mockFetch.mockReset();
     });
 
-    test('getPersonas returns all 6 personas', () => {
+    test('getPersonas returns all 7 personas', () => {
         const personas = agent.getPersonas();
-        expect(personas).toHaveLength(6);
+        expect(personas).toHaveLength(7);
         const names = personas.map(p => p.name);
         expect(names).toContain('coordinator');
         expect(names).toContain('processEngineer');
@@ -238,6 +238,37 @@ describe('DexpiAgent', () => {
         expect(names).toContain('safetyAnalyst');
         expect(names).toContain('qualityReviewer');
         expect(names).toContain('procurementOfficer');
+        expect(names).toContain('theEngineer');
+    });
+
+    test('generateEquipmentCards parses JSON response', async () => {
+        const mockCards = [
+            {
+                tag: 'Generic-PUMP-001',
+                name: 'Standard Centrifugal Pump',
+                componentClass: 'CentrifugalPump',
+                dexpiType: 'CentrifugalPump',
+                rdlUri: 'http://data.posccaesar.org/rdl/RDS1234',
+                description: 'A test pump'
+            }
+        ];
+
+        mockFetch.mockResolvedValueOnce({
+            ok: true,
+            json: async () => ({
+                choices: [{ message: { role: 'assistant', content: JSON.stringify(mockCards) }, finish_reason: 'stop' }],
+            }),
+        });
+
+        const cards = await agent.generateEquipmentCards(['CentrifugalPump']);
+        expect(cards).toHaveLength(1);
+        expect(cards[0].tag).toBe('Generic-PUMP-001');
+        expect(cards[0].componentClass).toBe('CentrifugalPump');
+
+        // Verify correct persona was used
+        const fetchBody = JSON.parse(mockFetch.mock.calls[0][1].body);
+        const systemMsg = fetchBody.messages[0].content;
+        expect(systemMsg).toContain('The Engineer');
     });
 
     test('findVendorVariations returns parsed array', async () => {
