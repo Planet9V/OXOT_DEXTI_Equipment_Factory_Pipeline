@@ -8,7 +8,7 @@
  */
 
 /** Agent persona names. */
-export type PersonaName = 'coordinator' | 'processEngineer' | 'standardsExpert' | 'safetyAnalyst' | 'qualityReviewer' | 'procurementOfficer';
+export type PersonaName = 'coordinator' | 'processEngineer' | 'standardsExpert' | 'safetyAnalyst' | 'qualityReviewer' | 'procurementOfficer' | 'theSurveyor';
 
 /* ─── Chat Messages ─────────────────────────────────────────────────────── */
 
@@ -80,6 +80,9 @@ export interface CompletionOptions {
 
 /** Optional context injected into the agent's system prompt. */
 export interface AgentContext {
+    sectorName?: string;
+    sectorCode?: string;
+    subSectorCode?: string;
     sector?: string;
     subSector?: string;
     facility?: string;
