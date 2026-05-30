@@ -262,7 +262,7 @@ describe('DexpiAgent', () => {
         const fetchCall = mockFetch.mock.calls[0];
         const fetchBody = JSON.parse(fetchCall[1].body);
         expect(fetchBody.messages[0].content).toContain('The Procurement Officer');
-        expect(fetchBody.messages[1].content).toContain('P-101');
+        expect(fetchBody.messages[0].content).toContain('P-101'); // System prompt should have the context
     });
 
     test('each persona has a description', () => {
