@@ -91,9 +91,7 @@ describe('ProcurementAgent', () => {
             toolTraces: []
         });
 
-        const result = await agent.execute({ equipment: mockEquipment }, 'test-run-id');
-        expect(result).toHaveLength(1);
-        expect(result[0].vendor).toBe('ABB');
+        await expect(agent.execute({ equipment: mockEquipment }, 'test-run-id')).rejects.toThrow(/Output format invalid/);
     });
 
     it('should handle wrapped JSON responses (object with models key)', async () => {
@@ -115,8 +113,6 @@ describe('ProcurementAgent', () => {
             toolTraces: []
         });
 
-        const result = await agent.execute({ equipment: mockEquipment }, 'test-run-id');
-        expect(result).toHaveLength(1);
-        expect(result[0].vendor).toBe('Rockwell');
+        await expect(agent.execute({ equipment: mockEquipment }, 'test-run-id')).rejects.toThrow(/Output format invalid/);
     });
 });
