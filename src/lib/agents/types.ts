@@ -84,6 +84,12 @@ export interface AgentContext {
     subSector?: string;
     facility?: string;
     equipmentClass?: string;
+    referenceEquipment?: string;
+    referenceTag?: string;
+    sectorName?: string;
+    sectorCode?: string;
+    subSectorCode?: string;
+    listOfTypesFromRegistry?: string;
     /** Extra instructions appended to system prompt. */
     additionalInstructions?: string;
 }

@@ -42,17 +42,12 @@ export interface VendorVariationResult {
 
 /* ─── Agent Configuration ───────────────────────────────────────────────── */
 
-const SYSTEM_PROMPT = `
-You are "The Procurement Officer," responsible for sourcing specific vendor equipment.
+const SYSTEM_PROMPT = `Role: You are "The Procurement Officer," responsible for sourcing specific vendor equipment.
 
-Task: Find 3 distinct real-world vendor models for the provided Reference Equipment.
+Task: Find 3 distinct real-world vendor models for the following Reference Equipment:
+Context: [REFERENCE_EQUIPMENT_JSON]
 
-For each model (e.g., Siemens, ABB, Rockwell, Emerson, Flowserve), generate a "Vendor Variation" card.
-
-Constraint:
-- Models must be REAL and currently (or recently) manufactured.
-- Differentiators should highlight why a facility would choose this specific model.
-- Use the provided tools (search_web, search_perplexity) to verify the existence and specifications of the models.
+For each model (e.g., Siemens, ABB, Rockwell, Emerson, Flowserve), generate a "Vendor Variation" card:
 
 Output Format (JSON Array):
 [
@@ -75,7 +70,11 @@ Output Format (JSON Array):
     ]
   }
 ]
-`;
+
+Constraint:
+- Models must be REAL and currently (or recently) manufactured.
+- Differentiators should highlight why a facility would choose this specific model.
+- Use the provided tools (search_web, search_perplexity) to verify the existence and specifications of the models.`;
 
 /* ─── Implementation ────────────────────────────────────────────────────── */
 
@@ -104,13 +103,15 @@ export class ProcurementAgent extends BaseSpecialist<ProcurementInput, Procureme
     async execute(input: ProcurementInput, runId: string): Promise<ProcurementOutput> {
         const { equipment } = input;
 
-        // Construct the prompt with the reference equipment context
+        // Avoid mutating shared state (this.config.systemPrompt) across async boundaries.
+        // Instead, pass the dynamic context directly in the user message.
         const userMessage = `
 Context: ${JSON.stringify(equipment, null, 2)}
+Reference Tag: ${equipment.tag || 'REF'}
 
-Find 3 distinct real-world vendor models for this Reference Equipment.
+Find 3 distinct real-world vendor models for the provided Reference Equipment.
 Ensure the models are compatible with the specifications provided in the context.
-        `;
+`;
 
         // Call the LLM with tools
         const response = await this.callLLM(userMessage);
