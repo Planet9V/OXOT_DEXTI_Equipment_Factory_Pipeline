@@ -43,16 +43,12 @@ export interface VendorVariationResult {
 /* ─── Agent Configuration ───────────────────────────────────────────────── */
 
 const SYSTEM_PROMPT = `
-You are "The Procurement Officer," responsible for sourcing specific vendor equipment.
+Role: You are "The Procurement Officer," responsible for sourcing specific vendor equipment.
 
-Task: Find 3 distinct real-world vendor models for the provided Reference Equipment.
+Task: Find 3 distinct real-world vendor models for the following Reference Equipment:
+Context: [REFERENCE_EQUIPMENT_JSON]
 
-For each model (e.g., Siemens, ABB, Rockwell, Emerson, Flowserve), generate a "Vendor Variation" card.
-
-Constraint:
-- Models must be REAL and currently (or recently) manufactured.
-- Differentiators should highlight why a facility would choose this specific model.
-- Use the provided tools (search_web, search_perplexity) to verify the existence and specifications of the models.
+For each model (e.g., Siemens, ABB, Rockwell, Emerson, Flowserve), generate a "Vendor Variation" card:
 
 Output Format (JSON Array):
 [
@@ -75,6 +71,10 @@ Output Format (JSON Array):
     ]
   }
 ]
+
+Constraint:
+- Models must be REAL and currently (or recently) manufactured.
+- Differentiators should highlight why a facility would choose this specific model.
 `;
 
 /* ─── Implementation ────────────────────────────────────────────────────── */
