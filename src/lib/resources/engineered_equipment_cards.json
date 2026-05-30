@@ -1,0 +1,104 @@
+[
+  {
+    "tag": "Generic-EM-001",
+    "name": "Electric Motor",
+    "componentClass": "Motor",
+    "dexpiType": "Motor",
+    "rdlUri": "http://sandbox.dexpi.org/rdl/MotorAsComponent",
+    "description": "Standard AC Induction Motor.",
+    "operatingConditions": {
+      "pressureMax": { "value": 1, "unit": "bar", "source": "API 610" },
+      "pressureMin": { "value": 1, "unit": "bar" },
+      "pressureDesign": { "value": 1, "unit": "bar" },
+      "pressureOperating": { "value": 1, "unit": "bar" },
+      "temperatureMax": { "value": 40, "unit": "C" },
+      "temperatureMin": { "value": -20, "unit": "C" },
+      "temperatureDesign": { "value": 40, "unit": "C" },
+      "temperatureOperating": { "value": 25, "unit": "C" },
+      "flowRateDesign": { "value": 0, "unit": "m3/h" },
+      "flowRateOperating": { "value": 0, "unit": "m3/h" }
+    },
+    "specifications": {
+      "power": { "value": 75, "unit": "kW", "source": "IEC 60034" },
+      "rotationalSpeed": { "value": 1450, "unit": "rpm" },
+      "efficiency": { "value": 95, "unit": "%" },
+      "head": { "value": 0, "unit": "m" },
+      "NPSHr": { "value": 0, "unit": "m" },
+      "dutyPoint": { "value": "Continuous", "unit": "" }
+    },
+    "design": {
+      "weight": { "value": 450, "unit": "kg" },
+      "length": { "value": 800, "unit": "mm" },
+      "width": { "value": 500, "unit": "mm" },
+      "height": { "value": 600, "unit": "mm" }
+    },
+    "materials": {
+      "casing": "Cast Iron EN-GJL-200",
+      "impeller": "N/A",
+      "shaft": "Steel 42CrMo4",
+      "seals": "Nitrile Rubber",
+      "gaskets": "N/A",
+      "bolting": "ASTM A193 Gr. B7",
+      "baseplate": "Carbon Steel"
+    },
+    "nozzles": [
+      { "id": "N1", "name": "Cooling Air Inlet", "service": "Utility", "size": "DN100", "rating": "N/A", "facing": "N/A", "position": "Top" },
+      { "id": "N2", "name": "Cooling Air Outlet", "service": "Utility", "size": "DN100", "rating": "N/A", "facing": "N/A", "position": "Side" },
+      { "id": "N3", "name": "Drain", "service": "Drain", "size": "DN25" },
+      { "id": "N4", "name": "Vent", "service": "Vent", "size": "DN25" }
+    ],
+    "standards": ["IEC 60034", "NEMA MG1"],
+    "image_prompt": "3D rendering of an industrial AC induction motor with cooling fins."
+  },
+  {
+    "tag": "Generic-CP-001",
+    "name": "Centrifugal Pump",
+    "componentClass": "CentrifugalPump",
+    "dexpiType": "CentrifugalPump",
+    "rdlUri": "http://data.posccaesar.org/rdl/RDS327241",
+    "description": "Standard centrifugal process pump.",
+    "operatingConditions": {
+      "pressureMax": { "value": 40, "unit": "bar", "source": "API 610" },
+      "pressureMin": { "value": 0, "unit": "bar" },
+      "pressureDesign": { "value": 20, "unit": "bar" },
+      "pressureOperating": { "value": 15, "unit": "bar" },
+      "temperatureMax": { "value": 120, "unit": "C" },
+      "temperatureMin": { "value": -10, "unit": "C" },
+      "temperatureDesign": { "value": 100, "unit": "C" },
+      "temperatureOperating": { "value": 80, "unit": "C" },
+      "flowRateDesign": { "value": 150, "unit": "m3/h" },
+      "flowRateOperating": { "value": 120, "unit": "m3/h" }
+    },
+    "specifications": {
+      "power": { "value": 45, "unit": "kW", "source": "API 610" },
+      "rotationalSpeed": { "value": 2950, "unit": "rpm" },
+      "efficiency": { "value": 78, "unit": "%" },
+      "head": { "value": 60, "unit": "m" },
+      "NPSHr": { "value": 2.5, "unit": "m" },
+      "dutyPoint": { "value": "Continuous", "unit": "" }
+    },
+    "design": {
+      "weight": { "value": 850, "unit": "kg" },
+      "length": { "value": 1200, "unit": "mm" },
+      "width": { "value": 600, "unit": "mm" },
+      "height": { "value": 800, "unit": "mm" }
+    },
+    "materials": {
+      "casing": "ASTM A216 WCB",
+      "impeller": "ASTM A351 CF8M",
+      "shaft": "ASTM A276 Type 410",
+      "seals": "Carbon/Silicon Carbide",
+      "gaskets": "PTFE",
+      "bolting": "ASTM A193 Gr. B7",
+      "baseplate": "Carbon Steel"
+    },
+    "nozzles": [
+      { "id": "N1", "name": "Suction", "service": "Process Inlet", "size": "DN150", "rating": "PN16", "facing": "RF", "position": "End" },
+      { "id": "N2", "name": "Discharge", "service": "Process Outlet", "size": "DN100", "rating": "PN40", "facing": "RF", "position": "Top" },
+      { "id": "N3", "name": "Drain", "service": "Drain", "size": "DN25" },
+      { "id": "N4", "name": "Vent", "service": "Vent", "size": "DN25" }
+    ],
+    "standards": ["API 610", "ASME B73.1", "ISO 5199"],
+    "image_prompt": "3D model of an API 610 centrifugal pump mounted on a baseplate."
+  }
+]
