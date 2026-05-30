@@ -6,30 +6,52 @@
  */
 
 import { DexpiAgent } from '../src/lib/agents/agent';
+import * as fs from 'fs';
+import * as path from 'path';
 
 async function main() {
     console.log('Initializing DexpiAgent...');
     const agent = new DexpiAgent();
 
-    // Dummy Reference Equipment (Centrifugal Pump)
-    const referenceEquipment = {
-        tag: 'P-1001',
-        componentClass: 'Centrifugal Pump',
-        componentClassURI: 'http://data.posccaesar.org/rdl/RDS123456',
-        displayName: 'Feed Water Pump',
-        category: 'Rotating Equipment',
-        specifications: {
-            'Design Pressure': '10 bar',
-            'Design Temperature': '60 degC',
-            'Flow Rate': '50 m3/h',
-            'Head': '40 m',
-            'Material': 'Stainless Steel 316'
-        },
-        facility: 'FAC-01'
-    };
+    // Check for API Key
+    if (!process.env.OPENROUTER_API_KEY) {
+        console.warn('\nWARNING: OPENROUTER_API_KEY is not set.');
+        console.warn('The script will simulate the prompt construction but cannot call the API.\n');
+    }
 
-    console.log('Searching for vendor variations for:', referenceEquipment.displayName);
+    // Load Real Reference Equipment (Process Pump)
+    const registryPath = path.join(__dirname, '../src/lib/resources/dexpi-equipment-cards.json');
+    let referenceEquipment;
+
+    try {
+        if (fs.existsSync(registryPath)) {
+            const fileContent = fs.readFileSync(registryPath, 'utf-8');
+            const equipmentList = JSON.parse(fileContent);
+            // Find the specific pump used in the prompt example (Generic-PP-008)
+            referenceEquipment = equipmentList.find((e: any) => e.tag === 'Generic-PP-008');
+
+            if (!referenceEquipment) {
+                 console.warn('Warning: Generic-PP-008 not found in registry. Using first item.');
+                 referenceEquipment = equipmentList[0];
+            }
+        } else {
+             console.error(`Error: Registry file not found at ${registryPath}`);
+             process.exit(1);
+        }
+    } catch (error) {
+        console.error('Error loading equipment registry:', error);
+        process.exit(1);
+    }
+
+    console.log('Searching for vendor variations for:', referenceEquipment.displayName || referenceEquipment.name);
+    console.log('Context (Reference Equipment):');
+    console.log(JSON.stringify(referenceEquipment, null, 2));
     console.log('---');
+
+    if (!process.env.OPENROUTER_API_KEY) {
+        console.log('Skipping API call due to missing key.');
+        return;
+    }
 
     try {
         const variations = await agent.findVendorVariations(referenceEquipment);
