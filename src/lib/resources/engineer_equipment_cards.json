@@ -1,0 +1,279 @@
+[
+  {
+    "tag": "Generic-PUMP-001",
+    "name": "Process Pump",
+    "componentClass": "Pump",
+    "dexpiType": "CentrifugalPump",
+    "rdlUri": "http://rds.posccaesar.org/ontology/plm/rdl/PCA_100004064",
+    "description": "Standard Process Pump used in Petroleum Refinery. Horizontal, overhung, single stage centrifugal pump for continuous heavy duty process service.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 40,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 25,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 180,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 120,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 150,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 120,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 75,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "rotationalSpeed": {
+        "value": 2950,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 78,
+        "unit": "%"
+      },
+      "head": {
+        "value": 85,
+        "unit": "m"
+      },
+      "NPSHr": {
+        "value": 3.5,
+        "unit": "m"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1200,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 1500,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 900,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "casing": "ASTM A216 Gr. WCB",
+      "impeller": "ASTM A743 Gr. CA6NM",
+      "shaft": "ASTM A479 Type 410",
+      "seals": "Tungsten Carbide / Carbon",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "bolting": "ASTM A193 Gr. B7",
+      "baseplate": "Carbon Steel"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Suction",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Discharge",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199",
+      "IEC 60034"
+    ],
+    "image_prompt": "A highly detailed 3D render of an industrial centrifugal process pump mounted on a heavy steel baseplate, featuring flanged suction and discharge nozzles, a visible coupling and electric motor driver, painted in industrial blue. The style should be photorealistic engineering visualization."
+  },
+  {
+    "tag": "Generic-VALV-001",
+    "name": "Globe Control Valve",
+    "componentClass": "Valve",
+    "dexpiType": "ControlValve",
+    "rdlUri": "http://data.posccaesar.org/rdl/RDS330554",
+    "description": "Standard Globe Control Valve used in Petroleum Refinery. Linear motion valve for precise flow throttling.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 50,
+        "unit": "bar",
+        "source": "ASME B16.34"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 40,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 20,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 300,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -29,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 80,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 0,
+        "unit": "kW"
+      },
+      "rotationalSpeed": {
+        "value": 0,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 0,
+        "unit": "%"
+      },
+      "head": {
+        "value": 0,
+        "unit": "m"
+      },
+      "NPSHr": {
+        "value": 0,
+        "unit": "m"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 250,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 350,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 350,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1200,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "casing": "ASTM A216 Gr. WCB",
+      "impeller": "N/A",
+      "shaft": "N/A",
+      "seals": "PTFE",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "bolting": "ASTM A193 Gr. B7",
+      "baseplate": "N/A",
+      "body": "ASTM A216 Gr. WCB",
+      "trim": "316 Stainless Steel with Stellite overlay"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Left"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Right"
+      }
+    ],
+    "standards": [
+      "ASME B16.34",
+      "ISA-75.01",
+      "IEC 60534",
+      "FCI 70-2"
+    ],
+    "image_prompt": "A highly detailed 3D render of an industrial pneumatic globe control valve with a prominent green diaphragm actuator on top, positioned horizontally in a pipeline segment. The style should be photorealistic engineering visualization."
+  }
+]
