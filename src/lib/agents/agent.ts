@@ -86,6 +86,99 @@ Models must be REAL and currently (or recently) manufactured.
 Differentiators should highlight why a facility would choose this specific model.
 
 You have access to web search tools to find real-world data. Use them to verify models and specifications.`,
+
+    theEngineer: `Role: You are "The Engineer," a detailed mechanical specification expert.
+
+Task: Generate **Full-Fidelity** DEXPI 2.0 equipment cards for the following list of equipment types:
+[LIST_OF_TYPES_FROM_REGISTRY]
+
+For each item, generate a JSON object that is **100% compliant** with the DEXPI 2.0 Schema. Do NOT produce simplified or partial records.
+
+Schema Requirement (MUST INCLUDE ALL FIELDS):
+{
+  "tag": "Generic-[TYPE_CODE]-001",
+  "name": "[Standard Industry Name]",
+  "componentClass": "[DEXPI Class]",
+  "dexpiType": "[Specific DEXPI Type, e.g., CentrifugalPump]",
+  "rdlUri": "[POSC Caesar RDL URI]",
+  "description": "[Technical description]",
+
+  // 1. Operating Conditions (Process Data)
+  "operatingConditions": {
+    "pressureMax": { "value": #, "unit": "bar", "source": "API 610" },
+    "pressureMin": { "value": #, "unit": "bar" },
+    "pressureDesign": { "value": #, "unit": "bar" },
+    "pressureOperating": { "value": #, "unit": "bar" },
+    "temperatureMax": { "value": #, "unit": "C" },
+    "temperatureMin": { "value": #, "unit": "C" },
+    "temperatureDesign": { "value": #, "unit": "C" },
+    "temperatureOperating": { "value": #, "unit": "C" },
+    "flowRateDesign": { "value": #, "unit": "m3/h" },
+    "flowRateOperating": { "value": #, "unit": "m3/h" }
+  },
+
+  // 2. Performance Specifications (Equipment Specific)
+  "specifications": {
+    "power": { "value": #, "unit": "kW", "source": "IEC 60034" },
+    "rotationalSpeed": { "value": #, "unit": "rpm" },
+    "efficiency": { "value": #, "unit": "%" },
+    "head": { "value": #, "unit": "m" }, // Pump specific
+    "NPSHr": { "value": #, "unit": "m" }, // Pump specific
+    "dutyPoint": { "value": "Continuous", "unit": "" }
+  },
+
+  // 3. Mechanical Design (Construction)
+  "design": {
+    "weight": { "value": #, "unit": "kg" },
+    "length": { "value": #, "unit": "mm" },
+    "width": { "value": #, "unit": "mm" },
+    "height": { "value": #, "unit": "mm" }
+  },
+
+  // 4. Materials of Construction (Exhaustive)
+  "materials": {
+    "casing": "[ASTM Spec, e.g., ASTM A216 WCB]",
+    "impeller": "[Material]",
+    "shaft": "[Material]",
+    "seals": "[Material]",
+    "gaskets": "[Material]",
+    "bolting": "[Material]",
+    "baseplate": "[Material]"
+  },
+
+  // 5. Nozzle Schedule (Connections) - CRITICAL
+  "nozzles": [
+    {
+      "id": "N1",
+      "name": "Suction",
+      "service": "Process Inlet",
+      "size": "DN150",
+      "rating": "PN16",
+      "facing": "RF",
+      "position": "End"
+    },
+    {
+      "id": "N2",
+      "name": "Discharge",
+      "service": "Process Outlet",
+      "size": "DN100",
+      "rating": "PN40",
+      "facing": "RF",
+      "position": "Top"
+    },
+    { "id": "N3", "name": "Drain", "service": "Drain", "size": "DN25" },
+    { "id": "N4", "name": "Vent", "service": "Vent", "size": "DN25" }
+  ],
+
+  "standards": ["API 610", "ASME B73.1", "ISO 5199", "IEC 60034"],
+  "image_prompt": "[Detailed prompt for 3D model generation]"
+}
+
+Constraint:
+- Values must be realistic engineering data for a "Reference" unit.
+- **NOZZLES ARE MANDATORY**. Every equipment must have valid nozzles (Suction, Discharge, Utility).
+- **MATERIALS ARE MANDATORY**. Do not use "Steel" - use "ASTM A216 Gr. WCB".
+- Return a JSON array of objects.`,
 };
 
 /** Persona names. */
@@ -274,6 +367,36 @@ Return ONLY valid JSON, no markdown.`;
             webSources: [],
             cveRisks: [],
         };
+    }
+
+    /**
+     * Generate Full-Fidelity DEXPI 2.0 equipment cards for a list of equipment types.
+     *
+     * @param equipmentTypes - The list of equipment types from the registry.
+     * @returns Array of fully detailed equipment cards.
+     */
+    async generateEquipmentCards(equipmentTypes: Record<string, unknown>[]): Promise<Record<string, unknown>[]> {
+        const typesJson = JSON.stringify(equipmentTypes, null, 2);
+        const context: AgentContext = {
+            additionalInstructions: `The list of equipment types is: ${typesJson}`,
+        };
+
+        const result = await this.chat(
+            [{ role: 'user', content: 'Generate Full-Fidelity DEXPI 2.0 equipment cards for the provided list of equipment types.' }],
+            'theEngineer',
+            context
+        );
+
+        try {
+            const jsonMatch = result.content.match(/\[[\s\S]*\]/);
+            if (jsonMatch) {
+                return JSON.parse(jsonMatch[0]) as Record<string, unknown>[];
+            }
+        } catch {
+            console.warn('[agent] Failed to parse equipment cards JSON');
+        }
+
+        return [];
     }
 
     /**
