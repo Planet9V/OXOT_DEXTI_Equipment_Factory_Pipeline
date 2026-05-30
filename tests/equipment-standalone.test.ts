@@ -66,7 +66,7 @@ describe('Standalone Equipment CRUD', () => {
         expect(typeof id).toBe('string');
         // Should have called runWrite with MERGE
         expect(mockRunWrite).toHaveBeenCalledWith(
-            expect.stringContaining('MERGE (e:Equipment:TaggedPlantItem {id: $id})'),
+            expect.stringContaining('MERGE (e:Equipment:TaggedPlantItem:OX_DEXPI2 {id: $id})'),
             expect.objectContaining({
                 tag: 'TF-101',
                 componentClass: 'Transformer',
@@ -203,7 +203,7 @@ describe('Facility Assignment', () => {
     });
 
     test('assignEquipmentToFacility creates ASSIGNED_TO relationship', async () => {
-        mockRunWrite.mockResolvedValueOnce([mockRecord({ eid: 'eq-1' })]);
+        mockRunWrite.mockResolvedValueOnce({ counters: { updates: () => ({ relationshipsCreated: 1 }) } });
         const success = await assignEquipmentToFacility('eq-1', 'FAC-1');
         expect(success).toBe(true);
         expect(mockRunWrite).toHaveBeenCalledWith(
@@ -219,7 +219,7 @@ describe('Facility Assignment', () => {
     });
 
     test('removeEquipmentFromFacility deletes relationship only', async () => {
-        mockRunWrite.mockResolvedValueOnce([mockRecord({ eid: 'eq-1' })]);
+        mockRunWrite.mockResolvedValueOnce({ counters: { updates: () => ({ relationshipsDeleted: 1 }) } });
         const removed = await removeEquipmentFromFacility('eq-1', 'FAC-1');
         expect(removed).toBe(true);
         expect(mockRunWrite).toHaveBeenCalledWith(

@@ -228,9 +228,9 @@ describe('DexpiAgent', () => {
         mockFetch.mockReset();
     });
 
-    test('getPersonas returns all 6 personas', () => {
+    test('getPersonas returns all 7 personas', () => {
         const personas = agent.getPersonas();
-        expect(personas).toHaveLength(6);
+        expect(personas).toHaveLength(7);
         const names = personas.map(p => p.name);
         expect(names).toContain('coordinator');
         expect(names).toContain('processEngineer');
@@ -238,6 +238,34 @@ describe('DexpiAgent', () => {
         expect(names).toContain('safetyAnalyst');
         expect(names).toContain('qualityReviewer');
         expect(names).toContain('procurementOfficer');
+        expect(names).toContain('theEngineer');
+    });
+
+    test('generateEquipmentCards returns parsed array of DEXPI cards', async () => {
+        const fakeCards = [
+            { tag: 'P-101', name: 'Centrifugal Pump', componentClass: 'Pump' }
+        ];
+
+        mockFetch.mockResolvedValueOnce({
+            ok: true,
+            json: async () => ({
+                choices: [{ message: { role: 'assistant', content: JSON.stringify(fakeCards) }, finish_reason: 'stop' }],
+            }),
+        });
+
+        const types = [{ type: 'Centrifugal Pump' }];
+        const result = await agent.generateEquipmentCards(types);
+
+        expect(result).toHaveLength(1);
+        expect(result[0].tag).toBe('P-101');
+        expect(result[0].componentClass).toBe('Pump');
+
+        // Verify correct persona and context injection
+        const fetchCall = mockFetch.mock.calls[0];
+        const fetchBody = JSON.parse(fetchCall[1].body);
+        const systemMsg = fetchBody.messages[0].content;
+        expect(systemMsg).toContain('The Engineer');
+        expect(systemMsg).toContain('Centrifugal Pump'); // listOfTypesFromRegistry injected
     });
 
     test('findVendorVariations returns parsed array', async () => {
