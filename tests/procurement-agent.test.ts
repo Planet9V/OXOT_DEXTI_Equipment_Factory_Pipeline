@@ -70,6 +70,11 @@ describe('ProcurementAgent', () => {
         expect(result[0].vendor).toBe('Siemens');
         expect(result[0].referenceId).toBe('P-101');
         expect(openRouter.chatWithTools).toHaveBeenCalledTimes(1);
+
+        const callArgs = (openRouter.chatWithTools as jest.Mock).mock.calls[0][0];
+        const systemMsg = callArgs.find((m: any) => m.role === 'system');
+        expect(systemMsg.content).toContain('P-101');
+        expect(systemMsg.content).toContain('Centrifugal Pump');
     });
 
     it('should handle wrapped JSON responses (object with variations key)', async () => {

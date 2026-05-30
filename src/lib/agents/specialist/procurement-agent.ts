@@ -42,17 +42,12 @@ export interface VendorVariationResult {
 
 /* ─── Agent Configuration ───────────────────────────────────────────────── */
 
-const SYSTEM_PROMPT = `
-You are "The Procurement Officer," responsible for sourcing specific vendor equipment.
+const SYSTEM_PROMPT = `Role: You are "The Procurement Officer," responsible for sourcing specific vendor equipment.
 
-Task: Find 3 distinct real-world vendor models for the provided Reference Equipment.
+Task: Find 3 distinct real-world vendor models for the following Reference Equipment:
+Context: [REFERENCE_EQUIPMENT_JSON]
 
-For each model (e.g., Siemens, ABB, Rockwell, Emerson, Flowserve), generate a "Vendor Variation" card.
-
-Constraint:
-- Models must be REAL and currently (or recently) manufactured.
-- Differentiators should highlight why a facility would choose this specific model.
-- Use the provided tools (search_web, search_perplexity) to verify the existence and specifications of the models.
+For each model (e.g., Siemens, ABB, Rockwell, Emerson, Flowserve), generate a "Vendor Variation" card:
 
 Output Format (JSON Array):
 [
@@ -75,7 +70,10 @@ Output Format (JSON Array):
     ]
   }
 ]
-`;
+
+Constraint:
+- Models must be REAL and currently (or recently) manufactured.
+- Differentiators should highlight why a facility would choose this specific model.`;
 
 /* ─── Implementation ────────────────────────────────────────────────────── */
 
@@ -104,53 +102,66 @@ export class ProcurementAgent extends BaseSpecialist<ProcurementInput, Procureme
     async execute(input: ProcurementInput, runId: string): Promise<ProcurementOutput> {
         const { equipment } = input;
 
-        // Construct the prompt with the reference equipment context
-        const userMessage = `
-Context: ${JSON.stringify(equipment, null, 2)}
+        // Dynamically inject the reference equipment and tag into the system prompt locally
+        const equipmentJson = JSON.stringify(equipment, null, 2);
+        const refTag = String(equipment.tag || 'REF');
 
-Find 3 distinct real-world vendor models for this Reference Equipment.
-Ensure the models are compatible with the specifications provided in the context.
-        `;
+        let localSystemPrompt = this.config.systemPrompt.replace('[REFERENCE_EQUIPMENT_JSON]', equipmentJson);
+        localSystemPrompt = localSystemPrompt.replace(/\[REFERENCE_TAG\]/g, refTag);
 
-        // Call the LLM with tools
-        const response = await this.callLLM(userMessage);
+        // Store the original system prompt
+        const originalPrompt = this.config.systemPrompt;
 
-        // Parse and validate the response
-        // The BaseSpecialist.parseJSON returns Record<string, unknown>, but we expect an array.
-        // If the LLM returns an object wrapping the array (e.g. { "variations": [...] }), we handle that.
+        try {
+            // Apply the customized local system prompt for this execution
+            this.config.systemPrompt = localSystemPrompt;
 
-        let variations: VendorVariationResult[] = [];
+            // Construct the prompt
+            const userMessage = 'Find 3 distinct real-world vendor models for this Reference Equipment.';
 
-        if (Array.isArray(response)) {
-            variations = response as unknown as VendorVariationResult[];
-        } else if (Array.isArray((response as any).variations)) {
-             variations = (response as any).variations as unknown as VendorVariationResult[];
-        } else if (Array.isArray((response as any).models)) {
-             variations = (response as any).models as unknown as VendorVariationResult[];
-        } else {
-            // Fallback: try to find any array in the values
-            const possibleArray = Object.values(response).find(val => Array.isArray(val));
-            if (possibleArray) {
-                variations = possibleArray as unknown as VendorVariationResult[];
+            // Call the LLM with tools
+            const response = await this.callLLM(userMessage);
+
+            // Parse and validate the response
+            // The BaseSpecialist.parseJSON returns Record<string, unknown>, but we expect an array.
+            // If the LLM returns an object wrapping the array (e.g. { "variations": [...] }), we handle that.
+
+            let variations: VendorVariationResult[] = [];
+
+            if (Array.isArray(response)) {
+                variations = response as unknown as VendorVariationResult[];
+            } else if (Array.isArray((response as any).variations)) {
+                 variations = (response as any).variations as unknown as VendorVariationResult[];
+            } else if (Array.isArray((response as any).models)) {
+                 variations = (response as any).models as unknown as VendorVariationResult[];
             } else {
-                 throw new Error('Output format invalid: Expected a JSON array of vendor variations.');
+                // Fallback: try to find any array in the values
+                const possibleArray = Object.values(response).find(val => Array.isArray(val));
+                if (possibleArray) {
+                    variations = possibleArray as unknown as VendorVariationResult[];
+                } else {
+                     throw new Error('Output format invalid: Expected a JSON array of vendor variations.');
+                }
             }
+
+            // Validate basic structure of items
+            const validated = variations.map(v => ({
+                vendor: String(v.vendor || 'Unknown'),
+                model: String(v.model || 'Unknown'),
+                referenceId: String(v.referenceId || equipment.tag || 'Unknown'),
+                description: String(v.description || ''),
+                differentiators: Array.isArray(v.differentiators) ? v.differentiators.map(String) : [],
+                specifications: v.specifications || {},
+                documents: Array.isArray(v.documents) ? v.documents.map(d => ({
+                    title: String(d.title || 'Document'),
+                    url: String(d.url || '')
+                })) : []
+            }));
+
+            return validated;
+        } finally {
+            // Revert back
+            this.config.systemPrompt = originalPrompt;
         }
-
-        // Validate basic structure of items
-        const validated = variations.map(v => ({
-            vendor: String(v.vendor || 'Unknown'),
-            model: String(v.model || 'Unknown'),
-            referenceId: String(v.referenceId || equipment.tag || 'Unknown'),
-            description: String(v.description || ''),
-            differentiators: Array.isArray(v.differentiators) ? v.differentiators.map(String) : [],
-            specifications: v.specifications || {},
-            documents: Array.isArray(v.documents) ? v.documents.map(d => ({
-                title: String(d.title || 'Document'),
-                url: String(d.url || '')
-            })) : []
-        }));
-
-        return validated;
     }
 }
