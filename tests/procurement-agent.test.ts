@@ -72,7 +72,7 @@ describe('ProcurementAgent', () => {
         expect(openRouter.chatWithTools).toHaveBeenCalledTimes(1);
     });
 
-    it('should handle wrapped JSON responses (object with variations key)', async () => {
+    it('should throw an error for wrapped JSON responses instead of unwrapping them', async () => {
         const mockEquipment = { tag: 'TAG-001' } as unknown as EquipmentCard;
         const mockVariations = [{ vendor: 'ABB', model: 'M3BP', referenceId: 'TAG-001' }];
         const wrappedResponse = { variations: mockVariations };
@@ -91,32 +91,7 @@ describe('ProcurementAgent', () => {
             toolTraces: []
         });
 
-        const result = await agent.execute({ equipment: mockEquipment }, 'test-run-id');
-        expect(result).toHaveLength(1);
-        expect(result[0].vendor).toBe('ABB');
-    });
-
-    it('should handle wrapped JSON responses (object with models key)', async () => {
-        const mockEquipment = { tag: 'TAG-001' } as unknown as EquipmentCard;
-        const mockVariations = [{ vendor: 'Rockwell', model: 'Bulletin 100', referenceId: 'TAG-001' }];
-        const wrappedResponse = { models: mockVariations };
-
-         (openRouter.chatWithTools as jest.Mock).mockResolvedValue({
-            response: {
-                choices: [
-                    {
-                        message: {
-                            content: JSON.stringify(wrappedResponse),
-                            tool_calls: []
-                        }
-                    }
-                ]
-            },
-            toolTraces: []
-        });
-
-        const result = await agent.execute({ equipment: mockEquipment }, 'test-run-id');
-        expect(result).toHaveLength(1);
-        expect(result[0].vendor).toBe('Rockwell');
+        await expect(agent.execute({ equipment: mockEquipment }, 'test-run-id'))
+            .rejects.toThrow('Output format invalid: Expected a JSON array of vendor variations, but received an object.');
     });
 });
