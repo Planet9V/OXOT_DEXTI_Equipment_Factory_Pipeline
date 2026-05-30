@@ -80,12 +80,39 @@ Use the lookup_cve tool to check for known vulnerabilities. Flag any equipment t
 
 A production-quality card must have: valid tag, componentClassURI, specifications with units, operating conditions, at least 2 manufacturers, applicable standards, and material selections.`,
 
-    procurementOfficer: `You are "The Procurement Officer," responsible for sourcing specific vendor equipment.
-Your task is to find 3 distinct real-world vendor models for Reference Equipment.
-Models must be REAL and currently (or recently) manufactured.
-Differentiators should highlight why a facility would choose this specific model.
+    procurementOfficer: `Role: You are "The Procurement Officer," responsible for sourcing specific vendor equipment.
 
-You have access to web search tools to find real-world data. Use them to verify models and specifications.`,
+Task: Find 3 distinct real-world vendor models for the following Reference Equipment:
+Context: [REFERENCE_EQUIPMENT_JSON]
+
+For each model (e.g., Siemens, ABB, Rockwell, Emerson, Flowserve), generate a "Vendor Variation" card:
+
+Output Format (JSON Array):
+[
+  {
+    "vendor": "[Manufacturer Name]",
+    "model": "[Model Number/Series]",
+    "referenceId": "[REFERENCE_TAG]",
+    "description": "[Vendor marketing description]",
+    "differentiators": [
+      "High Efficiency IE4 Motor",
+      "Integrated Condition Monitoring",
+      "Corrosion Resistant Coating"
+    ],
+    "specifications": {
+      // Specific simplified specs that differ from reference or define this model
+    },
+    "documents": [
+      { "title": "Datasheet", "url": "[Real URL if found]" },
+      { "title": "Manual", "url": "..." }
+    ]
+  }
+]
+
+Constraint:
+- Models must be REAL and currently (or recently) manufactured.
+- Differentiators should highlight why a facility would choose this specific model.
+- Use the provided tools (search_web, search_perplexity) to verify the existence and specifications of the models.`,
 };
 
 /** Persona names. */
@@ -283,37 +310,12 @@ Return ONLY valid JSON, no markdown.`;
      * @returns Array of vendor variations.
      */
     async findVendorVariations(referenceEquipment: Record<string, unknown>): Promise<VendorVariation[]> {
-        const prompt = `Task: Find 3 distinct real-world vendor models for the following Reference Equipment:
-Context: ${JSON.stringify(referenceEquipment, null, 2)}
+        let prompt = PERSONAS.procurementOfficer;
+        prompt = prompt.replace('[REFERENCE_EQUIPMENT_JSON]', JSON.stringify(referenceEquipment, null, 2));
+        prompt = prompt.replace('[REFERENCE_TAG]', String(referenceEquipment.tag || 'REF'));
 
-For each model (e.g., Siemens, ABB, Rockwell, Emerson, Flowserve), generate a "Vendor Variation" card:
-
-Output Format (JSON Array):
-[
-  {
-    "vendor": "[Manufacturer Name]",
-    "model": "[Model Number/Series]",
-    "referenceId": "${referenceEquipment.tag || 'REF'}",
-    "description": "[Vendor marketing description]",
-    "differentiators": [
-      "High Efficiency IE4 Motor",
-      "Integrated Condition Monitoring",
-      "Corrosion Resistant Coating"
-    ],
-    "specifications": {
-      // Specific simplified specs that differ from reference or define this model
-    },
-    "documents": [
-      { "title": "Datasheet", "url": "[Real URL if found]" },
-      { "title": "Manual", "url": "..." }
-    ]
-  }
-]
-
-Constraint:
-- Models must be REAL and currently (or recently) manufactured.
-- Differentiators should highlight why a facility would choose this specific model.
-- Return ONLY valid JSON array, no markdown.`;
+        // Add explicit instruction to avoid markdown
+        prompt += '\n- Return ONLY valid JSON array, no markdown.';
 
         const result = await this.chat(
             [{ role: 'user', content: prompt }],
