@@ -258,11 +258,12 @@ describe('DexpiAgent', () => {
         expect(result).toHaveLength(1);
         expect(result[0].vendor).toBe('Test Vendor');
 
-        // Verify correct persona was used
+        // Verify correct persona was used and context was injected into the system prompt
         const fetchCall = mockFetch.mock.calls[0];
         const fetchBody = JSON.parse(fetchCall[1].body);
         expect(fetchBody.messages[0].content).toContain('The Procurement Officer');
-        expect(fetchBody.messages[1].content).toContain('P-101');
+        expect(fetchBody.messages[0].content).toContain('P-101');
+        expect(fetchBody.messages[0].content).toContain('Pump');
     });
 
     test('each persona has a description', () => {
