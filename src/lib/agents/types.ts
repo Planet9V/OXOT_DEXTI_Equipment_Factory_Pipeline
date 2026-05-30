@@ -8,7 +8,7 @@
  */
 
 /** Agent persona names. */
-export type PersonaName = 'coordinator' | 'processEngineer' | 'standardsExpert' | 'safetyAnalyst' | 'qualityReviewer' | 'procurementOfficer';
+export type PersonaName = 'coordinator' | 'processEngineer' | 'standardsExpert' | 'safetyAnalyst' | 'qualityReviewer' | 'procurementOfficer' | 'theEngineer';
 
 /* ─── Chat Messages ─────────────────────────────────────────────────────── */
 
@@ -86,6 +86,14 @@ export interface AgentContext {
     equipmentClass?: string;
     /** Extra instructions appended to system prompt. */
     additionalInstructions?: string;
+
+    // Dynamic context replacements
+    listOfTypesFromRegistry?: string;
+    referenceEquipment?: string;
+    referenceTag?: string;
+    sectorName?: string;
+    sectorCode?: string;
+    subSectorCode?: string;
 }
 
 /* ─── Agent Responses ───────────────────────────────────────────────────── */
