@@ -131,6 +131,20 @@ Constraint:
 - **NOZZLES ARE MANDATORY**. Every equipment must have valid nozzles (Suction, Discharge, Utility).
 - **MATERIALS ARE MANDATORY**. Do not use "Steel" - use "ASTM A216 Gr. WCB".
 - Return a JSON array of objects.
+  },
+  "materials": {
+    "body": "[Typical Material, e.g., ASTM A216 WCB]",
+    "trim": "[Typical Trim]",
+    ...
+  },
+  "standards": ["API 610", "ASME B73.1", "ISO 5199", ...],
+  "image_prompt": "[Detailed prompt for 3D model generation]"
+}
+
+Constraint:
+- Values must be realistic "reference" values (e.g., a standard size).
+- Cite real engineering standards (API, ASME, ISO, IEC).
+- Return a JSON array of objects.
 ```
 
 ## 3. The Procurement Officer (Vendor Variations Phase)
