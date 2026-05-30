@@ -146,11 +146,12 @@ export abstract class BaseSpecialist<TInput, TOutput> {
      * extracts a JSON object from the response.
      *
      * @param userMessage - The user-facing prompt to send.
+     * @param systemPromptOverride - Optional dynamic override for the system prompt.
      * @returns Parsed JSON object from the model's response.
      */
-    protected async callLLM(userMessage: string): Promise<Record<string, unknown>> {
+    protected async callLLM(userMessage: string, systemPromptOverride?: string): Promise<Record<string, unknown>> {
         const messages: ChatMessage[] = [
-            { role: 'system', content: this.config.systemPrompt },
+            { role: 'system', content: systemPromptOverride || this.config.systemPrompt },
             { role: 'user', content: userMessage },
         ];
 
