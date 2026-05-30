@@ -1,0 +1,6484 @@
+[
+  {
+    "tag": "Generic-CENT-001",
+    "name": "Standard Centrifugal Pump",
+    "componentClass": "Pump",
+    "dexpiType": "CentrifugalPump",
+    "rdlUri": "http://data.posccaesar.org/rdl/RDS327241",
+    "description": "Dynamic pump using a rotating impeller to increase fluid pressure via centrifugal force, conforming to API 610.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 33,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 26.4,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 22,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 158,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 128,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 108,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 425.70000000000005,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 387,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 55,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 78,
+        "unit": "%"
+      },
+      "head": {
+        "value": 131,
+        "unit": "m"
+      },
+      "NPSHr": {
+        "value": 6.454945886387631,
+        "unit": "m"
+      },
+      "rotationalSpeed": {
+        "value": 2950,
+        "unit": "rpm"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1608,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2087,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1161,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 3091,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "casing": "ASTM A216 WCB",
+      "impeller": "ASTM A351 CF8M",
+      "shaft": "ASTM A276 Type 410",
+      "seals": "Mechanical Seal API 682",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "bolting": "ASTM A193 Gr. B7",
+      "baseplate": "Carbon Steel"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Suction",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Discharge",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25",
+        "rating": "PN16",
+        "facing": "RF"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25",
+        "rating": "PN16",
+        "facing": "RF"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Centrifugal Pump"
+  },
+  {
+    "tag": "Generic-RECI-001",
+    "name": "Standard Reciprocating Pump",
+    "componentClass": "Pump",
+    "dexpiType": "ReciprocatingPump",
+    "rdlUri": "http://data.posccaesar.org/rdl/RDS327243",
+    "description": "Positive displacement pump using a piston or plunger for high-pressure applications.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 31.5,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 25.2,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 21,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 128,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 98,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 78,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 206.8,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 188,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 225,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 93,
+        "unit": "%"
+      },
+      "head": {
+        "value": 99,
+        "unit": "m"
+      },
+      "NPSHr": {
+        "value": 3.8930669482867835,
+        "unit": "m"
+      },
+      "rotationalSpeed": {
+        "value": 2950,
+        "unit": "rpm"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 2353,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 1648,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1150,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1802,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "casing": "ASTM A216 WCB",
+      "impeller": "ASTM A351 CF8M",
+      "shaft": "ASTM A276 Type 410",
+      "seals": "Mechanical Seal API 682",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "bolting": "ASTM A193 Gr. B7",
+      "baseplate": "Carbon Steel"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Suction",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Discharge",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN25",
+        "rating": "PN16",
+        "facing": "RF"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
+        "size": "DN25",
+        "rating": "PN16",
+        "facing": "RF"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Reciprocating Pump"
+  },
+  {
+    "tag": "Generic-CENT-001",
+    "name": "Standard Centrifugal Compressor",
+    "componentClass": "Compressor",
+    "dexpiType": "CentrifugalCompressor",
+    "rdlUri": "http://data.posccaesar.org/rdl/RDS327245",
+    "description": "Dynamic compressor using rotating impellers for continuous gas compression, typical for pipeline or process gas.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 40.5,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 32.4,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 27,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 122,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 92,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 72,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 188.10000000000002,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 171,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 90,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 87,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1923,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 1568,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1113,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1265,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Centrifugal Compressor"
+  },
+  {
+    "tag": "Generic-RECI-001",
+    "name": "Standard Reciprocating Compressor",
+    "componentClass": "Compressor",
+    "dexpiType": "ReciprocatingCompressor",
+    "rdlUri": "http://data.posccaesar.org/rdl/RDS327249",
+    "description": "Positive displacement compressor using pistons for high compression ratios, often used for hydrogen or makeup gas.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 18,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 14.399999999999999,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 12,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 149,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 119,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 99,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 226.60000000000002,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 206,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 147,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 78,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1810,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2538,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1618,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1574,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Reciprocating Compressor"
+  },
+  {
+    "tag": "Generic-SCRE-001",
+    "name": "Standard Screw Compressor",
+    "componentClass": "Compressor",
+    "dexpiType": "ScrewCompressor",
+    "rdlUri": "http://sandbox.dexpi.org/rdl/ScrewCompressor",
+    "description": "Rotary positive displacement compressor using helical screws, common for instrument air or refrigeration.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 45,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 36,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 30,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 143,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 113,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 93,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 389.40000000000003,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 354,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 171,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 77,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 2405,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2894,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1106,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1520,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Screw Compressor"
+  },
+  {
+    "tag": "Generic-AXIA-001",
+    "name": "Standard Axial Compressor",
+    "componentClass": "Compressor",
+    "dexpiType": "AxialCompressor",
+    "rdlUri": "http://data.posccaesar.org/rdl/RDS327247",
+    "description": "High-flow dynamic compressor with multiple stages of rotating and stationary blades, used in LNG trains.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 40.5,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 32.4,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 27,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 188,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 158,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 138,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 360.8,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 328,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 137,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 78,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 731,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2270,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1638,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1627,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Axial Compressor"
+  },
+  {
+    "tag": "Generic-GAST-001",
+    "name": "Standard Gas Turbine",
+    "componentClass": "Turbine",
+    "dexpiType": "GasTurbine",
+    "rdlUri": "http://data.posccaesar.org/rdl/RDS327257",
+    "description": "Internal combustion engine using a continuous combustion process to drive generators or mechanical equipment.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 21,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 16.8,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 14,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 182,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 152,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 132,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 400.40000000000003,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 364,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 153,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 86,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1083,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2806,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 911,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1355,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Gas Turbine"
+  },
+  {
+    "tag": "Generic-STEA-001",
+    "name": "Standard Steam Turbine",
+    "componentClass": "Turbine",
+    "dexpiType": "SteamTurbine",
+    "rdlUri": "http://data.posccaesar.org/rdl/RDS327259",
+    "description": "Turbine extracting thermal energy from pressurized steam to perform mechanical work.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 45,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 36,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 30,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 169,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 139,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 119,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 216.70000000000002,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 197,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 62,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 89,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1087,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2891,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1234,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1318,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Steam Turbine"
+  },
+  {
+    "tag": "Generic-ELEC-001",
+    "name": "Standard Electric Motor",
+    "componentClass": "Electrical",
+    "dexpiType": "ElectricMotor",
+    "rdlUri": "http://sandbox.dexpi.org/rdl/ElectricMotor",
+    "description": "Electromechanical device converting electrical energy into mechanical energy, typically an AC induction motor.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 49.5,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 39.6,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 33,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 104,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 74,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 54,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 404.8,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 368,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 103,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 76,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 741,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 1255,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1464,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 3198,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Electric Motor"
+  },
+  {
+    "tag": "Generic-FINF-001",
+    "name": "Standard Fin Fan Cooler",
+    "componentClass": "HeatExchanger",
+    "dexpiType": "FinFanCooler",
+    "rdlUri": "http://sandbox.dexpi.org/rdl/FinFanCooler",
+    "description": "Air-cooled heat exchanger using fans to force air over finned tubes for process cooling.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 60,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 48,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 40,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 112,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 82,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 62,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 493.90000000000003,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 449,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 86,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 94,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1704,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2673,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1575,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 2005,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Fin Fan Cooler"
+  },
+  {
+    "tag": "Generic-BLOW-001",
+    "name": "Standard Blower",
+    "componentClass": "Equipment",
+    "dexpiType": "Blower",
+    "rdlUri": "http://data.posccaesar.org/rdl/RDS327251",
+    "description": "Machine for moving air or gas with a moderate pressure increase.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 55.5,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 44.4,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 37,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 190,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 160,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 140,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 147.4,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 134,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 84,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 85,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1570,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 1387,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1545,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1271,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Blower"
+  },
+  {
+    "tag": "Generic-AGIT-001",
+    "name": "Standard Agitator",
+    "componentClass": "Equipment",
+    "dexpiType": "Agitator",
+    "rdlUri": "http://data.posccaesar.org/rdl/RDS327261",
+    "description": "Device consisting of a rotating shaft and impeller for mixing liquids or slurries in a vessel.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 58.5,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 46.8,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 39,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 231,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 201,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 181,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 294.8,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 268,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 212,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 94,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 2222,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 1105,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1502,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 2231,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Agitator"
+  },
+  {
+    "tag": "Generic-CENT-001",
+    "name": "Standard Centrifuge",
+    "componentClass": "Equipment",
+    "dexpiType": "Centrifuge",
+    "rdlUri": "http://data.posccaesar.org/rdl/RDS327265",
+    "description": "Equipment using centrifugal force to separate fluids of different densities or solids from liquids.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 37.5,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 30,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 25,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 107,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 77,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 57,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 391.6,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 356,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 195,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 84,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1753,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 1401,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1498,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1910,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Centrifuge"
+  },
+  {
+    "tag": "Generic-CONV-001",
+    "name": "Standard Conveyor",
+    "componentClass": "Equipment",
+    "dexpiType": "Conveyor",
+    "rdlUri": "http://data.posccaesar.org/rdl/RDS327267",
+    "description": "Mechanical handling equipment for transporting bulk solid materials like coke or sulfur.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 57,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 45.6,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 38,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 241,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 211,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 191,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 255.20000000000002,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 232,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 188,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 76,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 2299,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 1033,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 995,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1620,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Conveyor"
+  },
+  {
+    "tag": "Generic-TURB-001",
+    "name": "Standard Turboexpander",
+    "componentClass": "Equipment",
+    "dexpiType": "Turboexpander",
+    "rdlUri": "http://sandbox.dexpi.org/rdl/Turboexpander",
+    "description": "Radial inflow turbine used to cool gas streams and recover power, essential in cryogenic gas processing.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 28.5,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 22.8,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 19,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 205,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 175,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 155,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 279.40000000000003,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 254,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 242,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 93,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1075,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 1409,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1200,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 3091,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Turboexpander"
+  },
+  {
+    "tag": "Generic-PRES-001",
+    "name": "Standard Pressure Vessel",
+    "componentClass": "Vessel",
+    "dexpiType": "PressureVessel",
+    "rdlUri": "http://data.posccaesar.org/rdl/RDS414676",
+    "description": "Closed container designed to hold gases or liquids at a pressure substantially different from ambient.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 66,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 52.8,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 44,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 224,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 194,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 174,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 443.3,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 403,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 172,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 76,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1873,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 1270,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1712,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1521,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Pressure Vessel"
+  },
+  {
+    "tag": "Generic-STOR-001",
+    "name": "Standard Storage Tank",
+    "componentClass": "Vessel",
+    "dexpiType": "StorageTank",
+    "rdlUri": "http://sandbox.dexpi.org/rdl/StorageTank",
+    "description": "Large container for holding liquids, typically atmospheric, conforming to API 650.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 45,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 36,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 30,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 180,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 150,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 130,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 525.8000000000001,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 478,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 183,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 89,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1976,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 1561,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1019,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1709,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Storage Tank"
+  },
+  {
+    "tag": "Generic-FLOA-001",
+    "name": "Standard Floating Roof Tank",
+    "componentClass": "Vessel",
+    "dexpiType": "FloatingRoofTank",
+    "rdlUri": "http://sandbox.dexpi.org/rdl/FloatingRoofTank",
+    "description": "Storage tank with a roof that floats on the liquid surface to minimize evaporative emissions.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 64.5,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 51.6,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 43,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 190,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 160,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 140,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 449.90000000000003,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 409,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 225,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 79,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1629,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 1600,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1562,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 2291,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Floating Roof Tank"
+  },
+  {
+    "tag": "Generic-SPHE-001",
+    "name": "Standard Spherical Tank",
+    "componentClass": "Vessel",
+    "dexpiType": "SphericalTank",
+    "rdlUri": "http://sandbox.dexpi.org/rdl/SphericalTank",
+    "description": "Spherical pressure vessel for storing high-pressure fluids like LPG or ammonia.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 57,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 45.6,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 38,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 141,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 111,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 91,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 440.00000000000006,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 400,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 133,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 77,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1840,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2264,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 833,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 2662,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Spherical Tank"
+  },
+  {
+    "tag": "Generic-BULL-001",
+    "name": "Standard Bullet Tank",
+    "componentClass": "Vessel",
+    "dexpiType": "BulletTank",
+    "rdlUri": "http://sandbox.dexpi.org/rdl/BulletTank",
+    "description": "Horizontal cylindrical pressure vessel with hemispherical heads for pressurized storage.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 67.5,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 54,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 45,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 231,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 201,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 181,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 348.70000000000005,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 317,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 168,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 88,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1995,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 1915,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1209,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 2068,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Bullet Tank"
+  },
+  {
+    "tag": "Generic-REAC-001",
+    "name": "Standard Reactor",
+    "componentClass": "Vessel",
+    "dexpiType": "Reactor",
+    "rdlUri": "http://data.posccaesar.org/rdl/RDS414682",
+    "description": "Vessel designed to contain chemical reactions, often with catalyst beds and internal distributors.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 45,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 36,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 30,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 172,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 142,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 122,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 293.70000000000005,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 267,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 247,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 85,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1041,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2345,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1360,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 2904,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Reactor"
+  },
+  {
+    "tag": "Generic-FCCR-001",
+    "name": "Standard FCC Regenerator",
+    "componentClass": "Equipment",
+    "dexpiType": "FCCRegenerator",
+    "rdlUri": "http://sandbox.dexpi.org/rdl/FCCRegenerator",
+    "description": "Vessel in a Fluid Catalytic Cracking unit where coke is burned off the catalyst to restore activity.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 30,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 24,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 20,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 205,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 175,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 155,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 363.00000000000006,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 330,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 122,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 82,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 2172,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 1861,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1214,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 2128,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a FCC Regenerator"
+  },
+  {
+    "tag": "Generic-COKE-001",
+    "name": "Standard Coke Drum",
+    "componentClass": "Vessel",
+    "dexpiType": "CokeDrum",
+    "rdlUri": "http://sandbox.dexpi.org/rdl/CokeDrum",
+    "description": "Large vertical vessel used in the delayed coking process for thermal cracking of heavy residues.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 51,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 40.8,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 34,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 192,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 162,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 142,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 272.8,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 248,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 181,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 77,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1605,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 1109,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 859,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 2502,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Coke Drum"
+  },
+  {
+    "tag": "Generic-SEPA-001",
+    "name": "Standard Separator",
+    "componentClass": "Vessel",
+    "dexpiType": "Separator",
+    "rdlUri": "http://data.posccaesar.org/rdl/RDS414686",
+    "description": "Vessel used to separate well fluids into gas and liquid phases (two-phase) or oil, gas, and water (three-phase).",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 15,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 12,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 10,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 156,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 126,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 106,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 392.70000000000005,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 357,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 142,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 86,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1145,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2390,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1681,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1737,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Separator"
+  },
+  {
+    "tag": "Generic-DIST-001",
+    "name": "Standard Distillation Column",
+    "componentClass": "Vessel",
+    "dexpiType": "DistillationColumn",
+    "rdlUri": "http://sandbox.dexpi.org/rdl/DistillationColumn",
+    "description": "Vertical vessel containing trays or packing for separating liquid mixtures based on boiling points.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 22.5,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 165,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 135,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 115,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 396.00000000000006,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 360,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 244,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 76,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1117,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2290,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1790,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 2289,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Distillation Column"
+  },
+  {
+    "tag": "Generic-STRI-001",
+    "name": "Standard Stripper Column",
+    "componentClass": "Vessel",
+    "dexpiType": "StripperColumn",
+    "rdlUri": "http://sandbox.dexpi.org/rdl/StripperColumn",
+    "description": "Column used to remove light components from a liquid stream using a stripping vapor.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 72,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 57.599999999999994,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 48,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 165,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 135,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 115,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 143,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 130,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 163,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 75,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 756,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 1507,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1151,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 2398,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Stripper Column"
+  },
+  {
+    "tag": "Generic-ABSO-001",
+    "name": "Standard Absorber Column",
+    "componentClass": "Vessel",
+    "dexpiType": "AbsorberColumn",
+    "rdlUri": "http://sandbox.dexpi.org/rdl/AbsorberColumn",
+    "description": "Column where gas components are absorbed into a liquid solvent, common in amine treating.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 36,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 28.799999999999997,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 24,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 160,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 130,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 110,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 522.5,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 475,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 166,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 86,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1092,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 1389,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 947,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1255,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Absorber Column"
+  },
+  {
+    "tag": "Generic-SCRU-001",
+    "name": "Standard Scrubber",
+    "componentClass": "Equipment",
+    "dexpiType": "Scrubber",
+    "rdlUri": "http://data.posccaesar.org/rdl/RDS414710",
+    "description": "Vessel designed to remove particulates or liquid droplets from a gas stream.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 46.5,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 37.199999999999996,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 31,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 238,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 208,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 188,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 202.4,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 184,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 69,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 87,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 2382,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 1295,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1501,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1598,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Scrubber"
+  },
+  {
+    "tag": "Generic-DESA-001",
+    "name": "Standard Desalter",
+    "componentClass": "Equipment",
+    "dexpiType": "Desalter",
+    "rdlUri": "http://sandbox.dexpi.org/rdl/Desalter",
+    "description": "Vessel using an electrostatic field to coalesce and remove brine and salts from crude oil.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 66,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 52.8,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 44,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 100,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 70,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 50,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 145.20000000000002,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 132,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 164,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 83,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 2064,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 1261,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1611,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 2000,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Desalter"
+  },
+  {
+    "tag": "Generic-PIGL-001",
+    "name": "Standard Pig Launcher",
+    "componentClass": "Equipment",
+    "dexpiType": "PigLauncher",
+    "rdlUri": "http://sandbox.dexpi.org/rdl/PigLauncher",
+    "description": "Pressurized barrel used to insert a pipeline pig into a pipeline for cleaning or inspection.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 54,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 43.199999999999996,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 36,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 111,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 81,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 61,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 249.70000000000002,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 227,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 181,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 82,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1444,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2276,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 951,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1432,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Pig Launcher"
+  },
+  {
+    "tag": "Generic-PIGR-001",
+    "name": "Standard Pig Receiver",
+    "componentClass": "Equipment",
+    "dexpiType": "PigReceiver",
+    "rdlUri": "http://sandbox.dexpi.org/rdl/PigReceiver",
+    "description": "Pressurized barrel used to retrieve a pipeline pig at the end of a pipeline segment.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 34.5,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 27.599999999999998,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 23,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 105,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 75,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 55,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 194.70000000000002,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 177,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 242,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 78,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 2086,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2604,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1291,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 3182,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Pig Receiver"
+  },
+  {
+    "tag": "Generic-SHEL-001",
+    "name": "Standard Shell and Tube Heat Exchanger",
+    "componentClass": "HeatExchanger",
+    "dexpiType": "ShellandTubeHeatExchanger",
+    "rdlUri": "http://data.posccaesar.org/rdl/RDS327272",
+    "description": "Heat exchanger consisting of a shell with a bundle of tubes inside, the most common type in process industries.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 25.5,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 20.4,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 17,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 158,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 128,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 108,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 151.8,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 138,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 166,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 84,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1103,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2793,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1616,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 3179,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Shell and Tube Heat Exchanger"
+  },
+  {
+    "tag": "Generic-PLAT-001",
+    "name": "Standard Plate and Frame Heat Exchanger",
+    "componentClass": "HeatExchanger",
+    "dexpiType": "PlateandFrameHeatExchanger",
+    "rdlUri": "http://data.posccaesar.org/rdl/RDS327274",
+    "description": "Heat exchanger using metal plates to transfer heat between two fluids, offering high efficiency in a compact size.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 51,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 40.8,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 34,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 194,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 164,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 144,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 187.00000000000003,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 170,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 128,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 75,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1243,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 1128,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1277,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 2355,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Plate and Frame Heat Exchanger"
+  },
+  {
+    "tag": "Generic-KETT-001",
+    "name": "Standard Kettle Reboiler",
+    "componentClass": "HeatExchanger",
+    "dexpiType": "KettleReboiler",
+    "rdlUri": "http://sandbox.dexpi.org/rdl/KettleReboiler",
+    "description": "Shell and tube heat exchanger used to vaporize the bottom product of a distillation column.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 64.5,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 51.6,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 43,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 187,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 157,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 137,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 480.70000000000005,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 437,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 110,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 89,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1744,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 1143,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1499,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 2073,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Kettle Reboiler"
+  },
+  {
+    "tag": "Generic-FIRE-001",
+    "name": "Standard Fired Heater",
+    "componentClass": "HeatExchanger",
+    "dexpiType": "FiredHeater",
+    "rdlUri": "http://sandbox.dexpi.org/rdl/FiredHeater",
+    "description": "Direct-fired furnace used to heat process fluids to high temperatures, such as crude feed or reformer feed.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 55.5,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 44.4,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 37,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 227,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 197,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 177,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 435.6,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 396,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 164,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 78,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 652,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 1649,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1427,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1399,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Fired Heater"
+  },
+  {
+    "tag": "Generic-WAST-001",
+    "name": "Standard Waste Heat Boiler",
+    "componentClass": "Equipment",
+    "dexpiType": "WasteHeatBoiler",
+    "rdlUri": "http://sandbox.dexpi.org/rdl/WasteHeatBoiler",
+    "description": "Boiler that generates steam by recovering heat from hot process gas streams.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 48,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 38.4,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 32,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 196,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 166,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 146,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 531.3000000000001,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 483,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 120,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 89,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 564,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2374,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1431,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1912,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Waste Heat Boiler"
+  },
+  {
+    "tag": "Generic-COND-001",
+    "name": "Standard Condenser",
+    "componentClass": "HeatExchanger",
+    "dexpiType": "Condenser",
+    "rdlUri": "http://data.posccaesar.org/rdl/RDS327280",
+    "description": "Heat exchanger specifically designed to condense a vapor stream into a liquid.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 25.5,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 20.4,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 17,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 183,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 153,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 133,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 392.70000000000005,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 357,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 240,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 86,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1938,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2768,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1225,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 2997,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Condenser"
+  },
+  {
+    "tag": "Generic-GATE-001",
+    "name": "Standard Gate Valve",
+    "componentClass": "Valve",
+    "dexpiType": "GateValve",
+    "rdlUri": "http://data.posccaesar.org/rdl/RDS327290",
+    "description": "Multi-turn linear motion valve used primarily for on/off service with low pressure drop.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 69,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 55.199999999999996,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 46,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 216,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 186,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 166,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 210.10000000000002,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 191,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 96,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 93,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 2425,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2141,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1574,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 2339,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "casing": "ASTM A216 WCB",
+      "impeller": "ASTM A351 CF8M",
+      "shaft": "ASTM A276 Type 410",
+      "seals": "Mechanical Seal API 682",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "bolting": "ASTM A193 Gr. B7",
+      "baseplate": "Carbon Steel"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Gate Valve"
+  },
+  {
+    "tag": "Generic-GLOB-001",
+    "name": "Standard Globe Valve",
+    "componentClass": "Valve",
+    "dexpiType": "GlobeValve",
+    "rdlUri": "http://data.posccaesar.org/rdl/RDS327292",
+    "description": "Linear motion valve used for stopping, starting, and regulating flow.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 16.5,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 13.2,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 11,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 115,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 85,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 65,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 350.90000000000003,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 319,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 248,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 75,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 576,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2539,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1584,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 3099,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "casing": "ASTM A216 WCB",
+      "impeller": "ASTM A351 CF8M",
+      "shaft": "ASTM A276 Type 410",
+      "seals": "Mechanical Seal API 682",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "bolting": "ASTM A193 Gr. B7",
+      "baseplate": "Carbon Steel"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Globe Valve"
+  },
+  {
+    "tag": "Generic-BALL-001",
+    "name": "Standard Ball Valve",
+    "componentClass": "Valve",
+    "dexpiType": "BallValve",
+    "rdlUri": "http://data.posccaesar.org/rdl/RDS327294",
+    "description": "Quarter-turn valve using a spherical closure element for quick shutoff.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 36,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 28.799999999999997,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 24,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 128,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 98,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 78,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 260.70000000000005,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 237,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 227,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 87,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1930,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2805,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 866,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1399,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "casing": "ASTM A216 WCB",
+      "impeller": "ASTM A351 CF8M",
+      "shaft": "ASTM A276 Type 410",
+      "seals": "Mechanical Seal API 682",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "bolting": "ASTM A193 Gr. B7",
+      "baseplate": "Carbon Steel"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Ball Valve"
+  },
+  {
+    "tag": "Generic-BUTT-001",
+    "name": "Standard Butterfly Valve",
+    "componentClass": "Valve",
+    "dexpiType": "ButterflyValve",
+    "rdlUri": "http://data.posccaesar.org/rdl/RDS327298",
+    "description": "Quarter-turn valve with a disk closure, suitable for large diameter lines and low pressure drop.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 45,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 36,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 30,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 111,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 81,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 61,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 332.20000000000005,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 302,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 75,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 90,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 2464,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 1794,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1445,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1890,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "casing": "ASTM A216 WCB",
+      "impeller": "ASTM A351 CF8M",
+      "shaft": "ASTM A276 Type 410",
+      "seals": "Mechanical Seal API 682",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "bolting": "ASTM A193 Gr. B7",
+      "baseplate": "Carbon Steel"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Butterfly Valve"
+  },
+  {
+    "tag": "Generic-CHEC-001",
+    "name": "Standard Check Valve",
+    "componentClass": "Valve",
+    "dexpiType": "CheckValve",
+    "rdlUri": "http://data.posccaesar.org/rdl/RDS327296",
+    "description": "Valve that allows fluid to flow in only one direction, preventing backflow.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 67.5,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 54,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 45,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 170,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 345.40000000000003,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 314,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 195,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 87,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1533,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 1667,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1446,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1387,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "casing": "ASTM A216 WCB",
+      "impeller": "ASTM A351 CF8M",
+      "shaft": "ASTM A276 Type 410",
+      "seals": "Mechanical Seal API 682",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "bolting": "ASTM A193 Gr. B7",
+      "baseplate": "Carbon Steel"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Check Valve"
+  },
+  {
+    "tag": "Generic-SAFE-001",
+    "name": "Standard Safety Relief Valve",
+    "componentClass": "Valve",
+    "dexpiType": "SafetyReliefValve",
+    "rdlUri": "http://sandbox.dexpi.org/rdl/SafetyReliefValve",
+    "description": "Spring-loaded valve designed to automatically relieve excess pressure to prevent equipment failure.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 34.5,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 27.599999999999998,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 23,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 218,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 188,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 168,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 544.5,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 495,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 184,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 80,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1839,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2336,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 988,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1839,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "casing": "ASTM A216 WCB",
+      "impeller": "ASTM A351 CF8M",
+      "shaft": "ASTM A276 Type 410",
+      "seals": "Mechanical Seal API 682",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "bolting": "ASTM A193 Gr. B7",
+      "baseplate": "Carbon Steel"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Safety Relief Valve"
+  },
+  {
+    "tag": "Generic-CONT-001",
+    "name": "Standard Control Valve",
+    "componentClass": "Valve",
+    "dexpiType": "ControlValve",
+    "rdlUri": "http://data.posccaesar.org/rdl/RDS327302",
+    "description": "Power-operated valve used to regulate fluid flow, pressure, or temperature in response to a controller signal.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 37.5,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 30,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 25,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 215,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 185,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 165,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 233.20000000000002,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 212,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 230,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 85,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 2033,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2698,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1085,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1924,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "casing": "ASTM A216 WCB",
+      "impeller": "ASTM A351 CF8M",
+      "shaft": "ASTM A276 Type 410",
+      "seals": "Mechanical Seal API 682",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "bolting": "ASTM A193 Gr. B7",
+      "baseplate": "Carbon Steel"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Control Valve"
+  },
+  {
+    "tag": "Generic-CHOK-001",
+    "name": "Standard Choke Valve",
+    "componentClass": "Valve",
+    "dexpiType": "ChokeValve",
+    "rdlUri": "http://sandbox.dexpi.org/rdl/ChokeValve",
+    "description": "Specialized valve used on wellheads to control the flow rate of fluids produced from a well.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 22.5,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 191,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 161,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 141,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 459.8,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 418,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 235,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 75,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 733,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 1786,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1560,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1411,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "casing": "ASTM A216 WCB",
+      "impeller": "ASTM A351 CF8M",
+      "shaft": "ASTM A276 Type 410",
+      "seals": "Mechanical Seal API 682",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "bolting": "ASTM A193 Gr. B7",
+      "baseplate": "Carbon Steel"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Choke Valve"
+  },
+  {
+    "tag": "Generic-CORI-001",
+    "name": "Standard Coriolis Flow Meter",
+    "componentClass": "Equipment",
+    "dexpiType": "CoriolisFlowMeter",
+    "rdlUri": "http://sandbox.dexpi.org/rdl/CoriolisFlowMeter",
+    "description": "Mass flow meter that measures density and flow rate directly using the Coriolis effect.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 61.5,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 49.199999999999996,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 41,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 156,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 126,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 106,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 477.40000000000003,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 434,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 218,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 81,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 629,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2648,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1276,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 2876,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Coriolis Flow Meter"
+  },
+  {
+    "tag": "Generic-ULTR-001",
+    "name": "Standard Ultrasonic Flow Meter",
+    "componentClass": "Equipment",
+    "dexpiType": "UltrasonicFlowMeter",
+    "rdlUri": "http://sandbox.dexpi.org/rdl/UltrasonicFlowMeter",
+    "description": "Non-intrusive flow meter using ultrasonic waves to measure fluid velocity.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 19.5,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 15.6,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 13,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 117,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 87,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 67,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 288.20000000000005,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 262,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 187,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 88,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 2255,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2570,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1479,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 2777,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Ultrasonic Flow Meter"
+  },
+  {
+    "tag": "Generic-PRES-001",
+    "name": "Standard Pressure Transmitter",
+    "componentClass": "Equipment",
+    "dexpiType": "PressureTransmitter",
+    "rdlUri": "http://sandbox.dexpi.org/rdl/PressureTransmitter",
+    "description": "Sensor that measures pressure and converts it into an electrical signal for control systems.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 31.5,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 25.2,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 21,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 137,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 107,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 87,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 250.8,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 228,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 229,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 82,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1170,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 1733,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1728,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 2546,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Pressure Transmitter"
+  },
+  {
+    "tag": "Generic-TEMP-001",
+    "name": "Standard Temperature Transmitter",
+    "componentClass": "Equipment",
+    "dexpiType": "TemperatureTransmitter",
+    "rdlUri": "http://sandbox.dexpi.org/rdl/TemperatureTransmitter",
+    "description": "Sensor assembly used to measure temperature and transmit the data to a control system.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 55.5,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 44.4,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 37,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 155,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 125,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 105,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 499.40000000000003,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 454,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 72,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 92,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 2429,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2318,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 829,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 2593,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Temperature Transmitter"
+  },
+  {
+    "tag": "Generic-RADA-001",
+    "name": "Standard Radar Level Transmitter",
+    "componentClass": "Equipment",
+    "dexpiType": "RadarLevelTransmitter",
+    "rdlUri": "http://sandbox.dexpi.org/rdl/RadarLevelTransmitter",
+    "description": "Non-contact level measurement device using radar pulses to determine liquid level in a tank.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 52.5,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 42,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 35,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 116,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 86,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 66,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 480.70000000000005,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 437,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 148,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 80,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1267,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 1651,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1624,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 2838,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Radar Level Transmitter"
+  },
+  {
+    "tag": "Generic-GASA-001",
+    "name": "Standard Gas Analyzer",
+    "componentClass": "Equipment",
+    "dexpiType": "GasAnalyzer",
+    "rdlUri": "http://sandbox.dexpi.org/rdl/GasAnalyzer",
+    "description": "Instrument for continuous online analysis of gas stream composition (e.g., Gas Chromatograph).",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 58.5,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 46.8,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 39,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 168,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 138,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 118,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 334.40000000000003,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 304,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 76,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 91,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1731,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2141,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 921,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1222,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Gas Analyzer"
+  },
+  {
+    "tag": "Generic-SWIT-001",
+    "name": "Standard Switchgear",
+    "componentClass": "Electrical",
+    "dexpiType": "Switchgear",
+    "rdlUri": "http://data.posccaesar.org/rdl/RDS327334",
+    "description": "Combination of electrical disconnect switches, fuses, or circuit breakers to control and protect electrical equipment.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 37.5,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 30,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 25,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 197,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 167,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 147,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 236.50000000000003,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 215,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 89,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 76,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 2422,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 1832,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1384,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1460,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Switchgear"
+  },
+  {
+    "tag": "Generic-TRAN-001",
+    "name": "Standard Transformer",
+    "componentClass": "Electrical",
+    "dexpiType": "Transformer",
+    "rdlUri": "http://data.posccaesar.org/rdl/RDS327330",
+    "description": "Static electrical device that transfers energy between circuits while changing voltage levels.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 72,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 57.599999999999994,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 48,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 217,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 187,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 167,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 267.3,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 243,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 153,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 77,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1092,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 1482,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1539,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 2789,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Transformer"
+  },
+  {
+    "tag": "Generic-VARI-001",
+    "name": "Standard Variable Frequency Drive (VFD)",
+    "componentClass": "Equipment",
+    "dexpiType": "VariableFrequencyDrive(VFD)",
+    "rdlUri": "http://sandbox.dexpi.org/rdl/VariableFrequencyDrive(VFD)",
+    "description": "Electronic controller that adjusts the speed of an AC motor by varying the frequency and voltage supplied.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 28.5,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 22.8,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 19,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 234,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 204,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 184,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 480.70000000000005,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 437,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 72,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 89,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1156,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2474,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1224,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Variable Frequency Drive (VFD)"
+  },
+  {
+    "tag": "Generic-UNIN-001",
+    "name": "Standard Uninterruptible Power Supply (UPS)",
+    "componentClass": "Equipment",
+    "dexpiType": "UninterruptiblePowerSupply(UPS)",
+    "rdlUri": "http://sandbox.dexpi.org/rdl/UninterruptiblePowerSupply(UPS)",
+    "description": "Electrical apparatus that provides emergency power to a load when the input power source fails.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 27,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 21.599999999999998,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 131,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 101,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 81,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 223.3,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 203,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 123,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 78,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1028,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2816,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 883,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1778,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Uninterruptible Power Supply (UPS)"
+  },
+  {
+    "tag": "Generic-DIES-001",
+    "name": "Standard Diesel Generator",
+    "componentClass": "Electrical",
+    "dexpiType": "DieselGenerator",
+    "rdlUri": "http://sandbox.dexpi.org/rdl/DieselGenerator",
+    "description": "Combination of a diesel engine and an electric generator to produce electrical energy.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 24,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 19.2,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 16,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 137,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 107,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 87,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 256.3,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 233,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 239,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 87,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1391,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2886,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1288,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 2135,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Diesel Generator"
+  },
+  {
+    "tag": "Generic-FLAR-001",
+    "name": "Standard Flare Stack",
+    "componentClass": "Equipment",
+    "dexpiType": "FlareStack",
+    "rdlUri": "http://sandbox.dexpi.org/rdl/FlareStack",
+    "description": "Elevated vertical stack used for burning off unusable waste gas or flammable gas released by pressure relief valves.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 72,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 57.599999999999994,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 48,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 224,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 194,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 174,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 128.70000000000002,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 117,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 61,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 87,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1849,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 1578,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1059,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 2558,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Flare Stack"
+  },
+  {
+    "tag": "Generic-STRA-001",
+    "name": "Standard Strainer",
+    "componentClass": "Equipment",
+    "dexpiType": "Strainer",
+    "rdlUri": "http://data.posccaesar.org/rdl/RDS327354",
+    "description": "Device with a mesh screen used to mechanically remove solid debris from a flowing fluid.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 37.5,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 30,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 25,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 184,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 154,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 134,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 238.70000000000002,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 217,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 188,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 75,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1530,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2265,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1746,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 2920,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Strainer"
+  },
+  {
+    "tag": "Generic-STEA-001",
+    "name": "Standard Steam Trap",
+    "componentClass": "Equipment",
+    "dexpiType": "SteamTrap",
+    "rdlUri": "http://sandbox.dexpi.org/rdl/SteamTrap",
+    "description": "Automatic valve that filters out condensate and non-condensable gases while preventing the escape of live steam.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 37.5,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 30,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 25,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 110,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 60,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 224.4,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 204,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 50,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 89,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1442,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 1783,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1796,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 2786,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Steam Trap"
+  },
+  {
+    "tag": "Generic-FLAM-001",
+    "name": "Standard Flame Arrestor",
+    "componentClass": "Equipment",
+    "dexpiType": "FlameArrestor",
+    "rdlUri": "http://sandbox.dexpi.org/rdl/FlameArrestor",
+    "description": "Safety device that stops fuel combustion by extinguishing the flame front.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 15,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 12,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 10,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 157,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 127,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 107,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 370.70000000000005,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 337,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 203,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "efficiency": {
+        "value": 90,
+        "unit": "%"
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 621,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 1958,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1383,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 2196,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "internals": "SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Connection 1",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      },
+      {
+        "id": "N2",
+        "name": "Connection 2",
+        "service": "Process",
+        "size": "DN50",
+        "rating": "PN16"
+      }
+    ],
+    "standards": [
+      "API 610",
+      "ASME B73.1",
+      "ISO 5199"
+    ],
+    "image_prompt": "High-fidelity 3D engineering rendering of a Flame Arrestor"
+  }
+]
