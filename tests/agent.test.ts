@@ -228,9 +228,9 @@ describe('DexpiAgent', () => {
         mockFetch.mockReset();
     });
 
-    test('getPersonas returns all 6 personas', () => {
+    test('getPersonas returns all 7 personas', () => {
         const personas = agent.getPersonas();
-        expect(personas).toHaveLength(6);
+        expect(personas).toHaveLength(7);
         const names = personas.map(p => p.name);
         expect(names).toContain('coordinator');
         expect(names).toContain('processEngineer');
@@ -238,6 +238,44 @@ describe('DexpiAgent', () => {
         expect(names).toContain('safetyAnalyst');
         expect(names).toContain('qualityReviewer');
         expect(names).toContain('procurementOfficer');
+        expect(names).toContain('theSurveyor');
+    });
+
+    test('generateEquipmentRegistry returns parsed registry', async () => {
+        const fakeRegistry = {
+            sector: "NUCL",
+            subSector: "PWR",
+            equipment: [
+                {
+                    type: "Centrifugal Pump",
+                    category: "rotating",
+                    tags: ["PUMP"],
+                    description: "Test pump"
+                }
+            ]
+        };
+
+        mockFetch.mockResolvedValueOnce({
+            ok: true,
+            json: async () => ({
+                choices: [{ message: { role: 'assistant', content: JSON.stringify(fakeRegistry) }, finish_reason: 'stop' }],
+            }),
+        });
+
+        const result = await agent.generateEquipmentRegistry('Nuclear', 'NUCL', 'PWR', 'Test instruction');
+
+        expect(result.sector).toBe('NUCL');
+        expect((result.equipment as any[])[0].type).toBe('Centrifugal Pump');
+
+        const fetchCall = mockFetch.mock.calls[0];
+        const fetchBody = JSON.parse(fetchCall[1].body);
+        const systemMsg = fetchBody.messages[0].content;
+
+        expect(systemMsg).toContain('The Surveyor');
+        expect(systemMsg).toContain('Nuclear');
+        expect(systemMsg).toContain('NUCL');
+        expect(systemMsg).toContain('PWR');
+        expect(systemMsg).toContain('Test instruction');
     });
 
     test('findVendorVariations returns parsed array', async () => {
