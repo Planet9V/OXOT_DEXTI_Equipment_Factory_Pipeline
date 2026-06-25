@@ -1,442 +1,405 @@
 [
   {
-    "tag": "Generic-ADC-001",
+    "tag": "Generic-OG-001",
     "name": "Atmospheric Distillation Column",
     "componentClass": "ProcessColumn",
-    "dexpiType": "ProcessColumn",
-    "rdlUri": "http://data.posccaesar.org/rdl/RDS414680",
-    "description": "Reference configuration for Atmospheric Distillation Column compliant with DEXPI 2.0 and relevant industry standards.",
+    "dexpiType": "DistillationColumn",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1000",
+    "description": "Standard Atmospheric Distillation Column used in Petroleum Refinery.",
     "operatingConditions": {
       "pressureMax": {
-        "value": 49.5,
+        "value": 5.5,
         "unit": "bar",
-        "source": "API 610"
+        "source": "ASME Sec VIII"
       },
       "pressureMin": {
-        "value": 0,
+        "value": 0.5,
         "unit": "bar"
       },
       "pressureDesign": {
-        "value": 39.6,
+        "value": 4.5,
         "unit": "bar"
       },
       "pressureOperating": {
-        "value": 33,
+        "value": 2.5,
         "unit": "bar"
       },
       "temperatureMax": {
-        "value": 133,
+        "value": 380,
         "unit": "C"
       },
       "temperatureMin": {
-        "value": -20,
+        "value": -10,
         "unit": "C"
       },
       "temperatureDesign": {
-        "value": 103,
+        "value": 350,
         "unit": "C"
       },
       "temperatureOperating": {
-        "value": 83,
+        "value": 330,
         "unit": "C"
       },
       "flowRateDesign": {
-        "value": 319,
+        "value": 1200,
         "unit": "m3/h"
       },
       "flowRateOperating": {
-        "value": 290,
+        "value": 1000,
         "unit": "m3/h"
       }
     },
     "specifications": {
-      "power": {
-        "value": 148,
-        "unit": "kW",
-        "source": "IEC 60034"
+      "stages": {
+        "value": 45,
+        "unit": "ea"
+      },
+      "efficiency": {
+        "value": 85,
+        "unit": "%"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 250000,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 45000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 5500,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 45000,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "shell": "ASTM A516 Gr. 70",
+      "heads": "ASTM A516 Gr. 70",
+      "trays": "ASTM A240 Type 316L",
+      "internals": "ASTM A240 Type 410",
+      "nozzles": "ASTM A105",
+      "supports": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Feed",
+        "service": "Process Inlet",
+        "size": "DN400",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
+      },
+      {
+        "id": "N2",
+        "name": "Overhead",
+        "service": "Vapor Outlet",
+        "size": "DN600",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Bottoms",
+        "service": "Liquid Outlet",
+        "size": "DN300",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Bottom"
+      }
+    ],
+    "standards": [
+      "ASME BPVC Section VIII",
+      "API 650"
+    ],
+    "image_prompt": "3D model of a massive atmospheric distillation column with external ladders and platforms."
+  },
+  {
+    "tag": "Generic-OG-002",
+    "name": "Vacuum Distillation Column",
+    "componentClass": "ProcessColumn",
+    "dexpiType": "VacuumColumn",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1001",
+    "description": "Standard Vacuum Distillation Column used in Petroleum Refinery.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 2,
+        "unit": "bar",
+        "source": "ASME Sec VIII"
+      },
+      "pressureMin": {
+        "value": 0.01,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 1.5,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 0.05,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 420,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 400,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 380,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 800,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 650,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "stages": {
+        "value": 20,
+        "unit": "ea"
       },
       "efficiency": {
         "value": 80,
         "unit": "%"
       },
-      "volume": {
-        "value": 12,
-        "unit": "m3"
-      },
-      "orientation": {
-        "value": "Vertical",
+      "dutyPoint": {
+        "value": "Continuous",
         "unit": ""
       }
     },
     "design": {
       "weight": {
-        "value": 754,
+        "value": 320000,
         "unit": "kg"
       },
       "length": {
-        "value": 1568,
+        "value": 35000,
         "unit": "mm"
       },
       "width": {
-        "value": 1461,
+        "value": 8500,
         "unit": "mm"
       },
       "height": {
-        "value": 1957,
+        "value": 35000,
         "unit": "mm"
       }
     },
     "materials": {
-      "bolting": "ASTM A193 Gr. B7",
-      "gaskets": "Spiral Wound SS316/Graphite",
-      "shell": "ASTM A516 Gr. 70",
-      "head": "ASTM A516 Gr. 70",
-      "tubes": "ASTM A213 TP316",
-      "tubesheet": "ASTM A266 Cl. 2",
-      "internals": "SS316"
+      "shell": "ASTM A387 Gr. 11",
+      "heads": "ASTM A387 Gr. 11",
+      "packing": "ASTM A240 Type 316L",
+      "internals": "ASTM A240 Type 317L",
+      "nozzles": "ASTM A182 F11",
+      "supports": "ASTM A36"
     },
     "nozzles": [
       {
         "id": "N1",
-        "name": "Inlet",
+        "name": "Feed",
         "service": "Process Inlet",
-        "size": "DN200",
-        "rating": "PN16"
+        "size": "DN500",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
       },
       {
         "id": "N2",
-        "name": "Outlet",
-        "service": "Process Outlet",
-        "size": "DN200",
-        "rating": "PN16"
+        "name": "Overhead",
+        "service": "Vapor Outlet",
+        "size": "DN900",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Top"
       },
       {
         "id": "N3",
-        "name": "Vent",
-        "service": "Vent",
-        "size": "DN50"
-      },
-      {
-        "id": "N4",
-        "name": "Drain",
-        "service": "Drain",
-        "size": "DN50"
-      },
-      {
-        "id": "M1",
-        "name": "Manway",
-        "service": "Access",
-        "size": "DN600",
-        "rating": "PN16"
+        "name": "Bottoms",
+        "service": "Liquid Outlet",
+        "size": "DN350",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Bottom"
       }
     ],
     "standards": [
-      "ASME VIII Div 1",
-      "API 650"
+      "ASME BPVC Section VIII"
     ],
-    "image_prompt": "High-fidelity 3D engineering rendering of a Atmospheric Distillation Column (ProcessColumn) with industrial metallic finish, visible flanges, and realistic lighting."
+    "image_prompt": "3D model of a wide vacuum distillation column with transfer line."
   },
   {
-    "tag": "Generic-VDC-002",
-    "name": "Vacuum Distillation Column",
-    "componentClass": "ProcessColumn",
-    "dexpiType": "ProcessColumn",
-    "rdlUri": "http://data.posccaesar.org/rdl/RDS414680",
-    "description": "Reference configuration for Vacuum Distillation Column compliant with DEXPI 2.0 and relevant industry standards.",
-    "operatingConditions": {
-      "pressureMax": {
-        "value": 63,
-        "unit": "bar",
-        "source": "API 610"
-      },
-      "pressureMin": {
-        "value": 0,
-        "unit": "bar"
-      },
-      "pressureDesign": {
-        "value": 50.4,
-        "unit": "bar"
-      },
-      "pressureOperating": {
-        "value": 42,
-        "unit": "bar"
-      },
-      "temperatureMax": {
-        "value": 101,
-        "unit": "C"
-      },
-      "temperatureMin": {
-        "value": -20,
-        "unit": "C"
-      },
-      "temperatureDesign": {
-        "value": 71,
-        "unit": "C"
-      },
-      "temperatureOperating": {
-        "value": 51,
-        "unit": "C"
-      },
-      "flowRateDesign": {
-        "value": 518.1,
-        "unit": "m3/h"
-      },
-      "flowRateOperating": {
-        "value": 471,
-        "unit": "m3/h"
-      }
-    },
-    "specifications": {
-      "power": {
-        "value": 175,
-        "unit": "kW",
-        "source": "IEC 60034"
-      },
-      "efficiency": {
-        "value": 79,
-        "unit": "%"
-      },
-      "volume": {
-        "value": 63,
-        "unit": "m3"
-      },
-      "orientation": {
-        "value": "Vertical",
-        "unit": ""
-      }
-    },
-    "design": {
-      "weight": {
-        "value": 818,
-        "unit": "kg"
-      },
-      "length": {
-        "value": 2918,
-        "unit": "mm"
-      },
-      "width": {
-        "value": 1606,
-        "unit": "mm"
-      },
-      "height": {
-        "value": 2123,
-        "unit": "mm"
-      }
-    },
-    "materials": {
-      "bolting": "ASTM A193 Gr. B7",
-      "gaskets": "Spiral Wound SS316/Graphite",
-      "shell": "ASTM A516 Gr. 70",
-      "head": "ASTM A516 Gr. 70",
-      "tubes": "ASTM A213 TP316",
-      "tubesheet": "ASTM A266 Cl. 2",
-      "internals": "SS316"
-    },
-    "nozzles": [
-      {
-        "id": "N1",
-        "name": "Inlet",
-        "service": "Process Inlet",
-        "size": "DN200",
-        "rating": "PN16"
-      },
-      {
-        "id": "N2",
-        "name": "Outlet",
-        "service": "Process Outlet",
-        "size": "DN200",
-        "rating": "PN16"
-      },
-      {
-        "id": "N3",
-        "name": "Vent",
-        "service": "Vent",
-        "size": "DN50"
-      },
-      {
-        "id": "N4",
-        "name": "Drain",
-        "service": "Drain",
-        "size": "DN50"
-      },
-      {
-        "id": "M1",
-        "name": "Manway",
-        "service": "Access",
-        "size": "DN600",
-        "rating": "PN16"
-      }
-    ],
-    "standards": [
-      "ASME VIII Div 1",
-      "API 650"
-    ],
-    "image_prompt": "High-fidelity 3D engineering rendering of a Vacuum Distillation Column (ProcessColumn) with industrial metallic finish, visible flanges, and realistic lighting."
-  },
-  {
-    "tag": "Generic-FR-003",
+    "tag": "Generic-OG-003",
     "name": "FCC Reactor/Regenerator",
     "componentClass": "Reactor",
-    "dexpiType": "Reactor",
-    "rdlUri": "http://data.posccaesar.org/rdl/RDS414682",
-    "description": "Reference configuration for FCC Reactor/Regenerator compliant with DEXPI 2.0 and relevant industry standards.",
+    "dexpiType": "FluidizedBedReactor",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1002",
+    "description": "Standard FCC Reactor/Regenerator used in Petroleum Refinery.",
     "operatingConditions": {
       "pressureMax": {
-        "value": 54,
+        "value": 6,
         "unit": "bar",
-        "source": "API 610"
+        "source": "ASME Sec VIII"
       },
       "pressureMin": {
-        "value": 0,
+        "value": 1,
         "unit": "bar"
       },
       "pressureDesign": {
-        "value": 43.2,
+        "value": 4.8,
         "unit": "bar"
       },
       "pressureOperating": {
-        "value": 36,
+        "value": 3.5,
         "unit": "bar"
       },
       "temperatureMax": {
-        "value": 154,
+        "value": 780,
         "unit": "C"
       },
       "temperatureMin": {
-        "value": -20,
+        "value": 10,
         "unit": "C"
       },
       "temperatureDesign": {
-        "value": 124,
+        "value": 760,
         "unit": "C"
       },
       "temperatureOperating": {
-        "value": 104,
+        "value": 720,
         "unit": "C"
       },
       "flowRateDesign": {
-        "value": 245.3,
-        "unit": "m3/h"
+        "value": 2000,
+        "unit": "t/h"
       },
       "flowRateOperating": {
-        "value": 223,
-        "unit": "m3/h"
+        "value": 1800,
+        "unit": "t/h"
       }
     },
     "specifications": {
-      "power": {
-        "value": 104,
-        "unit": "kW",
-        "source": "IEC 60034"
+      "residenceTime": {
+        "value": 5,
+        "unit": "s"
       },
-      "efficiency": {
-        "value": 87,
+      "conversionRate": {
+        "value": 75,
         "unit": "%"
       },
-      "volume": {
-        "value": 13,
-        "unit": "m3"
-      },
-      "orientation": {
-        "value": "Vertical",
+      "dutyPoint": {
+        "value": "Continuous",
         "unit": ""
       }
     },
     "design": {
       "weight": {
-        "value": 923,
+        "value": 600000,
         "unit": "kg"
       },
       "length": {
-        "value": 1732,
+        "value": 40000,
         "unit": "mm"
       },
       "width": {
-        "value": 1139,
+        "value": 12000,
         "unit": "mm"
       },
       "height": {
-        "value": 1845,
+        "value": 40000,
         "unit": "mm"
       }
     },
     "materials": {
-      "bolting": "ASTM A193 Gr. B7",
-      "gaskets": "Spiral Wound SS316/Graphite",
-      "shell": "ASTM A516 Gr. 70",
-      "head": "ASTM A516 Gr. 70",
-      "tubes": "ASTM A213 TP316",
-      "tubesheet": "ASTM A266 Cl. 2",
-      "internals": "SS316"
+      "shell": "ASTM A387 Gr. 22",
+      "lining": "Refractory Alumina",
+      "cyclones": "ASTM A240 Type 304H",
+      "internals": "ASTM A240 Type 304H",
+      "nozzles": "ASTM A182 F22",
+      "supports": "ASTM A36"
     },
     "nozzles": [
       {
         "id": "N1",
-        "name": "Inlet",
+        "name": "Vapor Inlet",
         "service": "Process Inlet",
-        "size": "DN200",
-        "rating": "PN16"
+        "size": "DN1200",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Bottom"
       },
       {
         "id": "N2",
-        "name": "Outlet",
+        "name": "Vapor Outlet",
         "service": "Process Outlet",
-        "size": "DN200",
-        "rating": "PN16"
+        "size": "DN1500",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Top"
       },
       {
         "id": "N3",
-        "name": "Vent",
-        "service": "Vent",
-        "size": "DN50"
-      },
-      {
-        "id": "N4",
-        "name": "Drain",
-        "service": "Drain",
-        "size": "DN50"
-      },
-      {
-        "id": "M1",
-        "name": "Manway",
-        "service": "Access",
+        "name": "Catalyst Return",
+        "service": "Solid Transfer",
         "size": "DN600",
-        "rating": "PN16"
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
       }
     ],
     "standards": [
-      "ASME VIII Div 1",
-      "API 650"
+      "ASME BPVC Section VIII Div 2",
+      "API 936"
     ],
-    "image_prompt": "High-fidelity 3D engineering rendering of a FCC Reactor/Regenerator (Reactor) with industrial metallic finish, visible flanges, and realistic lighting."
+    "image_prompt": "3D model of a massive FCC reactor and regenerator assembly with complex piping."
   },
   {
-    "tag": "Generic-HR-004",
+    "tag": "Generic-OG-004",
     "name": "Hydrocracker Reactor",
     "componentClass": "Reactor",
-    "dexpiType": "Reactor",
-    "rdlUri": "http://data.posccaesar.org/rdl/RDS414682",
-    "description": "Reference configuration for Hydrocracker Reactor compliant with DEXPI 2.0 and relevant industry standards.",
+    "dexpiType": "FixedBedReactor",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1003",
+    "description": "Standard Hydrocracker Reactor used in Petroleum Refinery.",
     "operatingConditions": {
       "pressureMax": {
-        "value": 61.5,
+        "value": 220,
         "unit": "bar",
-        "source": "API 610"
+        "source": "ASME Sec VIII Div 2"
       },
       "pressureMin": {
-        "value": 0,
+        "value": 10,
         "unit": "bar"
       },
       "pressureDesign": {
-        "value": 49.2,
+        "value": 190,
         "unit": "bar"
       },
       "pressureOperating": {
-        "value": 41,
+        "value": 160,
         "unit": "bar"
       },
       "temperatureMax": {
-        "value": 106,
+        "value": 480,
         "unit": "C"
       },
       "temperatureMin": {
@@ -444,265 +407,249 @@
         "unit": "C"
       },
       "temperatureDesign": {
-        "value": 76,
+        "value": 450,
         "unit": "C"
       },
       "temperatureOperating": {
-        "value": 56,
+        "value": 410,
         "unit": "C"
       },
       "flowRateDesign": {
-        "value": 438.9,
+        "value": 400,
         "unit": "m3/h"
       },
       "flowRateOperating": {
-        "value": 399,
+        "value": 350,
         "unit": "m3/h"
       }
     },
     "specifications": {
-      "power": {
-        "value": 219,
-        "unit": "kW",
-        "source": "IEC 60034"
-      },
-      "efficiency": {
-        "value": 75,
-        "unit": "%"
-      },
-      "volume": {
-        "value": 81,
+      "bedVolume": {
+        "value": 150,
         "unit": "m3"
       },
-      "orientation": {
-        "value": "Vertical",
+      "conversionRate": {
+        "value": 65,
+        "unit": "%"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
         "unit": ""
       }
     },
     "design": {
       "weight": {
-        "value": 1971,
+        "value": 850000,
         "unit": "kg"
       },
       "length": {
-        "value": 1958,
+        "value": 28000,
         "unit": "mm"
       },
       "width": {
-        "value": 906,
+        "value": 4500,
         "unit": "mm"
       },
       "height": {
-        "value": 1718,
+        "value": 28000,
         "unit": "mm"
       }
     },
     "materials": {
-      "bolting": "ASTM A193 Gr. B7",
-      "gaskets": "Spiral Wound SS316/Graphite",
-      "shell": "ASTM A516 Gr. 70",
-      "head": "ASTM A516 Gr. 70",
-      "tubes": "ASTM A213 TP316",
-      "tubesheet": "ASTM A266 Cl. 2",
-      "internals": "SS316"
+      "shell": "ASTM A336 Gr. F22V",
+      "cladding": "ASTM A240 Type 347",
+      "internals": "ASTM A240 Type 321",
+      "catalystSupport": "Alumina Balls",
+      "nozzles": "ASTM A182 F22V",
+      "supports": "ASTM A36"
     },
     "nozzles": [
       {
         "id": "N1",
-        "name": "Inlet",
+        "name": "Feed",
         "service": "Process Inlet",
-        "size": "DN200",
-        "rating": "PN16"
+        "size": "DN250",
+        "rating": "PN250",
+        "facing": "RTJ",
+        "position": "Top"
       },
       {
         "id": "N2",
-        "name": "Outlet",
+        "name": "Effluent",
         "service": "Process Outlet",
-        "size": "DN200",
-        "rating": "PN16"
+        "size": "DN300",
+        "rating": "PN250",
+        "facing": "RTJ",
+        "position": "Bottom"
       },
       {
         "id": "N3",
-        "name": "Vent",
-        "service": "Vent",
-        "size": "DN50"
-      },
-      {
-        "id": "N4",
-        "name": "Drain",
-        "service": "Drain",
-        "size": "DN50"
-      },
-      {
-        "id": "M1",
-        "name": "Manway",
-        "service": "Access",
-        "size": "DN600",
-        "rating": "PN16"
+        "name": "Quench",
+        "service": "Gas Inlet",
+        "size": "DN100",
+        "rating": "PN250",
+        "facing": "RTJ",
+        "position": "Side"
       }
     ],
     "standards": [
-      "ASME VIII Div 1",
-      "API 650"
+      "ASME BPVC Section VIII Div 2",
+      "API 934-A"
     ],
-    "image_prompt": "High-fidelity 3D engineering rendering of a Hydrocracker Reactor (Reactor) with industrial metallic finish, visible flanges, and realistic lighting."
+    "image_prompt": "3D model of a thick-walled high-pressure hydrocracker reactor with heavy flanges."
   },
   {
-    "tag": "Generic-CH-005",
+    "tag": "Generic-OG-005",
     "name": "Crude Heater",
-    "componentClass": "Furnace",
-    "dexpiType": "Furnace",
-    "rdlUri": "http://data.posccaesar.org/rdl/RDS327278",
-    "description": "Reference configuration for Crude Heater compliant with DEXPI 2.0 and relevant industry standards.",
+    "componentClass": "Heater",
+    "dexpiType": "FiredHeater",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1004",
+    "description": "Standard Crude Heater used in Petroleum Refinery.",
     "operatingConditions": {
       "pressureMax": {
-        "value": 25.5,
+        "value": 45,
         "unit": "bar",
-        "source": "API 610"
+        "source": "API 560"
       },
       "pressureMin": {
-        "value": 0,
+        "value": 1,
         "unit": "bar"
       },
       "pressureDesign": {
-        "value": 20.4,
+        "value": 40,
         "unit": "bar"
       },
       "pressureOperating": {
-        "value": 17,
+        "value": 30,
         "unit": "bar"
       },
       "temperatureMax": {
-        "value": 228,
+        "value": 900,
         "unit": "C"
       },
       "temperatureMin": {
-        "value": -20,
+        "value": 10,
         "unit": "C"
       },
       "temperatureDesign": {
-        "value": 198,
+        "value": 850,
         "unit": "C"
       },
       "temperatureOperating": {
-        "value": 178,
+        "value": 380,
         "unit": "C"
       },
       "flowRateDesign": {
-        "value": 167.2,
+        "value": 1200,
         "unit": "m3/h"
       },
       "flowRateOperating": {
-        "value": 152,
+        "value": 1000,
         "unit": "m3/h"
       }
     },
     "specifications": {
-      "power": {
+      "duty": {
         "value": 75,
-        "unit": "kW",
-        "source": "IEC 60034"
+        "unit": "MW"
       },
-      "efficiency": {
-        "value": 78,
+      "thermalEfficiency": {
+        "value": 92,
         "unit": "%"
       },
-      "heatTransferArea": {
-        "value": 216,
-        "unit": "m2"
-      },
-      "duty": {
-        "value": 1602,
-        "unit": "kW"
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
       }
     },
     "design": {
       "weight": {
-        "value": 1784,
+        "value": 400000,
         "unit": "kg"
       },
       "length": {
-        "value": 2212,
+        "value": 20000,
         "unit": "mm"
       },
       "width": {
-        "value": 1527,
+        "value": 15000,
         "unit": "mm"
       },
       "height": {
-        "value": 1393,
+        "value": 30000,
         "unit": "mm"
       }
     },
     "materials": {
-      "bolting": "ASTM A193 Gr. B7",
-      "gaskets": "Spiral Wound SS316/Graphite",
-      "body": "ASTM A216 WCB",
-      "internals": "SS316"
+      "tubesRadiant": "ASTM A335 P9",
+      "tubesConvection": "ASTM A106 Gr. B",
+      "casing": "ASTM A36",
+      "refractory": "Ceramic Fiber",
+      "burners": "ASTM A351 CF8",
+      "supports": "ASTM A36"
     },
     "nozzles": [
       {
         "id": "N1",
-        "name": "Inlet",
+        "name": "Crude In",
         "service": "Process Inlet",
         "size": "DN200",
-        "rating": "PN16"
+        "rating": "PN63",
+        "facing": "RF",
+        "position": "Bottom"
       },
       {
         "id": "N2",
-        "name": "Outlet",
+        "name": "Crude Out",
         "service": "Process Outlet",
-        "size": "DN200",
-        "rating": "PN16"
+        "size": "DN250",
+        "rating": "PN63",
+        "facing": "RF",
+        "position": "Top"
       },
       {
         "id": "N3",
-        "name": "Utility Inlet",
-        "service": "Utility Inlet",
-        "size": "DN150",
-        "rating": "PN16"
-      },
-      {
-        "id": "N4",
-        "name": "Utility Outlet",
-        "service": "Utility Outlet",
-        "size": "DN150",
-        "rating": "PN16"
+        "name": "Fuel Gas",
+        "service": "Fuel Inlet",
+        "size": "DN100",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
       }
     ],
     "standards": [
-      "ISO 9001",
-      "ASME B31.3"
+      "API 560",
+      "API 530"
     ],
-    "image_prompt": "High-fidelity 3D engineering rendering of a Crude Heater (Furnace) with industrial metallic finish, visible flanges, and realistic lighting."
+    "image_prompt": "3D model of a massive box-type fired heater with an exhaust stack."
   },
   {
-    "tag": "Generic-CPE-006",
+    "tag": "Generic-OG-006",
     "name": "Crude Preheat Exchanger",
     "componentClass": "HeatExchanger",
-    "dexpiType": "HeatExchanger",
-    "rdlUri": "http://data.posccaesar.org/rdl/RDS327272",
-    "description": "Reference configuration for Crude Preheat Exchanger compliant with DEXPI 2.0 and relevant industry standards.",
+    "dexpiType": "ShellAndTubeHeatExchanger",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1005",
+    "description": "Standard Crude Preheat Exchanger used in Petroleum Refinery.",
     "operatingConditions": {
       "pressureMax": {
-        "value": 66,
+        "value": 50,
         "unit": "bar",
-        "source": "API 610"
+        "source": "TEMA"
       },
       "pressureMin": {
-        "value": 0,
+        "value": 1,
         "unit": "bar"
       },
       "pressureDesign": {
-        "value": 52.8,
+        "value": 45,
         "unit": "bar"
       },
       "pressureOperating": {
-        "value": 44,
+        "value": 35,
         "unit": "bar"
       },
       "temperatureMax": {
-        "value": 199,
+        "value": 350,
         "unit": "C"
       },
       "temperatureMin": {
@@ -710,132 +657,134 @@
         "unit": "C"
       },
       "temperatureDesign": {
-        "value": 169,
+        "value": 320,
         "unit": "C"
       },
       "temperatureOperating": {
-        "value": 149,
+        "value": 280,
         "unit": "C"
       },
       "flowRateDesign": {
-        "value": 273.9,
+        "value": 800,
         "unit": "m3/h"
       },
       "flowRateOperating": {
-        "value": 249,
+        "value": 750,
         "unit": "m3/h"
       }
     },
     "specifications": {
-      "power": {
-        "value": 169,
-        "unit": "kW",
-        "source": "IEC 60034"
+      "duty": {
+        "value": 12,
+        "unit": "MW"
       },
-      "efficiency": {
-        "value": 75,
-        "unit": "%"
-      },
-      "heatTransferArea": {
-        "value": 66,
+      "area": {
+        "value": 650,
         "unit": "m2"
       },
-      "duty": {
-        "value": 4765,
-        "unit": "kW"
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
       }
     },
     "design": {
       "weight": {
-        "value": 607,
+        "value": 35000,
         "unit": "kg"
       },
       "length": {
-        "value": 2133,
+        "value": 8500,
         "unit": "mm"
       },
       "width": {
-        "value": 892,
+        "value": 1800,
         "unit": "mm"
       },
       "height": {
-        "value": 2364,
+        "value": 2100,
         "unit": "mm"
       }
     },
     "materials": {
-      "bolting": "ASTM A193 Gr. B7",
-      "gaskets": "Spiral Wound SS316/Graphite",
       "shell": "ASTM A516 Gr. 70",
-      "head": "ASTM A516 Gr. 70",
-      "tubes": "ASTM A213 TP316",
-      "tubesheet": "ASTM A266 Cl. 2",
-      "internals": "SS316"
+      "tubes": "ASTM A213 T5",
+      "tubesheet": "ASTM A182 F5",
+      "baffles": "ASTM A240 Type 410",
+      "channel": "ASTM A387 Gr. 5",
+      "supports": "ASTM A36"
     },
     "nozzles": [
       {
         "id": "N1",
-        "name": "Inlet",
+        "name": "Shell In",
         "service": "Process Inlet",
-        "size": "DN200",
-        "rating": "PN16"
+        "size": "DN300",
+        "rating": "PN63",
+        "facing": "RF",
+        "position": "Top"
       },
       {
         "id": "N2",
-        "name": "Outlet",
+        "name": "Shell Out",
         "service": "Process Outlet",
-        "size": "DN200",
-        "rating": "PN16"
+        "size": "DN300",
+        "rating": "PN63",
+        "facing": "RF",
+        "position": "Bottom"
       },
       {
         "id": "N3",
-        "name": "Utility Inlet",
-        "service": "Utility Inlet",
-        "size": "DN150",
-        "rating": "PN16"
+        "name": "Tube In",
+        "service": "Process Inlet",
+        "size": "DN250",
+        "rating": "PN63",
+        "facing": "RF",
+        "position": "End"
       },
       {
         "id": "N4",
-        "name": "Utility Outlet",
-        "service": "Utility Outlet",
-        "size": "DN150",
-        "rating": "PN16"
+        "name": "Tube Out",
+        "service": "Process Outlet",
+        "size": "DN250",
+        "rating": "PN63",
+        "facing": "RF",
+        "position": "End"
       }
     ],
     "standards": [
       "TEMA R",
-      "API 660",
-      "ASME VIII Div 1"
+      "ASME BPVC Section VIII",
+      "API 660"
     ],
-    "image_prompt": "High-fidelity 3D engineering rendering of a Crude Preheat Exchanger (HeatExchanger) with industrial metallic finish, visible flanges, and realistic lighting."
+    "image_prompt": "3D model of a long shell and tube heat exchanger mounted on saddles."
   },
   {
-    "tag": "Generic-AFC-007",
+    "tag": "Generic-OG-007",
     "name": "Air Fin Cooler",
     "componentClass": "HeatExchanger",
-    "dexpiType": "HeatExchanger",
-    "rdlUri": "http://sandbox.dexpi.org/rdl/AirCoolingSystem",
-    "description": "Reference configuration for Air Fin Cooler compliant with DEXPI 2.0 and relevant industry standards.",
+    "dexpiType": "AirCooledHeatExchanger",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1006",
+    "description": "Standard Air Fin Cooler used in Petroleum Refinery.",
     "operatingConditions": {
       "pressureMax": {
-        "value": 33,
+        "value": 60,
         "unit": "bar",
-        "source": "API 610"
+        "source": "API 661"
       },
       "pressureMin": {
-        "value": 0,
+        "value": 1,
         "unit": "bar"
       },
       "pressureDesign": {
-        "value": 26.4,
+        "value": 55,
         "unit": "bar"
       },
       "pressureOperating": {
-        "value": 22,
+        "value": 45,
         "unit": "bar"
       },
       "temperatureMax": {
-        "value": 163,
+        "value": 250,
         "unit": "C"
       },
       "temperatureMin": {
@@ -843,175 +792,29 @@
         "unit": "C"
       },
       "temperatureDesign": {
-        "value": 133,
+        "value": 200,
         "unit": "C"
       },
       "temperatureOperating": {
-        "value": 113,
+        "value": 150,
         "unit": "C"
       },
       "flowRateDesign": {
-        "value": 462,
+        "value": 1500,
         "unit": "m3/h"
       },
       "flowRateOperating": {
-        "value": 420,
+        "value": 1300,
         "unit": "m3/h"
       }
     },
     "specifications": {
-      "power": {
-        "value": 225,
-        "unit": "kW",
-        "source": "IEC 60034"
-      },
-      "efficiency": {
-        "value": 93,
-        "unit": "%"
-      },
-      "heatTransferArea": {
-        "value": 327,
-        "unit": "m2"
-      },
       "duty": {
-        "value": 2052,
-        "unit": "kW"
-      }
-    },
-    "design": {
-      "weight": {
-        "value": 1679,
-        "unit": "kg"
+        "value": 25,
+        "unit": "MW"
       },
-      "length": {
-        "value": 2920,
-        "unit": "mm"
-      },
-      "width": {
-        "value": 1541,
-        "unit": "mm"
-      },
-      "height": {
-        "value": 1411,
-        "unit": "mm"
-      }
-    },
-    "materials": {
-      "bolting": "ASTM A193 Gr. B7",
-      "gaskets": "Spiral Wound SS316/Graphite",
-      "shell": "ASTM A516 Gr. 70",
-      "head": "ASTM A516 Gr. 70",
-      "tubes": "ASTM A213 TP316",
-      "tubesheet": "ASTM A266 Cl. 2",
-      "internals": "SS316"
-    },
-    "nozzles": [
-      {
-        "id": "N1",
-        "name": "Inlet",
-        "service": "Process Inlet",
-        "size": "DN200",
-        "rating": "PN16"
-      },
-      {
-        "id": "N2",
-        "name": "Outlet",
-        "service": "Process Outlet",
-        "size": "DN200",
-        "rating": "PN16"
-      },
-      {
-        "id": "N3",
-        "name": "Utility Inlet",
-        "service": "Utility Inlet",
-        "size": "DN150",
-        "rating": "PN16"
-      },
-      {
-        "id": "N4",
-        "name": "Utility Outlet",
-        "service": "Utility Outlet",
-        "size": "DN150",
-        "rating": "PN16"
-      }
-    ],
-    "standards": [
-      "TEMA R",
-      "API 660",
-      "ASME VIII Div 1"
-    ],
-    "image_prompt": "High-fidelity 3D engineering rendering of a Air Fin Cooler (HeatExchanger) with industrial metallic finish, visible flanges, and realistic lighting."
-  },
-  {
-    "tag": "Generic-PP-008",
-    "name": "Process Pump",
-    "componentClass": "CentrifugalPump",
-    "dexpiType": "CentrifugalPump",
-    "rdlUri": "http://data.posccaesar.org/rdl/RDS327241",
-    "description": "Reference configuration for Process Pump compliant with DEXPI 2.0 and relevant industry standards.",
-    "operatingConditions": {
-      "pressureMax": {
-        "value": 57,
-        "unit": "bar",
-        "source": "API 610"
-      },
-      "pressureMin": {
-        "value": 0,
-        "unit": "bar"
-      },
-      "pressureDesign": {
-        "value": 45.6,
-        "unit": "bar"
-      },
-      "pressureOperating": {
-        "value": 38,
-        "unit": "bar"
-      },
-      "temperatureMax": {
-        "value": 241,
-        "unit": "C"
-      },
-      "temperatureMin": {
-        "value": -20,
-        "unit": "C"
-      },
-      "temperatureDesign": {
-        "value": 211,
-        "unit": "C"
-      },
-      "temperatureOperating": {
-        "value": 191,
-        "unit": "C"
-      },
-      "flowRateDesign": {
-        "value": 336.6,
-        "unit": "m3/h"
-      },
-      "flowRateOperating": {
-        "value": 306,
-        "unit": "m3/h"
-      }
-    },
-    "specifications": {
-      "power": {
-        "value": 224,
-        "unit": "kW",
-        "source": "IEC 60034"
-      },
-      "efficiency": {
-        "value": 90,
-        "unit": "%"
-      },
-      "head": {
-        "value": 79,
-        "unit": "m"
-      },
-      "NPSHr": {
-        "value": 3.71,
-        "unit": "m"
-      },
-      "rotationalSpeed": {
-        "value": 2950,
+      "fanSpeed": {
+        "value": 250,
         "unit": "rpm"
       },
       "dutyPoint": {
@@ -1021,30 +824,159 @@
     },
     "design": {
       "weight": {
-        "value": 2175,
+        "value": 45000,
         "unit": "kg"
       },
       "length": {
-        "value": 1136,
+        "value": 12000,
         "unit": "mm"
       },
       "width": {
-        "value": 1215,
+        "value": 4500,
         "unit": "mm"
       },
       "height": {
-        "value": 2723,
+        "value": 3500,
         "unit": "mm"
       }
     },
     "materials": {
-      "bolting": "ASTM A193 Gr. B7",
+      "tubes": "ASTM A214",
+      "fins": "Aluminum 1060",
+      "headerBox": "ASTM A516 Gr. 70",
+      "fanBlades": "FRP",
+      "structure": "Hot-Dip Galvanized ASTM A123",
+      "plenum": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Process In",
+        "service": "Process Inlet",
+        "size": "DN350",
+        "rating": "PN63",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N2",
+        "name": "Process Out",
+        "service": "Process Outlet",
+        "size": "DN350",
+        "rating": "PN63",
+        "facing": "RF",
+        "position": "Bottom"
+      }
+    ],
+    "standards": [
+      "API 661",
+      "ASME BPVC Section VIII"
+    ],
+    "image_prompt": "3D model of a large forced-draft air fin cooler with huge fans and finned tubes."
+  },
+  {
+    "tag": "Generic-OG-008",
+    "name": "Process Pump",
+    "componentClass": "Pump",
+    "dexpiType": "CentrifugalPump",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1007",
+    "description": "Standard Process Pump used in Petroleum Refinery.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 45,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 40,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 80,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 350,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 280,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 150,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "rotationalSpeed": {
+        "value": 2950,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 78,
+        "unit": "%"
+      },
+      "head": {
+        "value": 120,
+        "unit": "m"
+      },
+      "NPSHr": {
+        "value": 3.5,
+        "unit": "m"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 2500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 2100,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 950,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "casing": "ASTM A216 Gr. WCB",
+      "impeller": "ASTM A351 Gr. CF8M",
+      "shaft": "ASTM A479 Type 410",
+      "seals": "Tungsten Carbide/Carbon",
       "gaskets": "Spiral Wound SS316/Graphite",
-      "casing": "ASTM A216 WCB",
-      "impeller": "ASTM A351 CF8M",
-      "trim": "SS316",
-      "shaft": "ASTM A276 Type 410",
-      "seals": "Mechanical Seal API 682"
+      "bolting": "ASTM A193 B7",
+      "baseplate": "ASTM A36"
     },
     "nozzles": [
       {
@@ -1052,7 +984,7 @@
         "name": "Suction",
         "service": "Process Inlet",
         "size": "DN150",
-        "rating": "PN16",
+        "rating": "PN40",
         "facing": "RF",
         "position": "End"
       },
@@ -1070,52 +1002,184 @@
         "name": "Drain",
         "service": "Drain",
         "size": "DN25",
-        "rating": "PN16",
-        "facing": "RF"
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Bottom"
       },
       {
         "id": "N4",
-        "name": "Vent",
-        "service": "Vent",
-        "size": "DN25",
-        "rating": "PN16",
-        "facing": "RF"
+        "name": "Seal Flush",
+        "service": "Utility Inlet",
+        "size": "DN15",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Side"
       }
     ],
     "standards": [
       "API 610",
-      "ISO 5199",
-      "ASME B73.1"
+      "ISO 13709"
     ],
-    "image_prompt": "High-fidelity 3D engineering rendering of a Process Pump (CentrifugalPump) with industrial metallic finish, visible flanges, and realistic lighting."
+    "image_prompt": "3D model of an API 610 end-suction centrifugal process pump on a baseplate."
   },
   {
-    "tag": "Generic-WGC-009",
+    "tag": "Generic-OG-009",
     "name": "Wet Gas Compressor",
-    "componentClass": "CentrifugalCompressor",
+    "componentClass": "Compressor",
     "dexpiType": "CentrifugalCompressor",
-    "rdlUri": "http://data.posccaesar.org/rdl/RDS327245",
-    "description": "Reference configuration for Wet Gas Compressor compliant with DEXPI 2.0 and relevant industry standards.",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1008",
+    "description": "Standard Wet Gas Compressor used in Petroleum Refinery.",
     "operatingConditions": {
       "pressureMax": {
-        "value": 36,
+        "value": 35,
         "unit": "bar",
-        "source": "API 610"
+        "source": "API 617"
       },
       "pressureMin": {
-        "value": 0,
+        "value": 0.5,
         "unit": "bar"
       },
       "pressureDesign": {
-        "value": 28.8,
+        "value": 30,
         "unit": "bar"
       },
       "pressureOperating": {
-        "value": 24,
+        "value": 15,
         "unit": "bar"
       },
       "temperatureMax": {
-        "value": 153,
+        "value": 180,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": 0,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 160,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 120,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 55000,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 48000,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 8500,
+        "unit": "kW",
+        "source": "API 617"
+      },
+      "rotationalSpeed": {
+        "value": 8500,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 82,
+        "unit": "%"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 28000,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 6500,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 3200,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 3500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "casing": "ASTM A352 LCC",
+      "impeller": "ASTM A479 Type 17-4PH",
+      "shaft": "AISI 4340",
+      "seals": "Dry Gas Seals",
+      "bearings": "Babbitt lined",
+      "bolting": "ASTM A193 B7M",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Suction",
+        "service": "Gas Inlet",
+        "size": "DN600",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N2",
+        "name": "Discharge",
+        "service": "Gas Outlet",
+        "size": "DN400",
+        "rating": "PN63",
+        "facing": "RF",
+        "position": "Bottom"
+      },
+      {
+        "id": "N3",
+        "name": "Lube Oil In",
+        "service": "Utility Inlet",
+        "size": "DN50",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
+      }
+    ],
+    "standards": [
+      "API 617",
+      "API 614"
+    ],
+    "image_prompt": "3D model of a multi-stage barrel type centrifugal compressor for wet gas."
+  },
+  {
+    "tag": "Generic-OG-010",
+    "name": "Floating Roof Tank",
+    "componentClass": "Tank",
+    "dexpiType": "StorageTank",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1009",
+    "description": "Standard Floating Roof Tank used in Petroleum Refinery.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 1.1,
+        "unit": "bar",
+        "source": "API 650"
+      },
+      "pressureMin": {
+        "value": 0.9,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 1.05,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 60,
         "unit": "C"
       },
       "temperatureMin": {
@@ -1123,120 +1187,1242 @@
         "unit": "C"
       },
       "temperatureDesign": {
-        "value": 123,
+        "value": 50,
         "unit": "C"
       },
       "temperatureOperating": {
-        "value": 103,
+        "value": 25,
         "unit": "C"
       },
       "flowRateDesign": {
-        "value": 425.7,
+        "value": 2500,
         "unit": "m3/h"
       },
       "flowRateOperating": {
-        "value": 387,
+        "value": 1500,
         "unit": "m3/h"
       }
     },
     "specifications": {
-      "power": {
-        "value": 222,
-        "unit": "kW",
-        "source": "IEC 60034"
+      "capacity": {
+        "value": 50000,
+        "unit": "m3"
       },
-      "efficiency": {
-        "value": 80,
-        "unit": "%"
-      },
-      "rotationalSpeed": {
-        "value": 6200,
-        "unit": "rpm"
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
       }
     },
     "design": {
       "weight": {
-        "value": 686,
+        "value": 1200000,
         "unit": "kg"
       },
       "length": {
-        "value": 1079,
+        "value": 60000,
         "unit": "mm"
       },
       "width": {
-        "value": 1319,
+        "value": 60000,
         "unit": "mm"
       },
       "height": {
-        "value": 1964,
+        "value": 20000,
         "unit": "mm"
       }
     },
     "materials": {
-      "bolting": "ASTM A193 Gr. B7",
-      "gaskets": "Spiral Wound SS316/Graphite",
-      "body": "ASTM A216 WCB",
-      "internals": "SS316"
+      "shell": "ASTM A36",
+      "bottom": "ASTM A36",
+      "roof": "ASTM A36",
+      "seals": "Primary Mechanical Shoe Seal",
+      "secondarySeal": "Wiper Seal",
+      "nozzles": "ASTM A105",
+      "windGirders": "ASTM A36"
     },
     "nozzles": [
       {
         "id": "N1",
-        "name": "Suction",
+        "name": "Inlet",
         "service": "Process Inlet",
-        "size": "DN300",
+        "size": "DN600",
         "rating": "PN16",
-        "facing": "RF"
+        "facing": "FF",
+        "position": "Side"
       },
       {
         "id": "N2",
-        "name": "Discharge",
+        "name": "Outlet",
         "service": "Process Outlet",
-        "size": "DN250",
-        "rating": "PN40",
-        "facing": "RF"
+        "size": "DN600",
+        "rating": "PN16",
+        "facing": "FF",
+        "position": "Side"
       },
       {
         "id": "N3",
-        "name": "Lube Oil In",
-        "service": "Utility",
-        "size": "DN50"
-      },
-      {
-        "id": "N4",
-        "name": "Lube Oil Out",
-        "service": "Utility",
-        "size": "DN50"
+        "name": "Drain",
+        "service": "Water Draw-off",
+        "size": "DN100",
+        "rating": "PN16",
+        "facing": "FF",
+        "position": "Bottom"
       }
     ],
     "standards": [
-      "API 617",
-      "ISO 10439"
+      "API 650"
     ],
-    "image_prompt": "High-fidelity 3D engineering rendering of a Wet Gas Compressor (CentrifugalCompressor) with industrial metallic finish, visible flanges, and realistic lighting."
+    "image_prompt": "3D model of a massive crude oil storage tank with an external floating roof."
   },
   {
-    "tag": "Generic-FRT-010",
-    "name": "Floating Roof Tank",
-    "componentClass": "StorageTank",
-    "dexpiType": "StorageTank",
-    "rdlUri": "http://data.posccaesar.org/rdl/RDS414678",
-    "description": "Reference configuration for Floating Roof Tank compliant with DEXPI 2.0 and relevant industry standards.",
+    "tag": "Generic-OG-011",
+    "name": "Elevated Flare",
+    "componentClass": "Flare",
+    "dexpiType": "FlareStack",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1010",
+    "description": "Standard Elevated Flare used in Petroleum Refinery.",
     "operatingConditions": {
       "pressureMax": {
-        "value": 31.5,
+        "value": 2,
         "unit": "bar",
-        "source": "API 610"
+        "source": "API 521"
       },
       "pressureMin": {
-        "value": 0,
+        "value": 0.9,
         "unit": "bar"
       },
       "pressureDesign": {
-        "value": 25.2,
+        "value": 1.5,
         "unit": "bar"
       },
       "pressureOperating": {
-        "value": 21,
+        "value": 1.05,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 1200,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -45,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 1000,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 800,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 500000,
+        "unit": "kg/h"
+      },
+      "flowRateOperating": {
+        "value": 5000,
+        "unit": "kg/h"
+      }
+    },
+    "specifications": {
+      "smokelessCapacity": {
+        "value": 75000,
+        "unit": "kg/h"
+      },
+      "destructionEfficiency": {
+        "value": 98.5,
+        "unit": "%"
+      },
+      "dutyPoint": {
+        "value": "Intermittent",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 85000,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 4500,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 4500,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 80000,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "stack": "ASTM A516 Gr. 70",
+      "flareTip": "Incoloy 800H",
+      "pilotBurners": "ASTM A312 TP310",
+      "structure": "Hot-Dip Galvanized ASTM A123",
+      "piping": "ASTM A106 Gr. B",
+      "base": "Concrete"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Flare Gas Inlet",
+        "service": "Process Inlet",
+        "size": "DN900",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Bottom"
+      },
+      {
+        "id": "N2",
+        "name": "Pilot Gas",
+        "service": "Fuel Inlet",
+        "size": "DN50",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Bottom"
+      },
+      {
+        "id": "N3",
+        "name": "Steam Assist",
+        "service": "Utility Inlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
+      }
+    ],
+    "standards": [
+      "API 521",
+      "API 537"
+    ],
+    "image_prompt": "3D model of a towering elevated derrick-supported flare stack."
+  },
+  {
+    "tag": "Generic-OG-012",
+    "name": "Relief Valve",
+    "componentClass": "SafetyValve",
+    "dexpiType": "PressureReliefValve",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1011",
+    "description": "Standard Relief Valve used in Petroleum Refinery.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 200,
+        "unit": "bar",
+        "source": "ASME Sec VIII"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 160,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 120,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 450,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -50,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 400,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 300,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 25000,
+        "unit": "kg/h"
+      },
+      "flowRateOperating": {
+        "value": 0,
+        "unit": "kg/h"
+      }
+    },
+    "specifications": {
+      "setPressure": {
+        "value": 150,
+        "unit": "bar"
+      },
+      "orificeArea": {
+        "value": 28.5,
+        "unit": "cm2"
+      },
+      "dutyPoint": {
+        "value": "Intermittent",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 150,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 400,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 350,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 750,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A217 WC6",
+      "bonnet": "ASTM A217 WC6",
+      "nozzle": "ASTM A479 Type 316",
+      "disc": "ASTM A479 Type 316L",
+      "spring": "Inconel X-750",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "bolting": "ASTM A193 B16"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN100",
+        "rating": "PN250",
+        "facing": "RTJ",
+        "position": "Bottom"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN150",
+        "rating": "PN100",
+        "facing": "RF",
+        "position": "Side"
+      }
+    ],
+    "standards": [
+      "API 526",
+      "ASME BPVC Section VIII"
+    ],
+    "image_prompt": "3D model of a heavy-duty spring-loaded pressure relief valve."
+  },
+  {
+    "tag": "Generic-OG-013",
+    "name": "Stripper Column",
+    "componentClass": "ProcessColumn",
+    "dexpiType": "StripperColumn",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1012",
+    "description": "Standard Stripper Column used in Petroleum Refinery.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 6,
+        "unit": "bar",
+        "source": "ASME Sec VIII"
+      },
+      "pressureMin": {
+        "value": 0.5,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 5,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 3.5,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 160,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 300,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 250,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "stages": {
+        "value": 15,
+        "unit": "ea"
+      },
+      "efficiency": {
+        "value": 75,
+        "unit": "%"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 85000,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 15000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 2500,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 15000,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "shell": "ASTM A516 Gr. 70",
+      "heads": "ASTM A516 Gr. 70",
+      "trays": "ASTM A240 Type 410",
+      "internals": "ASTM A240 Type 410",
+      "nozzles": "ASTM A105",
+      "supports": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Feed",
+        "service": "Process Inlet",
+        "size": "DN200",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
+      },
+      {
+        "id": "N2",
+        "name": "Overhead",
+        "service": "Vapor Outlet",
+        "size": "DN250",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Bottoms",
+        "service": "Liquid Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Bottom"
+      }
+    ],
+    "standards": [
+      "ASME BPVC Section VIII"
+    ],
+    "image_prompt": "3D model of a vertical stripper column with platforms."
+  },
+  {
+    "tag": "Generic-OG-014",
+    "name": "Splitter Column",
+    "componentClass": "ProcessColumn",
+    "dexpiType": "SplitterColumn",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1013",
+    "description": "Standard Splitter Column used in Petroleum Refinery.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 12,
+        "unit": "bar",
+        "source": "ASME Sec VIII"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 10,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 8,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 150,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 120,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 90,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 400,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 350,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "stages": {
+        "value": 60,
+        "unit": "ea"
+      },
+      "efficiency": {
+        "value": 82,
+        "unit": "%"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 150000,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 35000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 3000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 35000,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "shell": "ASTM A516 Gr. 60",
+      "heads": "ASTM A516 Gr. 60",
+      "trays": "ASTM A240 Type 304",
+      "internals": "ASTM A240 Type 304",
+      "nozzles": "ASTM A105",
+      "supports": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Feed",
+        "service": "Process Inlet",
+        "size": "DN250",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Side"
+      },
+      {
+        "id": "N2",
+        "name": "Distillate",
+        "service": "Process Outlet",
+        "size": "DN200",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Bottoms",
+        "service": "Process Outlet",
+        "size": "DN200",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Bottom"
+      }
+    ],
+    "standards": [
+      "ASME BPVC Section VIII"
+    ],
+    "image_prompt": "3D model of a tall, slender splitter column."
+  },
+  {
+    "tag": "Generic-OG-015",
+    "name": "Reformer Reactor",
+    "componentClass": "Reactor",
+    "dexpiType": "CatalyticReactor",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1014",
+    "description": "Standard Reformer Reactor used in Petroleum Refinery.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 35,
+        "unit": "bar",
+        "source": "ASME Sec VIII"
+      },
+      "pressureMin": {
+        "value": 5,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 30,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 25,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 550,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": 0,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 520,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 490,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 250,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 200,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "bedVolume": {
+        "value": 80,
+        "unit": "m3"
+      },
+      "conversionRate": {
+        "value": 85,
+        "unit": "%"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 220000,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 12000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 4000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 12000,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "shell": "ASTM A387 Gr. 11",
+      "internals": "ASTM A240 Type 321",
+      "catalystSupport": "Alumina",
+      "nozzles": "ASTM A182 F11",
+      "supports": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Feed Inlet",
+        "service": "Process Inlet",
+        "size": "DN300",
+        "rating": "PN63",
+        "facing": "RTJ",
+        "position": "Top"
+      },
+      {
+        "id": "N2",
+        "name": "Effluent Outlet",
+        "service": "Process Outlet",
+        "size": "DN300",
+        "rating": "PN63",
+        "facing": "RTJ",
+        "position": "Bottom"
+      }
+    ],
+    "standards": [
+      "ASME BPVC Section VIII"
+    ],
+    "image_prompt": "3D model of a spherical or stubby cylindrical reformer reactor vessel."
+  },
+  {
+    "tag": "Generic-OG-016",
+    "name": "Alkylation Reactor",
+    "componentClass": "Reactor",
+    "dexpiType": "LiquidPhaseReactor",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1015",
+    "description": "Standard Alkylation Reactor used in Petroleum Refinery.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 15,
+        "unit": "bar",
+        "source": "ASME Sec VIII"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 12,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 8,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 60,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 15,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 150,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 120,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "mixingPower": {
+        "value": 45,
+        "unit": "kW"
+      },
+      "residenceTime": {
+        "value": 30,
+        "unit": "min"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 75000,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 8000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 3500,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 8000,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "shell": "ASTM A516 Gr. 70",
+      "lining": "Monel 400 (if HF) or None (if H2SO4 with specific conditions)",
+      "agitator": "Monel 400",
+      "nozzles": "ASTM A105",
+      "supports": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Olefin Feed",
+        "service": "Process Inlet",
+        "size": "DN100",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
+      },
+      {
+        "id": "N2",
+        "name": "Isobutane Feed",
+        "service": "Process Inlet",
+        "size": "DN100",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
+      },
+      {
+        "id": "N3",
+        "name": "Acid Feed",
+        "service": "Process Inlet",
+        "size": "DN80",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
+      },
+      {
+        "id": "N4",
+        "name": "Product Outlet",
+        "service": "Process Outlet",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Bottom"
+      }
+    ],
+    "standards": [
+      "ASME BPVC Section VIII"
+    ],
+    "image_prompt": "3D model of an alkylation reactor with an external motor drive for the agitator."
+  },
+  {
+    "tag": "Generic-OG-017",
+    "name": "Coker Drum",
+    "componentClass": "Vessel",
+    "dexpiType": "CokeDrum",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1016",
+    "description": "Standard Coker Drum used in Petroleum Refinery.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 8,
+        "unit": "bar",
+        "source": "ASME Sec VIII"
+      },
+      "pressureMin": {
+        "value": 0.5,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 6,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 3,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 520,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": 10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 480,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 430,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 300,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 0,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "cycleTime": {
+        "value": 24,
+        "unit": "h"
+      },
+      "capacity": {
+        "value": 600,
+        "unit": "m3"
+      },
+      "dutyPoint": {
+        "value": "Batch",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 350000,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 32000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 8000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 32000,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "shell": "ASTM A387 Gr. 11",
+      "cladding": "ASTM A240 Type 410S",
+      "bottomCone": "ASTM A387 Gr. 11",
+      "nozzles": "ASTM A182 F11",
+      "supports": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Feed",
+        "service": "Process Inlet",
+        "size": "DN250",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Bottom"
+      },
+      {
+        "id": "N2",
+        "name": "Vapor Outlet",
+        "service": "Process Outlet",
+        "size": "DN600",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Water Quench",
+        "service": "Utility Inlet",
+        "size": "DN150",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      }
+    ],
+    "standards": [
+      "ASME BPVC Section VIII",
+      "API 934"
+    ],
+    "image_prompt": "3D model of a towering, wide-diameter coker drum."
+  },
+  {
+    "tag": "Generic-OG-018",
+    "name": "Desalter Vessel",
+    "componentClass": "Vessel",
+    "dexpiType": "SeparatorVessel",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1017",
+    "description": "Standard Desalter Vessel used in Petroleum Refinery.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 18,
+        "unit": "bar",
+        "source": "ASME Sec VIII"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 10,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 180,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": 0,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 150,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 130,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 800,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 700,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "residenceTime": {
+        "value": 20,
+        "unit": "min"
+      },
+      "gridVoltage": {
+        "value": 20000,
+        "unit": "V"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 180000,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 25000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 4500,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 4500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "shell": "ASTM A516 Gr. 70",
+      "internals": "ASTM A240 Type 316L",
+      "electrodes": "Carbon Steel / Teflon insulated",
+      "nozzles": "ASTM A105",
+      "supports": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Crude Feed",
+        "service": "Process Inlet",
+        "size": "DN300",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Side"
+      },
+      {
+        "id": "N2",
+        "name": "Wash Water",
+        "service": "Process Inlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Side"
+      },
+      {
+        "id": "N3",
+        "name": "Desalted Crude",
+        "service": "Process Outlet",
+        "size": "DN300",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N4",
+        "name": "Brine Outlet",
+        "service": "Process Outlet",
+        "size": "DN150",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Bottom"
+      }
+    ],
+    "standards": [
+      "ASME BPVC Section VIII"
+    ],
+    "image_prompt": "3D model of a horizontal desalter vessel with prominent electrical transformer connections."
+  },
+  {
+    "tag": "Generic-OG-019",
+    "name": "Waste Heat Boiler",
+    "componentClass": "HeatExchanger",
+    "dexpiType": "ShellAndTubeHeatExchanger",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1018",
+    "description": "Standard Waste Heat Boiler used in Petroleum Refinery.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 65,
+        "unit": "bar",
+        "source": "ASME Sec I"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 60,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 45,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 950,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": 10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 900,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 850,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 100000,
+        "unit": "kg/h"
+      },
+      "flowRateOperating": {
+        "value": 85000,
+        "unit": "kg/h"
+      }
+    },
+    "specifications": {
+      "duty": {
+        "value": 50,
+        "unit": "MW"
+      },
+      "steamGeneration": {
+        "value": 40000,
+        "unit": "kg/h"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 120000,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 12000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 3500,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 4000,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "shell": "ASTM A516 Gr. 70",
+      "tubes": "ASTM A213 T22",
+      "tubesheet": "ASTM A387 Gr. 22",
+      "channel": "ASTM A387 Gr. 22",
+      "nozzles": "ASTM A105",
+      "supports": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Hot Gas In",
+        "service": "Process Inlet",
+        "size": "DN1000",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Cool Gas Out",
+        "service": "Process Outlet",
+        "size": "DN1000",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N3",
+        "name": "BFW In",
+        "service": "Utility Inlet",
+        "size": "DN150",
+        "rating": "PN100",
+        "facing": "RF",
+        "position": "Bottom"
+      },
+      {
+        "id": "N4",
+        "name": "Steam Out",
+        "service": "Utility Outlet",
+        "size": "DN200",
+        "rating": "PN100",
+        "facing": "RF",
+        "position": "Top"
+      }
+    ],
+    "standards": [
+      "ASME BPVC Section I",
+      "TEMA R"
+    ],
+    "image_prompt": "3D model of a massive waste heat boiler with thick shell and large gas inlet/outlet ducts."
+  },
+  {
+    "tag": "Generic-OG-020",
+    "name": "Plate Heat Exchanger",
+    "componentClass": "HeatExchanger",
+    "dexpiType": "PlateHeatExchanger",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1019",
+    "description": "Standard Plate Heat Exchanger used in Petroleum Refinery.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 25,
+        "unit": "bar",
+        "source": "ASME Sec VIII"
+      },
+      "pressureMin": {
+        "value": 0.5,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 20,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
         "unit": "bar"
       },
       "temperatureMax": {
@@ -1252,404 +2438,26 @@
         "unit": "C"
       },
       "temperatureOperating": {
-        "value": 130,
-        "unit": "C"
-      },
-      "flowRateDesign": {
-        "value": 423.5,
-        "unit": "m3/h"
-      },
-      "flowRateOperating": {
-        "value": 385,
-        "unit": "m3/h"
-      }
-    },
-    "specifications": {
-      "power": {
-        "value": 204,
-        "unit": "kW",
-        "source": "IEC 60034"
-      },
-      "efficiency": {
-        "value": 84,
-        "unit": "%"
-      },
-      "volume": {
-        "value": 16,
-        "unit": "m3"
-      },
-      "orientation": {
-        "value": "Vertical",
-        "unit": ""
-      }
-    },
-    "design": {
-      "weight": {
-        "value": 1933,
-        "unit": "kg"
-      },
-      "length": {
-        "value": 2208,
-        "unit": "mm"
-      },
-      "width": {
-        "value": 1297,
-        "unit": "mm"
-      },
-      "height": {
-        "value": 2051,
-        "unit": "mm"
-      }
-    },
-    "materials": {
-      "bolting": "ASTM A193 Gr. B7",
-      "gaskets": "Spiral Wound SS316/Graphite",
-      "shell": "ASTM A516 Gr. 70",
-      "head": "ASTM A516 Gr. 70",
-      "tubes": "ASTM A213 TP316",
-      "tubesheet": "ASTM A266 Cl. 2",
-      "internals": "SS316"
-    },
-    "nozzles": [
-      {
-        "id": "N1",
-        "name": "Inlet",
-        "service": "Process Inlet",
-        "size": "DN200",
-        "rating": "PN16"
-      },
-      {
-        "id": "N2",
-        "name": "Outlet",
-        "service": "Process Outlet",
-        "size": "DN200",
-        "rating": "PN16"
-      },
-      {
-        "id": "N3",
-        "name": "Vent",
-        "service": "Vent",
-        "size": "DN50"
-      },
-      {
-        "id": "N4",
-        "name": "Drain",
-        "service": "Drain",
-        "size": "DN50"
-      },
-      {
-        "id": "M1",
-        "name": "Manway",
-        "service": "Access",
-        "size": "DN600",
-        "rating": "PN16"
-      }
-    ],
-    "standards": [
-      "ASME VIII Div 1",
-      "API 650"
-    ],
-    "image_prompt": "High-fidelity 3D engineering rendering of a Floating Roof Tank (StorageTank) with industrial metallic finish, visible flanges, and realistic lighting."
-  },
-  {
-    "tag": "Generic-EF-011",
-    "name": "Elevated Flare",
-    "componentClass": "FlareStack",
-    "dexpiType": "FlareStack",
-    "rdlUri": "http://data.posccaesar.org/rdl/RDS327352",
-    "description": "Reference configuration for Elevated Flare compliant with DEXPI 2.0 and relevant industry standards.",
-    "operatingConditions": {
-      "pressureMax": {
-        "value": 72,
-        "unit": "bar",
-        "source": "API 610"
-      },
-      "pressureMin": {
-        "value": 0,
-        "unit": "bar"
-      },
-      "pressureDesign": {
-        "value": 57.6,
-        "unit": "bar"
-      },
-      "pressureOperating": {
-        "value": 48,
-        "unit": "bar"
-      },
-      "temperatureMax": {
-        "value": 232,
-        "unit": "C"
-      },
-      "temperatureMin": {
-        "value": -20,
-        "unit": "C"
-      },
-      "temperatureDesign": {
-        "value": 202,
-        "unit": "C"
-      },
-      "temperatureOperating": {
-        "value": 182,
-        "unit": "C"
-      },
-      "flowRateDesign": {
-        "value": 132,
-        "unit": "m3/h"
-      },
-      "flowRateOperating": {
         "value": 120,
-        "unit": "m3/h"
-      }
-    },
-    "specifications": {
-      "power": {
-        "value": 71,
-        "unit": "kW",
-        "source": "IEC 60034"
-      },
-      "efficiency": {
-        "value": 91,
-        "unit": "%"
-      }
-    },
-    "design": {
-      "weight": {
-        "value": 2273,
-        "unit": "kg"
-      },
-      "length": {
-        "value": 2178,
-        "unit": "mm"
-      },
-      "width": {
-        "value": 1372,
-        "unit": "mm"
-      },
-      "height": {
-        "value": 1433,
-        "unit": "mm"
-      }
-    },
-    "materials": {
-      "bolting": "ASTM A193 Gr. B7",
-      "gaskets": "Spiral Wound SS316/Graphite",
-      "body": "ASTM A216 WCB",
-      "internals": "SS316"
-    },
-    "nozzles": [
-      {
-        "id": "N1",
-        "name": "Connection 1",
-        "service": "Process",
-        "size": "DN50",
-        "rating": "PN16"
-      },
-      {
-        "id": "N2",
-        "name": "Connection 2",
-        "service": "Process",
-        "size": "DN50",
-        "rating": "PN16"
-      }
-    ],
-    "standards": [
-      "ISO 9001",
-      "ASME B31.3"
-    ],
-    "image_prompt": "High-fidelity 3D engineering rendering of a Elevated Flare (FlareStack) with industrial metallic finish, visible flanges, and realistic lighting."
-  },
-  {
-    "tag": "Generic-RV-012",
-    "name": "Relief Valve",
-    "componentClass": "SafetyValve",
-    "dexpiType": "SafetyValve",
-    "rdlUri": "http://data.posccaesar.org/rdl/RDS327300",
-    "description": "Reference configuration for Relief Valve compliant with DEXPI 2.0 and relevant industry standards.",
-    "operatingConditions": {
-      "pressureMax": {
-        "value": 73.5,
-        "unit": "bar",
-        "source": "API 610"
-      },
-      "pressureMin": {
-        "value": 0,
-        "unit": "bar"
-      },
-      "pressureDesign": {
-        "value": 58.8,
-        "unit": "bar"
-      },
-      "pressureOperating": {
-        "value": 49,
-        "unit": "bar"
-      },
-      "temperatureMax": {
-        "value": 234,
-        "unit": "C"
-      },
-      "temperatureMin": {
-        "value": -20,
-        "unit": "C"
-      },
-      "temperatureDesign": {
-        "value": 204,
-        "unit": "C"
-      },
-      "temperatureOperating": {
-        "value": 184,
         "unit": "C"
       },
       "flowRateDesign": {
-        "value": 224.4,
+        "value": 500,
         "unit": "m3/h"
       },
       "flowRateOperating": {
-        "value": 204,
+        "value": 450,
         "unit": "m3/h"
       }
     },
     "specifications": {
-      "power": {
-        "value": 227,
-        "unit": "kW",
-        "source": "IEC 60034"
+      "duty": {
+        "value": 15,
+        "unit": "MW"
       },
-      "efficiency": {
-        "value": 80,
-        "unit": "%"
-      },
-      "cv": {
-        "value": 427,
-        "unit": ""
-      },
-      "leakageClass": {
-        "value": "IV",
-        "unit": ""
-      }
-    },
-    "design": {
-      "weight": {
-        "value": 1095,
-        "unit": "kg"
-      },
-      "length": {
-        "value": 1127,
-        "unit": "mm"
-      },
-      "width": {
-        "value": 1192,
-        "unit": "mm"
-      },
-      "height": {
-        "value": 1423,
-        "unit": "mm"
-      }
-    },
-    "materials": {
-      "bolting": "ASTM A193 Gr. B7",
-      "gaskets": "Spiral Wound SS316/Graphite",
-      "casing": "ASTM A216 WCB",
-      "impeller": "ASTM A351 CF8M",
-      "trim": "SS316",
-      "shaft": "ASTM A276 Type 410",
-      "seals": "Mechanical Seal API 682"
-    },
-    "nozzles": [
-      {
-        "id": "N1",
-        "name": "Inlet",
-        "service": "Process",
-        "size": "DN150",
-        "rating": "PN40",
-        "facing": "RF"
-      },
-      {
-        "id": "N2",
-        "name": "Outlet",
-        "service": "Process",
-        "size": "DN150",
-        "rating": "PN40",
-        "facing": "RF"
-      }
-    ],
-    "standards": [
-      "API 600",
-      "ASME B16.34",
-      "ISO 10434"
-    ],
-    "image_prompt": "High-fidelity 3D engineering rendering of a Relief Valve (SafetyValve) with industrial metallic finish, visible flanges, and realistic lighting."
-  },
-  {
-    "tag": "Generic-MLP-013",
-    "name": "Main Line Pump",
-    "componentClass": "CentrifugalPump",
-    "dexpiType": "CentrifugalPump",
-    "rdlUri": "http://data.posccaesar.org/rdl/RDS327241",
-    "description": "Reference configuration for Main Line Pump compliant with DEXPI 2.0 and relevant industry standards.",
-    "operatingConditions": {
-      "pressureMax": {
-        "value": 58.5,
-        "unit": "bar",
-        "source": "API 610"
-      },
-      "pressureMin": {
-        "value": 0,
-        "unit": "bar"
-      },
-      "pressureDesign": {
-        "value": 46.8,
-        "unit": "bar"
-      },
-      "pressureOperating": {
-        "value": 39,
-        "unit": "bar"
-      },
-      "temperatureMax": {
-        "value": 192,
-        "unit": "C"
-      },
-      "temperatureMin": {
-        "value": -20,
-        "unit": "C"
-      },
-      "temperatureDesign": {
-        "value": 162,
-        "unit": "C"
-      },
-      "temperatureOperating": {
-        "value": 142,
-        "unit": "C"
-      },
-      "flowRateDesign": {
-        "value": 502.7,
-        "unit": "m3/h"
-      },
-      "flowRateOperating": {
-        "value": 457,
-        "unit": "m3/h"
-      }
-    },
-    "specifications": {
-      "power": {
-        "value": 119,
-        "unit": "kW",
-        "source": "IEC 60034"
-      },
-      "efficiency": {
-        "value": 79,
-        "unit": "%"
-      },
-      "head": {
-        "value": 52,
-        "unit": "m"
-      },
-      "NPSHr": {
-        "value": 3.38,
-        "unit": "m"
-      },
-      "rotationalSpeed": {
-        "value": 2950,
-        "unit": "rpm"
+      "area": {
+        "value": 450,
+        "unit": "m2"
       },
       "dutyPoint": {
         "value": "Continuous",
@@ -1658,383 +2466,1436 @@
     },
     "design": {
       "weight": {
-        "value": 658,
+        "value": 8500,
         "unit": "kg"
       },
       "length": {
-        "value": 2096,
+        "value": 3500,
         "unit": "mm"
       },
       "width": {
-        "value": 1211,
+        "value": 1200,
         "unit": "mm"
       },
       "height": {
-        "value": 2034,
+        "value": 2500,
         "unit": "mm"
       }
     },
     "materials": {
-      "bolting": "ASTM A193 Gr. B7",
-      "gaskets": "Spiral Wound SS316/Graphite",
-      "casing": "ASTM A216 WCB",
-      "impeller": "ASTM A351 CF8M",
-      "trim": "SS316",
-      "shaft": "ASTM A276 Type 410",
-      "seals": "Mechanical Seal API 682"
+      "plates": "ASTM A240 Type 316L",
+      "gaskets": "NBR or EPDM",
+      "frame": "ASTM A516 Gr. 70",
+      "tieRods": "ASTM A193 B7",
+      "nozzles": "Titanium or Stainless Steel Lined",
+      "supports": "ASTM A36"
     },
     "nozzles": [
       {
         "id": "N1",
-        "name": "Suction",
+        "name": "Hot In",
         "service": "Process Inlet",
-        "size": "DN150",
-        "rating": "PN16",
+        "size": "DN200",
+        "rating": "PN40",
         "facing": "RF",
-        "position": "End"
+        "position": "Front"
       },
       {
         "id": "N2",
-        "name": "Discharge",
+        "name": "Hot Out",
         "service": "Process Outlet",
-        "size": "DN100",
+        "size": "DN200",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Front"
+      },
+      {
+        "id": "N3",
+        "name": "Cold In",
+        "service": "Process Inlet",
+        "size": "DN200",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Back"
+      },
+      {
+        "id": "N4",
+        "name": "Cold Out",
+        "service": "Process Outlet",
+        "size": "DN200",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Back"
+      }
+    ],
+    "standards": [
+      "API 662",
+      "ASME BPVC Section VIII"
+    ],
+    "image_prompt": "3D model of a large plate and frame heat exchanger."
+  },
+  {
+    "tag": "Generic-OG-021",
+    "name": "Kettle Reboiler",
+    "componentClass": "HeatExchanger",
+    "dexpiType": "KettleReboiler",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1020",
+    "description": "Standard Kettle Reboiler used in Petroleum Refinery.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 30,
+        "unit": "bar",
+        "source": "ASME Sec VIII"
+      },
+      "pressureMin": {
+        "value": 0.5,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 25,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 18,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 280,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 210,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 250,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 200,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "duty": {
+        "value": 8,
+        "unit": "MW"
+      },
+      "area": {
+        "value": 300,
+        "unit": "m2"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 28000,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 8000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 3500,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 4000,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "shell": "ASTM A516 Gr. 70",
+      "tubes": "ASTM A213 TP316L",
+      "tubesheet": "ASTM A182 F316L",
+      "channel": "ASTM A516 Gr. 70",
+      "nozzles": "ASTM A105",
+      "supports": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Liquid In",
+        "service": "Process Inlet",
+        "size": "DN250",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Bottom"
+      },
+      {
+        "id": "N2",
+        "name": "Vapor Out",
+        "service": "Process Outlet",
+        "size": "DN300",
         "rating": "PN40",
         "facing": "RF",
         "position": "Top"
       },
       {
         "id": "N3",
-        "name": "Drain",
-        "service": "Drain",
-        "size": "DN25",
-        "rating": "PN16",
-        "facing": "RF"
+        "name": "Heating Medium In",
+        "service": "Utility Inlet",
+        "size": "DN150",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "End"
       },
       {
         "id": "N4",
-        "name": "Vent",
-        "service": "Vent",
-        "size": "DN25",
-        "rating": "PN16",
-        "facing": "RF"
+        "name": "Heating Medium Out",
+        "service": "Utility Outlet",
+        "size": "DN150",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "End"
       }
     ],
     "standards": [
-      "API 610",
-      "ISO 5199",
-      "ASME B73.1"
+      "TEMA K",
+      "ASME BPVC Section VIII"
     ],
-    "image_prompt": "High-fidelity 3D engineering rendering of a Main Line Pump (CentrifugalPump) with industrial metallic finish, visible flanges, and realistic lighting."
+    "image_prompt": "3D model of a kettle reboiler with a distinctly enlarged shell top section."
   },
   {
-    "tag": "Generic-PDM-014",
-    "name": "Pump Drive Motor",
-    "componentClass": "Motor",
-    "dexpiType": "Motor",
-    "rdlUri": "http://sandbox.dexpi.org/rdl/MotorAsComponent",
-    "description": "Reference configuration for Pump Drive Motor compliant with DEXPI 2.0 and relevant industry standards.",
+    "tag": "Generic-OG-022",
+    "name": "Reciprocating Compressor",
+    "componentClass": "Compressor",
+    "dexpiType": "ReciprocatingCompressor",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1021",
+    "description": "Standard Reciprocating Compressor used in Petroleum Refinery.",
     "operatingConditions": {
       "pressureMax": {
-        "value": 42,
+        "value": 150,
         "unit": "bar",
-        "source": "API 610"
+        "source": "API 618"
       },
       "pressureMin": {
-        "value": 0,
+        "value": 1,
         "unit": "bar"
       },
       "pressureDesign": {
-        "value": 33.6,
+        "value": 140,
         "unit": "bar"
       },
       "pressureOperating": {
-        "value": 28,
+        "value": 120,
         "unit": "bar"
       },
       "temperatureMax": {
-        "value": 107,
+        "value": 150,
         "unit": "C"
       },
       "temperatureMin": {
-        "value": -20,
+        "value": -10,
         "unit": "C"
       },
       "temperatureDesign": {
-        "value": 77,
+        "value": 130,
         "unit": "C"
       },
       "temperatureOperating": {
-        "value": 57,
+        "value": 100,
         "unit": "C"
       },
       "flowRateDesign": {
-        "value": 200.2,
+        "value": 5000,
         "unit": "m3/h"
       },
       "flowRateOperating": {
-        "value": 182,
+        "value": 4500,
         "unit": "m3/h"
       }
     },
     "specifications": {
       "power": {
-        "value": 105,
+        "value": 2500,
         "unit": "kW",
         "source": "IEC 60034"
       },
-      "efficiency": {
-        "value": 83,
-        "unit": "%"
-      }
-    },
-    "design": {
-      "weight": {
-        "value": 768,
-        "unit": "kg"
-      },
-      "length": {
-        "value": 1628,
-        "unit": "mm"
-      },
-      "width": {
-        "value": 832,
-        "unit": "mm"
-      },
-      "height": {
-        "value": 1422,
-        "unit": "mm"
-      }
-    },
-    "materials": {
-      "bolting": "ASTM A193 Gr. B7",
-      "gaskets": "Spiral Wound SS316/Graphite",
-      "body": "ASTM A216 WCB",
-      "internals": "SS316"
-    },
-    "nozzles": [
-      {
-        "id": "N1",
-        "name": "Connection 1",
-        "service": "Process",
-        "size": "DN50",
-        "rating": "PN16"
-      },
-      {
-        "id": "N2",
-        "name": "Connection 2",
-        "service": "Process",
-        "size": "DN50",
-        "rating": "PN16"
-      }
-    ],
-    "standards": [
-      "IEC 60034",
-      "NEMA MG1"
-    ],
-    "image_prompt": "High-fidelity 3D engineering rendering of a Pump Drive Motor (Motor) with industrial metallic finish, visible flanges, and realistic lighting."
-  },
-  {
-    "tag": "Generic-VFD-015",
-    "name": "Variable Frequency Drive",
-    "componentClass": "VFD",
-    "dexpiType": "VFD",
-    "rdlUri": "http://data.posccaesar.org/rdl/RDS327340",
-    "description": "Reference configuration for Variable Frequency Drive compliant with DEXPI 2.0 and relevant industry standards.",
-    "operatingConditions": {
-      "pressureMax": {
-        "value": 54,
-        "unit": "bar",
-        "source": "API 610"
-      },
-      "pressureMin": {
-        "value": 0,
-        "unit": "bar"
-      },
-      "pressureDesign": {
-        "value": 43.2,
-        "unit": "bar"
-      },
-      "pressureOperating": {
-        "value": 36,
-        "unit": "bar"
-      },
-      "temperatureMax": {
-        "value": 205,
-        "unit": "C"
-      },
-      "temperatureMin": {
-        "value": -20,
-        "unit": "C"
-      },
-      "temperatureDesign": {
-        "value": 175,
-        "unit": "C"
-      },
-      "temperatureOperating": {
-        "value": 155,
-        "unit": "C"
-      },
-      "flowRateDesign": {
-        "value": 533.5,
-        "unit": "m3/h"
-      },
-      "flowRateOperating": {
-        "value": 485,
-        "unit": "m3/h"
-      }
-    },
-    "specifications": {
-      "power": {
-        "value": 152,
-        "unit": "kW",
-        "source": "IEC 60034"
+      "rotationalSpeed": {
+        "value": 300,
+        "unit": "rpm"
       },
       "efficiency": {
-        "value": 83,
-        "unit": "%"
-      }
-    },
-    "design": {
-      "weight": {
-        "value": 851,
-        "unit": "kg"
-      },
-      "length": {
-        "value": 2547,
-        "unit": "mm"
-      },
-      "width": {
-        "value": 1385,
-        "unit": "mm"
-      },
-      "height": {
-        "value": 3056,
-        "unit": "mm"
-      }
-    },
-    "materials": {
-      "bolting": "ASTM A193 Gr. B7",
-      "gaskets": "Spiral Wound SS316/Graphite",
-      "body": "ASTM A216 WCB",
-      "internals": "SS316"
-    },
-    "nozzles": [
-      {
-        "id": "N1",
-        "name": "Connection 1",
-        "service": "Process",
-        "size": "DN50",
-        "rating": "PN16"
-      },
-      {
-        "id": "N2",
-        "name": "Connection 2",
-        "service": "Process",
-        "size": "DN50",
-        "rating": "PN16"
-      }
-    ],
-    "standards": [
-      "ISO 9001",
-      "ASME B31.3"
-    ],
-    "image_prompt": "High-fidelity 3D engineering rendering of a Variable Frequency Drive (VFD) with industrial metallic finish, visible flanges, and realistic lighting."
-  },
-  {
-    "tag": "Generic-CST-016",
-    "name": "Crude Storage Tank",
-    "componentClass": "StorageTank",
-    "dexpiType": "StorageTank",
-    "rdlUri": "http://data.posccaesar.org/rdl/RDS414678",
-    "description": "Reference configuration for Crude Storage Tank compliant with DEXPI 2.0 and relevant industry standards.",
-    "operatingConditions": {
-      "pressureMax": {
-        "value": 34.5,
-        "unit": "bar",
-        "source": "API 610"
-      },
-      "pressureMin": {
-        "value": 0,
-        "unit": "bar"
-      },
-      "pressureDesign": {
-        "value": 27.6,
-        "unit": "bar"
-      },
-      "pressureOperating": {
-        "value": 23,
-        "unit": "bar"
-      },
-      "temperatureMax": {
-        "value": 179,
-        "unit": "C"
-      },
-      "temperatureMin": {
-        "value": -20,
-        "unit": "C"
-      },
-      "temperatureDesign": {
-        "value": 149,
-        "unit": "C"
-      },
-      "temperatureOperating": {
-        "value": 129,
-        "unit": "C"
-      },
-      "flowRateDesign": {
-        "value": 204.6,
-        "unit": "m3/h"
-      },
-      "flowRateOperating": {
-        "value": 186,
-        "unit": "m3/h"
-      }
-    },
-    "specifications": {
-      "power": {
-        "value": 96,
-        "unit": "kW",
-        "source": "IEC 60034"
-      },
-      "efficiency": {
-        "value": 87,
+        "value": 85,
         "unit": "%"
       },
-      "volume": {
-        "value": 97,
-        "unit": "m3"
-      },
-      "orientation": {
-        "value": "Vertical",
+      "dutyPoint": {
+        "value": "Continuous",
         "unit": ""
       }
     },
     "design": {
       "weight": {
-        "value": 1435,
+        "value": 45000,
         "unit": "kg"
       },
       "length": {
-        "value": 1518,
+        "value": 6000,
         "unit": "mm"
       },
       "width": {
-        "value": 946,
+        "value": 4000,
         "unit": "mm"
       },
       "height": {
-        "value": 2683,
+        "value": 2500,
         "unit": "mm"
       }
     },
     "materials": {
-      "bolting": "ASTM A193 Gr. B7",
-      "gaskets": "Spiral Wound SS316/Graphite",
-      "shell": "ASTM A516 Gr. 70",
-      "head": "ASTM A516 Gr. 70",
-      "tubes": "ASTM A213 TP316",
-      "tubesheet": "ASTM A266 Cl. 2",
-      "internals": "SS316"
+      "cylinders": "ASTM A536 Nodular Iron",
+      "pistons": "Aluminum Alloy or Cast Iron",
+      "valves": "ASTM A276 Type 410",
+      "crankshaft": "Forged Steel AISI 4140",
+      "bearings": "Babbitt",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Suction Stage 1",
+        "service": "Gas Inlet",
+        "size": "DN250",
+        "rating": "PN63",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N2",
+        "name": "Discharge Stage Final",
+        "service": "Gas Outlet",
+        "size": "DN100",
+        "rating": "PN250",
+        "facing": "RTJ",
+        "position": "Bottom"
+      }
+    ],
+    "standards": [
+      "API 618"
+    ],
+    "image_prompt": "3D model of a heavy-duty multi-stage reciprocating compressor on a skid."
+  },
+  {
+    "tag": "Generic-OG-023",
+    "name": "Steam Turbine Driver",
+    "componentClass": "Turbine",
+    "dexpiType": "SteamTurbine",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1022",
+    "description": "Standard Steam Turbine Driver used in Petroleum Refinery.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 65,
+        "unit": "bar",
+        "source": "API 612"
+      },
+      "pressureMin": {
+        "value": 0.1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 60,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 45,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 450,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": 10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 400,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 380,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 45000,
+        "unit": "kg/h"
+      },
+      "flowRateOperating": {
+        "value": 38000,
+        "unit": "kg/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 5500,
+        "unit": "kW",
+        "source": "API 612"
+      },
+      "rotationalSpeed": {
+        "value": 5500,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 75,
+        "unit": "%"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 18000,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 4500,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 2500,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 2800,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "casing": "ASTM A217 WC6",
+      "rotor": "ASTM A470 Class 8",
+      "blades": "ASTM A276 Type 403",
+      "seals": "Labyrinth type",
+      "bearings": "Babbitt lined",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "High Pressure Steam In",
+        "service": "Utility Inlet",
+        "size": "DN150",
+        "rating": "PN100",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N2",
+        "name": "Exhaust Steam Out",
+        "service": "Utility Outlet",
+        "size": "DN400",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Bottom"
+      }
+    ],
+    "standards": [
+      "API 612",
+      "API 611"
+    ],
+    "image_prompt": "3D model of a special-purpose steam turbine driver for a compressor."
+  },
+  {
+    "tag": "Generic-OG-024",
+    "name": "HV Electric Motor",
+    "componentClass": "Motor",
+    "dexpiType": "ElectricMotor",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1023",
+    "description": "Standard HV Electric Motor used in Petroleum Refinery.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 1.1,
+        "unit": "bar",
+        "source": "IEC 60034"
+      },
+      "pressureMin": {
+        "value": 0.9,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 45,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 40,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 35,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 0,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 0,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 2500,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "rotationalSpeed": {
+        "value": 2980,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 96.5,
+        "unit": "%"
+      },
+      "voltage": {
+        "value": 6600,
+        "unit": "V"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 8500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 3200,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 2100,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "casing": "Cast Iron ASTM A48 Class 30",
+      "statorCore": "Silicon Steel",
+      "windings": "Copper",
+      "shaft": "Forged Steel AISI 4140",
+      "coolingFan": "Aluminum or Bronze",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Main Terminal Box",
+        "service": "Electrical Connection",
+        "size": "N/A",
+        "rating": "IP55",
+        "facing": "N/A",
+        "position": "Side"
+      },
+      {
+        "id": "N2",
+        "name": "Auxiliary Terminal Box",
+        "service": "Electrical Connection",
+        "size": "N/A",
+        "rating": "IP55",
+        "facing": "N/A",
+        "position": "Side"
+      },
+      {
+        "id": "N3",
+        "name": "Cooling Air Intake",
+        "service": "Air Inlet",
+        "size": "N/A",
+        "rating": "N/A",
+        "facing": "Louver",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "IEC 60034",
+      "IEEE 841"
+    ],
+    "image_prompt": "3D model of a high voltage totally enclosed fan cooled (TEFC) electric motor."
+  },
+  {
+    "tag": "Generic-OG-025",
+    "name": "Backup Diesel Generator",
+    "componentClass": "Generator",
+    "dexpiType": "DieselGenerator",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1024",
+    "description": "Standard Backup Diesel Generator used in Petroleum Refinery.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 1.1,
+        "unit": "bar",
+        "source": "ISO 8528"
+      },
+      "pressureMin": {
+        "value": 0.9,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 50,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 40,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 30,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 0,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 0,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 1500,
+        "unit": "kW",
+        "source": "ISO 8528"
+      },
+      "rotationalSpeed": {
+        "value": 1500,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 40,
+        "unit": "%"
+      },
+      "voltage": {
+        "value": 400,
+        "unit": "V"
+      },
+      "dutyPoint": {
+        "value": "Standby",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 12000,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 5500,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 2500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "engineBlock": "Cast Iron",
+      "alternatorCasing": "Cast Iron ASTM A48 Class 30",
+      "skid": "ASTM A36",
+      "exhaustPiping": "ASTM A106 Gr. B",
+      "fuelTank": "ASTM A36",
+      "enclosure": "Galvanized Steel"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Exhaust Out",
+        "service": "Exhaust",
+        "size": "DN250",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Top"
+      },
+      {
+        "id": "N2",
+        "name": "Diesel Fuel In",
+        "service": "Fuel Inlet",
+        "size": "DN25",
+        "rating": "PN16",
+        "facing": "Threaded",
+        "position": "Side"
+      },
+      {
+        "id": "N3",
+        "name": "Power Output",
+        "service": "Electrical Connection",
+        "size": "N/A",
+        "rating": "N/A",
+        "facing": "N/A",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "ISO 8528",
+      "NFPA 110"
+    ],
+    "image_prompt": "3D model of a large standby diesel generator set mounted on a steel base with sound enclosure."
+  },
+  {
+    "tag": "Generic-OG-026",
+    "name": "MV Switchgear",
+    "componentClass": "ElectricalEquipment",
+    "dexpiType": "Switchgear",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1025",
+    "description": "Standard MV Switchgear used in Petroleum Refinery.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 1.1,
+        "unit": "bar",
+        "source": "IEC 62271"
+      },
+      "pressureMin": {
+        "value": 0.9,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 40,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -5,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 35,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 25,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 0,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 0,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "voltage": {
+        "value": 11000,
+        "unit": "V"
+      },
+      "current": {
+        "value": 1250,
+        "unit": "A"
+      },
+      "shortCircuitCurrent": {
+        "value": 31.5,
+        "unit": "kA"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 1500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1200,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 2200,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "enclosure": "Sheet Steel",
+      "busbars": "Electrolytic Copper",
+      "insulators": "Epoxy Resin",
+      "contacts": "Silver-plated Copper",
+      "circuitBreakerPoles": "Vacuum Interrupters",
+      "base": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Incoming Cable Entry",
+        "service": "Electrical Connection",
+        "size": "N/A",
+        "rating": "N/A",
+        "facing": "N/A",
+        "position": "Bottom"
+      },
+      {
+        "id": "N2",
+        "name": "Outgoing Cable Entry",
+        "service": "Electrical Connection",
+        "size": "N/A",
+        "rating": "N/A",
+        "facing": "N/A",
+        "position": "Bottom"
+      },
+      {
+        "id": "N3",
+        "name": "Control Cable Entry",
+        "service": "Electrical Connection",
+        "size": "N/A",
+        "rating": "N/A",
+        "facing": "N/A",
+        "position": "Top"
+      }
+    ],
+    "standards": [
+      "IEC 62271-200"
+    ],
+    "image_prompt": "3D model of a medium voltage metal-clad switchgear panel."
+  },
+  {
+    "tag": "Generic-OG-027",
+    "name": "UPS System",
+    "componentClass": "ElectricalEquipment",
+    "dexpiType": "UninterruptiblePowerSupply",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1026",
+    "description": "Standard UPS System used in Petroleum Refinery.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 1.1,
+        "unit": "bar",
+        "source": "IEC 62040"
+      },
+      "pressureMin": {
+        "value": 0.9,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 35,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": 10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 25,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 22,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 0,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 0,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 100,
+        "unit": "kVA",
+        "source": "IEC 62040"
+      },
+      "voltage": {
+        "value": 400,
+        "unit": "V"
+      },
+      "backupTime": {
+        "value": 30,
+        "unit": "min"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 800,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1900,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "enclosure": "Sheet Steel",
+      "batteries": "Lead Acid (VRLA)",
+      "busbars": "Copper",
+      "heatSinks": "Aluminum",
+      "coolingFans": "Plastic/Metal",
+      "base": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "AC Input",
+        "service": "Electrical Connection",
+        "size": "N/A",
+        "rating": "N/A",
+        "facing": "N/A",
+        "position": "Bottom"
+      },
+      {
+        "id": "N2",
+        "name": "AC Output",
+        "service": "Electrical Connection",
+        "size": "N/A",
+        "rating": "N/A",
+        "facing": "N/A",
+        "position": "Bottom"
+      },
+      {
+        "id": "N3",
+        "name": "Battery Connection",
+        "service": "Electrical Connection",
+        "size": "N/A",
+        "rating": "N/A",
+        "facing": "N/A",
+        "position": "Side"
+      },
+      {
+        "id": "N4",
+        "name": "Cooling Exhaust",
+        "service": "Air Outlet",
+        "size": "N/A",
+        "rating": "N/A",
+        "facing": "Louver",
+        "position": "Top"
+      }
+    ],
+    "standards": [
+      "IEC 62040-1",
+      "IEC 62040-2"
+    ],
+    "image_prompt": "3D model of an industrial UPS cabinet with battery racks."
+  },
+  {
+    "tag": "Generic-OG-028",
+    "name": "Globe Control Valve",
+    "componentClass": "Valve",
+    "dexpiType": "GlobeValve",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1027",
+    "description": "Standard Globe Control Valve used in Petroleum Refinery.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 100,
+        "unit": "bar",
+        "source": "ASME B16.34"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 80,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 45,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 350,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 300,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 150,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 120,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "cv": {
+        "value": 120,
+        "unit": "gpm"
+      },
+      "leakageClass": {
+        "value": 4,
+        "unit": "Class IV"
+      },
+      "dutyPoint": {
+        "value": "Modulating",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 85,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 350,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 250,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 650,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "bonnet": "ASTM A216 WCB",
+      "stem": "ASTM A479 Type 316",
+      "plug": "ASTM A479 Type 316 Stellite faced",
+      "seatRing": "ASTM A479 Type 316 Stellite faced",
+      "packing": "PTFE / Graphite",
+      "bolting": "ASTM A193 B7"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN100",
+        "rating": "PN63",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN63",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N3",
+        "name": "Air Supply",
+        "service": "Instrument Air",
+        "size": "1/4 NPT",
+        "rating": "PN10",
+        "facing": "Threaded",
+        "position": "Actuator"
+      }
+    ],
+    "standards": [
+      "ASME B16.34",
+      "IEC 60534"
+    ],
+    "image_prompt": "3D model of a flanged globe control valve with a pneumatic diaphragm actuator."
+  },
+  {
+    "tag": "Generic-OG-029",
+    "name": "Butterfly Control Valve",
+    "componentClass": "Valve",
+    "dexpiType": "ButterflyValve",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1028",
+    "description": "Standard Butterfly Control Valve used in Petroleum Refinery.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 25,
+        "unit": "bar",
+        "source": "ASME B16.34"
+      },
+      "pressureMin": {
+        "value": 0.5,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 20,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 10,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 150,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 80,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 1500,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 1200,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "cv": {
+        "value": 2500,
+        "unit": "gpm"
+      },
+      "leakageClass": {
+        "value": 6,
+        "unit": "Class VI"
+      },
+      "dutyPoint": {
+        "value": "Modulating",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 120,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 150,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 400,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 700,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "disc": "ASTM A351 CF8M",
+      "shaft": "ASTM A479 Type 17-4PH",
+      "seat": "PTFE / EPDM",
+      "bearings": "PTFE coated SS",
+      "packing": "PTFE",
+      "bolting": "ASTM A193 B7"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN300",
+        "rating": "PN16",
+        "facing": "Wafer",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN300",
+        "rating": "PN16",
+        "facing": "Wafer",
+        "position": "End"
+      },
+      {
+        "id": "N3",
+        "name": "Air Supply",
+        "service": "Instrument Air",
+        "size": "1/4 NPT",
+        "rating": "PN10",
+        "facing": "Threaded",
+        "position": "Actuator"
+      }
+    ],
+    "standards": [
+      "API 609",
+      "ASME B16.34"
+    ],
+    "image_prompt": "3D model of a high-performance butterfly valve with a rotary pneumatic actuator."
+  },
+  {
+    "tag": "Generic-OG-030",
+    "name": "Swing Check Valve",
+    "componentClass": "Valve",
+    "dexpiType": "CheckValve",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1029",
+    "description": "Standard Swing Check Valve used in Petroleum Refinery.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 100,
+        "unit": "bar",
+        "source": "ASME B16.34"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 80,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 45,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 350,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 300,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 500,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 400,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "crackingPressure": {
+        "value": 0.1,
+        "unit": "bar"
+      },
+      "dutyPoint": {
+        "value": "On/Off",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 150,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 450,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 250,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 350,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "cover": "ASTM A216 WCB",
+      "disc": "ASTM A216 WCB + 13Cr faced",
+      "seatRing": "ASTM A105 + Stellite 6",
+      "hingePin": "ASTM A479 Type 410",
+      "gasket": "Spiral Wound SS316/Graphite",
+      "bolting": "ASTM A193 B7"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN63",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN150",
+        "rating": "PN63",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "API 594",
+      "ASME B16.34",
+      "BS 1868"
+    ],
+    "image_prompt": "3D model of a flanged swing check valve with bolted cover."
+  },
+  {
+    "tag": "Generic-OG-031",
+    "name": "Gate Valve",
+    "componentClass": "Valve",
+    "dexpiType": "GateValve",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1030",
+    "description": "Standard Gate Valve used in Petroleum Refinery.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 150,
+        "unit": "bar",
+        "source": "ASME B16.34"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 120,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 80,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 420,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 380,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 250,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 800,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 650,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "cv": {
+        "value": 4500,
+        "unit": "gpm"
+      },
+      "dutyPoint": {
+        "value": "Isolation",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 280,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 500,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 300,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 950,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A216 WCB",
+      "bonnet": "ASTM A216 WCB",
+      "wedge": "ASTM A216 WCB + 13Cr faced",
+      "seatRings": "ASTM A105 + Stellite 6",
+      "stem": "ASTM A479 Type 410",
+      "packing": "Graphite",
+      "bolting": "ASTM A193 B7"
     },
     "nozzles": [
       {
@@ -2042,175 +3903,2297 @@
         "name": "Inlet",
         "service": "Process Inlet",
         "size": "DN200",
-        "rating": "PN16"
+        "rating": "PN100",
+        "facing": "RF",
+        "position": "End"
       },
       {
         "id": "N2",
         "name": "Outlet",
         "service": "Process Outlet",
         "size": "DN200",
-        "rating": "PN16"
+        "rating": "PN100",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "API 600",
+      "ASME B16.34"
+    ],
+    "image_prompt": "3D model of a heavy-duty API 600 cast steel gate valve with a prominent handwheel."
+  },
+  {
+    "tag": "Generic-OG-032",
+    "name": "Ball Valve",
+    "componentClass": "Valve",
+    "dexpiType": "BallValve",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1031",
+    "description": "Standard Ball Valve used in Petroleum Refinery.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 100,
+        "unit": "bar",
+        "source": "ASME B16.34"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 80,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 45,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -40,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 150,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 80,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 400,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 320,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "cv": {
+        "value": 2800,
+        "unit": "gpm"
+      },
+      "dutyPoint": {
+        "value": "Isolation",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 85,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 300,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 200,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 350,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A352 LCC",
+      "ball": "ASTM A182 F316",
+      "stem": "ASTM A479 Type 316",
+      "seats": "PTFE or PEEK",
+      "seals": "Viton / Graphite",
+      "bolting": "ASTM A320 L7"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN100",
+        "rating": "PN63",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN63",
+        "facing": "RF",
+        "position": "End"
+      }
+    ],
+    "standards": [
+      "API 6D",
+      "ASME B16.34"
+    ],
+    "image_prompt": "3D model of a trunnion-mounted flanged ball valve with a lever handle."
+  },
+  {
+    "tag": "Generic-OG-033",
+    "name": "Rupture Disc",
+    "componentClass": "SafetyValve",
+    "dexpiType": "RuptureDisc",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1032",
+    "description": "Standard Rupture Disc used in Petroleum Refinery.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 15,
+        "unit": "bar",
+        "source": "ASME Sec VIII"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 12,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 8,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 150,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 100,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 15000,
+        "unit": "kg/h"
+      },
+      "flowRateOperating": {
+        "value": 0,
+        "unit": "kg/h"
+      }
+    },
+    "specifications": {
+      "burstPressure": {
+        "value": 10,
+        "unit": "bar"
+      },
+      "burstTolerance": {
+        "value": 5,
+        "unit": "%"
+      },
+      "dutyPoint": {
+        "value": "Emergency Relief",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 15,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 50,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 150,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 150,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "disc": "Inconel 600 or Hastelloy C276",
+      "holderInlet": "ASTM A276 Type 316",
+      "holderOutlet": "ASTM A276 Type 316",
+      "tags": "ASTM A240 Type 304",
+      "seals": "PTFE",
+      "bolting": "Studded between flanges"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN100",
+        "rating": "PN16",
+        "facing": "Wafer",
+        "position": "Bottom"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN16",
+        "facing": "Wafer",
+        "position": "Top"
+      }
+    ],
+    "standards": [
+      "ASME BPVC Section VIII",
+      "API 520"
+    ],
+    "image_prompt": "3D model of a rupture disc assembly clamped between two pipe flanges."
+  },
+  {
+    "tag": "Generic-OG-034",
+    "name": "Coriolis Flow Meter",
+    "componentClass": "Instrument",
+    "dexpiType": "FlowSensor",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1033",
+    "description": "Standard Coriolis Flow Meter used in Petroleum Refinery.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 100,
+        "unit": "bar",
+        "source": "ASME B31.3"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 80,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 45,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -40,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 150,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 80,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 250000,
+        "unit": "kg/h"
+      },
+      "flowRateOperating": {
+        "value": 200000,
+        "unit": "kg/h"
+      }
+    },
+    "specifications": {
+      "accuracy": {
+        "value": 0.1,
+        "unit": "%"
+      },
+      "output": {
+        "value": "4-20mA + HART",
+        "unit": ""
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 120,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 600,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 400,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "sensorTubes": "Hastelloy C22 or Titanium Gr. 9",
+      "housing": "ASTM A240 Type 316L",
+      "flanges": "ASTM A182 F316L",
+      "transmitterEnclosure": "Copper-free Aluminum",
+      "seals": "Fully Welded",
+      "bolting": "Integral"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN150",
+        "rating": "PN63",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN150",
+        "rating": "PN63",
+        "facing": "RF",
+        "position": "End"
       },
       {
         "id": "N3",
-        "name": "Vent",
-        "service": "Vent",
-        "size": "DN50"
+        "name": "Conduit Entry",
+        "service": "Electrical Connection",
+        "size": "M20",
+        "rating": "IP67",
+        "facing": "Threaded",
+        "position": "Transmitter"
+      }
+    ],
+    "standards": [
+      "ISO 10790",
+      "API MPMS Ch. 5.6"
+    ],
+    "image_prompt": "3D model of a U-shaped Coriolis mass flow meter with an attached electronic transmitter."
+  },
+  {
+    "tag": "Generic-OG-035",
+    "name": "Vortex Flow Meter",
+    "componentClass": "Instrument",
+    "dexpiType": "FlowSensor",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1034",
+    "description": "Standard Vortex Flow Meter used in Petroleum Refinery.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 40,
+        "unit": "bar",
+        "source": "ASME B31.3"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 35,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 120,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 1500,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 1000,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "accuracy": {
+        "value": 0.75,
+        "unit": "%"
+      },
+      "output": {
+        "value": "4-20mA + Pulse",
+        "unit": ""
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 45,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 250,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 200,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 400,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A351 CF8M",
+      "bluffBody": "ASTM A479 Type 316L",
+      "sensor": "Piezoelectric Crystal / SS housing",
+      "transmitterEnclosure": "Polycarbonate or Aluminum",
+      "gaskets": "Graphite",
+      "bolting": "ASTM A193 B8M"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "Wafer",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN40",
+        "facing": "Wafer",
+        "position": "End"
+      },
+      {
+        "id": "N3",
+        "name": "Conduit Entry",
+        "service": "Electrical Connection",
+        "size": "1/2 NPT",
+        "rating": "IP66",
+        "facing": "Threaded",
+        "position": "Transmitter"
+      }
+    ],
+    "standards": [
+      "ASME MFC-6M"
+    ],
+    "image_prompt": "3D model of a wafer-style vortex flow meter."
+  },
+  {
+    "tag": "Generic-OG-036",
+    "name": "Ultrasonic Flow Meter",
+    "componentClass": "Instrument",
+    "dexpiType": "FlowSensor",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1035",
+    "description": "Standard Ultrasonic Flow Meter used in Petroleum Refinery.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 100,
+        "unit": "bar",
+        "source": "ASME B31.3"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 80,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 45,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 150,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 120,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 80,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 5000,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 4000,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "accuracy": {
+        "value": 0.5,
+        "unit": "%"
+      },
+      "paths": {
+        "value": 4,
+        "unit": "ea"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 250,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 450,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 600,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "body": "ASTM A105 or A350 LF2",
+      "transducers": "Titanium / SS housing",
+      "transmitterEnclosure": "Cast Aluminum",
+      "cables": "Armored Shielded",
+      "seals": "Viton",
+      "bolting": "ASTM A193 B7"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN300",
+        "rating": "PN63",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN300",
+        "rating": "PN63",
+        "facing": "RF",
+        "position": "End"
+      },
+      {
+        "id": "N3",
+        "name": "Conduit Entry",
+        "service": "Electrical Connection",
+        "size": "M20",
+        "rating": "IP67",
+        "facing": "Threaded",
+        "position": "Transmitter"
+      }
+    ],
+    "standards": [
+      "AGA 9",
+      "API MPMS Ch. 5.8"
+    ],
+    "image_prompt": "3D model of a multi-path ultrasonic flow meter spool piece."
+  },
+  {
+    "tag": "Generic-OG-037",
+    "name": "Radar Level Transmitter",
+    "componentClass": "Instrument",
+    "dexpiType": "LevelSensor",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1036",
+    "description": "Standard Radar Level Transmitter used in Petroleum Refinery.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 40,
+        "unit": "bar",
+        "source": "ASME B31.3"
+      },
+      "pressureMin": {
+        "value": 0.1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 35,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 15,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 250,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -40,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 200,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 80,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 0,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 0,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "frequency": {
+        "value": 80,
+        "unit": "GHz"
+      },
+      "measuringRange": {
+        "value": 30,
+        "unit": "m"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 12,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 150,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 150,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 350,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "antenna": "PTFE or PEEK",
+      "processConnection": "ASTM A479 Type 316L",
+      "housing": "Aluminum or Polycarbonate",
+      "seals": "FKM (Viton)",
+      "window": "Glass",
+      "bolting": "Integral"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Process Connection",
+        "service": "Process Connection",
+        "size": "DN80",
+        "rating": "PN40",
+        "facing": "RF",
+        "position": "Bottom"
+      },
+      {
+        "id": "N2",
+        "name": "Conduit Entry",
+        "service": "Electrical Connection",
+        "size": "M20",
+        "rating": "IP66",
+        "facing": "Threaded",
+        "position": "Side"
+      }
+    ],
+    "standards": [
+      "IEC 61508",
+      "API MPMS Ch. 3.3"
+    ],
+    "image_prompt": "3D model of a non-contacting radar level transmitter with a horn antenna."
+  },
+  {
+    "tag": "Generic-OG-038",
+    "name": "Displacer Level Transmitter",
+    "componentClass": "Instrument",
+    "dexpiType": "LevelSensor",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1037",
+    "description": "Standard Displacer Level Transmitter used in Petroleum Refinery.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 100,
+        "unit": "bar",
+        "source": "ASME B31.3"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 80,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 45,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 350,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 300,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 150,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 0,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 0,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "displacerLength": {
+        "value": 800,
+        "unit": "mm"
+      },
+      "output": {
+        "value": "4-20mA + HART",
+        "unit": ""
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 45,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 300,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 250,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1200,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "cage": "ASTM A216 WCB",
+      "displacer": "ASTM A479 Type 316L",
+      "torqueTube": "Inconel 600",
+      "housing": "Cast Aluminum",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "bolting": "ASTM A193 B7"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Top Connection",
+        "service": "Process Connection",
+        "size": "DN50",
+        "rating": "PN63",
+        "facing": "RF",
+        "position": "Side"
+      },
+      {
+        "id": "N2",
+        "name": "Bottom Connection",
+        "service": "Process Connection",
+        "size": "DN50",
+        "rating": "PN63",
+        "facing": "RF",
+        "position": "Side"
+      },
+      {
+        "id": "N3",
+        "name": "Conduit Entry",
+        "service": "Electrical Connection",
+        "size": "1/2 NPT",
+        "rating": "IP66",
+        "facing": "Threaded",
+        "position": "Transmitter"
+      }
+    ],
+    "standards": [
+      "ASME B31.3"
+    ],
+    "image_prompt": "3D model of an external cage displacer level transmitter."
+  },
+  {
+    "tag": "Generic-OG-039",
+    "name": "Pressure Transmitter",
+    "componentClass": "Instrument",
+    "dexpiType": "PressureSensor",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1038",
+    "description": "Standard Pressure Transmitter used in Petroleum Refinery.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 150,
+        "unit": "bar",
+        "source": "ASME B31.3"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 120,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 80,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 120,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -40,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 100,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 60,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 0,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 0,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "accuracy": {
+        "value": 0.05,
+        "unit": "%"
+      },
+      "measuringRange": {
+        "value": 100,
+        "unit": "bar"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 5,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 150,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 100,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 200,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "diaphragm": "Hastelloy C276 or SS316L",
+      "processFlange": "ASTM A479 Type 316L",
+      "housing": "Polyurethane-coated Aluminum",
+      "fillFluid": "Silicone Oil",
+      "oRings": "PTFE",
+      "bolting": "ASTM A193 B8M"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Process Connection",
+        "service": "Process Connection",
+        "size": "1/2 NPT",
+        "rating": "PN100",
+        "facing": "Threaded",
+        "position": "Bottom"
+      },
+      {
+        "id": "N2",
+        "name": "Conduit Entry",
+        "service": "Electrical Connection",
+        "size": "M20",
+        "rating": "IP66",
+        "facing": "Threaded",
+        "position": "Side"
+      }
+    ],
+    "standards": [
+      "IEC 60770"
+    ],
+    "image_prompt": "3D model of a compact industrial pressure transmitter with a digital display."
+  },
+  {
+    "tag": "Generic-OG-040",
+    "name": "Temperature Transmitter",
+    "componentClass": "Instrument",
+    "dexpiType": "TemperatureSensor",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1039",
+    "description": "Standard Temperature Transmitter used in Petroleum Refinery.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 150,
+        "unit": "bar",
+        "source": "ASME B31.3"
+      },
+      "pressureMin": {
+        "value": 0,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 120,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 80,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 600,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -200,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 500,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 350,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 0,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 0,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "sensorType": {
+        "value": "Pt100 RTD",
+        "unit": ""
+      },
+      "accuracy": {
+        "value": 0.1,
+        "unit": "C"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 3,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 100,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 100,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 350,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "thermowell": "ASTM A479 Type 316L",
+      "sensorSheath": "Inconel 600 or SS316",
+      "connectionHead": "Epoxy-coated Aluminum",
+      "potting": "Epoxy Resin",
+      "terminals": "Ceramic",
+      "bolting": "Integral"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Thermowell Connection",
+        "service": "Process Connection",
+        "size": "1 NPT",
+        "rating": "PN100",
+        "facing": "Threaded",
+        "position": "Bottom"
+      },
+      {
+        "id": "N2",
+        "name": "Conduit Entry",
+        "service": "Electrical Connection",
+        "size": "M20",
+        "rating": "IP66",
+        "facing": "Threaded",
+        "position": "Side"
+      }
+    ],
+    "standards": [
+      "IEC 60751",
+      "ASME PTC 19.3 TW"
+    ],
+    "image_prompt": "3D model of a temperature transmitter with an extended thermowell."
+  },
+  {
+    "tag": "Generic-OG-041",
+    "name": "Gas Chromatograph",
+    "componentClass": "Analyzer",
+    "dexpiType": "CompositionAnalyzer",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1040",
+    "description": "Standard Gas Chromatograph used in Petroleum Refinery.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 10,
+        "unit": "bar",
+        "source": "ISA"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 5,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 2,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 55,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 45,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 25,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 0.5,
+        "unit": "l/min"
+      },
+      "flowRateOperating": {
+        "value": 0.1,
+        "unit": "l/min"
+      }
+    },
+    "specifications": {
+      "cycleTime": {
+        "value": 3,
+        "unit": "min"
+      },
+      "detectors": {
+        "value": "TCD / FID",
+        "unit": ""
+      },
+      "dutyPoint": {
+        "value": "Intermittent",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 85,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 600,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 400,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 800,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "enclosure": "Cast Aluminum (Explosion Proof)",
+      "columns": "Fused Silica or SS316",
+      "valves": "Rotary Valco / SS316",
+      "sampleConditioning": "SS316 Tubing",
+      "oRings": "Kalrez",
+      "fittings": "Swagelok SS316"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Sample In",
+        "service": "Process Inlet",
+        "size": "1/4 in Tubing",
+        "rating": "PN10",
+        "facing": "Compression",
+        "position": "Bottom"
+      },
+      {
+        "id": "N2",
+        "name": "Sample Return/Vent",
+        "service": "Process Outlet",
+        "size": "1/4 in Tubing",
+        "rating": "PN10",
+        "facing": "Compression",
+        "position": "Bottom"
+      },
+      {
+        "id": "N3",
+        "name": "Carrier Gas In",
+        "service": "Utility Inlet",
+        "size": "1/8 in Tubing",
+        "rating": "PN10",
+        "facing": "Compression",
+        "position": "Side"
       },
       {
         "id": "N4",
-        "name": "Drain",
-        "service": "Drain",
-        "size": "DN50"
-      },
-      {
-        "id": "M1",
-        "name": "Manway",
-        "service": "Access",
-        "size": "DN600",
-        "rating": "PN16"
+        "name": "Power/Data Entry",
+        "service": "Electrical Connection",
+        "size": "3/4 NPT",
+        "rating": "IP66",
+        "facing": "Threaded",
+        "position": "Top"
       }
     ],
     "standards": [
-      "ASME VIII Div 1",
+      "ASTM D1945",
+      "ISO 6974"
+    ],
+    "image_prompt": "3D model of an explosion-proof industrial process gas chromatograph cabinet."
+  },
+  {
+    "tag": "Generic-OG-042",
+    "name": "pH Analyzer",
+    "componentClass": "Analyzer",
+    "dexpiType": "PropertyAnalyzer",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1041",
+    "description": "Standard pH Analyzer used in Petroleum Refinery.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 10,
+        "unit": "bar",
+        "source": "ISA"
+      },
+      "pressureMin": {
+        "value": 0.5,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 6,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 2,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 130,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 100,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 40,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 0,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 0,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "range": {
+        "value": "0 to 14 pH",
+        "unit": ""
+      },
+      "accuracy": {
+        "value": 0.02,
+        "unit": "pH"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 5,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 150,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 150,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 300,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "sensorBody": "Ryton or PEEK",
+      "measuringElectrode": "Glass",
+      "referenceJunction": "PTFE",
+      "transmitterEnclosure": "Polycarbonate or Cast Aluminum",
+      "oRings": "EPDM",
+      "fittings": "SS316 or Titanium"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Process Insertion",
+        "service": "Process Connection",
+        "size": "3/4 NPT",
+        "rating": "PN16",
+        "facing": "Threaded",
+        "position": "Bottom"
+      },
+      {
+        "id": "N2",
+        "name": "Conduit Entry",
+        "service": "Electrical Connection",
+        "size": "1/2 NPT",
+        "rating": "IP66",
+        "facing": "Threaded",
+        "position": "Side"
+      }
+    ],
+    "standards": [
+      "IEC 60746-2"
+    ],
+    "image_prompt": "3D model of an inline pH sensor with an attached transmitter module."
+  },
+  {
+    "tag": "Generic-OG-043",
+    "name": "Fire Water Pump",
+    "componentClass": "Pump",
+    "dexpiType": "CentrifugalPump",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1042",
+    "description": "Standard Fire Water Pump used in Petroleum Refinery.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 20,
+        "unit": "bar",
+        "source": "NFPA 20"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 16,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 12,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 40,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": 4,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 30,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 20,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 1000,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 750,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 450,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "rotationalSpeed": {
+        "value": 1750,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 82,
+        "unit": "%"
+      },
+      "head": {
+        "value": 120,
+        "unit": "m"
+      },
+      "dutyPoint": {
+        "value": "Standby",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 3500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 3000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1500,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 1800,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "casing": "Cast Iron ASTM A48 Class 40",
+      "impeller": "Bronze ASTM B584",
+      "shaft": "Stainless Steel Type 416",
+      "seals": "Packing Gland",
+      "bearings": "Grease Lubricated Ball Bearings",
+      "baseplate": "ASTM A36 Steel"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Suction",
+        "service": "Water Inlet",
+        "size": "DN250",
+        "rating": "PN16",
+        "facing": "FF",
+        "position": "End"
+      },
+      {
+        "id": "N2",
+        "name": "Discharge",
+        "service": "Water Outlet",
+        "size": "DN200",
+        "rating": "PN16",
+        "facing": "FF",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Test Header",
+        "service": "Test Outlet",
+        "size": "DN100",
+        "rating": "PN16",
+        "facing": "FF",
+        "position": "Side"
+      }
+    ],
+    "standards": [
+      "NFPA 20",
+      "UL 448",
+      "FM 1311"
+    ],
+    "image_prompt": "3D model of a red-painted horizontal split-case fire water pump skid."
+  },
+  {
+    "tag": "Generic-OG-044",
+    "name": "Instrument Air Compressor",
+    "componentClass": "Compressor",
+    "dexpiType": "RotaryScrewCompressor",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1043",
+    "description": "Standard Instrument Air Compressor used in Petroleum Refinery.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 12,
+        "unit": "bar",
+        "source": "ISO 8573"
+      },
+      "pressureMin": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 10,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 8,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 45,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -10,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 40,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 35,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 2500,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 2000,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 250,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "rotationalSpeed": {
+        "value": 3000,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 88,
+        "unit": "%"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 4500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 3500,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1800,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 2200,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "casing": "Cast Iron ASTM A48 Class 30",
+      "rotors": "Forged Steel AISI 1141",
+      "shaft": "Forged Steel AISI 4140",
+      "seals": "Mechanical Carbon/Tungsten",
+      "enclosure": "Sound-attenuated Steel Panels",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Air Intake",
+        "service": "Air Inlet",
+        "size": "DN200",
+        "rating": "PN10",
+        "facing": "Flanged",
+        "position": "Top"
+      },
+      {
+        "id": "N2",
+        "name": "Compressed Air Out",
+        "service": "Process Outlet",
+        "size": "DN100",
+        "rating": "PN16",
+        "facing": "RF",
+        "position": "Side"
+      },
+      {
+        "id": "N3",
+        "name": "Cooling Water In",
+        "service": "Utility Inlet",
+        "size": "DN50",
+        "rating": "PN10",
+        "facing": "Threaded",
+        "position": "Bottom"
+      },
+      {
+        "id": "N4",
+        "name": "Cooling Water Out",
+        "service": "Utility Outlet",
+        "size": "DN50",
+        "rating": "PN10",
+        "facing": "Threaded",
+        "position": "Bottom"
+      }
+    ],
+    "standards": [
+      "ISO 8573-1 Class 0",
+      "API 619"
+    ],
+    "image_prompt": "3D model of an enclosed rotary screw instrument air compressor package."
+  },
+  {
+    "tag": "Generic-OG-045",
+    "name": "Main Line Pump",
+    "componentClass": "Pump",
+    "dexpiType": "CentrifugalPump",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1044",
+    "description": "Standard Main Line Pump used in Oil Pipeline Terminal.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 120,
+        "unit": "bar",
+        "source": "API 610"
+      },
+      "pressureMin": {
+        "value": 5,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 100,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 85,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 120,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 45,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 4500,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 3800,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 3500,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "rotationalSpeed": {
+        "value": 2980,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 86,
+        "unit": "%"
+      },
+      "head": {
+        "value": 650,
+        "unit": "m"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 15000,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 4500,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 2200,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 2500,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "casing": "ASTM A352 LCC",
+      "impeller": "ASTM A487 CA6NM",
+      "shaft": "ASTM A479 Type 410",
+      "seals": "API 682 Plan 53B Double Mechanical",
+      "bearings": "Hydrodynamic Sleeve & Tilt Pad",
+      "baseplate": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Suction",
+        "service": "Process Inlet",
+        "size": "DN600",
+        "rating": "PN63",
+        "facing": "RF",
+        "position": "Side"
+      },
+      {
+        "id": "N2",
+        "name": "Discharge",
+        "service": "Process Outlet",
+        "size": "DN400",
+        "rating": "PN160",
+        "facing": "RTJ",
+        "position": "Side"
+      },
+      {
+        "id": "N3",
+        "name": "Lube Oil Supply",
+        "service": "Utility Inlet",
+        "size": "DN25",
+        "rating": "PN16",
+        "facing": "Threaded",
+        "position": "Bearing Housing"
+      }
+    ],
+    "standards": [
+      "API 610 Type BB3",
+      "ISO 13709"
+    ],
+    "image_prompt": "3D model of a massive multi-stage axially split main pipeline pump."
+  },
+  {
+    "tag": "Generic-OG-046",
+    "name": "Pump Drive Motor",
+    "componentClass": "Motor",
+    "dexpiType": "ElectricMotor",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1045",
+    "description": "Standard Pump Drive Motor used in Oil Pipeline Terminal.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 1.1,
+        "unit": "bar",
+        "source": "IEC 60034"
+      },
+      "pressureMin": {
+        "value": 0.9,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 50,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 45,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 35,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 0,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 0,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 3500,
+        "unit": "kW",
+        "source": "IEC 60034"
+      },
+      "rotationalSpeed": {
+        "value": 2980,
+        "unit": "rpm"
+      },
+      "efficiency": {
+        "value": 97,
+        "unit": "%"
+      },
+      "voltage": {
+        "value": 6600,
+        "unit": "V"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 12000,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 3500,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 2000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 2400,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "casing": "Fabricated Steel",
+      "statorCore": "Silicon Steel Laminations",
+      "windings": "Copper Class F Insulation",
+      "shaft": "Forged Steel AISI 4140",
+      "coolingSystem": "Air-to-Air Heat Exchanger (CACA)",
+      "bearings": "Sleeve Bearings"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Main Terminal Box",
+        "service": "Electrical Connection",
+        "size": "N/A",
+        "rating": "IP55",
+        "facing": "N/A",
+        "position": "Side"
+      },
+      {
+        "id": "N2",
+        "name": "Cooling Air In",
+        "service": "Air Inlet",
+        "size": "N/A",
+        "rating": "N/A",
+        "facing": "Louver",
+        "position": "Top"
+      },
+      {
+        "id": "N3",
+        "name": "Cooling Air Out",
+        "service": "Air Outlet",
+        "size": "N/A",
+        "rating": "N/A",
+        "facing": "Louver",
+        "position": "Top"
+      }
+    ],
+    "standards": [
+      "IEC 60034",
+      "API 541"
+    ],
+    "image_prompt": "3D model of a large high-voltage electric motor with top-mounted air cooler."
+  },
+  {
+    "tag": "Generic-OG-047",
+    "name": "Variable Frequency Drive",
+    "componentClass": "ElectricalEquipment",
+    "dexpiType": "Drive",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1046",
+    "description": "Standard Variable Frequency Drive used in Oil Pipeline Terminal.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 1.1,
+        "unit": "bar",
+        "source": "IEC 61800"
+      },
+      "pressureMin": {
+        "value": 0.9,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 40,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": 0,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 35,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 25,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 0,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 0,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "power": {
+        "value": 3500,
+        "unit": "kW",
+        "source": "IEC 61800"
+      },
+      "inputVoltage": {
+        "value": 6600,
+        "unit": "V"
+      },
+      "outputFrequency": {
+        "value": "0-60",
+        "unit": "Hz"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 3500,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 4000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 1200,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 2400,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "enclosure": "Sheet Steel",
+      "powerModules": "IGBT / Aluminum Heatsinks",
+      "busbars": "Copper",
+      "coolingFans": "Plastic/Metal",
+      "transformers": "Cast Resin"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "AC Input",
+        "service": "Electrical Connection",
+        "size": "N/A",
+        "rating": "IP42",
+        "facing": "N/A",
+        "position": "Bottom"
+      },
+      {
+        "id": "N2",
+        "name": "Motor Output",
+        "service": "Electrical Connection",
+        "size": "N/A",
+        "rating": "IP42",
+        "facing": "N/A",
+        "position": "Bottom"
+      },
+      {
+        "id": "N3",
+        "name": "Cooling Exhaust",
+        "service": "Air Outlet",
+        "size": "N/A",
+        "rating": "N/A",
+        "facing": "Louver",
+        "position": "Top"
+      }
+    ],
+    "standards": [
+      "IEC 61800-4"
+    ],
+    "image_prompt": "3D model of a multi-cabinet medium voltage variable frequency drive system."
+  },
+  {
+    "tag": "Generic-OG-048",
+    "name": "Crude Storage Tank",
+    "componentClass": "Tank",
+    "dexpiType": "StorageTank",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1047",
+    "description": "Standard Crude Storage Tank used in Oil Pipeline Terminal.",
+    "operatingConditions": {
+      "pressureMax": {
+        "value": 1.05,
+        "unit": "bar",
+        "source": "API 650"
+      },
+      "pressureMin": {
+        "value": 0.95,
+        "unit": "bar"
+      },
+      "pressureDesign": {
+        "value": 1.02,
+        "unit": "bar"
+      },
+      "pressureOperating": {
+        "value": 1,
+        "unit": "bar"
+      },
+      "temperatureMax": {
+        "value": 80,
+        "unit": "C"
+      },
+      "temperatureMin": {
+        "value": -20,
+        "unit": "C"
+      },
+      "temperatureDesign": {
+        "value": 65,
+        "unit": "C"
+      },
+      "temperatureOperating": {
+        "value": 45,
+        "unit": "C"
+      },
+      "flowRateDesign": {
+        "value": 5000,
+        "unit": "m3/h"
+      },
+      "flowRateOperating": {
+        "value": 3500,
+        "unit": "m3/h"
+      }
+    },
+    "specifications": {
+      "capacity": {
+        "value": 100000,
+        "unit": "m3"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
+      }
+    },
+    "design": {
+      "weight": {
+        "value": 2500000,
+        "unit": "kg"
+      },
+      "length": {
+        "value": 80000,
+        "unit": "mm"
+      },
+      "width": {
+        "value": 80000,
+        "unit": "mm"
+      },
+      "height": {
+        "value": 22000,
+        "unit": "mm"
+      }
+    },
+    "materials": {
+      "shell": "ASTM A516 Gr. 60",
+      "bottom": "ASTM A516 Gr. 60",
+      "roof": "ASTM A36 (External Floating)",
+      "seals": "Mechanical Shoe Seal",
+      "windGirders": "ASTM A36"
+    },
+    "nozzles": [
+      {
+        "id": "N1",
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN800",
+        "rating": "PN16",
+        "facing": "FF",
+        "position": "Side"
+      },
+      {
+        "id": "N2",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN800",
+        "rating": "PN16",
+        "facing": "FF",
+        "position": "Side"
+      },
+      {
+        "id": "N3",
+        "name": "Water Drain",
+        "service": "Water Draw-off",
+        "size": "DN150",
+        "rating": "PN16",
+        "facing": "FF",
+        "position": "Bottom"
+      },
+      {
+        "id": "N4",
+        "name": "Mixer Entry",
+        "service": "Utility Inlet",
+        "size": "DN600",
+        "rating": "PN16",
+        "facing": "FF",
+        "position": "Side"
+      }
+    ],
+    "standards": [
       "API 650"
     ],
-    "image_prompt": "High-fidelity 3D engineering rendering of a Crude Storage Tank (StorageTank) with industrial metallic finish, visible flanges, and realistic lighting."
+    "image_prompt": "3D model of a colossal crude oil storage tank with external floating roof and stairs."
   },
   {
-    "tag": "Generic-CTM-017",
+    "tag": "Generic-OG-049",
     "name": "Custody Transfer Meter",
-    "componentClass": "FlowMeter",
-    "dexpiType": "FlowMeter",
-    "rdlUri": "http://data.posccaesar.org/rdl/RDS327310",
-    "description": "Reference configuration for Custody Transfer Meter compliant with DEXPI 2.0 and relevant industry standards.",
+    "componentClass": "Instrument",
+    "dexpiType": "FlowSensor",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1048",
+    "description": "Standard Custody Transfer Meter used in Oil Pipeline Terminal.",
     "operatingConditions": {
       "pressureMax": {
-        "value": 46.5,
+        "value": 100,
         "unit": "bar",
-        "source": "API 610"
+        "source": "API MPMS"
       },
       "pressureMin": {
-        "value": 0,
+        "value": 5,
         "unit": "bar"
       },
       "pressureDesign": {
-        "value": 37.2,
+        "value": 80,
         "unit": "bar"
       },
       "pressureOperating": {
-        "value": 31,
+        "value": 65,
         "unit": "bar"
       },
       "temperatureMax": {
-        "value": 131,
+        "value": 80,
         "unit": "C"
       },
       "temperatureMin": {
-        "value": -20,
+        "value": -10,
         "unit": "C"
       },
       "temperatureDesign": {
-        "value": 101,
+        "value": 60,
         "unit": "C"
       },
       "temperatureOperating": {
-        "value": 81,
+        "value": 45,
         "unit": "C"
       },
       "flowRateDesign": {
-        "value": 346.5,
+        "value": 5000,
         "unit": "m3/h"
       },
       "flowRateOperating": {
-        "value": 315,
+        "value": 3800,
         "unit": "m3/h"
       }
     },
     "specifications": {
-      "power": {
-        "value": 171,
-        "unit": "kW",
-        "source": "IEC 60034"
-      },
-      "efficiency": {
-        "value": 81,
+      "accuracy": {
+        "value": 0.15,
         "unit": "%"
+      },
+      "meterType": {
+        "value": "Ultrasonic / Coriolis",
+        "unit": ""
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
       }
     },
     "design": {
       "weight": {
-        "value": 2478,
+        "value": 1800,
         "unit": "kg"
       },
       "length": {
-        "value": 1988,
+        "value": 2500,
         "unit": "mm"
       },
       "width": {
-        "value": 1095,
+        "value": 800,
         "unit": "mm"
       },
       "height": {
-        "value": 3092,
+        "value": 1200,
         "unit": "mm"
       }
     },
     "materials": {
-      "bolting": "ASTM A193 Gr. B7",
-      "gaskets": "Spiral Wound SS316/Graphite",
-      "body": "ASTM A216 WCB",
-      "internals": "SS316"
+      "meterBody": "ASTM A350 LF2",
+      "flanges": "ASTM A350 LF2",
+      "sensors": "Titanium or Hastelloy",
+      "transmitterHousing": "Cast Aluminum",
+      "skid": "ASTM A36"
     },
     "nozzles": [
       {
         "id": "N1",
-        "name": "Connection 1",
-        "service": "Process",
-        "size": "DN50",
-        "rating": "PN16"
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN400",
+        "rating": "PN100",
+        "facing": "RTJ",
+        "position": "End"
       },
       {
         "id": "N2",
-        "name": "Connection 2",
-        "service": "Process",
-        "size": "DN50",
-        "rating": "PN16"
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN400",
+        "rating": "PN100",
+        "facing": "RTJ",
+        "position": "End"
+      },
+      {
+        "id": "N3",
+        "name": "Prover Connection",
+        "service": "Process Connection",
+        "size": "DN200",
+        "rating": "PN100",
+        "facing": "RTJ",
+        "position": "Side"
       }
     ],
     "standards": [
-      "ISO 9001",
-      "ASME B31.3"
+      "API MPMS",
+      "OIML R117"
     ],
-    "image_prompt": "High-fidelity 3D engineering rendering of a Custody Transfer Meter (FlowMeter) with industrial metallic finish, visible flanges, and realistic lighting."
+    "image_prompt": "3D model of a custody transfer metering skid with complex piping and dual meters."
   },
   {
-    "tag": "Generic-PS-018",
+    "tag": "Generic-OG-050",
     "name": "Pipeline Strainer",
-    "componentClass": "Strainer",
-    "dexpiType": "Strainer",
-    "rdlUri": "http://data.posccaesar.org/rdl/RDS327354",
-    "description": "Reference configuration for Pipeline Strainer compliant with DEXPI 2.0 and relevant industry standards.",
+    "componentClass": "PipingComponent",
+    "dexpiType": "Filter",
+    "rdlUri": "http://posccaesar.org/rdl/RDS1049",
+    "description": "Standard Pipeline Strainer used in Oil Pipeline Terminal.",
     "operatingConditions": {
       "pressureMax": {
-        "value": 48,
+        "value": 120,
         "unit": "bar",
-        "source": "API 610"
+        "source": "ASME B31.4"
       },
       "pressureMin": {
-        "value": 0,
+        "value": 5,
         "unit": "bar"
       },
       "pressureDesign": {
-        "value": 38.4,
+        "value": 100,
         "unit": "bar"
       },
       "pressureOperating": {
-        "value": 32,
+        "value": 85,
         "unit": "bar"
       },
       "temperatureMax": {
-        "value": 138,
+        "value": 120,
         "unit": "C"
       },
       "temperatureMin": {
@@ -2218,77 +6201,103 @@
         "unit": "C"
       },
       "temperatureDesign": {
-        "value": 108,
+        "value": 80,
         "unit": "C"
       },
       "temperatureOperating": {
-        "value": 88,
+        "value": 45,
         "unit": "C"
       },
       "flowRateDesign": {
-        "value": 547.8,
+        "value": 5000,
         "unit": "m3/h"
       },
       "flowRateOperating": {
-        "value": 498,
+        "value": 3800,
         "unit": "m3/h"
       }
     },
     "specifications": {
-      "power": {
-        "value": 241,
-        "unit": "kW",
-        "source": "IEC 60034"
+      "meshSize": {
+        "value": 40,
+        "unit": "mesh"
       },
-      "efficiency": {
-        "value": 91,
-        "unit": "%"
+      "pressureDrop": {
+        "value": 0.5,
+        "unit": "bar"
+      },
+      "dutyPoint": {
+        "value": "Continuous",
+        "unit": ""
       }
     },
     "design": {
       "weight": {
-        "value": 2443,
+        "value": 3500,
         "unit": "kg"
       },
       "length": {
-        "value": 1234,
+        "value": 1800,
         "unit": "mm"
       },
       "width": {
-        "value": 1110,
+        "value": 1200,
         "unit": "mm"
       },
       "height": {
-        "value": 1859,
+        "value": 2500,
         "unit": "mm"
       }
     },
     "materials": {
-      "bolting": "ASTM A193 Gr. B7",
-      "gaskets": "Spiral Wound SS316/Graphite",
       "body": "ASTM A216 WCB",
-      "internals": "SS316"
+      "basket": "ASTM A240 Type 316L",
+      "cover": "ASTM A216 WCB",
+      "gaskets": "Spiral Wound SS316/Graphite",
+      "bolting": "ASTM A193 B7"
     },
     "nozzles": [
       {
         "id": "N1",
-        "name": "Connection 1",
-        "service": "Process",
-        "size": "DN50",
-        "rating": "PN16"
+        "name": "Inlet",
+        "service": "Process Inlet",
+        "size": "DN600",
+        "rating": "PN100",
+        "facing": "RTJ",
+        "position": "Side"
       },
       {
         "id": "N2",
-        "name": "Connection 2",
-        "service": "Process",
+        "name": "Outlet",
+        "service": "Process Outlet",
+        "size": "DN600",
+        "rating": "PN100",
+        "facing": "RTJ",
+        "position": "Side"
+      },
+      {
+        "id": "N3",
+        "name": "Drain",
+        "service": "Drain",
+        "size": "DN100",
+        "rating": "PN100",
+        "facing": "RTJ",
+        "position": "Bottom"
+      },
+      {
+        "id": "N4",
+        "name": "Vent",
+        "service": "Vent",
         "size": "DN50",
-        "rating": "PN16"
+        "rating": "PN100",
+        "facing": "RTJ",
+        "position": "Top"
       }
     ],
     "standards": [
-      "ISO 9001",
-      "ASME B31.3"
+      "ASME B31.4",
+      "ASME BPVC Section VIII"
     ],
-    "image_prompt": "High-fidelity 3D engineering rendering of a Pipeline Strainer (Strainer) with industrial metallic finish, visible flanges, and realistic lighting."
+    "image_prompt": "3D model of a massive flanged basket strainer for pipeline service."
   }
 ]
