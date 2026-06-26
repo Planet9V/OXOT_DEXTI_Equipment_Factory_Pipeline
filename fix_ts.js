@@ -1,4 +1,6 @@
-import * as fs from 'fs';
+const fs = require('fs');
+
+let tsCode = `import * as fs from 'fs';
 import * as path from 'path';
 
 // Interface for the output card
@@ -25,3 +27,5 @@ export function generateAllCards(): DexpiCard[] {
     }
     return [];
 }
+`;
+fs.writeFileSync('scripts/generate_dexpi_cards.ts', tsCode);
